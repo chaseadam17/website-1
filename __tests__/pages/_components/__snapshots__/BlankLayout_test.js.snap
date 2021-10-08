@@ -1,0 +1,127 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`BlankLayout renders correctly 1`] = `
+<div
+  className="font-roboto-mono text-sm bg-white text-gray-900 flex flex-col h-screen"
+>
+  <div
+    className="py-12 p-6 bg-white text-black leading-10"
+  >
+    <div
+      className="px-24 flex flex-row justify-between"
+    >
+      Blank.Foundation
+      <div
+        className="space-x-2 flex flex-row justify-between"
+      >
+        Music
+      </div>
+    </div>
+  </div>
+  <div>
+    child1
+  </div>
+  <div>
+    child2
+  </div>
+  <div>
+    child3
+  </div>
+  <div
+    className=" p-6 bg-gray-900 text-white text-xs leading-10"
+  >
+    <div
+      className="px-24 flex flex-row justify-between"
+    >
+      <div
+        className="space-x-4 flex flex-row justify-start"
+      >
+        <a
+          href="https://discord.gg/HZM2jcHdEU"
+          props={
+            Object {
+              "children": "Example Link",
+              "href": "https://www.example.com",
+              "social": Array [
+                Object {
+                  "href": "https://discord.gg/HZM2jcHdEU",
+                  "name": "Discord",
+                },
+                Object {
+                  "href": "https://twitter.com/blankfdn",
+                  "name": "Twitter",
+                },
+                Object {
+                  "href": "https://medium.com/@blankfdn",
+                  "name": "Medium",
+                },
+              ],
+              "title": "Blank.Foundation",
+            }
+          }
+          rel="noopener noreferrer"
+          target="_blank"
+        >
+          Discord
+        </a>
+        <a
+          href="https://twitter.com/blankfdn"
+          props={
+            Object {
+              "children": "Example Link",
+              "href": "https://www.example.com",
+              "social": Array [
+                Object {
+                  "href": "https://discord.gg/HZM2jcHdEU",
+                  "name": "Discord",
+                },
+                Object {
+                  "href": "https://twitter.com/blankfdn",
+                  "name": "Twitter",
+                },
+                Object {
+                  "href": "https://medium.com/@blankfdn",
+                  "name": "Medium",
+                },
+              ],
+              "title": "Blank.Foundation",
+            }
+          }
+          rel="noopener noreferrer"
+          target="_blank"
+        >
+          Twitter
+        </a>
+        <a
+          href="https://medium.com/@blankfdn"
+          props={
+            Object {
+              "children": "Example Link",
+              "href": "https://www.example.com",
+              "social": Array [
+                Object {
+                  "href": "https://discord.gg/HZM2jcHdEU",
+                  "name": "Discord",
+                },
+                Object {
+                  "href": "https://twitter.com/blankfdn",
+                  "name": "Twitter",
+                },
+                Object {
+                  "href": "https://medium.com/@blankfdn",
+                  "name": "Medium",
+                },
+              ],
+              "title": "Blank.Foundation",
+            }
+          }
+          rel="noopener noreferrer"
+          target="_blank"
+        >
+          Medium
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+`;

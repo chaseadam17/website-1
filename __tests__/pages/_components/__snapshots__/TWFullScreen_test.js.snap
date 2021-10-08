@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TWFullScreen renders correctly 1`] = `
+<div
+  className=" flex flex-col h-screen"
+>
+  <div>
+    child1
+  </div>
+  <div>
+    child2
+  </div>
+  <div>
+    child3
+  </div>
+</div>
+`;

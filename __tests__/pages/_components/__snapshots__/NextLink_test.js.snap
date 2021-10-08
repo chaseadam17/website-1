@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`NextLink renders correctly 1`] = `
+<a
+  href="https://www.example.com"
+  onClick={[Function]}
+  onMouseEnter={[Function]}
+>
+  Example Link
+</a>
+`;

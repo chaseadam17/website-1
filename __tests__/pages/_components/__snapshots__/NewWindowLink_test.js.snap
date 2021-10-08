@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`NewWindowLink renders correctly 1`] = `
+<a
+  props={
+    Object {
+      "children": "Example Link",
+      "href": "https://www.example.com",
+      "social": Array [
+        Object {
+          "href": "https://discord.gg/HZM2jcHdEU",
+          "name": "Discord",
+        },
+        Object {
+          "href": "https://twitter.com/blankfdn",
+          "name": "Twitter",
+        },
+        Object {
+          "href": "https://medium.com/@blankfdn",
+          "name": "Medium",
+        },
+      ],
+      "title": "Blank.Foundation",
+    }
+  }
+  rel="noopener noreferrer"
+  target="_blank"
+/>
+`;
