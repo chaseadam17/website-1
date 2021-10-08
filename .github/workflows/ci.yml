@@ -9,7 +9,3 @@ jobs:
         run: yarn
       - name: Run tests
         run: yarn test:ci
-      - name: Run e2e tests
-        run: |
-          npx playwright install 
-          yarn e2e
