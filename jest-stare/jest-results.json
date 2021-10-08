@@ -1,14 +1,14 @@
 {
   "numFailedTestSuites": 0,
   "numFailedTests": 0,
-  "numPassedTestSuites": 1,
-  "numPassedTests": 1,
+  "numPassedTestSuites": 0,
+  "numPassedTests": 0,
   "numPendingTestSuites": 0,
   "numPendingTests": 0,
   "numRuntimeErrorTestSuites": 0,
   "numTodoTests": 0,
-  "numTotalTestSuites": 1,
-  "numTotalTests": 1,
+  "numTotalTestSuites": 0,
+  "numTotalTests": 0,
   "openHandles": [],
   "snapshot": {
     "added": 0,
@@ -19,58 +19,15 @@
     "filesRemovedList": [],
     "filesUnmatched": 0,
     "filesUpdated": 0,
-    "matched": 1,
-    "total": 1,
+    "matched": 0,
+    "total": 0,
     "unchecked": 0,
     "uncheckedKeysByFile": [],
     "unmatched": 0,
     "updated": 0
   },
-  "startTime": 1633703875338,
+  "startTime": 1633706166141,
   "success": false,
-  "testResults": [
-    {
-      "leaks": false,
-      "numFailingTests": 0,
-      "numPassingTests": 1,
-      "numPendingTests": 0,
-      "numTodoTests": 0,
-      "openHandles": [],
-      "perfStats": {
-        "end": 1633703877749,
-        "runtime": 1179,
-        "slow": false,
-        "start": 1633703876570
-      },
-      "skipped": false,
-      "snapshot": {
-        "added": 0,
-        "fileDeleted": false,
-        "matched": 1,
-        "unchecked": 0,
-        "uncheckedKeys": [],
-        "unmatched": 0,
-        "updated": 0
-      },
-      "testFilePath": "/Users/jaredcosulich/Desktop/NextTemplate/BlankWebsite/__tests__/pages/mint_test.js",
-      "testResults": [
-        {
-          "ancestorTitles": [
-            "mint"
-          ],
-          "duration": 16,
-          "failureDetails": [],
-          "failureMessages": [],
-          "fullName": "mint renders correctly",
-          "invocations": 1,
-          "location": null,
-          "numPassingAsserts": 0,
-          "status": "passed",
-          "title": "renders correctly"
-        }
-      ],
-      "failureMessage": null
-    }
-  ],
+  "testResults": [],
   "wasInterrupted": false
 }
