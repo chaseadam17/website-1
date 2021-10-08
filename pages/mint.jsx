@@ -6,7 +6,7 @@ import {
   TWCenteredContent
 } from './_components'
 
-const BlankMinting = () => {
+const mint = () => {
   return (
     <BlankLayout>
       <TWCenteredContent>
@@ -16,4 +16,4 @@ const BlankMinting = () => {
   );
 }
 
-export default BlankMinting;
+export default mint;

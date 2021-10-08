@@ -1,10 +1,10 @@
 import React from 'react';
 import TestRenderer from 'react-test-renderer';
-import BlankMinting from '../../pages/BlankMinting';
+import mint from '../../pages/mint';
 
-describe("BlankMinting", () => {
+describe("mint", () => {
   it('renders correctly', () => {
-    const rendered = TestRenderer.create(<BlankMinting />).toJSON();
+    const rendered = TestRenderer.create(<mint />).toJSON();
     expect(rendered).toMatchSnapshot()
   });
 });

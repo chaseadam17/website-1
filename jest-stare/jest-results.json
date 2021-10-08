@@ -1,46 +1,46 @@
 {
-  "numFailedTestSuites": 7,
-  "numFailedTests": 6,
-  "numPassedTestSuites": 6,
-  "numPassedTests": 6,
+  "numFailedTestSuites": 0,
+  "numFailedTests": 0,
+  "numPassedTestSuites": 13,
+  "numPassedTests": 13,
   "numPendingTestSuites": 0,
   "numPendingTests": 0,
-  "numRuntimeErrorTestSuites": 1,
+  "numRuntimeErrorTestSuites": 0,
   "numTodoTests": 0,
   "numTotalTestSuites": 13,
-  "numTotalTests": 12,
+  "numTotalTests": 13,
   "openHandles": [],
   "snapshot": {
     "added": 0,
-    "didUpdate": false,
-    "failure": true,
+    "didUpdate": true,
+    "failure": false,
     "filesAdded": 0,
     "filesRemoved": 0,
     "filesRemovedList": [],
-    "filesUnmatched": 6,
-    "filesUpdated": 0,
-    "matched": 6,
-    "total": 12,
+    "filesUnmatched": 0,
+    "filesUpdated": 6,
+    "matched": 7,
+    "total": 13,
     "unchecked": 0,
     "uncheckedKeysByFile": [],
-    "unmatched": 6,
-    "updated": 0
+    "unmatched": 0,
+    "updated": 6
   },
-  "startTime": 1633702185632,
+  "startTime": 1633703651348,
   "success": false,
   "testResults": [
     {
       "leaks": false,
-      "numFailingTests": 1,
-      "numPassingTests": 0,
+      "numFailingTests": 0,
+      "numPassingTests": 1,
       "numPendingTests": 0,
       "numTodoTests": 0,
       "openHandles": [],
       "perfStats": {
-        "end": 1633702190532,
-        "runtime": 2759,
+        "end": 1633703653072,
+        "runtime": 980,
         "slow": false,
-        "start": 1633702187773
+        "start": 1633703652092
       },
       "skipped": false,
       "snapshot": {
@@ -49,62 +49,8 @@
         "matched": 0,
         "unchecked": 0,
         "uncheckedKeys": [],
-        "unmatched": 1,
-        "updated": 0
-      },
-      "testFilePath": "/Users/jaredcosulich/Desktop/NextTemplate/BlankWebsite/__tests__/pages/_components/TWCleanHeader_test.js",
-      "testResults": [
-        {
-          "ancestorTitles": [
-            "TWCleanHeader"
-          ],
-          "duration": 29,
-          "failureDetails": [
-            {
-              "matcherResult": {
-                "actual": "<div\n  className=\" p-6 bg-white text-black leading-10\"\n>\n  <div\n    className=\"px-24 flex flex-row justify-between\"\n  >\n    <div>\n      child1\n    </div>\n    <div>\n      child2\n    </div>\n    <div>\n      child3\n    </div>\n  </div>\n</div>",
-                "expected": "<div\n  className=\" p-6 bg-white text-black leading-10\"\n>\n  <div\n    className=\"px-24 flex flex-row justify-between\"\n  >\n    siteName\n    <div\n      className=\"space-x-2 flex flex-row justify-between\"\n    >\n      <div>\n        child1\n      </div>\n      <div>\n        child2\n      </div>\n      <div>\n        child3\n      </div>\n    </div>\n  </div>\n</div>",
-                "message": "\u001b[2mexpect(\u001b[22m\u001b[38;5;23m\u001b[48;5;195mreceived\u001b[49m\u001b[39m\u001b[2m).\u001b[22mtoMatchSnapshot\u001b[2m()\u001b[22m\n\nSnapshot name: `TWCleanHeader renders correctly 1`\n\n\u001b[38;5;90m\u001b[48;5;225m- Snapshot  - 5\u001b[49m\u001b[39m\n\u001b[38;5;23m\u001b[48;5;195m+ Received  + 0\u001b[49m\u001b[39m\n\n\u001b[33m@@ -2,21 +2,16 @@\u001b[39m\n\u001b[2m    className=\" p-6 bg-white text-black leading-10\"\u001b[22m\n\u001b[2m  >\u001b[22m\n\u001b[2m    <div\u001b[22m\n\u001b[2m      className=\"px-24 flex flex-row justify-between\"\u001b[22m\n\u001b[2m    >\u001b[22m\n\u001b[38;5;90m\u001b[48;5;225m-     siteName\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-     <div\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-       className=\"space-x-2 flex flex-row justify-between\"\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-     >\u001b[49m\u001b[39m\n\u001b[2m      <div>\u001b[22m\n\u001b[2m        child1\u001b[22m\n\u001b[2m      </div>\u001b[22m\n\u001b[2m      <div>\u001b[22m\n\u001b[2m        child2\u001b[22m\n\u001b[2m      </div>\u001b[22m\n\u001b[2m      <div>\u001b[22m\n\u001b[2m        child3\u001b[22m\n\u001b[38;5;90m\u001b[48;5;225m-       </div>\u001b[49m\u001b[39m\n\u001b[2m      </div>\u001b[22m\n\u001b[2m    </div>\u001b[22m\n\u001b[2m  </div>\u001b[22m",
-                "name": "toMatchSnapshot",
-                "pass": false
-              }
-            }
-          ],
-          "failureMessages": [
-            "Error: \u001b[2mexpect(\u001b[22m\u001b[38;5;23m\u001b[48;5;195mreceived\u001b[49m\u001b[39m\u001b[2m).\u001b[22mtoMatchSnapshot\u001b[2m()\u001b[22m\n\nSnapshot name: `TWCleanHeader renders correctly 1`\n\n\u001b[38;5;90m\u001b[48;5;225m- Snapshot  - 5\u001b[49m\u001b[39m\n\u001b[38;5;23m\u001b[48;5;195m+ Received  + 0\u001b[49m\u001b[39m\n\n\u001b[33m@@ -2,21 +2,16 @@\u001b[39m\n\u001b[2m    className=\" p-6 bg-white text-black leading-10\"\u001b[22m\n\u001b[2m  >\u001b[22m\n\u001b[2m    <div\u001b[22m\n\u001b[2m      className=\"px-24 flex flex-row justify-between\"\u001b[22m\n\u001b[2m    >\u001b[22m\n\u001b[38;5;90m\u001b[48;5;225m-     siteName\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-     <div\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-       className=\"space-x-2 flex flex-row justify-between\"\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-     >\u001b[49m\u001b[39m\n\u001b[2m      <div>\u001b[22m\n\u001b[2m        child1\u001b[22m\n\u001b[2m      </div>\u001b[22m\n\u001b[2m      <div>\u001b[22m\n\u001b[2m        child2\u001b[22m\n\u001b[2m      </div>\u001b[22m\n\u001b[2m      <div>\u001b[22m\n\u001b[2m        child3\u001b[22m\n\u001b[38;5;90m\u001b[48;5;225m-       </div>\u001b[49m\u001b[39m\n\u001b[2m      </div>\u001b[22m\n\u001b[2m    </div>\u001b[22m\n\u001b[2m  </div>\u001b[22m\n    at Object.<anonymous> (/Users/jaredcosulich/Desktop/NextTemplate/BlankWebsite/__tests__/pages/_components/TWCleanHeader_test.js:8:22)\n    at Promise.then.completed (/Users/jaredcosulich/Desktop/NextTemplate/BlankWebsite/node_modules/jest-circus/build/utils.js:390:28)\n    at new Promise (<anonymous>)\n    at callAsyncCircusFn (/Users/jaredcosulich/Desktop/NextTemplate/BlankWebsite/node_modules/jest-circus/build/utils.js:315:10)\n    at _callCircusTest (/Users/jaredcosulich/Desktop/NextTemplate/BlankWebsite/node_modules/jest-circus/build/run.js:218:40)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)\n    at _runTest (/Users/jaredcosulich/Desktop/NextTemplate/BlankWebsite/node_modules/jest-circus/build/run.js:155:3)\n    at _runTestsForDescribeBlock (/Users/jaredcosulich/Desktop/NextTemplate/BlankWebsite/node_modules/jest-circus/build/run.js:66:9)\n    at _runTestsForDescribeBlock (/Users/jaredcosulich/Desktop/NextTemplate/BlankWebsite/node_modules/jest-circus/build/run.js:60:9)\n    at run (/Users/jaredcosulich/Desktop/NextTemplate/BlankWebsite/node_modules/jest-circus/build/run.js:25:3)\n    at runAndTransformResultsToJestFormat (/Users/jaredcosulich/Desktop/NextTemplate/BlankWebsite/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapterInit.js:167:21)\n    at jestAdapter (/Users/jaredcosulich/Desktop/NextTemplate/BlankWebsite/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapter.js:82:19)\n    at runTestInternal (/Users/jaredcosulich/Desktop/NextTemplate/BlankWebsite/node_modules/jest-runner/build/runTest.js:389:16)\n    at runTest (/Users/jaredcosulich/Desktop/NextTemplate/BlankWebsite/node_modules/jest-runner/build/runTest.js:475:34)\n    at Object.worker (/Users/jaredcosulich/Desktop/NextTemplate/BlankWebsite/node_modules/jest-runner/build/testWorker.js:133:12)"
-          ],
-          "fullName": "TWCleanHeader renders correctly",
-          "invocations": 1,
-          "location": null,
-          "numPassingAsserts": 0,
-          "status": "failed",
-          "title": "renders correctly"
-        }
-      ],
-      "failureMessage": "\u001b[1m\u001b[31m  \u001b[1m● \u001b[22m\u001b[1mTWCleanHeader › renders correctly\u001b[39m\u001b[22m\n\n    \u001b[2mexpect(\u001b[22m\u001b[38;5;23m\u001b[48;5;195mreceived\u001b[49m\u001b[39m\u001b[2m).\u001b[22mtoMatchSnapshot\u001b[2m()\u001b[22m\n\n    Snapshot name: `TWCleanHeader renders correctly 1`\n\n    \u001b[38;5;90m\u001b[48;5;225m- Snapshot  - 5\u001b[49m\u001b[39m\n    \u001b[38;5;23m\u001b[48;5;195m+ Received  + 0\u001b[49m\u001b[39m\n\n    \u001b[33m@@ -2,21 +2,16 @@\u001b[39m\n    \u001b[2m    className=\" p-6 bg-white text-black leading-10\"\u001b[22m\n    \u001b[2m  >\u001b[22m\n    \u001b[2m    <div\u001b[22m\n    \u001b[2m      className=\"px-24 flex flex-row justify-between\"\u001b[22m\n    \u001b[2m    >\u001b[22m\n    \u001b[38;5;90m\u001b[48;5;225m-     siteName\u001b[49m\u001b[39m\n    \u001b[38;5;90m\u001b[48;5;225m-     <div\u001b[49m\u001b[39m\n    \u001b[38;5;90m\u001b[48;5;225m-       className=\"space-x-2 flex flex-row justify-between\"\u001b[49m\u001b[39m\n    \u001b[38;5;90m\u001b[48;5;225m-     >\u001b[49m\u001b[39m\n    \u001b[2m      <div>\u001b[22m\n    \u001b[2m        child1\u001b[22m\n    \u001b[2m      </div>\u001b[22m\n    \u001b[2m      <div>\u001b[22m\n    \u001b[2m        child2\u001b[22m\n    \u001b[2m      </div>\u001b[22m\n    \u001b[2m      <div>\u001b[22m\n    \u001b[2m        child3\u001b[22m\n    \u001b[38;5;90m\u001b[48;5;225m-       </div>\u001b[49m\u001b[39m\n    \u001b[2m      </div>\u001b[22m\n    \u001b[2m    </div>\u001b[22m\n    \u001b[2m  </div>\u001b[22m\n\u001b[2m\u001b[22m\n\u001b[2m    \u001b[0m \u001b[90m  6 |\u001b[39m   it(\u001b[32m'renders correctly'\u001b[39m\u001b[33m,\u001b[39m () \u001b[33m=>\u001b[39m {\u001b[0m\u001b[22m\n\u001b[2m    \u001b[0m \u001b[90m  7 |\u001b[39m     \u001b[36mconst\u001b[39m rendered \u001b[33m=\u001b[39m \u001b[33mTestRenderer\u001b[39m\u001b[33m.\u001b[39mcreate(\u001b[33m<\u001b[39m\u001b[33mTWCleanHeader\u001b[39m \u001b[33m/\u001b[39m\u001b[33m>\u001b[39m)\u001b[33m.\u001b[39mtoJSON()\u001b[33m;\u001b[39m\u001b[0m\u001b[22m\n\u001b[2m    \u001b[0m\u001b[31m\u001b[1m>\u001b[22m\u001b[2m\u001b[39m\u001b[90m  8 |\u001b[39m     expect(rendered)\u001b[33m.\u001b[39mtoMatchSnapshot()\u001b[0m\u001b[22m\n\u001b[2m    \u001b[0m \u001b[90m    |\u001b[39m                      \u001b[31m\u001b[1m^\u001b[22m\u001b[2m\u001b[39m\u001b[0m\u001b[22m\n\u001b[2m    \u001b[0m \u001b[90m  9 |\u001b[39m   })\u001b[33m;\u001b[39m\u001b[0m\u001b[22m\n\u001b[2m    \u001b[0m \u001b[90m 10 |\u001b[39m })\u001b[33m;\u001b[39m\u001b[0m\u001b[22m\n\u001b[2m\u001b[22m\n\u001b[2m      \u001b[2mat Object.<anonymous> (\u001b[22m\u001b[2m\u001b[0m\u001b[36m__tests__/pages/_components/TWCleanHeader_test.js\u001b[39m\u001b[0m\u001b[2m:8:22)\u001b[22m\u001b[2m\u001b[22m\n"
-    },
-    {
-      "leaks": false,
-      "numFailingTests": 1,
-      "numPassingTests": 0,
-      "numPendingTests": 0,
-      "numTodoTests": 0,
-      "openHandles": [],
-      "perfStats": {
-        "end": 1633702190535,
-        "runtime": 2761,
-        "slow": false,
-        "start": 1633702187774
-      },
-      "skipped": false,
-      "snapshot": {
-        "added": 0,
-        "fileDeleted": false,
-        "matched": 0,
-        "unchecked": 0,
-        "uncheckedKeys": [],
-        "unmatched": 1,
-        "updated": 0
+        "unmatched": 0,
+        "updated": 1
       },
       "testFilePath": "/Users/jaredcosulich/Desktop/NextTemplate/BlankWebsite/__tests__/pages/_components/BlankHeader_test.js",
       "testResults": [
@@ -112,192 +58,18 @@
           "ancestorTitles": [
             "BlankHeader"
           ],
-          "duration": 36,
-          "failureDetails": [
-            {
-              "matcherResult": {
-                "actual": "<div\n  className=\"py-12 p-6 bg-white text-black leading-10\"\n>\n  <div\n    className=\"px-24 flex flex-row justify-between\"\n  >\n    <a\n      href=\"/\"\n      onClick={[Function]}\n      onMouseEnter={[Function]}\n    >\n      Blank.Foundation\n    </a>\n    <div\n      className=\"space-x-2 flex flex-row justify-between\"\n    >\n      <div>\n        child1\n      </div>\n      <div>\n        child2\n      </div>\n      <div>\n        child3\n      </div>\n    </div>\n  </div>\n</div>",
-                "expected": "<div\n  className=\"py-12 p-6 bg-white text-black leading-10\"\n>\n  <div\n    className=\"px-24 flex flex-row justify-between\"\n  >\n    Blank.Foundation\n    <div\n      className=\"space-x-2 flex flex-row justify-between\"\n    >\n      <div>\n        child1\n      </div>\n      <div>\n        child2\n      </div>\n      <div>\n        child3\n      </div>\n    </div>\n  </div>\n</div>",
-                "message": "\u001b[2mexpect(\u001b[22m\u001b[38;5;23m\u001b[48;5;195mreceived\u001b[49m\u001b[39m\u001b[2m).\u001b[22mtoMatchSnapshot\u001b[2m()\u001b[22m\n\nSnapshot name: `BlankHeader renders correctly 1`\n\n\u001b[38;5;90m\u001b[48;5;225m- Snapshot  - 0\u001b[49m\u001b[39m\n\u001b[38;5;23m\u001b[48;5;195m+ Received  + 6\u001b[49m\u001b[39m\n\n\u001b[33m@@ -2,11 +2,17 @@\u001b[39m\n\u001b[2m    className=\"py-12 p-6 bg-white text-black leading-10\"\u001b[22m\n\u001b[2m  >\u001b[22m\n\u001b[2m    <div\u001b[22m\n\u001b[2m      className=\"px-24 flex flex-row justify-between\"\u001b[22m\n\u001b[2m    >\u001b[22m\n\u001b[38;5;23m\u001b[48;5;195m+     <a\u001b[49m\u001b[39m\n\u001b[38;5;23m\u001b[48;5;195m+       href=\"/\"\u001b[49m\u001b[39m\n\u001b[38;5;23m\u001b[48;5;195m+       onClick={[Function]}\u001b[49m\u001b[39m\n\u001b[38;5;23m\u001b[48;5;195m+       onMouseEnter={[Function]}\u001b[49m\u001b[39m\n\u001b[38;5;23m\u001b[48;5;195m+     >\u001b[49m\u001b[39m\n\u001b[2m        Blank.Foundation\u001b[22m\n\u001b[38;5;23m\u001b[48;5;195m+     </a>\u001b[49m\u001b[39m\n\u001b[2m      <div\u001b[22m\n\u001b[2m        className=\"space-x-2 flex flex-row justify-between\"\u001b[22m\n\u001b[2m      >\u001b[22m\n\u001b[2m        <div>\u001b[22m\n\u001b[2m          child1\u001b[22m",
-                "name": "toMatchSnapshot",
-                "pass": false
-              }
-            }
-          ],
-          "failureMessages": [
-            "Error: \u001b[2mexpect(\u001b[22m\u001b[38;5;23m\u001b[48;5;195mreceived\u001b[49m\u001b[39m\u001b[2m).\u001b[22mtoMatchSnapshot\u001b[2m()\u001b[22m\n\nSnapshot name: `BlankHeader renders correctly 1`\n\n\u001b[38;5;90m\u001b[48;5;225m- Snapshot  - 0\u001b[49m\u001b[39m\n\u001b[38;5;23m\u001b[48;5;195m+ Received  + 6\u001b[49m\u001b[39m\n\n\u001b[33m@@ -2,11 +2,17 @@\u001b[39m\n\u001b[2m    className=\"py-12 p-6 bg-white text-black leading-10\"\u001b[22m\n\u001b[2m  >\u001b[22m\n\u001b[2m    <div\u001b[22m\n\u001b[2m      className=\"px-24 flex flex-row justify-between\"\u001b[22m\n\u001b[2m    >\u001b[22m\n\u001b[38;5;23m\u001b[48;5;195m+     <a\u001b[49m\u001b[39m\n\u001b[38;5;23m\u001b[48;5;195m+       href=\"/\"\u001b[49m\u001b[39m\n\u001b[38;5;23m\u001b[48;5;195m+       onClick={[Function]}\u001b[49m\u001b[39m\n\u001b[38;5;23m\u001b[48;5;195m+       onMouseEnter={[Function]}\u001b[49m\u001b[39m\n\u001b[38;5;23m\u001b[48;5;195m+     >\u001b[49m\u001b[39m\n\u001b[2m        Blank.Foundation\u001b[22m\n\u001b[38;5;23m\u001b[48;5;195m+     </a>\u001b[49m\u001b[39m\n\u001b[2m      <div\u001b[22m\n\u001b[2m        className=\"space-x-2 flex flex-row justify-between\"\u001b[22m\n\u001b[2m      >\u001b[22m\n\u001b[2m        <div>\u001b[22m\n\u001b[2m          child1\u001b[22m\n    at Object.<anonymous> (/Users/jaredcosulich/Desktop/NextTemplate/BlankWebsite/__tests__/pages/_components/BlankHeader_test.js:8:22)\n    at Promise.then.completed (/Users/jaredcosulich/Desktop/NextTemplate/BlankWebsite/node_modules/jest-circus/build/utils.js:390:28)\n    at new Promise (<anonymous>)\n    at callAsyncCircusFn (/Users/jaredcosulich/Desktop/NextTemplate/BlankWebsite/node_modules/jest-circus/build/utils.js:315:10)\n    at _callCircusTest (/Users/jaredcosulich/Desktop/NextTemplate/BlankWebsite/node_modules/jest-circus/build/run.js:218:40)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)\n    at _runTest (/Users/jaredcosulich/Desktop/NextTemplate/BlankWebsite/node_modules/jest-circus/build/run.js:155:3)\n    at _runTestsForDescribeBlock (/Users/jaredcosulich/Desktop/NextTemplate/BlankWebsite/node_modules/jest-circus/build/run.js:66:9)\n    at _runTestsForDescribeBlock (/Users/jaredcosulich/Desktop/NextTemplate/BlankWebsite/node_modules/jest-circus/build/run.js:60:9)\n    at run (/Users/jaredcosulich/Desktop/NextTemplate/BlankWebsite/node_modules/jest-circus/build/run.js:25:3)\n    at runAndTransformResultsToJestFormat (/Users/jaredcosulich/Desktop/NextTemplate/BlankWebsite/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapterInit.js:167:21)\n    at jestAdapter (/Users/jaredcosulich/Desktop/NextTemplate/BlankWebsite/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapter.js:82:19)\n    at runTestInternal (/Users/jaredcosulich/Desktop/NextTemplate/BlankWebsite/node_modules/jest-runner/build/runTest.js:389:16)\n    at runTest (/Users/jaredcosulich/Desktop/NextTemplate/BlankWebsite/node_modules/jest-runner/build/runTest.js:475:34)\n    at Object.worker (/Users/jaredcosulich/Desktop/NextTemplate/BlankWebsite/node_modules/jest-runner/build/testWorker.js:133:12)"
-          ],
+          "duration": 17,
+          "failureDetails": [],
+          "failureMessages": [],
           "fullName": "BlankHeader renders correctly",
           "invocations": 1,
           "location": null,
           "numPassingAsserts": 0,
-          "status": "failed",
+          "status": "passed",
           "title": "renders correctly"
         }
       ],
-      "failureMessage": "\u001b[1m\u001b[31m  \u001b[1m● \u001b[22m\u001b[1mBlankHeader › renders correctly\u001b[39m\u001b[22m\n\n    \u001b[2mexpect(\u001b[22m\u001b[38;5;23m\u001b[48;5;195mreceived\u001b[49m\u001b[39m\u001b[2m).\u001b[22mtoMatchSnapshot\u001b[2m()\u001b[22m\n\n    Snapshot name: `BlankHeader renders correctly 1`\n\n    \u001b[38;5;90m\u001b[48;5;225m- Snapshot  - 0\u001b[49m\u001b[39m\n    \u001b[38;5;23m\u001b[48;5;195m+ Received  + 6\u001b[49m\u001b[39m\n\n    \u001b[33m@@ -2,11 +2,17 @@\u001b[39m\n    \u001b[2m    className=\"py-12 p-6 bg-white text-black leading-10\"\u001b[22m\n    \u001b[2m  >\u001b[22m\n    \u001b[2m    <div\u001b[22m\n    \u001b[2m      className=\"px-24 flex flex-row justify-between\"\u001b[22m\n    \u001b[2m    >\u001b[22m\n    \u001b[38;5;23m\u001b[48;5;195m+     <a\u001b[49m\u001b[39m\n    \u001b[38;5;23m\u001b[48;5;195m+       href=\"/\"\u001b[49m\u001b[39m\n    \u001b[38;5;23m\u001b[48;5;195m+       onClick={[Function]}\u001b[49m\u001b[39m\n    \u001b[38;5;23m\u001b[48;5;195m+       onMouseEnter={[Function]}\u001b[49m\u001b[39m\n    \u001b[38;5;23m\u001b[48;5;195m+     >\u001b[49m\u001b[39m\n    \u001b[2m        Blank.Foundation\u001b[22m\n    \u001b[38;5;23m\u001b[48;5;195m+     </a>\u001b[49m\u001b[39m\n    \u001b[2m      <div\u001b[22m\n    \u001b[2m        className=\"space-x-2 flex flex-row justify-between\"\u001b[22m\n    \u001b[2m      >\u001b[22m\n    \u001b[2m        <div>\u001b[22m\n    \u001b[2m          child1\u001b[22m\n\u001b[2m\u001b[22m\n\u001b[2m    \u001b[0m \u001b[90m  6 |\u001b[39m   it(\u001b[32m'renders correctly'\u001b[39m\u001b[33m,\u001b[39m () \u001b[33m=>\u001b[39m {\u001b[0m\u001b[22m\n\u001b[2m    \u001b[0m \u001b[90m  7 |\u001b[39m     \u001b[36mconst\u001b[39m rendered \u001b[33m=\u001b[39m \u001b[33mTestRenderer\u001b[39m\u001b[33m.\u001b[39mcreate(\u001b[33m<\u001b[39m\u001b[33mBlankHeader\u001b[39m \u001b[33m/\u001b[39m\u001b[33m>\u001b[39m)\u001b[33m.\u001b[39mtoJSON()\u001b[33m;\u001b[39m\u001b[0m\u001b[22m\n\u001b[2m    \u001b[0m\u001b[31m\u001b[1m>\u001b[22m\u001b[2m\u001b[39m\u001b[90m  8 |\u001b[39m     expect(rendered)\u001b[33m.\u001b[39mtoMatchSnapshot()\u001b[0m\u001b[22m\n\u001b[2m    \u001b[0m \u001b[90m    |\u001b[39m                      \u001b[31m\u001b[1m^\u001b[22m\u001b[2m\u001b[39m\u001b[0m\u001b[22m\n\u001b[2m    \u001b[0m \u001b[90m  9 |\u001b[39m   })\u001b[33m;\u001b[39m\u001b[0m\u001b[22m\n\u001b[2m    \u001b[0m \u001b[90m 10 |\u001b[39m })\u001b[33m;\u001b[39m\u001b[0m\u001b[22m\n\u001b[2m\u001b[22m\n\u001b[2m      \u001b[2mat Object.<anonymous> (\u001b[22m\u001b[2m\u001b[0m\u001b[36m__tests__/pages/_components/BlankHeader_test.js\u001b[39m\u001b[0m\u001b[2m:8:22)\u001b[22m\u001b[2m\u001b[22m\n"
-    },
-    {
-      "leaks": false,
-      "numFailingTests": 1,
-      "numPassingTests": 0,
-      "numPendingTests": 0,
-      "numTodoTests": 0,
-      "openHandles": [],
-      "perfStats": {
-        "end": 1633702190633,
-        "runtime": 2860,
-        "slow": false,
-        "start": 1633702187773
-      },
-      "skipped": false,
-      "snapshot": {
-        "added": 0,
-        "fileDeleted": false,
-        "matched": 0,
-        "unchecked": 0,
-        "uncheckedKeys": [],
-        "unmatched": 1,
-        "updated": 0
-      },
-      "testFilePath": "/Users/jaredcosulich/Desktop/NextTemplate/BlankWebsite/__tests__/pages/_components/BlankFooter_test.js",
-      "testResults": [
-        {
-          "ancestorTitles": [
-            "BlankFooter"
-          ],
-          "duration": 253,
-          "failureDetails": [
-            {
-              "matcherResult": {
-                "actual": "<div\n  className=\" p-6 bg-gray-900 text-white text-xs leading-10\"\n>\n  <div\n    className=\"px-24 flex flex-row justify-between\"\n  >\n    <div\n      className=\"space-x-4 flex flex-row justify-start\"\n    >\n      <a\n        href=\"https://discord.gg/HZM2jcHdEU\"\n        rel=\"noopener noreferrer\"\n        target=\"_blank\"\n      >\n        Discord\n      </a>\n      <a\n        href=\"https://twitter.com/blankfdn\"\n        rel=\"noopener noreferrer\"\n        target=\"_blank\"\n      >\n        Twitter\n      </a>\n      <a\n        href=\"https://medium.com/@blankfdn\"\n        rel=\"noopener noreferrer\"\n        target=\"_blank\"\n      >\n        Medium\n      </a>\n    </div>\n  </div>\n</div>",
-                "expected": "<div\n  className=\" p-6 bg-gray-900 text-white text-xs leading-10\"\n>\n  <div\n    className=\"px-24 flex flex-row justify-between\"\n  >\n    <div\n      className=\"space-x-4 flex flex-row justify-start\"\n    >\n      <a\n        href=\"https://discord.gg/HZM2jcHdEU\"\n        props={\n          Object {\n            \"children\": \"Example Link\",\n            \"href\": \"https://www.example.com\",\n            \"social\": Array [\n              Object {\n                \"href\": \"https://discord.gg/HZM2jcHdEU\",\n                \"name\": \"Discord\",\n              },\n              Object {\n                \"href\": \"https://twitter.com/blankfdn\",\n                \"name\": \"Twitter\",\n              },\n              Object {\n                \"href\": \"https://medium.com/@blankfdn\",\n                \"name\": \"Medium\",\n              },\n            ],\n            \"title\": \"Blank.Foundation\",\n          }\n        }\n        rel=\"noopener noreferrer\"\n        target=\"_blank\"\n      >\n        Discord\n      </a>\n      <a\n        href=\"https://twitter.com/blankfdn\"\n        props={\n          Object {\n            \"children\": \"Example Link\",\n            \"href\": \"https://www.example.com\",\n            \"social\": Array [\n              Object {\n                \"href\": \"https://discord.gg/HZM2jcHdEU\",\n                \"name\": \"Discord\",\n              },\n              Object {\n                \"href\": \"https://twitter.com/blankfdn\",\n                \"name\": \"Twitter\",\n              },\n              Object {\n                \"href\": \"https://medium.com/@blankfdn\",\n                \"name\": \"Medium\",\n              },\n            ],\n            \"title\": \"Blank.Foundation\",\n          }\n        }\n        rel=\"noopener noreferrer\"\n        target=\"_blank\"\n      >\n        Twitter\n      </a>\n      <a\n        href=\"https://medium.com/@blankfdn\"\n        props={\n          Object {\n            \"children\": \"Example Link\",\n            \"href\": \"https://www.example.com\",\n            \"social\": Array [\n              Object {\n                \"href\": \"https://discord.gg/HZM2jcHdEU\",\n                \"name\": \"Discord\",\n              },\n              Object {\n                \"href\": \"https://twitter.com/blankfdn\",\n                \"name\": \"Twitter\",\n              },\n              Object {\n                \"href\": \"https://medium.com/@blankfdn\",\n                \"name\": \"Medium\",\n              },\n            ],\n            \"title\": \"Blank.Foundation\",\n          }\n        }\n        rel=\"noopener noreferrer\"\n        target=\"_blank\"\n      >\n        Medium\n      </a>\n    </div>\n  </div>\n</div>",
-                "message": "\u001b[2mexpect(\u001b[22m\u001b[38;5;23m\u001b[48;5;195mreceived\u001b[49m\u001b[39m\u001b[2m).\u001b[22mtoMatchSnapshot\u001b[2m()\u001b[22m\n\nSnapshot name: `BlankFooter renders correctly 1`\n\n\u001b[38;5;90m\u001b[48;5;225m- Snapshot  - 63\u001b[49m\u001b[39m\n\u001b[38;5;23m\u001b[48;5;195m+ Received  +  0\u001b[49m\u001b[39m\n\n\u001b[33m@@ -7,87 +7,24 @@\u001b[39m\n\u001b[2m      <div\u001b[22m\n\u001b[2m        className=\"space-x-4 flex flex-row justify-start\"\u001b[22m\n\u001b[2m      >\u001b[22m\n\u001b[2m        <a\u001b[22m\n\u001b[2m          href=\"https://discord.gg/HZM2jcHdEU\"\u001b[22m\n\u001b[38;5;90m\u001b[48;5;225m-         props={\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-           Object {\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-             \"children\": \"Example Link\",\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-             \"href\": \"https://www.example.com\",\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-             \"social\": Array [\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-               Object {\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-                 \"href\": \"https://discord.gg/HZM2jcHdEU\",\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-                 \"name\": \"Discord\",\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-               },\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-               Object {\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-                 \"href\": \"https://twitter.com/blankfdn\",\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-                 \"name\": \"Twitter\",\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-               },\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-               Object {\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-                 \"href\": \"https://medium.com/@blankfdn\",\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-                 \"name\": \"Medium\",\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-               },\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-             ],\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-             \"title\": \"Blank.Foundation\",\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-           }\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-         }\u001b[49m\u001b[39m\n\u001b[2m          rel=\"noopener noreferrer\"\u001b[22m\n\u001b[2m          target=\"_blank\"\u001b[22m\n\u001b[2m        >\u001b[22m\n\u001b[2m          Discord\u001b[22m\n\u001b[2m        </a>\u001b[22m\n\u001b[2m        <a\u001b[22m\n\u001b[2m          href=\"https://twitter.com/blankfdn\"\u001b[22m\n\u001b[38;5;90m\u001b[48;5;225m-         props={\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-           Object {\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-             \"children\": \"Example Link\",\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-             \"href\": \"https://www.example.com\",\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-             \"social\": Array [\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-               Object {\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-                 \"href\": \"https://discord.gg/HZM2jcHdEU\",\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-                 \"name\": \"Discord\",\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-               },\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-               Object {\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-                 \"href\": \"https://twitter.com/blankfdn\",\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-                 \"name\": \"Twitter\",\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-               },\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-               Object {\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-                 \"href\": \"https://medium.com/@blankfdn\",\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-                 \"name\": \"Medium\",\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-               },\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-             ],\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-             \"title\": \"Blank.Foundation\",\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-           }\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-         }\u001b[49m\u001b[39m\n\u001b[2m          rel=\"noopener noreferrer\"\u001b[22m\n\u001b[2m          target=\"_blank\"\u001b[22m\n\u001b[2m        >\u001b[22m\n\u001b[2m          Twitter\u001b[22m\n\u001b[2m        </a>\u001b[22m\n\u001b[2m        <a\u001b[22m\n\u001b[2m          href=\"https://medium.com/@blankfdn\"\u001b[22m\n\u001b[38;5;90m\u001b[48;5;225m-         props={\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-           Object {\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-             \"children\": \"Example Link\",\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-             \"href\": \"https://www.example.com\",\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-             \"social\": Array [\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-               Object {\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-                 \"href\": \"https://discord.gg/HZM2jcHdEU\",\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-                 \"name\": \"Discord\",\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-               },\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-               Object {\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-                 \"href\": \"https://twitter.com/blankfdn\",\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-                 \"name\": \"Twitter\",\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-               },\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-               Object {\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-                 \"href\": \"https://medium.com/@blankfdn\",\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-                 \"name\": \"Medium\",\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-               },\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-             ],\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-             \"title\": \"Blank.Foundation\",\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-           }\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-         }\u001b[49m\u001b[39m\n\u001b[2m          rel=\"noopener noreferrer\"\u001b[22m\n\u001b[2m          target=\"_blank\"\u001b[22m\n\u001b[2m        >\u001b[22m\n\u001b[2m          Medium\u001b[22m\n\u001b[2m        </a>\u001b[22m",
-                "name": "toMatchSnapshot",
-                "pass": false
-              }
-            }
-          ],
-          "failureMessages": [
-            "Error: \u001b[2mexpect(\u001b[22m\u001b[38;5;23m\u001b[48;5;195mreceived\u001b[49m\u001b[39m\u001b[2m).\u001b[22mtoMatchSnapshot\u001b[2m()\u001b[22m\n\nSnapshot name: `BlankFooter renders correctly 1`\n\n\u001b[38;5;90m\u001b[48;5;225m- Snapshot  - 63\u001b[49m\u001b[39m\n\u001b[38;5;23m\u001b[48;5;195m+ Received  +  0\u001b[49m\u001b[39m\n\n\u001b[33m@@ -7,87 +7,24 @@\u001b[39m\n\u001b[2m      <div\u001b[22m\n\u001b[2m        className=\"space-x-4 flex flex-row justify-start\"\u001b[22m\n\u001b[2m      >\u001b[22m\n\u001b[2m        <a\u001b[22m\n\u001b[2m          href=\"https://discord.gg/HZM2jcHdEU\"\u001b[22m\n\u001b[38;5;90m\u001b[48;5;225m-         props={\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-           Object {\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-             \"children\": \"Example Link\",\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-             \"href\": \"https://www.example.com\",\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-             \"social\": Array [\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-               Object {\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-                 \"href\": \"https://discord.gg/HZM2jcHdEU\",\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-                 \"name\": \"Discord\",\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-               },\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-               Object {\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-                 \"href\": \"https://twitter.com/blankfdn\",\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-                 \"name\": \"Twitter\",\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-               },\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-               Object {\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-                 \"href\": \"https://medium.com/@blankfdn\",\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-                 \"name\": \"Medium\",\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-               },\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-             ],\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-             \"title\": \"Blank.Foundation\",\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-           }\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-         }\u001b[49m\u001b[39m\n\u001b[2m          rel=\"noopener noreferrer\"\u001b[22m\n\u001b[2m          target=\"_blank\"\u001b[22m\n\u001b[2m        >\u001b[22m\n\u001b[2m          Discord\u001b[22m\n\u001b[2m        </a>\u001b[22m\n\u001b[2m        <a\u001b[22m\n\u001b[2m          href=\"https://twitter.com/blankfdn\"\u001b[22m\n\u001b[38;5;90m\u001b[48;5;225m-         props={\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-           Object {\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-             \"children\": \"Example Link\",\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-             \"href\": \"https://www.example.com\",\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-             \"social\": Array [\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-               Object {\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-                 \"href\": \"https://discord.gg/HZM2jcHdEU\",\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-                 \"name\": \"Discord\",\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-               },\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-               Object {\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-                 \"href\": \"https://twitter.com/blankfdn\",\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-                 \"name\": \"Twitter\",\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-               },\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-               Object {\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-                 \"href\": \"https://medium.com/@blankfdn\",\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-                 \"name\": \"Medium\",\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-               },\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-             ],\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-             \"title\": \"Blank.Foundation\",\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-           }\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-         }\u001b[49m\u001b[39m\n\u001b[2m          rel=\"noopener noreferrer\"\u001b[22m\n\u001b[2m          target=\"_blank\"\u001b[22m\n\u001b[2m        >\u001b[22m\n\u001b[2m          Twitter\u001b[22m\n\u001b[2m        </a>\u001b[22m\n\u001b[2m        <a\u001b[22m\n\u001b[2m          href=\"https://medium.com/@blankfdn\"\u001b[22m\n\u001b[38;5;90m\u001b[48;5;225m-         props={\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-           Object {\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-             \"children\": \"Example Link\",\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-             \"href\": \"https://www.example.com\",\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-             \"social\": Array [\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-               Object {\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-                 \"href\": \"https://discord.gg/HZM2jcHdEU\",\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-                 \"name\": \"Discord\",\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-               },\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-               Object {\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-                 \"href\": \"https://twitter.com/blankfdn\",\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-                 \"name\": \"Twitter\",\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-               },\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-               Object {\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-                 \"href\": \"https://medium.com/@blankfdn\",\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-                 \"name\": \"Medium\",\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-               },\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-             ],\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-             \"title\": \"Blank.Foundation\",\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-           }\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-         }\u001b[49m\u001b[39m\n\u001b[2m          rel=\"noopener noreferrer\"\u001b[22m\n\u001b[2m          target=\"_blank\"\u001b[22m\n\u001b[2m        >\u001b[22m\n\u001b[2m          Medium\u001b[22m\n\u001b[2m        </a>\u001b[22m\n    at Object.<anonymous> (/Users/jaredcosulich/Desktop/NextTemplate/BlankWebsite/__tests__/pages/_components/BlankFooter_test.js:8:22)\n    at Promise.then.completed (/Users/jaredcosulich/Desktop/NextTemplate/BlankWebsite/node_modules/jest-circus/build/utils.js:390:28)\n    at new Promise (<anonymous>)\n    at callAsyncCircusFn (/Users/jaredcosulich/Desktop/NextTemplate/BlankWebsite/node_modules/jest-circus/build/utils.js:315:10)\n    at _callCircusTest (/Users/jaredcosulich/Desktop/NextTemplate/BlankWebsite/node_modules/jest-circus/build/run.js:218:40)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)\n    at _runTest (/Users/jaredcosulich/Desktop/NextTemplate/BlankWebsite/node_modules/jest-circus/build/run.js:155:3)\n    at _runTestsForDescribeBlock (/Users/jaredcosulich/Desktop/NextTemplate/BlankWebsite/node_modules/jest-circus/build/run.js:66:9)\n    at _runTestsForDescribeBlock (/Users/jaredcosulich/Desktop/NextTemplate/BlankWebsite/node_modules/jest-circus/build/run.js:60:9)\n    at run (/Users/jaredcosulich/Desktop/NextTemplate/BlankWebsite/node_modules/jest-circus/build/run.js:25:3)\n    at runAndTransformResultsToJestFormat (/Users/jaredcosulich/Desktop/NextTemplate/BlankWebsite/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapterInit.js:167:21)\n    at jestAdapter (/Users/jaredcosulich/Desktop/NextTemplate/BlankWebsite/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapter.js:82:19)\n    at runTestInternal (/Users/jaredcosulich/Desktop/NextTemplate/BlankWebsite/node_modules/jest-runner/build/runTest.js:389:16)\n    at runTest (/Users/jaredcosulich/Desktop/NextTemplate/BlankWebsite/node_modules/jest-runner/build/runTest.js:475:34)\n    at Object.worker (/Users/jaredcosulich/Desktop/NextTemplate/BlankWebsite/node_modules/jest-runner/build/testWorker.js:133:12)"
-          ],
-          "fullName": "BlankFooter renders correctly",
-          "invocations": 1,
-          "location": null,
-          "numPassingAsserts": 0,
-          "status": "failed",
-          "title": "renders correctly"
-        }
-      ],
-      "failureMessage": "\u001b[1m\u001b[31m  \u001b[1m● \u001b[22m\u001b[1mBlankFooter › renders correctly\u001b[39m\u001b[22m\n\n    \u001b[2mexpect(\u001b[22m\u001b[38;5;23m\u001b[48;5;195mreceived\u001b[49m\u001b[39m\u001b[2m).\u001b[22mtoMatchSnapshot\u001b[2m()\u001b[22m\n\n    Snapshot name: `BlankFooter renders correctly 1`\n\n    \u001b[38;5;90m\u001b[48;5;225m- Snapshot  - 63\u001b[49m\u001b[39m\n    \u001b[38;5;23m\u001b[48;5;195m+ Received  +  0\u001b[49m\u001b[39m\n\n    \u001b[33m@@ -7,87 +7,24 @@\u001b[39m\n    \u001b[2m      <div\u001b[22m\n    \u001b[2m        className=\"space-x-4 flex flex-row justify-start\"\u001b[22m\n    \u001b[2m      >\u001b[22m\n    \u001b[2m        <a\u001b[22m\n    \u001b[2m          href=\"https://discord.gg/HZM2jcHdEU\"\u001b[22m\n    \u001b[38;5;90m\u001b[48;5;225m-         props={\u001b[49m\u001b[39m\n    \u001b[38;5;90m\u001b[48;5;225m-           Object {\u001b[49m\u001b[39m\n    \u001b[38;5;90m\u001b[48;5;225m-             \"children\": \"Example Link\",\u001b[49m\u001b[39m\n    \u001b[38;5;90m\u001b[48;5;225m-             \"href\": \"https://www.example.com\",\u001b[49m\u001b[39m\n    \u001b[38;5;90m\u001b[48;5;225m-             \"social\": Array [\u001b[49m\u001b[39m\n    \u001b[38;5;90m\u001b[48;5;225m-               Object {\u001b[49m\u001b[39m\n    \u001b[38;5;90m\u001b[48;5;225m-                 \"href\": \"https://discord.gg/HZM2jcHdEU\",\u001b[49m\u001b[39m\n    \u001b[38;5;90m\u001b[48;5;225m-                 \"name\": \"Discord\",\u001b[49m\u001b[39m\n    \u001b[38;5;90m\u001b[48;5;225m-               },\u001b[49m\u001b[39m\n    \u001b[38;5;90m\u001b[48;5;225m-               Object {\u001b[49m\u001b[39m\n    \u001b[38;5;90m\u001b[48;5;225m-                 \"href\": \"https://twitter.com/blankfdn\",\u001b[49m\u001b[39m\n    \u001b[38;5;90m\u001b[48;5;225m-                 \"name\": \"Twitter\",\u001b[49m\u001b[39m\n    \u001b[38;5;90m\u001b[48;5;225m-               },\u001b[49m\u001b[39m\n    \u001b[38;5;90m\u001b[48;5;225m-               Object {\u001b[49m\u001b[39m\n    \u001b[38;5;90m\u001b[48;5;225m-                 \"href\": \"https://medium.com/@blankfdn\",\u001b[49m\u001b[39m\n    \u001b[38;5;90m\u001b[48;5;225m-                 \"name\": \"Medium\",\u001b[49m\u001b[39m\n    \u001b[38;5;90m\u001b[48;5;225m-               },\u001b[49m\u001b[39m\n    \u001b[38;5;90m\u001b[48;5;225m-             ],\u001b[49m\u001b[39m\n    \u001b[38;5;90m\u001b[48;5;225m-             \"title\": \"Blank.Foundation\",\u001b[49m\u001b[39m\n    \u001b[38;5;90m\u001b[48;5;225m-           }\u001b[49m\u001b[39m\n    \u001b[38;5;90m\u001b[48;5;225m-         }\u001b[49m\u001b[39m\n    \u001b[2m          rel=\"noopener noreferrer\"\u001b[22m\n    \u001b[2m          target=\"_blank\"\u001b[22m\n    \u001b[2m        >\u001b[22m\n    \u001b[2m          Discord\u001b[22m\n    \u001b[2m        </a>\u001b[22m\n    \u001b[2m        <a\u001b[22m\n    \u001b[2m          href=\"https://twitter.com/blankfdn\"\u001b[22m\n    \u001b[38;5;90m\u001b[48;5;225m-         props={\u001b[49m\u001b[39m\n    \u001b[38;5;90m\u001b[48;5;225m-           Object {\u001b[49m\u001b[39m\n    \u001b[38;5;90m\u001b[48;5;225m-             \"children\": \"Example Link\",\u001b[49m\u001b[39m\n    \u001b[38;5;90m\u001b[48;5;225m-             \"href\": \"https://www.example.com\",\u001b[49m\u001b[39m\n    \u001b[38;5;90m\u001b[48;5;225m-             \"social\": Array [\u001b[49m\u001b[39m\n    \u001b[38;5;90m\u001b[48;5;225m-               Object {\u001b[49m\u001b[39m\n    \u001b[38;5;90m\u001b[48;5;225m-                 \"href\": \"https://discord.gg/HZM2jcHdEU\",\u001b[49m\u001b[39m\n    \u001b[38;5;90m\u001b[48;5;225m-                 \"name\": \"Discord\",\u001b[49m\u001b[39m\n    \u001b[38;5;90m\u001b[48;5;225m-               },\u001b[49m\u001b[39m\n    \u001b[38;5;90m\u001b[48;5;225m-               Object {\u001b[49m\u001b[39m\n    \u001b[38;5;90m\u001b[48;5;225m-                 \"href\": \"https://twitter.com/blankfdn\",\u001b[49m\u001b[39m\n    \u001b[38;5;90m\u001b[48;5;225m-                 \"name\": \"Twitter\",\u001b[49m\u001b[39m\n    \u001b[38;5;90m\u001b[48;5;225m-               },\u001b[49m\u001b[39m\n    \u001b[38;5;90m\u001b[48;5;225m-               Object {\u001b[49m\u001b[39m\n    \u001b[38;5;90m\u001b[48;5;225m-                 \"href\": \"https://medium.com/@blankfdn\",\u001b[49m\u001b[39m\n    \u001b[38;5;90m\u001b[48;5;225m-                 \"name\": \"Medium\",\u001b[49m\u001b[39m\n    \u001b[38;5;90m\u001b[48;5;225m-               },\u001b[49m\u001b[39m\n    \u001b[38;5;90m\u001b[48;5;225m-             ],\u001b[49m\u001b[39m\n    \u001b[38;5;90m\u001b[48;5;225m-             \"title\": \"Blank.Foundation\",\u001b[49m\u001b[39m\n    \u001b[38;5;90m\u001b[48;5;225m-           }\u001b[49m\u001b[39m\n    \u001b[38;5;90m\u001b[48;5;225m-         }\u001b[49m\u001b[39m\n    \u001b[2m          rel=\"noopener noreferrer\"\u001b[22m\n    \u001b[2m          target=\"_blank\"\u001b[22m\n    \u001b[2m        >\u001b[22m\n    \u001b[2m          Twitter\u001b[22m\n    \u001b[2m        </a>\u001b[22m\n    \u001b[2m        <a\u001b[22m\n    \u001b[2m          href=\"https://medium.com/@blankfdn\"\u001b[22m\n    \u001b[38;5;90m\u001b[48;5;225m-         props={\u001b[49m\u001b[39m\n    \u001b[38;5;90m\u001b[48;5;225m-           Object {\u001b[49m\u001b[39m\n    \u001b[38;5;90m\u001b[48;5;225m-             \"children\": \"Example Link\",\u001b[49m\u001b[39m\n    \u001b[38;5;90m\u001b[48;5;225m-             \"href\": \"https://www.example.com\",\u001b[49m\u001b[39m\n    \u001b[38;5;90m\u001b[48;5;225m-             \"social\": Array [\u001b[49m\u001b[39m\n    \u001b[38;5;90m\u001b[48;5;225m-               Object {\u001b[49m\u001b[39m\n    \u001b[38;5;90m\u001b[48;5;225m-                 \"href\": \"https://discord.gg/HZM2jcHdEU\",\u001b[49m\u001b[39m\n    \u001b[38;5;90m\u001b[48;5;225m-                 \"name\": \"Discord\",\u001b[49m\u001b[39m\n    \u001b[38;5;90m\u001b[48;5;225m-               },\u001b[49m\u001b[39m\n    \u001b[38;5;90m\u001b[48;5;225m-               Object {\u001b[49m\u001b[39m\n    \u001b[38;5;90m\u001b[48;5;225m-                 \"href\": \"https://twitter.com/blankfdn\",\u001b[49m\u001b[39m\n    \u001b[38;5;90m\u001b[48;5;225m-                 \"name\": \"Twitter\",\u001b[49m\u001b[39m\n    \u001b[38;5;90m\u001b[48;5;225m-               },\u001b[49m\u001b[39m\n    \u001b[38;5;90m\u001b[48;5;225m-               Object {\u001b[49m\u001b[39m\n    \u001b[38;5;90m\u001b[48;5;225m-                 \"href\": \"https://medium.com/@blankfdn\",\u001b[49m\u001b[39m\n    \u001b[38;5;90m\u001b[48;5;225m-                 \"name\": \"Medium\",\u001b[49m\u001b[39m\n    \u001b[38;5;90m\u001b[48;5;225m-               },\u001b[49m\u001b[39m\n    \u001b[38;5;90m\u001b[48;5;225m-             ],\u001b[49m\u001b[39m\n    \u001b[38;5;90m\u001b[48;5;225m-             \"title\": \"Blank.Foundation\",\u001b[49m\u001b[39m\n    \u001b[38;5;90m\u001b[48;5;225m-           }\u001b[49m\u001b[39m\n    \u001b[38;5;90m\u001b[48;5;225m-         }\u001b[49m\u001b[39m\n    \u001b[2m          rel=\"noopener noreferrer\"\u001b[22m\n    \u001b[2m          target=\"_blank\"\u001b[22m\n    \u001b[2m        >\u001b[22m\n    \u001b[2m          Medium\u001b[22m\n    \u001b[2m        </a>\u001b[22m\n\u001b[2m\u001b[22m\n\u001b[2m    \u001b[0m \u001b[90m  6 |\u001b[39m   it(\u001b[32m'renders correctly'\u001b[39m\u001b[33m,\u001b[39m () \u001b[33m=>\u001b[39m {\u001b[0m\u001b[22m\n\u001b[2m    \u001b[0m \u001b[90m  7 |\u001b[39m     \u001b[36mconst\u001b[39m rendered \u001b[33m=\u001b[39m \u001b[33mTestRenderer\u001b[39m\u001b[33m.\u001b[39mcreate(\u001b[33m<\u001b[39m\u001b[33mBlankFooter\u001b[39m \u001b[33m/\u001b[39m\u001b[33m>\u001b[39m)\u001b[33m.\u001b[39mtoJSON()\u001b[33m;\u001b[39m\u001b[0m\u001b[22m\n\u001b[2m    \u001b[0m\u001b[31m\u001b[1m>\u001b[22m\u001b[2m\u001b[39m\u001b[90m  8 |\u001b[39m     expect(rendered)\u001b[33m.\u001b[39mtoMatchSnapshot()\u001b[0m\u001b[22m\n\u001b[2m    \u001b[0m \u001b[90m    |\u001b[39m                      \u001b[31m\u001b[1m^\u001b[22m\u001b[2m\u001b[39m\u001b[0m\u001b[22m\n\u001b[2m    \u001b[0m \u001b[90m  9 |\u001b[39m   })\u001b[33m;\u001b[39m\u001b[0m\u001b[22m\n\u001b[2m    \u001b[0m \u001b[90m 10 |\u001b[39m })\u001b[33m;\u001b[39m\u001b[0m\u001b[22m\n\u001b[2m\u001b[22m\n\u001b[2m      \u001b[2mat Object.<anonymous> (\u001b[22m\u001b[2m\u001b[0m\u001b[36m__tests__/pages/_components/BlankFooter_test.js\u001b[39m\u001b[0m\u001b[2m:8:22)\u001b[22m\u001b[2m\u001b[22m\n"
-    },
-    {
-      "leaks": false,
-      "numFailingTests": 1,
-      "numPassingTests": 0,
-      "numPendingTests": 0,
-      "numTodoTests": 0,
-      "openHandles": [],
-      "perfStats": {
-        "end": 1633702190659,
-        "runtime": 2887,
-        "slow": false,
-        "start": 1633702187772
-      },
-      "skipped": false,
-      "snapshot": {
-        "added": 0,
-        "fileDeleted": false,
-        "matched": 0,
-        "unchecked": 0,
-        "uncheckedKeys": [],
-        "unmatched": 1,
-        "updated": 0
-      },
-      "testFilePath": "/Users/jaredcosulich/Desktop/NextTemplate/BlankWebsite/__tests__/pages/_components/BlankLayout_test.js",
-      "testResults": [
-        {
-          "ancestorTitles": [
-            "BlankLayout"
-          ],
-          "duration": 282,
-          "failureDetails": [
-            {
-              "matcherResult": {
-                "actual": "<div\n  className=\"font-roboto-mono text-sm bg-white text-gray-900 flex flex-col h-screen\"\n>\n  <div\n    className=\"py-12 p-6 bg-white text-black leading-10\"\n  >\n    <div\n      className=\"px-24 flex flex-row justify-between\"\n    >\n      <a\n        href=\"/\"\n        onClick={[Function]}\n        onMouseEnter={[Function]}\n      >\n        Blank.Foundation\n      </a>\n      <div\n        className=\"space-x-2 flex flex-row justify-between\"\n      >\n        Music\n      </div>\n    </div>\n  </div>\n  <div>\n    child1\n  </div>\n  <div>\n    child2\n  </div>\n  <div>\n    child3\n  </div>\n  <div\n    className=\" p-6 bg-gray-900 text-white text-xs leading-10\"\n  >\n    <div\n      className=\"px-24 flex flex-row justify-between\"\n    >\n      <div\n        className=\"space-x-4 flex flex-row justify-start\"\n      >\n        <a\n          href=\"https://discord.gg/HZM2jcHdEU\"\n          rel=\"noopener noreferrer\"\n          target=\"_blank\"\n        >\n          Discord\n        </a>\n        <a\n          href=\"https://twitter.com/blankfdn\"\n          rel=\"noopener noreferrer\"\n          target=\"_blank\"\n        >\n          Twitter\n        </a>\n        <a\n          href=\"https://medium.com/@blankfdn\"\n          rel=\"noopener noreferrer\"\n          target=\"_blank\"\n        >\n          Medium\n        </a>\n      </div>\n    </div>\n  </div>\n</div>",
-                "expected": "<div\n  className=\"font-roboto-mono text-sm bg-white text-gray-900 flex flex-col h-screen\"\n>\n  <div\n    className=\"py-12 p-6 bg-white text-black leading-10\"\n  >\n    <div\n      className=\"px-24 flex flex-row justify-between\"\n    >\n      Blank.Foundation\n      <div\n        className=\"space-x-2 flex flex-row justify-between\"\n      >\n        Music\n      </div>\n    </div>\n  </div>\n  <div>\n    child1\n  </div>\n  <div>\n    child2\n  </div>\n  <div>\n    child3\n  </div>\n  <div\n    className=\" p-6 bg-gray-900 text-white text-xs leading-10\"\n  >\n    <div\n      className=\"px-24 flex flex-row justify-between\"\n    >\n      <div\n        className=\"space-x-4 flex flex-row justify-start\"\n      >\n        <a\n          href=\"https://discord.gg/HZM2jcHdEU\"\n          props={\n            Object {\n              \"children\": \"Example Link\",\n              \"href\": \"https://www.example.com\",\n              \"social\": Array [\n                Object {\n                  \"href\": \"https://discord.gg/HZM2jcHdEU\",\n                  \"name\": \"Discord\",\n                },\n                Object {\n                  \"href\": \"https://twitter.com/blankfdn\",\n                  \"name\": \"Twitter\",\n                },\n                Object {\n                  \"href\": \"https://medium.com/@blankfdn\",\n                  \"name\": \"Medium\",\n                },\n              ],\n              \"title\": \"Blank.Foundation\",\n            }\n          }\n          rel=\"noopener noreferrer\"\n          target=\"_blank\"\n        >\n          Discord\n        </a>\n        <a\n          href=\"https://twitter.com/blankfdn\"\n          props={\n            Object {\n              \"children\": \"Example Link\",\n              \"href\": \"https://www.example.com\",\n              \"social\": Array [\n                Object {\n                  \"href\": \"https://discord.gg/HZM2jcHdEU\",\n                  \"name\": \"Discord\",\n                },\n                Object {\n                  \"href\": \"https://twitter.com/blankfdn\",\n                  \"name\": \"Twitter\",\n                },\n                Object {\n                  \"href\": \"https://medium.com/@blankfdn\",\n                  \"name\": \"Medium\",\n                },\n              ],\n              \"title\": \"Blank.Foundation\",\n            }\n          }\n          rel=\"noopener noreferrer\"\n          target=\"_blank\"\n        >\n          Twitter\n        </a>\n        <a\n          href=\"https://medium.com/@blankfdn\"\n          props={\n            Object {\n              \"children\": \"Example Link\",\n              \"href\": \"https://www.example.com\",\n              \"social\": Array [\n                Object {\n                  \"href\": \"https://discord.gg/HZM2jcHdEU\",\n                  \"name\": \"Discord\",\n                },\n                Object {\n                  \"href\": \"https://twitter.com/blankfdn\",\n                  \"name\": \"Twitter\",\n                },\n                Object {\n                  \"href\": \"https://medium.com/@blankfdn\",\n                  \"name\": \"Medium\",\n                },\n              ],\n              \"title\": \"Blank.Foundation\",\n            }\n          }\n          rel=\"noopener noreferrer\"\n          target=\"_blank\"\n        >\n          Medium\n        </a>\n      </div>\n    </div>\n  </div>\n</div>",
-                "message": "\u001b[2mexpect(\u001b[22m\u001b[38;5;23m\u001b[48;5;195mreceived\u001b[49m\u001b[39m\u001b[2m).\u001b[22mtoMatchSnapshot\u001b[2m()\u001b[22m\n\nSnapshot name: `BlankLayout renders correctly 1`\n\n\u001b[38;5;90m\u001b[48;5;225m- Snapshot  - 63\u001b[49m\u001b[39m\n\u001b[38;5;23m\u001b[48;5;195m+ Received  +  6\u001b[49m\u001b[39m\n\n\u001b[33m@@ -5,11 +5,17 @@\u001b[39m\n\u001b[2m      className=\"py-12 p-6 bg-white text-black leading-10\"\u001b[22m\n\u001b[2m    >\u001b[22m\n\u001b[2m      <div\u001b[22m\n\u001b[2m        className=\"px-24 flex flex-row justify-between\"\u001b[22m\n\u001b[2m      >\u001b[22m\n\u001b[38;5;23m\u001b[48;5;195m+       <a\u001b[49m\u001b[39m\n\u001b[38;5;23m\u001b[48;5;195m+         href=\"/\"\u001b[49m\u001b[39m\n\u001b[38;5;23m\u001b[48;5;195m+         onClick={[Function]}\u001b[49m\u001b[39m\n\u001b[38;5;23m\u001b[48;5;195m+         onMouseEnter={[Function]}\u001b[49m\u001b[39m\n\u001b[38;5;23m\u001b[48;5;195m+       >\u001b[49m\u001b[39m\n\u001b[2m          Blank.Foundation\u001b[22m\n\u001b[38;5;23m\u001b[48;5;195m+       </a>\u001b[49m\u001b[39m\n\u001b[2m        <div\u001b[22m\n\u001b[2m          className=\"space-x-2 flex flex-row justify-between\"\u001b[22m\n\u001b[2m        >\u001b[22m\n\u001b[2m          Music\u001b[22m\n\u001b[2m        </div>\u001b[22m\n\u001b[33m@@ -33,87 +39,24 @@\u001b[39m\n\u001b[2m        <div\u001b[22m\n\u001b[2m          className=\"space-x-4 flex flex-row justify-start\"\u001b[22m\n\u001b[2m        >\u001b[22m\n\u001b[2m          <a\u001b[22m\n\u001b[2m            href=\"https://discord.gg/HZM2jcHdEU\"\u001b[22m\n\u001b[38;5;90m\u001b[48;5;225m-           props={\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-             Object {\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-               \"children\": \"Example Link\",\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-               \"href\": \"https://www.example.com\",\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-               \"social\": Array [\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-                 Object {\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-                   \"href\": \"https://discord.gg/HZM2jcHdEU\",\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-                   \"name\": \"Discord\",\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-                 },\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-                 Object {\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-                   \"href\": \"https://twitter.com/blankfdn\",\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-                   \"name\": \"Twitter\",\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-                 },\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-                 Object {\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-                   \"href\": \"https://medium.com/@blankfdn\",\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-                   \"name\": \"Medium\",\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-                 },\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-               ],\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-               \"title\": \"Blank.Foundation\",\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-             }\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-           }\u001b[49m\u001b[39m\n\u001b[2m            rel=\"noopener noreferrer\"\u001b[22m\n\u001b[2m            target=\"_blank\"\u001b[22m\n\u001b[2m          >\u001b[22m\n\u001b[2m            Discord\u001b[22m\n\u001b[2m          </a>\u001b[22m\n\u001b[2m          <a\u001b[22m\n\u001b[2m            href=\"https://twitter.com/blankfdn\"\u001b[22m\n\u001b[38;5;90m\u001b[48;5;225m-           props={\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-             Object {\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-               \"children\": \"Example Link\",\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-               \"href\": \"https://www.example.com\",\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-               \"social\": Array [\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-                 Object {\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-                   \"href\": \"https://discord.gg/HZM2jcHdEU\",\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-                   \"name\": \"Discord\",\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-                 },\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-                 Object {\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-                   \"href\": \"https://twitter.com/blankfdn\",\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-                   \"name\": \"Twitter\",\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-                 },\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-                 Object {\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-                   \"href\": \"https://medium.com/@blankfdn\",\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-                   \"name\": \"Medium\",\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-                 },\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-               ],\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-               \"title\": \"Blank.Foundation\",\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-             }\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-           }\u001b[49m\u001b[39m\n\u001b[2m            rel=\"noopener noreferrer\"\u001b[22m\n\u001b[2m            target=\"_blank\"\u001b[22m\n\u001b[2m          >\u001b[22m\n\u001b[2m            Twitter\u001b[22m\n\u001b[2m          </a>\u001b[22m\n\u001b[2m          <a\u001b[22m\n\u001b[2m            href=\"https://medium.com/@blankfdn\"\u001b[22m\n\u001b[38;5;90m\u001b[48;5;225m-           props={\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-             Object {\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-               \"children\": \"Example Link\",\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-               \"href\": \"https://www.example.com\",\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-               \"social\": Array [\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-                 Object {\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-                   \"href\": \"https://discord.gg/HZM2jcHdEU\",\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-                   \"name\": \"Discord\",\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-                 },\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-                 Object {\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-                   \"href\": \"https://twitter.com/blankfdn\",\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-                   \"name\": \"Twitter\",\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-                 },\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-                 Object {\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-                   \"href\": \"https://medium.com/@blankfdn\",\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-                   \"name\": \"Medium\",\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-                 },\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-               ],\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-               \"title\": \"Blank.Foundation\",\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-             }\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-           }\u001b[49m\u001b[39m\n\u001b[2m            rel=\"noopener noreferrer\"\u001b[22m\n\u001b[2m            target=\"_blank\"\u001b[22m\n\u001b[2m          >\u001b[22m\n\u001b[2m            Medium\u001b[22m\n\u001b[2m          </a>\u001b[22m",
-                "name": "toMatchSnapshot",
-                "pass": false
-              }
-            }
-          ],
-          "failureMessages": [
-            "Error: \u001b[2mexpect(\u001b[22m\u001b[38;5;23m\u001b[48;5;195mreceived\u001b[49m\u001b[39m\u001b[2m).\u001b[22mtoMatchSnapshot\u001b[2m()\u001b[22m\n\nSnapshot name: `BlankLayout renders correctly 1`\n\n\u001b[38;5;90m\u001b[48;5;225m- Snapshot  - 63\u001b[49m\u001b[39m\n\u001b[38;5;23m\u001b[48;5;195m+ Received  +  6\u001b[49m\u001b[39m\n\n\u001b[33m@@ -5,11 +5,17 @@\u001b[39m\n\u001b[2m      className=\"py-12 p-6 bg-white text-black leading-10\"\u001b[22m\n\u001b[2m    >\u001b[22m\n\u001b[2m      <div\u001b[22m\n\u001b[2m        className=\"px-24 flex flex-row justify-between\"\u001b[22m\n\u001b[2m      >\u001b[22m\n\u001b[38;5;23m\u001b[48;5;195m+       <a\u001b[49m\u001b[39m\n\u001b[38;5;23m\u001b[48;5;195m+         href=\"/\"\u001b[49m\u001b[39m\n\u001b[38;5;23m\u001b[48;5;195m+         onClick={[Function]}\u001b[49m\u001b[39m\n\u001b[38;5;23m\u001b[48;5;195m+         onMouseEnter={[Function]}\u001b[49m\u001b[39m\n\u001b[38;5;23m\u001b[48;5;195m+       >\u001b[49m\u001b[39m\n\u001b[2m          Blank.Foundation\u001b[22m\n\u001b[38;5;23m\u001b[48;5;195m+       </a>\u001b[49m\u001b[39m\n\u001b[2m        <div\u001b[22m\n\u001b[2m          className=\"space-x-2 flex flex-row justify-between\"\u001b[22m\n\u001b[2m        >\u001b[22m\n\u001b[2m          Music\u001b[22m\n\u001b[2m        </div>\u001b[22m\n\u001b[33m@@ -33,87 +39,24 @@\u001b[39m\n\u001b[2m        <div\u001b[22m\n\u001b[2m          className=\"space-x-4 flex flex-row justify-start\"\u001b[22m\n\u001b[2m        >\u001b[22m\n\u001b[2m          <a\u001b[22m\n\u001b[2m            href=\"https://discord.gg/HZM2jcHdEU\"\u001b[22m\n\u001b[38;5;90m\u001b[48;5;225m-           props={\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-             Object {\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-               \"children\": \"Example Link\",\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-               \"href\": \"https://www.example.com\",\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-               \"social\": Array [\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-                 Object {\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-                   \"href\": \"https://discord.gg/HZM2jcHdEU\",\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-                   \"name\": \"Discord\",\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-                 },\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-                 Object {\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-                   \"href\": \"https://twitter.com/blankfdn\",\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-                   \"name\": \"Twitter\",\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-                 },\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-                 Object {\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-                   \"href\": \"https://medium.com/@blankfdn\",\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-                   \"name\": \"Medium\",\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-                 },\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-               ],\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-               \"title\": \"Blank.Foundation\",\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-             }\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-           }\u001b[49m\u001b[39m\n\u001b[2m            rel=\"noopener noreferrer\"\u001b[22m\n\u001b[2m            target=\"_blank\"\u001b[22m\n\u001b[2m          >\u001b[22m\n\u001b[2m            Discord\u001b[22m\n\u001b[2m          </a>\u001b[22m\n\u001b[2m          <a\u001b[22m\n\u001b[2m            href=\"https://twitter.com/blankfdn\"\u001b[22m\n\u001b[38;5;90m\u001b[48;5;225m-           props={\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-             Object {\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-               \"children\": \"Example Link\",\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-               \"href\": \"https://www.example.com\",\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-               \"social\": Array [\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-                 Object {\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-                   \"href\": \"https://discord.gg/HZM2jcHdEU\",\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-                   \"name\": \"Discord\",\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-                 },\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-                 Object {\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-                   \"href\": \"https://twitter.com/blankfdn\",\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-                   \"name\": \"Twitter\",\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-                 },\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-                 Object {\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-                   \"href\": \"https://medium.com/@blankfdn\",\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-                   \"name\": \"Medium\",\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-                 },\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-               ],\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-               \"title\": \"Blank.Foundation\",\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-             }\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-           }\u001b[49m\u001b[39m\n\u001b[2m            rel=\"noopener noreferrer\"\u001b[22m\n\u001b[2m            target=\"_blank\"\u001b[22m\n\u001b[2m          >\u001b[22m\n\u001b[2m            Twitter\u001b[22m\n\u001b[2m          </a>\u001b[22m\n\u001b[2m          <a\u001b[22m\n\u001b[2m            href=\"https://medium.com/@blankfdn\"\u001b[22m\n\u001b[38;5;90m\u001b[48;5;225m-           props={\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-             Object {\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-               \"children\": \"Example Link\",\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-               \"href\": \"https://www.example.com\",\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-               \"social\": Array [\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-                 Object {\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-                   \"href\": \"https://discord.gg/HZM2jcHdEU\",\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-                   \"name\": \"Discord\",\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-                 },\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-                 Object {\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-                   \"href\": \"https://twitter.com/blankfdn\",\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-                   \"name\": \"Twitter\",\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-                 },\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-                 Object {\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-                   \"href\": \"https://medium.com/@blankfdn\",\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-                   \"name\": \"Medium\",\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-                 },\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-               ],\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-               \"title\": \"Blank.Foundation\",\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-             }\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-           }\u001b[49m\u001b[39m\n\u001b[2m            rel=\"noopener noreferrer\"\u001b[22m\n\u001b[2m            target=\"_blank\"\u001b[22m\n\u001b[2m          >\u001b[22m\n\u001b[2m            Medium\u001b[22m\n\u001b[2m          </a>\u001b[22m\n    at Object.<anonymous> (/Users/jaredcosulich/Desktop/NextTemplate/BlankWebsite/__tests__/pages/_components/BlankLayout_test.js:8:22)\n    at Promise.then.completed (/Users/jaredcosulich/Desktop/NextTemplate/BlankWebsite/node_modules/jest-circus/build/utils.js:390:28)\n    at new Promise (<anonymous>)\n    at callAsyncCircusFn (/Users/jaredcosulich/Desktop/NextTemplate/BlankWebsite/node_modules/jest-circus/build/utils.js:315:10)\n    at _callCircusTest (/Users/jaredcosulich/Desktop/NextTemplate/BlankWebsite/node_modules/jest-circus/build/run.js:218:40)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)\n    at _runTest (/Users/jaredcosulich/Desktop/NextTemplate/BlankWebsite/node_modules/jest-circus/build/run.js:155:3)\n    at _runTestsForDescribeBlock (/Users/jaredcosulich/Desktop/NextTemplate/BlankWebsite/node_modules/jest-circus/build/run.js:66:9)\n    at _runTestsForDescribeBlock (/Users/jaredcosulich/Desktop/NextTemplate/BlankWebsite/node_modules/jest-circus/build/run.js:60:9)\n    at run (/Users/jaredcosulich/Desktop/NextTemplate/BlankWebsite/node_modules/jest-circus/build/run.js:25:3)\n    at runAndTransformResultsToJestFormat (/Users/jaredcosulich/Desktop/NextTemplate/BlankWebsite/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapterInit.js:167:21)\n    at jestAdapter (/Users/jaredcosulich/Desktop/NextTemplate/BlankWebsite/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapter.js:82:19)\n    at runTestInternal (/Users/jaredcosulich/Desktop/NextTemplate/BlankWebsite/node_modules/jest-runner/build/runTest.js:389:16)\n    at runTest (/Users/jaredcosulich/Desktop/NextTemplate/BlankWebsite/node_modules/jest-runner/build/runTest.js:475:34)\n    at Object.worker (/Users/jaredcosulich/Desktop/NextTemplate/BlankWebsite/node_modules/jest-runner/build/testWorker.js:133:12)"
-          ],
-          "fullName": "BlankLayout renders correctly",
-          "invocations": 1,
-          "location": null,
-          "numPassingAsserts": 0,
-          "status": "failed",
-          "title": "renders correctly"
-        }
-      ],
-      "failureMessage": "\u001b[1m\u001b[31m  \u001b[1m● \u001b[22m\u001b[1mBlankLayout › renders correctly\u001b[39m\u001b[22m\n\n    \u001b[2mexpect(\u001b[22m\u001b[38;5;23m\u001b[48;5;195mreceived\u001b[49m\u001b[39m\u001b[2m).\u001b[22mtoMatchSnapshot\u001b[2m()\u001b[22m\n\n    Snapshot name: `BlankLayout renders correctly 1`\n\n    \u001b[38;5;90m\u001b[48;5;225m- Snapshot  - 63\u001b[49m\u001b[39m\n    \u001b[38;5;23m\u001b[48;5;195m+ Received  +  6\u001b[49m\u001b[39m\n\n    \u001b[33m@@ -5,11 +5,17 @@\u001b[39m\n    \u001b[2m      className=\"py-12 p-6 bg-white text-black leading-10\"\u001b[22m\n    \u001b[2m    >\u001b[22m\n    \u001b[2m      <div\u001b[22m\n    \u001b[2m        className=\"px-24 flex flex-row justify-between\"\u001b[22m\n    \u001b[2m      >\u001b[22m\n    \u001b[38;5;23m\u001b[48;5;195m+       <a\u001b[49m\u001b[39m\n    \u001b[38;5;23m\u001b[48;5;195m+         href=\"/\"\u001b[49m\u001b[39m\n    \u001b[38;5;23m\u001b[48;5;195m+         onClick={[Function]}\u001b[49m\u001b[39m\n    \u001b[38;5;23m\u001b[48;5;195m+         onMouseEnter={[Function]}\u001b[49m\u001b[39m\n    \u001b[38;5;23m\u001b[48;5;195m+       >\u001b[49m\u001b[39m\n    \u001b[2m          Blank.Foundation\u001b[22m\n    \u001b[38;5;23m\u001b[48;5;195m+       </a>\u001b[49m\u001b[39m\n    \u001b[2m        <div\u001b[22m\n    \u001b[2m          className=\"space-x-2 flex flex-row justify-between\"\u001b[22m\n    \u001b[2m        >\u001b[22m\n    \u001b[2m          Music\u001b[22m\n    \u001b[2m        </div>\u001b[22m\n    \u001b[33m@@ -33,87 +39,24 @@\u001b[39m\n    \u001b[2m        <div\u001b[22m\n    \u001b[2m          className=\"space-x-4 flex flex-row justify-start\"\u001b[22m\n    \u001b[2m        >\u001b[22m\n    \u001b[2m          <a\u001b[22m\n    \u001b[2m            href=\"https://discord.gg/HZM2jcHdEU\"\u001b[22m\n    \u001b[38;5;90m\u001b[48;5;225m-           props={\u001b[49m\u001b[39m\n    \u001b[38;5;90m\u001b[48;5;225m-             Object {\u001b[49m\u001b[39m\n    \u001b[38;5;90m\u001b[48;5;225m-               \"children\": \"Example Link\",\u001b[49m\u001b[39m\n    \u001b[38;5;90m\u001b[48;5;225m-               \"href\": \"https://www.example.com\",\u001b[49m\u001b[39m\n    \u001b[38;5;90m\u001b[48;5;225m-               \"social\": Array [\u001b[49m\u001b[39m\n    \u001b[38;5;90m\u001b[48;5;225m-                 Object {\u001b[49m\u001b[39m\n    \u001b[38;5;90m\u001b[48;5;225m-                   \"href\": \"https://discord.gg/HZM2jcHdEU\",\u001b[49m\u001b[39m\n    \u001b[38;5;90m\u001b[48;5;225m-                   \"name\": \"Discord\",\u001b[49m\u001b[39m\n    \u001b[38;5;90m\u001b[48;5;225m-                 },\u001b[49m\u001b[39m\n    \u001b[38;5;90m\u001b[48;5;225m-                 Object {\u001b[49m\u001b[39m\n    \u001b[38;5;90m\u001b[48;5;225m-                   \"href\": \"https://twitter.com/blankfdn\",\u001b[49m\u001b[39m\n    \u001b[38;5;90m\u001b[48;5;225m-                   \"name\": \"Twitter\",\u001b[49m\u001b[39m\n    \u001b[38;5;90m\u001b[48;5;225m-                 },\u001b[49m\u001b[39m\n    \u001b[38;5;90m\u001b[48;5;225m-                 Object {\u001b[49m\u001b[39m\n    \u001b[38;5;90m\u001b[48;5;225m-                   \"href\": \"https://medium.com/@blankfdn\",\u001b[49m\u001b[39m\n    \u001b[38;5;90m\u001b[48;5;225m-                   \"name\": \"Medium\",\u001b[49m\u001b[39m\n    \u001b[38;5;90m\u001b[48;5;225m-                 },\u001b[49m\u001b[39m\n    \u001b[38;5;90m\u001b[48;5;225m-               ],\u001b[49m\u001b[39m\n    \u001b[38;5;90m\u001b[48;5;225m-               \"title\": \"Blank.Foundation\",\u001b[49m\u001b[39m\n    \u001b[38;5;90m\u001b[48;5;225m-             }\u001b[49m\u001b[39m\n    \u001b[38;5;90m\u001b[48;5;225m-           }\u001b[49m\u001b[39m\n    \u001b[2m            rel=\"noopener noreferrer\"\u001b[22m\n    \u001b[2m            target=\"_blank\"\u001b[22m\n    \u001b[2m          >\u001b[22m\n    \u001b[2m            Discord\u001b[22m\n    \u001b[2m          </a>\u001b[22m\n    \u001b[2m          <a\u001b[22m\n    \u001b[2m            href=\"https://twitter.com/blankfdn\"\u001b[22m\n    \u001b[38;5;90m\u001b[48;5;225m-           props={\u001b[49m\u001b[39m\n    \u001b[38;5;90m\u001b[48;5;225m-             Object {\u001b[49m\u001b[39m\n    \u001b[38;5;90m\u001b[48;5;225m-               \"children\": \"Example Link\",\u001b[49m\u001b[39m\n    \u001b[38;5;90m\u001b[48;5;225m-               \"href\": \"https://www.example.com\",\u001b[49m\u001b[39m\n    \u001b[38;5;90m\u001b[48;5;225m-               \"social\": Array [\u001b[49m\u001b[39m\n    \u001b[38;5;90m\u001b[48;5;225m-                 Object {\u001b[49m\u001b[39m\n    \u001b[38;5;90m\u001b[48;5;225m-                   \"href\": \"https://discord.gg/HZM2jcHdEU\",\u001b[49m\u001b[39m\n    \u001b[38;5;90m\u001b[48;5;225m-                   \"name\": \"Discord\",\u001b[49m\u001b[39m\n    \u001b[38;5;90m\u001b[48;5;225m-                 },\u001b[49m\u001b[39m\n    \u001b[38;5;90m\u001b[48;5;225m-                 Object {\u001b[49m\u001b[39m\n    \u001b[38;5;90m\u001b[48;5;225m-                   \"href\": \"https://twitter.com/blankfdn\",\u001b[49m\u001b[39m\n    \u001b[38;5;90m\u001b[48;5;225m-                   \"name\": \"Twitter\",\u001b[49m\u001b[39m\n    \u001b[38;5;90m\u001b[48;5;225m-                 },\u001b[49m\u001b[39m\n    \u001b[38;5;90m\u001b[48;5;225m-                 Object {\u001b[49m\u001b[39m\n    \u001b[38;5;90m\u001b[48;5;225m-                   \"href\": \"https://medium.com/@blankfdn\",\u001b[49m\u001b[39m\n    \u001b[38;5;90m\u001b[48;5;225m-                   \"name\": \"Medium\",\u001b[49m\u001b[39m\n    \u001b[38;5;90m\u001b[48;5;225m-                 },\u001b[49m\u001b[39m\n    \u001b[38;5;90m\u001b[48;5;225m-               ],\u001b[49m\u001b[39m\n    \u001b[38;5;90m\u001b[48;5;225m-               \"title\": \"Blank.Foundation\",\u001b[49m\u001b[39m\n    \u001b[38;5;90m\u001b[48;5;225m-             }\u001b[49m\u001b[39m\n    \u001b[38;5;90m\u001b[48;5;225m-           }\u001b[49m\u001b[39m\n    \u001b[2m            rel=\"noopener noreferrer\"\u001b[22m\n    \u001b[2m            target=\"_blank\"\u001b[22m\n    \u001b[2m          >\u001b[22m\n    \u001b[2m            Twitter\u001b[22m\n    \u001b[2m          </a>\u001b[22m\n    \u001b[2m          <a\u001b[22m\n    \u001b[2m            href=\"https://medium.com/@blankfdn\"\u001b[22m\n    \u001b[38;5;90m\u001b[48;5;225m-           props={\u001b[49m\u001b[39m\n    \u001b[38;5;90m\u001b[48;5;225m-             Object {\u001b[49m\u001b[39m\n    \u001b[38;5;90m\u001b[48;5;225m-               \"children\": \"Example Link\",\u001b[49m\u001b[39m\n    \u001b[38;5;90m\u001b[48;5;225m-               \"href\": \"https://www.example.com\",\u001b[49m\u001b[39m\n    \u001b[38;5;90m\u001b[48;5;225m-               \"social\": Array [\u001b[49m\u001b[39m\n    \u001b[38;5;90m\u001b[48;5;225m-                 Object {\u001b[49m\u001b[39m\n    \u001b[38;5;90m\u001b[48;5;225m-                   \"href\": \"https://discord.gg/HZM2jcHdEU\",\u001b[49m\u001b[39m\n    \u001b[38;5;90m\u001b[48;5;225m-                   \"name\": \"Discord\",\u001b[49m\u001b[39m\n    \u001b[38;5;90m\u001b[48;5;225m-                 },\u001b[49m\u001b[39m\n    \u001b[38;5;90m\u001b[48;5;225m-                 Object {\u001b[49m\u001b[39m\n    \u001b[38;5;90m\u001b[48;5;225m-                   \"href\": \"https://twitter.com/blankfdn\",\u001b[49m\u001b[39m\n    \u001b[38;5;90m\u001b[48;5;225m-                   \"name\": \"Twitter\",\u001b[49m\u001b[39m\n    \u001b[38;5;90m\u001b[48;5;225m-                 },\u001b[49m\u001b[39m\n    \u001b[38;5;90m\u001b[48;5;225m-                 Object {\u001b[49m\u001b[39m\n    \u001b[38;5;90m\u001b[48;5;225m-                   \"href\": \"https://medium.com/@blankfdn\",\u001b[49m\u001b[39m\n    \u001b[38;5;90m\u001b[48;5;225m-                   \"name\": \"Medium\",\u001b[49m\u001b[39m\n    \u001b[38;5;90m\u001b[48;5;225m-                 },\u001b[49m\u001b[39m\n    \u001b[38;5;90m\u001b[48;5;225m-               ],\u001b[49m\u001b[39m\n    \u001b[38;5;90m\u001b[48;5;225m-               \"title\": \"Blank.Foundation\",\u001b[49m\u001b[39m\n    \u001b[38;5;90m\u001b[48;5;225m-             }\u001b[49m\u001b[39m\n    \u001b[38;5;90m\u001b[48;5;225m-           }\u001b[49m\u001b[39m\n    \u001b[2m            rel=\"noopener noreferrer\"\u001b[22m\n    \u001b[2m            target=\"_blank\"\u001b[22m\n    \u001b[2m          >\u001b[22m\n    \u001b[2m            Medium\u001b[22m\n    \u001b[2m          </a>\u001b[22m\n\u001b[2m\u001b[22m\n\u001b[2m    \u001b[0m \u001b[90m  6 |\u001b[39m   it(\u001b[32m'renders correctly'\u001b[39m\u001b[33m,\u001b[39m () \u001b[33m=>\u001b[39m {\u001b[0m\u001b[22m\n\u001b[2m    \u001b[0m \u001b[90m  7 |\u001b[39m     \u001b[36mconst\u001b[39m rendered \u001b[33m=\u001b[39m \u001b[33mTestRenderer\u001b[39m\u001b[33m.\u001b[39mcreate(\u001b[33m<\u001b[39m\u001b[33mBlankLayout\u001b[39m \u001b[33m/\u001b[39m\u001b[33m>\u001b[39m)\u001b[33m.\u001b[39mtoJSON()\u001b[33m;\u001b[39m\u001b[0m\u001b[22m\n\u001b[2m    \u001b[0m\u001b[31m\u001b[1m>\u001b[22m\u001b[2m\u001b[39m\u001b[90m  8 |\u001b[39m     expect(rendered)\u001b[33m.\u001b[39mtoMatchSnapshot()\u001b[0m\u001b[22m\n\u001b[2m    \u001b[0m \u001b[90m    |\u001b[39m                      \u001b[31m\u001b[1m^\u001b[22m\u001b[2m\u001b[39m\u001b[0m\u001b[22m\n\u001b[2m    \u001b[0m \u001b[90m  9 |\u001b[39m   })\u001b[33m;\u001b[39m\u001b[0m\u001b[22m\n\u001b[2m    \u001b[0m \u001b[90m 10 |\u001b[39m })\u001b[33m;\u001b[39m\u001b[0m\u001b[22m\n\u001b[2m\u001b[22m\n\u001b[2m      \u001b[2mat Object.<anonymous> (\u001b[22m\u001b[2m\u001b[0m\u001b[36m__tests__/pages/_components/BlankLayout_test.js\u001b[39m\u001b[0m\u001b[2m:8:22)\u001b[22m\u001b[2m\u001b[22m\n"
-    },
-    {
-      "leaks": false,
-      "numFailingTests": 1,
-      "numPassingTests": 0,
-      "numPendingTests": 0,
-      "numTodoTests": 0,
-      "openHandles": [],
-      "perfStats": {
-        "end": 1633702191206,
-        "runtime": 388,
-        "slow": false,
-        "start": 1633702190818
-      },
-      "skipped": false,
-      "snapshot": {
-        "added": 0,
-        "fileDeleted": false,
-        "matched": 0,
-        "unchecked": 0,
-        "uncheckedKeys": [],
-        "unmatched": 1,
-        "updated": 0
-      },
-      "testFilePath": "/Users/jaredcosulich/Desktop/NextTemplate/BlankWebsite/__tests__/pages/_components/NewWindowLink_test.js",
-      "testResults": [
-        {
-          "ancestorTitles": [
-            "NewWindowLink"
-          ],
-          "duration": 6,
-          "failureDetails": [
-            {
-              "matcherResult": {
-                "actual": "<a\n  href=\"https://www.example.com\"\n  rel=\"noopener noreferrer\"\n  target=\"_blank\"\n>\n  Example Link\n</a>",
-                "expected": "<a\n  props={\n    Object {\n      \"children\": \"Example Link\",\n      \"href\": \"https://www.example.com\",\n      \"social\": Array [\n        Object {\n          \"href\": \"https://discord.gg/HZM2jcHdEU\",\n          \"name\": \"Discord\",\n        },\n        Object {\n          \"href\": \"https://twitter.com/blankfdn\",\n          \"name\": \"Twitter\",\n        },\n        Object {\n          \"href\": \"https://medium.com/@blankfdn\",\n          \"name\": \"Medium\",\n        },\n      ],\n      \"title\": \"Blank.Foundation\",\n    }\n  }\n  rel=\"noopener noreferrer\"\n  target=\"_blank\"\n/>",
-                "message": "\u001b[2mexpect(\u001b[22m\u001b[38;5;23m\u001b[48;5;195mreceived\u001b[49m\u001b[39m\u001b[2m).\u001b[22mtoMatchSnapshot\u001b[2m()\u001b[22m\n\nSnapshot name: `NewWindowLink renders correctly 1`\n\n\u001b[38;5;90m\u001b[48;5;225m- Snapshot  - 22\u001b[49m\u001b[39m\n\u001b[38;5;23m\u001b[48;5;195m+ Received  +  4\u001b[49m\u001b[39m\n\n\u001b[2m  <a\u001b[22m\n\u001b[38;5;90m\u001b[48;5;225m-   props={\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-     Object {\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-       \"children\": \"Example Link\",\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-       \"href\": \"https://www.example.com\",\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-       \"social\": Array [\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-         Object {\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-           \"href\": \"https://discord.gg/HZM2jcHdEU\",\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-           \"name\": \"Discord\",\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-         },\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-         Object {\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-           \"href\": \"https://twitter.com/blankfdn\",\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-           \"name\": \"Twitter\",\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-         },\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-         Object {\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-           \"href\": \"https://medium.com/@blankfdn\",\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-           \"name\": \"Medium\",\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-         },\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-       ],\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-       \"title\": \"Blank.Foundation\",\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-     }\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-   }\u001b[49m\u001b[39m\n\u001b[38;5;23m\u001b[48;5;195m+   href=\"https://www.example.com\"\u001b[49m\u001b[39m\n\u001b[2m    rel=\"noopener noreferrer\"\u001b[22m\n\u001b[2m    target=\"_blank\"\u001b[22m\n\u001b[38;5;90m\u001b[48;5;225m- />\u001b[49m\u001b[39m\n\u001b[38;5;23m\u001b[48;5;195m+ >\u001b[49m\u001b[39m\n\u001b[38;5;23m\u001b[48;5;195m+   Example Link\u001b[49m\u001b[39m\n\u001b[38;5;23m\u001b[48;5;195m+ </a>\u001b[49m\u001b[39m",
-                "name": "toMatchSnapshot",
-                "pass": false
-              }
-            }
-          ],
-          "failureMessages": [
-            "Error: \u001b[2mexpect(\u001b[22m\u001b[38;5;23m\u001b[48;5;195mreceived\u001b[49m\u001b[39m\u001b[2m).\u001b[22mtoMatchSnapshot\u001b[2m()\u001b[22m\n\nSnapshot name: `NewWindowLink renders correctly 1`\n\n\u001b[38;5;90m\u001b[48;5;225m- Snapshot  - 22\u001b[49m\u001b[39m\n\u001b[38;5;23m\u001b[48;5;195m+ Received  +  4\u001b[49m\u001b[39m\n\n\u001b[2m  <a\u001b[22m\n\u001b[38;5;90m\u001b[48;5;225m-   props={\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-     Object {\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-       \"children\": \"Example Link\",\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-       \"href\": \"https://www.example.com\",\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-       \"social\": Array [\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-         Object {\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-           \"href\": \"https://discord.gg/HZM2jcHdEU\",\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-           \"name\": \"Discord\",\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-         },\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-         Object {\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-           \"href\": \"https://twitter.com/blankfdn\",\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-           \"name\": \"Twitter\",\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-         },\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-         Object {\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-           \"href\": \"https://medium.com/@blankfdn\",\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-           \"name\": \"Medium\",\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-         },\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-       ],\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-       \"title\": \"Blank.Foundation\",\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-     }\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-   }\u001b[49m\u001b[39m\n\u001b[38;5;23m\u001b[48;5;195m+   href=\"https://www.example.com\"\u001b[49m\u001b[39m\n\u001b[2m    rel=\"noopener noreferrer\"\u001b[22m\n\u001b[2m    target=\"_blank\"\u001b[22m\n\u001b[38;5;90m\u001b[48;5;225m- />\u001b[49m\u001b[39m\n\u001b[38;5;23m\u001b[48;5;195m+ >\u001b[49m\u001b[39m\n\u001b[38;5;23m\u001b[48;5;195m+   Example Link\u001b[49m\u001b[39m\n\u001b[38;5;23m\u001b[48;5;195m+ </a>\u001b[49m\u001b[39m\n    at Object.<anonymous> (/Users/jaredcosulich/Desktop/NextTemplate/BlankWebsite/__tests__/pages/_components/NewWindowLink_test.js:8:22)\n    at Promise.then.completed (/Users/jaredcosulich/Desktop/NextTemplate/BlankWebsite/node_modules/jest-circus/build/utils.js:390:28)\n    at new Promise (<anonymous>)\n    at callAsyncCircusFn (/Users/jaredcosulich/Desktop/NextTemplate/BlankWebsite/node_modules/jest-circus/build/utils.js:315:10)\n    at _callCircusTest (/Users/jaredcosulich/Desktop/NextTemplate/BlankWebsite/node_modules/jest-circus/build/run.js:218:40)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)\n    at _runTest (/Users/jaredcosulich/Desktop/NextTemplate/BlankWebsite/node_modules/jest-circus/build/run.js:155:3)\n    at _runTestsForDescribeBlock (/Users/jaredcosulich/Desktop/NextTemplate/BlankWebsite/node_modules/jest-circus/build/run.js:66:9)\n    at _runTestsForDescribeBlock (/Users/jaredcosulich/Desktop/NextTemplate/BlankWebsite/node_modules/jest-circus/build/run.js:60:9)\n    at run (/Users/jaredcosulich/Desktop/NextTemplate/BlankWebsite/node_modules/jest-circus/build/run.js:25:3)\n    at runAndTransformResultsToJestFormat (/Users/jaredcosulich/Desktop/NextTemplate/BlankWebsite/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapterInit.js:167:21)\n    at jestAdapter (/Users/jaredcosulich/Desktop/NextTemplate/BlankWebsite/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapter.js:82:19)\n    at runTestInternal (/Users/jaredcosulich/Desktop/NextTemplate/BlankWebsite/node_modules/jest-runner/build/runTest.js:389:16)\n    at runTest (/Users/jaredcosulich/Desktop/NextTemplate/BlankWebsite/node_modules/jest-runner/build/runTest.js:475:34)\n    at Object.worker (/Users/jaredcosulich/Desktop/NextTemplate/BlankWebsite/node_modules/jest-runner/build/testWorker.js:133:12)"
-          ],
-          "fullName": "NewWindowLink renders correctly",
-          "invocations": 1,
-          "location": null,
-          "numPassingAsserts": 0,
-          "status": "failed",
-          "title": "renders correctly"
-        }
-      ],
-      "failureMessage": "\u001b[1m\u001b[31m  \u001b[1m● \u001b[22m\u001b[1mNewWindowLink › renders correctly\u001b[39m\u001b[22m\n\n    \u001b[2mexpect(\u001b[22m\u001b[38;5;23m\u001b[48;5;195mreceived\u001b[49m\u001b[39m\u001b[2m).\u001b[22mtoMatchSnapshot\u001b[2m()\u001b[22m\n\n    Snapshot name: `NewWindowLink renders correctly 1`\n\n    \u001b[38;5;90m\u001b[48;5;225m- Snapshot  - 22\u001b[49m\u001b[39m\n    \u001b[38;5;23m\u001b[48;5;195m+ Received  +  4\u001b[49m\u001b[39m\n\n    \u001b[2m  <a\u001b[22m\n    \u001b[38;5;90m\u001b[48;5;225m-   props={\u001b[49m\u001b[39m\n    \u001b[38;5;90m\u001b[48;5;225m-     Object {\u001b[49m\u001b[39m\n    \u001b[38;5;90m\u001b[48;5;225m-       \"children\": \"Example Link\",\u001b[49m\u001b[39m\n    \u001b[38;5;90m\u001b[48;5;225m-       \"href\": \"https://www.example.com\",\u001b[49m\u001b[39m\n    \u001b[38;5;90m\u001b[48;5;225m-       \"social\": Array [\u001b[49m\u001b[39m\n    \u001b[38;5;90m\u001b[48;5;225m-         Object {\u001b[49m\u001b[39m\n    \u001b[38;5;90m\u001b[48;5;225m-           \"href\": \"https://discord.gg/HZM2jcHdEU\",\u001b[49m\u001b[39m\n    \u001b[38;5;90m\u001b[48;5;225m-           \"name\": \"Discord\",\u001b[49m\u001b[39m\n    \u001b[38;5;90m\u001b[48;5;225m-         },\u001b[49m\u001b[39m\n    \u001b[38;5;90m\u001b[48;5;225m-         Object {\u001b[49m\u001b[39m\n    \u001b[38;5;90m\u001b[48;5;225m-           \"href\": \"https://twitter.com/blankfdn\",\u001b[49m\u001b[39m\n    \u001b[38;5;90m\u001b[48;5;225m-           \"name\": \"Twitter\",\u001b[49m\u001b[39m\n    \u001b[38;5;90m\u001b[48;5;225m-         },\u001b[49m\u001b[39m\n    \u001b[38;5;90m\u001b[48;5;225m-         Object {\u001b[49m\u001b[39m\n    \u001b[38;5;90m\u001b[48;5;225m-           \"href\": \"https://medium.com/@blankfdn\",\u001b[49m\u001b[39m\n    \u001b[38;5;90m\u001b[48;5;225m-           \"name\": \"Medium\",\u001b[49m\u001b[39m\n    \u001b[38;5;90m\u001b[48;5;225m-         },\u001b[49m\u001b[39m\n    \u001b[38;5;90m\u001b[48;5;225m-       ],\u001b[49m\u001b[39m\n    \u001b[38;5;90m\u001b[48;5;225m-       \"title\": \"Blank.Foundation\",\u001b[49m\u001b[39m\n    \u001b[38;5;90m\u001b[48;5;225m-     }\u001b[49m\u001b[39m\n    \u001b[38;5;90m\u001b[48;5;225m-   }\u001b[49m\u001b[39m\n    \u001b[38;5;23m\u001b[48;5;195m+   href=\"https://www.example.com\"\u001b[49m\u001b[39m\n    \u001b[2m    rel=\"noopener noreferrer\"\u001b[22m\n    \u001b[2m    target=\"_blank\"\u001b[22m\n    \u001b[38;5;90m\u001b[48;5;225m- />\u001b[49m\u001b[39m\n    \u001b[38;5;23m\u001b[48;5;195m+ >\u001b[49m\u001b[39m\n    \u001b[38;5;23m\u001b[48;5;195m+   Example Link\u001b[49m\u001b[39m\n    \u001b[38;5;23m\u001b[48;5;195m+ </a>\u001b[49m\u001b[39m\n\u001b[2m\u001b[22m\n\u001b[2m    \u001b[0m \u001b[90m  6 |\u001b[39m   it(\u001b[32m'renders correctly'\u001b[39m\u001b[33m,\u001b[39m () \u001b[33m=>\u001b[39m {\u001b[0m\u001b[22m\n\u001b[2m    \u001b[0m \u001b[90m  7 |\u001b[39m     \u001b[36mconst\u001b[39m rendered \u001b[33m=\u001b[39m \u001b[33mTestRenderer\u001b[39m\u001b[33m.\u001b[39mcreate(\u001b[33m<\u001b[39m\u001b[33mNewWindowLink\u001b[39m \u001b[33m/\u001b[39m\u001b[33m>\u001b[39m)\u001b[33m.\u001b[39mtoJSON()\u001b[33m;\u001b[39m\u001b[0m\u001b[22m\n\u001b[2m    \u001b[0m\u001b[31m\u001b[1m>\u001b[22m\u001b[2m\u001b[39m\u001b[90m  8 |\u001b[39m     expect(rendered)\u001b[33m.\u001b[39mtoMatchSnapshot()\u001b[0m\u001b[22m\n\u001b[2m    \u001b[0m \u001b[90m    |\u001b[39m                      \u001b[31m\u001b[1m^\u001b[22m\u001b[2m\u001b[39m\u001b[0m\u001b[22m\n\u001b[2m    \u001b[0m \u001b[90m  9 |\u001b[39m   })\u001b[33m;\u001b[39m\u001b[0m\u001b[22m\n\u001b[2m    \u001b[0m \u001b[90m 10 |\u001b[39m })\u001b[33m;\u001b[39m\u001b[0m\u001b[22m\n\u001b[2m\u001b[22m\n\u001b[2m      \u001b[2mat Object.<anonymous> (\u001b[22m\u001b[2m\u001b[0m\u001b[36m__tests__/pages/_components/NewWindowLink_test.js\u001b[39m\u001b[0m\u001b[2m:8:22)\u001b[22m\u001b[2m\u001b[22m\n"
+      "failureMessage": null
     },
     {
       "leaks": false,
@@ -307,10 +79,220 @@
       "numTodoTests": 0,
       "openHandles": [],
       "perfStats": {
-        "end": 1633702191236,
-        "runtime": 415,
+        "end": 1633703653086,
+        "runtime": 992,
         "slow": false,
-        "start": 1633702190821
+        "start": 1633703652094
+      },
+      "skipped": false,
+      "snapshot": {
+        "added": 0,
+        "fileDeleted": false,
+        "matched": 0,
+        "unchecked": 0,
+        "uncheckedKeys": [],
+        "unmatched": 0,
+        "updated": 1
+      },
+      "testFilePath": "/Users/jaredcosulich/Desktop/NextTemplate/BlankWebsite/__tests__/pages/_components/TWCleanHeader_test.js",
+      "testResults": [
+        {
+          "ancestorTitles": [
+            "TWCleanHeader"
+          ],
+          "duration": 16,
+          "failureDetails": [],
+          "failureMessages": [],
+          "fullName": "TWCleanHeader renders correctly",
+          "invocations": 1,
+          "location": null,
+          "numPassingAsserts": 0,
+          "status": "passed",
+          "title": "renders correctly"
+        }
+      ],
+      "failureMessage": null
+    },
+    {
+      "leaks": false,
+      "numFailingTests": 0,
+      "numPassingTests": 1,
+      "numPendingTests": 0,
+      "numTodoTests": 0,
+      "openHandles": [],
+      "perfStats": {
+        "end": 1633703653130,
+        "runtime": 1041,
+        "slow": false,
+        "start": 1633703652089
+      },
+      "skipped": false,
+      "snapshot": {
+        "added": 0,
+        "fileDeleted": false,
+        "matched": 0,
+        "unchecked": 0,
+        "uncheckedKeys": [],
+        "unmatched": 0,
+        "updated": 1
+      },
+      "testFilePath": "/Users/jaredcosulich/Desktop/NextTemplate/BlankWebsite/__tests__/pages/_components/BlankLayout_test.js",
+      "testResults": [
+        {
+          "ancestorTitles": [
+            "BlankLayout"
+          ],
+          "duration": 80,
+          "failureDetails": [],
+          "failureMessages": [],
+          "fullName": "BlankLayout renders correctly",
+          "invocations": 1,
+          "location": null,
+          "numPassingAsserts": 0,
+          "status": "passed",
+          "title": "renders correctly"
+        }
+      ],
+      "failureMessage": null
+    },
+    {
+      "leaks": false,
+      "numFailingTests": 0,
+      "numPassingTests": 1,
+      "numPendingTests": 0,
+      "numTodoTests": 0,
+      "openHandles": [],
+      "perfStats": {
+        "end": 1633703653134,
+        "runtime": 1053,
+        "slow": false,
+        "start": 1633703652081
+      },
+      "skipped": false,
+      "snapshot": {
+        "added": 0,
+        "fileDeleted": false,
+        "matched": 0,
+        "unchecked": 0,
+        "uncheckedKeys": [],
+        "unmatched": 0,
+        "updated": 1
+      },
+      "testFilePath": "/Users/jaredcosulich/Desktop/NextTemplate/BlankWebsite/__tests__/pages/_components/BlankFooter_test.js",
+      "testResults": [
+        {
+          "ancestorTitles": [
+            "BlankFooter"
+          ],
+          "duration": 63,
+          "failureDetails": [],
+          "failureMessages": [],
+          "fullName": "BlankFooter renders correctly",
+          "invocations": 1,
+          "location": null,
+          "numPassingAsserts": 0,
+          "status": "passed",
+          "title": "renders correctly"
+        }
+      ],
+      "failureMessage": null
+    },
+    {
+      "leaks": false,
+      "numFailingTests": 0,
+      "numPassingTests": 1,
+      "numPendingTests": 0,
+      "numTodoTests": 0,
+      "openHandles": [],
+      "perfStats": {
+        "end": 1633703653339,
+        "runtime": 207,
+        "slow": false,
+        "start": 1633703653132
+      },
+      "skipped": false,
+      "snapshot": {
+        "added": 0,
+        "fileDeleted": false,
+        "matched": 0,
+        "unchecked": 0,
+        "uncheckedKeys": [],
+        "unmatched": 0,
+        "updated": 1
+      },
+      "testFilePath": "/Users/jaredcosulich/Desktop/NextTemplate/BlankWebsite/__tests__/pages/_components/NewWindowLink_test.js",
+      "testResults": [
+        {
+          "ancestorTitles": [
+            "NewWindowLink"
+          ],
+          "duration": 4,
+          "failureDetails": [],
+          "failureMessages": [],
+          "fullName": "NewWindowLink renders correctly",
+          "invocations": 1,
+          "location": null,
+          "numPassingAsserts": 0,
+          "status": "passed",
+          "title": "renders correctly"
+        }
+      ],
+      "failureMessage": null
+    },
+    {
+      "leaks": false,
+      "numFailingTests": 0,
+      "numPassingTests": 1,
+      "numPendingTests": 0,
+      "numTodoTests": 0,
+      "openHandles": [],
+      "perfStats": {
+        "end": 1633703653394,
+        "runtime": 211,
+        "slow": false,
+        "start": 1633703653183
+      },
+      "skipped": false,
+      "snapshot": {
+        "added": 0,
+        "fileDeleted": false,
+        "matched": 1,
+        "unchecked": 0,
+        "uncheckedKeys": [],
+        "unmatched": 0,
+        "updated": 0
+      },
+      "testFilePath": "/Users/jaredcosulich/Desktop/NextTemplate/BlankWebsite/__tests__/pages/_components/TWFlex_test.js",
+      "testResults": [
+        {
+          "ancestorTitles": [
+            "TWFlex"
+          ],
+          "duration": 2,
+          "failureDetails": [],
+          "failureMessages": [],
+          "fullName": "TWFlex renders correctly",
+          "invocations": 1,
+          "location": null,
+          "numPassingAsserts": 0,
+          "status": "passed",
+          "title": "renders correctly"
+        }
+      ],
+      "failureMessage": null
+    },
+    {
+      "leaks": false,
+      "numFailingTests": 0,
+      "numPassingTests": 1,
+      "numPendingTests": 0,
+      "numTodoTests": 0,
+      "openHandles": [],
+      "perfStats": {
+        "end": 1633703653396,
+        "runtime": 227,
+        "slow": false,
+        "start": 1633703653169
       },
       "skipped": false,
       "snapshot": {
@@ -328,7 +310,7 @@
           "ancestorTitles": [
             "NextLink"
           ],
-          "duration": 13,
+          "duration": 3,
           "failureDetails": [],
           "failureMessages": [],
           "fullName": "NextLink renders correctly",
@@ -349,10 +331,52 @@
       "numTodoTests": 0,
       "openHandles": [],
       "perfStats": {
-        "end": 1633702191253,
-        "runtime": 411,
+        "end": 1633703653477,
+        "runtime": 363,
         "slow": false,
-        "start": 1633702190842
+        "start": 1633703653114
+      },
+      "skipped": false,
+      "snapshot": {
+        "added": 0,
+        "fileDeleted": false,
+        "matched": 0,
+        "unchecked": 0,
+        "uncheckedKeys": [],
+        "unmatched": 0,
+        "updated": 1
+      },
+      "testFilePath": "/Users/jaredcosulich/Desktop/NextTemplate/BlankWebsite/__tests__/pages/index_test.js",
+      "testResults": [
+        {
+          "ancestorTitles": [
+            "Index"
+          ],
+          "duration": 138,
+          "failureDetails": [],
+          "failureMessages": [],
+          "fullName": "Index renders correctly",
+          "invocations": 1,
+          "location": null,
+          "numPassingAsserts": 0,
+          "status": "passed",
+          "title": "renders correctly"
+        }
+      ],
+      "failureMessage": null
+    },
+    {
+      "leaks": false,
+      "numFailingTests": 0,
+      "numPassingTests": 1,
+      "numPendingTests": 0,
+      "numTodoTests": 0,
+      "openHandles": [],
+      "perfStats": {
+        "end": 1633703653686,
+        "runtime": 299,
+        "slow": false,
+        "start": 1633703653387
       },
       "skipped": false,
       "snapshot": {
@@ -370,7 +394,7 @@
           "ancestorTitles": [
             "TWFooter"
           ],
-          "duration": 6,
+          "duration": 4,
           "failureDetails": [],
           "failureMessages": [],
           "fullName": "TWFooter renders correctly",
@@ -385,70 +409,16 @@
     },
     {
       "leaks": false,
-      "numFailingTests": 1,
-      "numPassingTests": 0,
-      "numPendingTests": 0,
-      "numTodoTests": 0,
-      "openHandles": [],
-      "perfStats": {
-        "end": 1633702191323,
-        "runtime": 508,
-        "slow": false,
-        "start": 1633702190815
-      },
-      "skipped": false,
-      "snapshot": {
-        "added": 0,
-        "fileDeleted": false,
-        "matched": 0,
-        "unchecked": 0,
-        "uncheckedKeys": [],
-        "unmatched": 1,
-        "updated": 0
-      },
-      "testFilePath": "/Users/jaredcosulich/Desktop/NextTemplate/BlankWebsite/__tests__/pages/index_test.js",
-      "testResults": [
-        {
-          "ancestorTitles": [
-            "Index"
-          ],
-          "duration": 98,
-          "failureDetails": [
-            {
-              "matcherResult": {
-                "actual": "<div>\n  <div\n    className=\"font-roboto-mono text-sm bg-white text-gray-900 flex flex-col h-screen\"\n  >\n    <div\n      className=\"py-12 p-6 bg-white text-black leading-10\"\n    >\n      <div\n        className=\"px-24 flex flex-row justify-between\"\n      >\n        <a\n          href=\"/\"\n          onClick={[Function]}\n          onMouseEnter={[Function]}\n        >\n          Blank.Foundation\n        </a>\n        <div\n          className=\"space-x-2 flex flex-row justify-between\"\n        >\n          Music\n        </div>\n      </div>\n    </div>\n    <div\n      className=\"flex items-center justify-center flex-grow\"\n    >\n      <div\n        className=\"inline-block\"\n      >\n        <p>\n          CONTENT!\n        </p>\n        <p>\n          <a\n            className=\"text-blue-500 underline\"\n            href=\"/mint\"\n            onClick={[Function]}\n            onMouseEnter={[Function]}\n          >\n            Mint!\n          </a>\n        </p>\n      </div>\n    </div>\n    <div\n      className=\" p-6 bg-gray-900 text-white text-xs leading-10\"\n    >\n      <div\n        className=\"px-24 flex flex-row justify-between\"\n      >\n        <div\n          className=\"space-x-4 flex flex-row justify-start\"\n        >\n          <a\n            href=\"https://discord.gg/HZM2jcHdEU\"\n            rel=\"noopener noreferrer\"\n            target=\"_blank\"\n          >\n            Discord\n          </a>\n          <a\n            href=\"https://twitter.com/blankfdn\"\n            rel=\"noopener noreferrer\"\n            target=\"_blank\"\n          >\n            Twitter\n          </a>\n          <a\n            href=\"https://medium.com/@blankfdn\"\n            rel=\"noopener noreferrer\"\n            target=\"_blank\"\n          >\n            Medium\n          </a>\n        </div>\n      </div>\n    </div>\n  </div>\n</div>",
-                "expected": "<div>\n  <div\n    className=\"font-roboto-mono text-sm bg-white text-gray-900 flex flex-col h-screen\"\n  >\n    <div\n      className=\"py-12 p-6 bg-white text-black leading-10\"\n    >\n      <div\n        className=\"px-24 flex flex-row justify-between\"\n      >\n        Blank.Foundation\n        <div\n          className=\"space-x-2 flex flex-row justify-between\"\n        >\n          Music\n        </div>\n      </div>\n    </div>\n    <div\n      className=\"flex items-center justify-center flex-grow\"\n    >\n      <div\n        className=\"inline-block\"\n      >\n        CONTENT!\n      </div>\n    </div>\n    <div\n      className=\" p-6 bg-gray-900 text-white text-xs leading-10\"\n    >\n      <div\n        className=\"px-24 flex flex-row justify-between\"\n      >\n        <div\n          className=\"space-x-4 flex flex-row justify-start\"\n        >\n          <a\n            href=\"https://discord.gg/HZM2jcHdEU\"\n            props={\n              Object {\n                \"children\": \"Example Link\",\n                \"href\": \"https://www.example.com\",\n                \"social\": Array [\n                  Object {\n                    \"href\": \"https://discord.gg/HZM2jcHdEU\",\n                    \"name\": \"Discord\",\n                  },\n                  Object {\n                    \"href\": \"https://twitter.com/blankfdn\",\n                    \"name\": \"Twitter\",\n                  },\n                  Object {\n                    \"href\": \"https://medium.com/@blankfdn\",\n                    \"name\": \"Medium\",\n                  },\n                ],\n                \"title\": \"Blank.Foundation\",\n              }\n            }\n            rel=\"noopener noreferrer\"\n            target=\"_blank\"\n          >\n            Discord\n          </a>\n          <a\n            href=\"https://twitter.com/blankfdn\"\n            props={\n              Object {\n                \"children\": \"Example Link\",\n                \"href\": \"https://www.example.com\",\n                \"social\": Array [\n                  Object {\n                    \"href\": \"https://discord.gg/HZM2jcHdEU\",\n                    \"name\": \"Discord\",\n                  },\n                  Object {\n                    \"href\": \"https://twitter.com/blankfdn\",\n                    \"name\": \"Twitter\",\n                  },\n                  Object {\n                    \"href\": \"https://medium.com/@blankfdn\",\n                    \"name\": \"Medium\",\n                  },\n                ],\n                \"title\": \"Blank.Foundation\",\n              }\n            }\n            rel=\"noopener noreferrer\"\n            target=\"_blank\"\n          >\n            Twitter\n          </a>\n          <a\n            href=\"https://medium.com/@blankfdn\"\n            props={\n              Object {\n                \"children\": \"Example Link\",\n                \"href\": \"https://www.example.com\",\n                \"social\": Array [\n                  Object {\n                    \"href\": \"https://discord.gg/HZM2jcHdEU\",\n                    \"name\": \"Discord\",\n                  },\n                  Object {\n                    \"href\": \"https://twitter.com/blankfdn\",\n                    \"name\": \"Twitter\",\n                  },\n                  Object {\n                    \"href\": \"https://medium.com/@blankfdn\",\n                    \"name\": \"Medium\",\n                  },\n                ],\n                \"title\": \"Blank.Foundation\",\n              }\n            }\n            rel=\"noopener noreferrer\"\n            target=\"_blank\"\n          >\n            Medium\n          </a>\n        </div>\n      </div>\n    </div>\n  </div>\n</div>",
-                "message": "\u001b[2mexpect(\u001b[22m\u001b[38;5;23m\u001b[48;5;195mreceived\u001b[49m\u001b[39m\u001b[2m).\u001b[22mtoMatchSnapshot\u001b[2m()\u001b[22m\n\nSnapshot name: `Index renders correctly 1`\n\n\u001b[38;5;90m\u001b[48;5;225m- Snapshot  - 63\u001b[49m\u001b[39m\n\u001b[38;5;23m\u001b[48;5;195m+ Received  + 18\u001b[49m\u001b[39m\n\n\u001b[33m@@ -6,11 +6,17 @@\u001b[39m\n\u001b[2m        className=\"py-12 p-6 bg-white text-black leading-10\"\u001b[22m\n\u001b[2m      >\u001b[22m\n\u001b[2m        <div\u001b[22m\n\u001b[2m          className=\"px-24 flex flex-row justify-between\"\u001b[22m\n\u001b[2m        >\u001b[22m\n\u001b[38;5;23m\u001b[48;5;195m+         <a\u001b[49m\u001b[39m\n\u001b[38;5;23m\u001b[48;5;195m+           href=\"/\"\u001b[49m\u001b[39m\n\u001b[38;5;23m\u001b[48;5;195m+           onClick={[Function]}\u001b[49m\u001b[39m\n\u001b[38;5;23m\u001b[48;5;195m+           onMouseEnter={[Function]}\u001b[49m\u001b[39m\n\u001b[38;5;23m\u001b[48;5;195m+         >\u001b[49m\u001b[39m\n\u001b[2m            Blank.Foundation\u001b[22m\n\u001b[38;5;23m\u001b[48;5;195m+         </a>\u001b[49m\u001b[39m\n\u001b[2m          <div\u001b[22m\n\u001b[2m            className=\"space-x-2 flex flex-row justify-between\"\u001b[22m\n\u001b[2m          >\u001b[22m\n\u001b[2m            Music\u001b[22m\n\u001b[2m          </div>\u001b[22m\n\u001b[33m@@ -20,11 +26,23 @@\u001b[39m\n\u001b[2m        className=\"flex items-center justify-center flex-grow\"\u001b[22m\n\u001b[2m      >\u001b[22m\n\u001b[2m        <div\u001b[22m\n\u001b[2m          className=\"inline-block\"\u001b[22m\n\u001b[2m        >\u001b[22m\n\u001b[38;5;23m\u001b[48;5;195m+         <p>\u001b[49m\u001b[39m\n\u001b[2m            CONTENT!\u001b[22m\n\u001b[38;5;23m\u001b[48;5;195m+         </p>\u001b[49m\u001b[39m\n\u001b[38;5;23m\u001b[48;5;195m+         <p>\u001b[49m\u001b[39m\n\u001b[38;5;23m\u001b[48;5;195m+           <a\u001b[49m\u001b[39m\n\u001b[38;5;23m\u001b[48;5;195m+             className=\"text-blue-500 underline\"\u001b[49m\u001b[39m\n\u001b[38;5;23m\u001b[48;5;195m+             href=\"/mint\"\u001b[49m\u001b[39m\n\u001b[38;5;23m\u001b[48;5;195m+             onClick={[Function]}\u001b[49m\u001b[39m\n\u001b[38;5;23m\u001b[48;5;195m+             onMouseEnter={[Function]}\u001b[49m\u001b[39m\n\u001b[38;5;23m\u001b[48;5;195m+           >\u001b[49m\u001b[39m\n\u001b[38;5;23m\u001b[48;5;195m+             Mint!\u001b[49m\u001b[39m\n\u001b[38;5;23m\u001b[48;5;195m+           </a>\u001b[49m\u001b[39m\n\u001b[38;5;23m\u001b[48;5;195m+         </p>\u001b[49m\u001b[39m\n\u001b[2m        </div>\u001b[22m\n\u001b[2m      </div>\u001b[22m\n\u001b[2m      <div\u001b[22m\n\u001b[2m        className=\" p-6 bg-gray-900 text-white text-xs leading-10\"\u001b[22m\n\u001b[2m      >\u001b[22m\n\u001b[33m@@ -34,87 +52,24 @@\u001b[39m\n\u001b[2m          <div\u001b[22m\n\u001b[2m            className=\"space-x-4 flex flex-row justify-start\"\u001b[22m\n\u001b[2m          >\u001b[22m\n\u001b[2m            <a\u001b[22m\n\u001b[2m              href=\"https://discord.gg/HZM2jcHdEU\"\u001b[22m\n\u001b[38;5;90m\u001b[48;5;225m-             props={\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-               Object {\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-                 \"children\": \"Example Link\",\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-                 \"href\": \"https://www.example.com\",\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-                 \"social\": Array [\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-                   Object {\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-                     \"href\": \"https://discord.gg/HZM2jcHdEU\",\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-                     \"name\": \"Discord\",\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-                   },\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-                   Object {\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-                     \"href\": \"https://twitter.com/blankfdn\",\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-                     \"name\": \"Twitter\",\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-                   },\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-                   Object {\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-                     \"href\": \"https://medium.com/@blankfdn\",\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-                     \"name\": \"Medium\",\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-                   },\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-                 ],\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-                 \"title\": \"Blank.Foundation\",\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-               }\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-             }\u001b[49m\u001b[39m\n\u001b[2m              rel=\"noopener noreferrer\"\u001b[22m\n\u001b[2m              target=\"_blank\"\u001b[22m\n\u001b[2m            >\u001b[22m\n\u001b[2m              Discord\u001b[22m\n\u001b[2m            </a>\u001b[22m\n\u001b[2m            <a\u001b[22m\n\u001b[2m              href=\"https://twitter.com/blankfdn\"\u001b[22m\n\u001b[38;5;90m\u001b[48;5;225m-             props={\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-               Object {\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-                 \"children\": \"Example Link\",\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-                 \"href\": \"https://www.example.com\",\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-                 \"social\": Array [\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-                   Object {\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-                     \"href\": \"https://discord.gg/HZM2jcHdEU\",\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-                     \"name\": \"Discord\",\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-                   },\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-                   Object {\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-                     \"href\": \"https://twitter.com/blankfdn\",\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-                     \"name\": \"Twitter\",\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-                   },\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-                   Object {\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-                     \"href\": \"https://medium.com/@blankfdn\",\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-                     \"name\": \"Medium\",\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-                   },\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-                 ],\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-                 \"title\": \"Blank.Foundation\",\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-               }\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-             }\u001b[49m\u001b[39m\n\u001b[2m              rel=\"noopener noreferrer\"\u001b[22m\n\u001b[2m              target=\"_blank\"\u001b[22m\n\u001b[2m            >\u001b[22m\n\u001b[2m              Twitter\u001b[22m\n\u001b[2m            </a>\u001b[22m\n\u001b[2m            <a\u001b[22m\n\u001b[2m              href=\"https://medium.com/@blankfdn\"\u001b[22m\n\u001b[38;5;90m\u001b[48;5;225m-             props={\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-               Object {\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-                 \"children\": \"Example Link\",\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-                 \"href\": \"https://www.example.com\",\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-                 \"social\": Array [\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-                   Object {\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-                     \"href\": \"https://discord.gg/HZM2jcHdEU\",\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-                     \"name\": \"Discord\",\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-                   },\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-                   Object {\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-                     \"href\": \"https://twitter.com/blankfdn\",\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-                     \"name\": \"Twitter\",\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-                   },\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-                   Object {\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-                     \"href\": \"https://medium.com/@blankfdn\",\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-                     \"name\": \"Medium\",\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-                   },\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-                 ],\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-                 \"title\": \"Blank.Foundation\",\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-               }\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-             }\u001b[49m\u001b[39m\n\u001b[2m              rel=\"noopener noreferrer\"\u001b[22m\n\u001b[2m              target=\"_blank\"\u001b[22m\n\u001b[2m            >\u001b[22m\n\u001b[2m              Medium\u001b[22m\n\u001b[2m            </a>\u001b[22m",
-                "name": "toMatchSnapshot",
-                "pass": false
-              }
-            }
-          ],
-          "failureMessages": [
-            "Error: \u001b[2mexpect(\u001b[22m\u001b[38;5;23m\u001b[48;5;195mreceived\u001b[49m\u001b[39m\u001b[2m).\u001b[22mtoMatchSnapshot\u001b[2m()\u001b[22m\n\nSnapshot name: `Index renders correctly 1`\n\n\u001b[38;5;90m\u001b[48;5;225m- Snapshot  - 63\u001b[49m\u001b[39m\n\u001b[38;5;23m\u001b[48;5;195m+ Received  + 18\u001b[49m\u001b[39m\n\n\u001b[33m@@ -6,11 +6,17 @@\u001b[39m\n\u001b[2m        className=\"py-12 p-6 bg-white text-black leading-10\"\u001b[22m\n\u001b[2m      >\u001b[22m\n\u001b[2m        <div\u001b[22m\n\u001b[2m          className=\"px-24 flex flex-row justify-between\"\u001b[22m\n\u001b[2m        >\u001b[22m\n\u001b[38;5;23m\u001b[48;5;195m+         <a\u001b[49m\u001b[39m\n\u001b[38;5;23m\u001b[48;5;195m+           href=\"/\"\u001b[49m\u001b[39m\n\u001b[38;5;23m\u001b[48;5;195m+           onClick={[Function]}\u001b[49m\u001b[39m\n\u001b[38;5;23m\u001b[48;5;195m+           onMouseEnter={[Function]}\u001b[49m\u001b[39m\n\u001b[38;5;23m\u001b[48;5;195m+         >\u001b[49m\u001b[39m\n\u001b[2m            Blank.Foundation\u001b[22m\n\u001b[38;5;23m\u001b[48;5;195m+         </a>\u001b[49m\u001b[39m\n\u001b[2m          <div\u001b[22m\n\u001b[2m            className=\"space-x-2 flex flex-row justify-between\"\u001b[22m\n\u001b[2m          >\u001b[22m\n\u001b[2m            Music\u001b[22m\n\u001b[2m          </div>\u001b[22m\n\u001b[33m@@ -20,11 +26,23 @@\u001b[39m\n\u001b[2m        className=\"flex items-center justify-center flex-grow\"\u001b[22m\n\u001b[2m      >\u001b[22m\n\u001b[2m        <div\u001b[22m\n\u001b[2m          className=\"inline-block\"\u001b[22m\n\u001b[2m        >\u001b[22m\n\u001b[38;5;23m\u001b[48;5;195m+         <p>\u001b[49m\u001b[39m\n\u001b[2m            CONTENT!\u001b[22m\n\u001b[38;5;23m\u001b[48;5;195m+         </p>\u001b[49m\u001b[39m\n\u001b[38;5;23m\u001b[48;5;195m+         <p>\u001b[49m\u001b[39m\n\u001b[38;5;23m\u001b[48;5;195m+           <a\u001b[49m\u001b[39m\n\u001b[38;5;23m\u001b[48;5;195m+             className=\"text-blue-500 underline\"\u001b[49m\u001b[39m\n\u001b[38;5;23m\u001b[48;5;195m+             href=\"/mint\"\u001b[49m\u001b[39m\n\u001b[38;5;23m\u001b[48;5;195m+             onClick={[Function]}\u001b[49m\u001b[39m\n\u001b[38;5;23m\u001b[48;5;195m+             onMouseEnter={[Function]}\u001b[49m\u001b[39m\n\u001b[38;5;23m\u001b[48;5;195m+           >\u001b[49m\u001b[39m\n\u001b[38;5;23m\u001b[48;5;195m+             Mint!\u001b[49m\u001b[39m\n\u001b[38;5;23m\u001b[48;5;195m+           </a>\u001b[49m\u001b[39m\n\u001b[38;5;23m\u001b[48;5;195m+         </p>\u001b[49m\u001b[39m\n\u001b[2m        </div>\u001b[22m\n\u001b[2m      </div>\u001b[22m\n\u001b[2m      <div\u001b[22m\n\u001b[2m        className=\" p-6 bg-gray-900 text-white text-xs leading-10\"\u001b[22m\n\u001b[2m      >\u001b[22m\n\u001b[33m@@ -34,87 +52,24 @@\u001b[39m\n\u001b[2m          <div\u001b[22m\n\u001b[2m            className=\"space-x-4 flex flex-row justify-start\"\u001b[22m\n\u001b[2m          >\u001b[22m\n\u001b[2m            <a\u001b[22m\n\u001b[2m              href=\"https://discord.gg/HZM2jcHdEU\"\u001b[22m\n\u001b[38;5;90m\u001b[48;5;225m-             props={\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-               Object {\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-                 \"children\": \"Example Link\",\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-                 \"href\": \"https://www.example.com\",\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-                 \"social\": Array [\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-                   Object {\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-                     \"href\": \"https://discord.gg/HZM2jcHdEU\",\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-                     \"name\": \"Discord\",\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-                   },\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-                   Object {\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-                     \"href\": \"https://twitter.com/blankfdn\",\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-                     \"name\": \"Twitter\",\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-                   },\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-                   Object {\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-                     \"href\": \"https://medium.com/@blankfdn\",\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-                     \"name\": \"Medium\",\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-                   },\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-                 ],\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-                 \"title\": \"Blank.Foundation\",\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-               }\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-             }\u001b[49m\u001b[39m\n\u001b[2m              rel=\"noopener noreferrer\"\u001b[22m\n\u001b[2m              target=\"_blank\"\u001b[22m\n\u001b[2m            >\u001b[22m\n\u001b[2m              Discord\u001b[22m\n\u001b[2m            </a>\u001b[22m\n\u001b[2m            <a\u001b[22m\n\u001b[2m              href=\"https://twitter.com/blankfdn\"\u001b[22m\n\u001b[38;5;90m\u001b[48;5;225m-             props={\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-               Object {\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-                 \"children\": \"Example Link\",\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-                 \"href\": \"https://www.example.com\",\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-                 \"social\": Array [\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-                   Object {\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-                     \"href\": \"https://discord.gg/HZM2jcHdEU\",\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-                     \"name\": \"Discord\",\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-                   },\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-                   Object {\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-                     \"href\": \"https://twitter.com/blankfdn\",\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-                     \"name\": \"Twitter\",\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-                   },\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-                   Object {\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-                     \"href\": \"https://medium.com/@blankfdn\",\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-                     \"name\": \"Medium\",\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-                   },\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-                 ],\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-                 \"title\": \"Blank.Foundation\",\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-               }\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-             }\u001b[49m\u001b[39m\n\u001b[2m              rel=\"noopener noreferrer\"\u001b[22m\n\u001b[2m              target=\"_blank\"\u001b[22m\n\u001b[2m            >\u001b[22m\n\u001b[2m              Twitter\u001b[22m\n\u001b[2m            </a>\u001b[22m\n\u001b[2m            <a\u001b[22m\n\u001b[2m              href=\"https://medium.com/@blankfdn\"\u001b[22m\n\u001b[38;5;90m\u001b[48;5;225m-             props={\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-               Object {\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-                 \"children\": \"Example Link\",\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-                 \"href\": \"https://www.example.com\",\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-                 \"social\": Array [\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-                   Object {\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-                     \"href\": \"https://discord.gg/HZM2jcHdEU\",\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-                     \"name\": \"Discord\",\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-                   },\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-                   Object {\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-                     \"href\": \"https://twitter.com/blankfdn\",\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-                     \"name\": \"Twitter\",\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-                   },\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-                   Object {\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-                     \"href\": \"https://medium.com/@blankfdn\",\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-                     \"name\": \"Medium\",\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-                   },\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-                 ],\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-                 \"title\": \"Blank.Foundation\",\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-               }\u001b[49m\u001b[39m\n\u001b[38;5;90m\u001b[48;5;225m-             }\u001b[49m\u001b[39m\n\u001b[2m              rel=\"noopener noreferrer\"\u001b[22m\n\u001b[2m              target=\"_blank\"\u001b[22m\n\u001b[2m            >\u001b[22m\n\u001b[2m              Medium\u001b[22m\n\u001b[2m            </a>\u001b[22m\n    at Object.<anonymous> (/Users/jaredcosulich/Desktop/NextTemplate/BlankWebsite/__tests__/pages/index_test.js:10:22)\n    at Promise.then.completed (/Users/jaredcosulich/Desktop/NextTemplate/BlankWebsite/node_modules/jest-circus/build/utils.js:390:28)\n    at new Promise (<anonymous>)\n    at callAsyncCircusFn (/Users/jaredcosulich/Desktop/NextTemplate/BlankWebsite/node_modules/jest-circus/build/utils.js:315:10)\n    at _callCircusTest (/Users/jaredcosulich/Desktop/NextTemplate/BlankWebsite/node_modules/jest-circus/build/run.js:218:40)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)\n    at _runTest (/Users/jaredcosulich/Desktop/NextTemplate/BlankWebsite/node_modules/jest-circus/build/run.js:155:3)\n    at _runTestsForDescribeBlock (/Users/jaredcosulich/Desktop/NextTemplate/BlankWebsite/node_modules/jest-circus/build/run.js:66:9)\n    at _runTestsForDescribeBlock (/Users/jaredcosulich/Desktop/NextTemplate/BlankWebsite/node_modules/jest-circus/build/run.js:60:9)\n    at run (/Users/jaredcosulich/Desktop/NextTemplate/BlankWebsite/node_modules/jest-circus/build/run.js:25:3)\n    at runAndTransformResultsToJestFormat (/Users/jaredcosulich/Desktop/NextTemplate/BlankWebsite/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapterInit.js:167:21)\n    at jestAdapter (/Users/jaredcosulich/Desktop/NextTemplate/BlankWebsite/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapter.js:82:19)\n    at runTestInternal (/Users/jaredcosulich/Desktop/NextTemplate/BlankWebsite/node_modules/jest-runner/build/runTest.js:389:16)\n    at runTest (/Users/jaredcosulich/Desktop/NextTemplate/BlankWebsite/node_modules/jest-runner/build/runTest.js:475:34)\n    at Object.worker (/Users/jaredcosulich/Desktop/NextTemplate/BlankWebsite/node_modules/jest-runner/build/testWorker.js:133:12)"
-          ],
-          "fullName": "Index renders correctly",
-          "invocations": 1,
-          "location": null,
-          "numPassingAsserts": 0,
-          "status": "failed",
-          "title": "renders correctly"
-        }
-      ],
-      "failureMessage": "\u001b[1m\u001b[31m  \u001b[1m● \u001b[22m\u001b[1mIndex › renders correctly\u001b[39m\u001b[22m\n\n    \u001b[2mexpect(\u001b[22m\u001b[38;5;23m\u001b[48;5;195mreceived\u001b[49m\u001b[39m\u001b[2m).\u001b[22mtoMatchSnapshot\u001b[2m()\u001b[22m\n\n    Snapshot name: `Index renders correctly 1`\n\n    \u001b[38;5;90m\u001b[48;5;225m- Snapshot  - 63\u001b[49m\u001b[39m\n    \u001b[38;5;23m\u001b[48;5;195m+ Received  + 18\u001b[49m\u001b[39m\n\n    \u001b[33m@@ -6,11 +6,17 @@\u001b[39m\n    \u001b[2m        className=\"py-12 p-6 bg-white text-black leading-10\"\u001b[22m\n    \u001b[2m      >\u001b[22m\n    \u001b[2m        <div\u001b[22m\n    \u001b[2m          className=\"px-24 flex flex-row justify-between\"\u001b[22m\n    \u001b[2m        >\u001b[22m\n    \u001b[38;5;23m\u001b[48;5;195m+         <a\u001b[49m\u001b[39m\n    \u001b[38;5;23m\u001b[48;5;195m+           href=\"/\"\u001b[49m\u001b[39m\n    \u001b[38;5;23m\u001b[48;5;195m+           onClick={[Function]}\u001b[49m\u001b[39m\n    \u001b[38;5;23m\u001b[48;5;195m+           onMouseEnter={[Function]}\u001b[49m\u001b[39m\n    \u001b[38;5;23m\u001b[48;5;195m+         >\u001b[49m\u001b[39m\n    \u001b[2m            Blank.Foundation\u001b[22m\n    \u001b[38;5;23m\u001b[48;5;195m+         </a>\u001b[49m\u001b[39m\n    \u001b[2m          <div\u001b[22m\n    \u001b[2m            className=\"space-x-2 flex flex-row justify-between\"\u001b[22m\n    \u001b[2m          >\u001b[22m\n    \u001b[2m            Music\u001b[22m\n    \u001b[2m          </div>\u001b[22m\n    \u001b[33m@@ -20,11 +26,23 @@\u001b[39m\n    \u001b[2m        className=\"flex items-center justify-center flex-grow\"\u001b[22m\n    \u001b[2m      >\u001b[22m\n    \u001b[2m        <div\u001b[22m\n    \u001b[2m          className=\"inline-block\"\u001b[22m\n    \u001b[2m        >\u001b[22m\n    \u001b[38;5;23m\u001b[48;5;195m+         <p>\u001b[49m\u001b[39m\n    \u001b[2m            CONTENT!\u001b[22m\n    \u001b[38;5;23m\u001b[48;5;195m+         </p>\u001b[49m\u001b[39m\n    \u001b[38;5;23m\u001b[48;5;195m+         <p>\u001b[49m\u001b[39m\n    \u001b[38;5;23m\u001b[48;5;195m+           <a\u001b[49m\u001b[39m\n    \u001b[38;5;23m\u001b[48;5;195m+             className=\"text-blue-500 underline\"\u001b[49m\u001b[39m\n    \u001b[38;5;23m\u001b[48;5;195m+             href=\"/mint\"\u001b[49m\u001b[39m\n    \u001b[38;5;23m\u001b[48;5;195m+             onClick={[Function]}\u001b[49m\u001b[39m\n    \u001b[38;5;23m\u001b[48;5;195m+             onMouseEnter={[Function]}\u001b[49m\u001b[39m\n    \u001b[38;5;23m\u001b[48;5;195m+           >\u001b[49m\u001b[39m\n    \u001b[38;5;23m\u001b[48;5;195m+             Mint!\u001b[49m\u001b[39m\n    \u001b[38;5;23m\u001b[48;5;195m+           </a>\u001b[49m\u001b[39m\n    \u001b[38;5;23m\u001b[48;5;195m+         </p>\u001b[49m\u001b[39m\n    \u001b[2m        </div>\u001b[22m\n    \u001b[2m      </div>\u001b[22m\n    \u001b[2m      <div\u001b[22m\n    \u001b[2m        className=\" p-6 bg-gray-900 text-white text-xs leading-10\"\u001b[22m\n    \u001b[2m      >\u001b[22m\n    \u001b[33m@@ -34,87 +52,24 @@\u001b[39m\n    \u001b[2m          <div\u001b[22m\n    \u001b[2m            className=\"space-x-4 flex flex-row justify-start\"\u001b[22m\n    \u001b[2m          >\u001b[22m\n    \u001b[2m            <a\u001b[22m\n    \u001b[2m              href=\"https://discord.gg/HZM2jcHdEU\"\u001b[22m\n    \u001b[38;5;90m\u001b[48;5;225m-             props={\u001b[49m\u001b[39m\n    \u001b[38;5;90m\u001b[48;5;225m-               Object {\u001b[49m\u001b[39m\n    \u001b[38;5;90m\u001b[48;5;225m-                 \"children\": \"Example Link\",\u001b[49m\u001b[39m\n    \u001b[38;5;90m\u001b[48;5;225m-                 \"href\": \"https://www.example.com\",\u001b[49m\u001b[39m\n    \u001b[38;5;90m\u001b[48;5;225m-                 \"social\": Array [\u001b[49m\u001b[39m\n    \u001b[38;5;90m\u001b[48;5;225m-                   Object {\u001b[49m\u001b[39m\n    \u001b[38;5;90m\u001b[48;5;225m-                     \"href\": \"https://discord.gg/HZM2jcHdEU\",\u001b[49m\u001b[39m\n    \u001b[38;5;90m\u001b[48;5;225m-                     \"name\": \"Discord\",\u001b[49m\u001b[39m\n    \u001b[38;5;90m\u001b[48;5;225m-                   },\u001b[49m\u001b[39m\n    \u001b[38;5;90m\u001b[48;5;225m-                   Object {\u001b[49m\u001b[39m\n    \u001b[38;5;90m\u001b[48;5;225m-                     \"href\": \"https://twitter.com/blankfdn\",\u001b[49m\u001b[39m\n    \u001b[38;5;90m\u001b[48;5;225m-                     \"name\": \"Twitter\",\u001b[49m\u001b[39m\n    \u001b[38;5;90m\u001b[48;5;225m-                   },\u001b[49m\u001b[39m\n    \u001b[38;5;90m\u001b[48;5;225m-                   Object {\u001b[49m\u001b[39m\n    \u001b[38;5;90m\u001b[48;5;225m-                     \"href\": \"https://medium.com/@blankfdn\",\u001b[49m\u001b[39m\n    \u001b[38;5;90m\u001b[48;5;225m-                     \"name\": \"Medium\",\u001b[49m\u001b[39m\n    \u001b[38;5;90m\u001b[48;5;225m-                   },\u001b[49m\u001b[39m\n    \u001b[38;5;90m\u001b[48;5;225m-                 ],\u001b[49m\u001b[39m\n    \u001b[38;5;90m\u001b[48;5;225m-                 \"title\": \"Blank.Foundation\",\u001b[49m\u001b[39m\n    \u001b[38;5;90m\u001b[48;5;225m-               }\u001b[49m\u001b[39m\n    \u001b[38;5;90m\u001b[48;5;225m-             }\u001b[49m\u001b[39m\n    \u001b[2m              rel=\"noopener noreferrer\"\u001b[22m\n    \u001b[2m              target=\"_blank\"\u001b[22m\n    \u001b[2m            >\u001b[22m\n    \u001b[2m              Discord\u001b[22m\n    \u001b[2m            </a>\u001b[22m\n    \u001b[2m            <a\u001b[22m\n    \u001b[2m              href=\"https://twitter.com/blankfdn\"\u001b[22m\n    \u001b[38;5;90m\u001b[48;5;225m-             props={\u001b[49m\u001b[39m\n    \u001b[38;5;90m\u001b[48;5;225m-               Object {\u001b[49m\u001b[39m\n    \u001b[38;5;90m\u001b[48;5;225m-                 \"children\": \"Example Link\",\u001b[49m\u001b[39m\n    \u001b[38;5;90m\u001b[48;5;225m-                 \"href\": \"https://www.example.com\",\u001b[49m\u001b[39m\n    \u001b[38;5;90m\u001b[48;5;225m-                 \"social\": Array [\u001b[49m\u001b[39m\n    \u001b[38;5;90m\u001b[48;5;225m-                   Object {\u001b[49m\u001b[39m\n    \u001b[38;5;90m\u001b[48;5;225m-                     \"href\": \"https://discord.gg/HZM2jcHdEU\",\u001b[49m\u001b[39m\n    \u001b[38;5;90m\u001b[48;5;225m-                     \"name\": \"Discord\",\u001b[49m\u001b[39m\n    \u001b[38;5;90m\u001b[48;5;225m-                   },\u001b[49m\u001b[39m\n    \u001b[38;5;90m\u001b[48;5;225m-                   Object {\u001b[49m\u001b[39m\n    \u001b[38;5;90m\u001b[48;5;225m-                     \"href\": \"https://twitter.com/blankfdn\",\u001b[49m\u001b[39m\n    \u001b[38;5;90m\u001b[48;5;225m-                     \"name\": \"Twitter\",\u001b[49m\u001b[39m\n    \u001b[38;5;90m\u001b[48;5;225m-                   },\u001b[49m\u001b[39m\n    \u001b[38;5;90m\u001b[48;5;225m-                   Object {\u001b[49m\u001b[39m\n    \u001b[38;5;90m\u001b[48;5;225m-                     \"href\": \"https://medium.com/@blankfdn\",\u001b[49m\u001b[39m\n    \u001b[38;5;90m\u001b[48;5;225m-                     \"name\": \"Medium\",\u001b[49m\u001b[39m\n    \u001b[38;5;90m\u001b[48;5;225m-                   },\u001b[49m\u001b[39m\n    \u001b[38;5;90m\u001b[48;5;225m-                 ],\u001b[49m\u001b[39m\n    \u001b[38;5;90m\u001b[48;5;225m-                 \"title\": \"Blank.Foundation\",\u001b[49m\u001b[39m\n    \u001b[38;5;90m\u001b[48;5;225m-               }\u001b[49m\u001b[39m\n    \u001b[38;5;90m\u001b[48;5;225m-             }\u001b[49m\u001b[39m\n    \u001b[2m              rel=\"noopener noreferrer\"\u001b[22m\n    \u001b[2m              target=\"_blank\"\u001b[22m\n    \u001b[2m            >\u001b[22m\n    \u001b[2m              Twitter\u001b[22m\n    \u001b[2m            </a>\u001b[22m\n    \u001b[2m            <a\u001b[22m\n    \u001b[2m              href=\"https://medium.com/@blankfdn\"\u001b[22m\n    \u001b[38;5;90m\u001b[48;5;225m-             props={\u001b[49m\u001b[39m\n    \u001b[38;5;90m\u001b[48;5;225m-               Object {\u001b[49m\u001b[39m\n    \u001b[38;5;90m\u001b[48;5;225m-                 \"children\": \"Example Link\",\u001b[49m\u001b[39m\n    \u001b[38;5;90m\u001b[48;5;225m-                 \"href\": \"https://www.example.com\",\u001b[49m\u001b[39m\n    \u001b[38;5;90m\u001b[48;5;225m-                 \"social\": Array [\u001b[49m\u001b[39m\n    \u001b[38;5;90m\u001b[48;5;225m-                   Object {\u001b[49m\u001b[39m\n    \u001b[38;5;90m\u001b[48;5;225m-                     \"href\": \"https://discord.gg/HZM2jcHdEU\",\u001b[49m\u001b[39m\n    \u001b[38;5;90m\u001b[48;5;225m-                     \"name\": \"Discord\",\u001b[49m\u001b[39m\n    \u001b[38;5;90m\u001b[48;5;225m-                   },\u001b[49m\u001b[39m\n    \u001b[38;5;90m\u001b[48;5;225m-                   Object {\u001b[49m\u001b[39m\n    \u001b[38;5;90m\u001b[48;5;225m-                     \"href\": \"https://twitter.com/blankfdn\",\u001b[49m\u001b[39m\n    \u001b[38;5;90m\u001b[48;5;225m-                     \"name\": \"Twitter\",\u001b[49m\u001b[39m\n    \u001b[38;5;90m\u001b[48;5;225m-                   },\u001b[49m\u001b[39m\n    \u001b[38;5;90m\u001b[48;5;225m-                   Object {\u001b[49m\u001b[39m\n    \u001b[38;5;90m\u001b[48;5;225m-                     \"href\": \"https://medium.com/@blankfdn\",\u001b[49m\u001b[39m\n    \u001b[38;5;90m\u001b[48;5;225m-                     \"name\": \"Medium\",\u001b[49m\u001b[39m\n    \u001b[38;5;90m\u001b[48;5;225m-                   },\u001b[49m\u001b[39m\n    \u001b[38;5;90m\u001b[48;5;225m-                 ],\u001b[49m\u001b[39m\n    \u001b[38;5;90m\u001b[48;5;225m-                 \"title\": \"Blank.Foundation\",\u001b[49m\u001b[39m\n    \u001b[38;5;90m\u001b[48;5;225m-               }\u001b[49m\u001b[39m\n    \u001b[38;5;90m\u001b[48;5;225m-             }\u001b[49m\u001b[39m\n    \u001b[2m              rel=\"noopener noreferrer\"\u001b[22m\n    \u001b[2m              target=\"_blank\"\u001b[22m\n    \u001b[2m            >\u001b[22m\n    \u001b[2m              Medium\u001b[22m\n    \u001b[2m            </a>\u001b[22m\n\u001b[2m\u001b[22m\n\u001b[2m    \u001b[0m \u001b[90m  8 |\u001b[39m   it(\u001b[32m'renders correctly'\u001b[39m\u001b[33m,\u001b[39m () \u001b[33m=>\u001b[39m {\u001b[0m\u001b[22m\n\u001b[2m    \u001b[0m \u001b[90m  9 |\u001b[39m     \u001b[36mconst\u001b[39m rendered \u001b[33m=\u001b[39m \u001b[33mTestRenderer\u001b[39m\u001b[33m.\u001b[39mcreate(\u001b[33m<\u001b[39m\u001b[33mIndex\u001b[39m \u001b[33m/\u001b[39m\u001b[33m>\u001b[39m)\u001b[33m.\u001b[39mtoJSON()\u001b[33m;\u001b[39m\u001b[0m\u001b[22m\n\u001b[2m    \u001b[0m\u001b[31m\u001b[1m>\u001b[22m\u001b[2m\u001b[39m\u001b[90m 10 |\u001b[39m     expect(rendered)\u001b[33m.\u001b[39mtoMatchSnapshot()\u001b[0m\u001b[22m\n\u001b[2m    \u001b[0m \u001b[90m    |\u001b[39m                      \u001b[31m\u001b[1m^\u001b[22m\u001b[2m\u001b[39m\u001b[0m\u001b[22m\n\u001b[2m    \u001b[0m \u001b[90m 11 |\u001b[39m   })\u001b[33m;\u001b[39m\u001b[0m\u001b[22m\n\u001b[2m    \u001b[0m \u001b[90m 12 |\u001b[39m })\u001b[33m;\u001b[39m\u001b[0m\u001b[22m\n\u001b[2m\u001b[22m\n\u001b[2m      \u001b[2mat Object.<anonymous> (\u001b[22m\u001b[2m\u001b[0m\u001b[36m__tests__/pages/index_test.js\u001b[39m\u001b[0m\u001b[2m:10:22)\u001b[22m\u001b[2m\u001b[22m\n"
-    },
-    {
-      "leaks": false,
       "numFailingTests": 0,
       "numPassingTests": 1,
       "numPendingTests": 0,
       "numTodoTests": 0,
       "openHandles": [],
       "perfStats": {
-        "end": 1633702191818,
-        "runtime": 345,
+        "end": 1633703653743,
+        "runtime": 266,
         "slow": false,
-        "start": 1633702191473
+        "start": 1633703653477
       },
       "skipped": false,
       "snapshot": {
@@ -466,7 +436,7 @@
           "ancestorTitles": [
             "TWCenteredContent"
           ],
-          "duration": 4,
+          "duration": 5,
           "failureDetails": [],
           "failureMessages": [],
           "fullName": "TWCenteredContent renders correctly",
@@ -487,52 +457,10 @@
       "numTodoTests": 0,
       "openHandles": [],
       "perfStats": {
-        "end": 1633702191826,
-        "runtime": 341,
+        "end": 1633703653745,
+        "runtime": 273,
         "slow": false,
-        "start": 1633702191485
-      },
-      "skipped": false,
-      "snapshot": {
-        "added": 0,
-        "fileDeleted": false,
-        "matched": 1,
-        "unchecked": 0,
-        "uncheckedKeys": [],
-        "unmatched": 0,
-        "updated": 0
-      },
-      "testFilePath": "/Users/jaredcosulich/Desktop/NextTemplate/BlankWebsite/__tests__/pages/_components/TWHorizontal_test.js",
-      "testResults": [
-        {
-          "ancestorTitles": [
-            "TWHorizontal"
-          ],
-          "duration": 4,
-          "failureDetails": [],
-          "failureMessages": [],
-          "fullName": "TWHorizontal renders correctly",
-          "invocations": 1,
-          "location": null,
-          "numPassingAsserts": 0,
-          "status": "passed",
-          "title": "renders correctly"
-        }
-      ],
-      "failureMessage": null
-    },
-    {
-      "leaks": false,
-      "numFailingTests": 0,
-      "numPassingTests": 1,
-      "numPendingTests": 0,
-      "numTodoTests": 0,
-      "openHandles": [],
-      "perfStats": {
-        "end": 1633702191842,
-        "runtime": 347,
-        "slow": false,
-        "start": 1633702191495
+        "start": 1633703653472
       },
       "skipped": false,
       "snapshot": {
@@ -571,10 +499,10 @@
       "numTodoTests": 0,
       "openHandles": [],
       "perfStats": {
-        "end": 1633702191843,
-        "runtime": 365,
+        "end": 1633703653775,
+        "runtime": 237,
         "slow": false,
-        "start": 1633702191478
+        "start": 1633703653538
       },
       "skipped": false,
       "snapshot": {
@@ -586,16 +514,16 @@
         "unmatched": 0,
         "updated": 0
       },
-      "testFilePath": "/Users/jaredcosulich/Desktop/NextTemplate/BlankWebsite/__tests__/pages/_components/TWFlex_test.js",
+      "testFilePath": "/Users/jaredcosulich/Desktop/NextTemplate/BlankWebsite/__tests__/pages/_components/TWHorizontal_test.js",
       "testResults": [
         {
           "ancestorTitles": [
-            "TWFlex"
+            "TWHorizontal"
           ],
-          "duration": 4,
+          "duration": 2,
           "failureDetails": [],
           "failureMessages": [],
-          "fullName": "TWFlex renders correctly",
+          "fullName": "TWHorizontal renders correctly",
           "invocations": 1,
           "location": null,
           "numPassingAsserts": 0,
@@ -606,32 +534,46 @@
       "failureMessage": null
     },
     {
-      "failureMessage": "  \u001b[1m● \u001b[22mTest suite failed to run\n\n    Cannot find module '../../pages/BlankMinting' from '__tests__/pages/mint_test.js'\n\n    \u001b[0m \u001b[90m 1 |\u001b[39m \u001b[36mimport\u001b[39m \u001b[33mReact\u001b[39m \u001b[36mfrom\u001b[39m \u001b[32m'react'\u001b[39m\u001b[33m;\u001b[39m\u001b[0m\n    \u001b[0m \u001b[90m 2 |\u001b[39m \u001b[36mimport\u001b[39m \u001b[33mTestRenderer\u001b[39m \u001b[36mfrom\u001b[39m \u001b[32m'react-test-renderer'\u001b[39m\u001b[33m;\u001b[39m\u001b[0m\n    \u001b[0m\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 3 |\u001b[39m \u001b[36mimport\u001b[39m \u001b[33mBlankMinting\u001b[39m \u001b[36mfrom\u001b[39m \u001b[32m'../../pages/BlankMinting'\u001b[39m\u001b[33m;\u001b[39m\u001b[0m\n    \u001b[0m \u001b[90m   |\u001b[39m \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\u001b[0m\n    \u001b[0m \u001b[90m 4 |\u001b[39m\u001b[0m\n    \u001b[0m \u001b[90m 5 |\u001b[39m describe(\u001b[32m\"BlankMinting\"\u001b[39m\u001b[33m,\u001b[39m () \u001b[33m=>\u001b[39m {\u001b[0m\n    \u001b[0m \u001b[90m 6 |\u001b[39m   it(\u001b[32m'renders correctly'\u001b[39m\u001b[33m,\u001b[39m () \u001b[33m=>\u001b[39m {\u001b[0m\n\n      \u001b[2mat Resolver.resolveModule (\u001b[22mnode_modules/jest-resolve/build/resolver.js\u001b[2m:322:11)\u001b[22m\n      \u001b[2mat Object.<anonymous> (\u001b[22m\u001b[0m\u001b[36m__tests__/pages/mint_test.js\u001b[39m\u001b[0m\u001b[2m:3:1)\u001b[22m\n",
       "leaks": false,
       "numFailingTests": 0,
-      "numPassingTests": 0,
+      "numPassingTests": 1,
       "numPendingTests": 0,
       "numTodoTests": 0,
       "openHandles": [],
       "perfStats": {
-        "end": 0,
-        "runtime": 0,
+        "end": 1633703653889,
+        "runtime": 131,
         "slow": false,
-        "start": 0
+        "start": 1633703653758
       },
       "skipped": false,
       "snapshot": {
         "added": 0,
         "fileDeleted": false,
-        "matched": 0,
+        "matched": 1,
         "unchecked": 0,
         "uncheckedKeys": [],
         "unmatched": 0,
         "updated": 0
       },
-      "testExecError": "Cannot find module '../../pages/BlankMinting' from '__tests__/pages/mint_test.js'",
       "testFilePath": "/Users/jaredcosulich/Desktop/NextTemplate/BlankWebsite/__tests__/pages/mint_test.js",
-      "testResults": []
+      "testResults": [
+        {
+          "ancestorTitles": [
+            "mint"
+          ],
+          "duration": 1,
+          "failureDetails": [],
+          "failureMessages": [],
+          "fullName": "mint renders correctly",
+          "invocations": 1,
+          "location": null,
+          "numPassingAsserts": 0,
+          "status": "passed",
+          "title": "renders correctly"
+        }
+      ],
+      "failureMessage": null
     }
   ],
   "wasInterrupted": false

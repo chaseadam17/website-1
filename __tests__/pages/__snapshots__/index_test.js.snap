@@ -11,7 +11,13 @@ exports[`Index renders correctly 1`] = `
       <div
         className="px-24 flex flex-row justify-between"
       >
-        Blank.Foundation
+        <a
+          href="/"
+          onClick={[Function]}
+          onMouseEnter={[Function]}
+        >
+          Blank.Foundation
+        </a>
         <div
           className="space-x-2 flex flex-row justify-between"
         >
@@ -25,7 +31,19 @@ exports[`Index renders correctly 1`] = `
       <div
         className="inline-block"
       >
-        CONTENT!
+        <p>
+          CONTENT!
+        </p>
+        <p>
+          <a
+            className="text-blue-500 underline"
+            href="/mint"
+            onClick={[Function]}
+            onMouseEnter={[Function]}
+          >
+            Mint!
+          </a>
+        </p>
       </div>
     </div>
     <div
@@ -39,27 +57,6 @@ exports[`Index renders correctly 1`] = `
         >
           <a
             href="https://discord.gg/HZM2jcHdEU"
-            props={
-              Object {
-                "children": "Example Link",
-                "href": "https://www.example.com",
-                "social": Array [
-                  Object {
-                    "href": "https://discord.gg/HZM2jcHdEU",
-                    "name": "Discord",
-                  },
-                  Object {
-                    "href": "https://twitter.com/blankfdn",
-                    "name": "Twitter",
-                  },
-                  Object {
-                    "href": "https://medium.com/@blankfdn",
-                    "name": "Medium",
-                  },
-                ],
-                "title": "Blank.Foundation",
-              }
-            }
             rel="noopener noreferrer"
             target="_blank"
           >
@@ -67,27 +64,6 @@ exports[`Index renders correctly 1`] = `
           </a>
           <a
             href="https://twitter.com/blankfdn"
-            props={
-              Object {
-                "children": "Example Link",
-                "href": "https://www.example.com",
-                "social": Array [
-                  Object {
-                    "href": "https://discord.gg/HZM2jcHdEU",
-                    "name": "Discord",
-                  },
-                  Object {
-                    "href": "https://twitter.com/blankfdn",
-                    "name": "Twitter",
-                  },
-                  Object {
-                    "href": "https://medium.com/@blankfdn",
-                    "name": "Medium",
-                  },
-                ],
-                "title": "Blank.Foundation",
-              }
-            }
             rel="noopener noreferrer"
             target="_blank"
           >
@@ -95,27 +71,6 @@ exports[`Index renders correctly 1`] = `
           </a>
           <a
             href="https://medium.com/@blankfdn"
-            props={
-              Object {
-                "children": "Example Link",
-                "href": "https://www.example.com",
-                "social": Array [
-                  Object {
-                    "href": "https://discord.gg/HZM2jcHdEU",
-                    "name": "Discord",
-                  },
-                  Object {
-                    "href": "https://twitter.com/blankfdn",
-                    "name": "Twitter",
-                  },
-                  Object {
-                    "href": "https://medium.com/@blankfdn",
-                    "name": "Medium",
-                  },
-                ],
-                "title": "Blank.Foundation",
-              }
-            }
             rel="noopener noreferrer"
             target="_blank"
           >
