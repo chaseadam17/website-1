@@ -8,6 +8,7 @@ import {
   TWCenteredContent,
   BlankButton
 } from './_components'
+import { BlankArt } from '../contracts'
 
 const Mint = () => {
   const [walletAddress, setWalletAddress] = useState(null);
@@ -17,8 +18,7 @@ const Mint = () => {
     const provider = new ethers.providers.Web3Provider(window.ethereum)
     const recipient = provider.getSigner();
     const recipientAddress = await recipient.getAddress();
-    console.log("ADDRESS", recipientAddress);
-    setConnected(recipientAddress);
+    setWalletAddress(recipientAddress);
   }
   
   const mint = async () => {
@@ -26,28 +26,62 @@ const Mint = () => {
     const provider = new ethers.providers.Web3Provider(window.ethereum)
     const recipient = provider.getSigner();
     const recipientAddress = await recipient.getAddress();
-    console.log("ADDRESS", recipientAddress)
   
     const airtable = require('airtable');
-    console.log("API", process.env.NEXT_PUBLIC_AIRTABLE_READONLY_API_KEY)
     airtable.configure({ apiKey: process.env.NEXT_PUBLIC_AIRTABLE_READONLY_API_KEY })
     const airtableBase = airtable.base('appnTfhh0fxCM8pBx');
     const whitelist = airtableBase.table('Whitelist');
     const entries = whitelist.select({
       filterByFormula: `{WalletAddress} = '${recipientAddress}'`
     })
-    console.log(await entries.firstPage())
+    const entry = (await entries.firstPage())[0]
+    const voucher = entry.fields.Voucher;
+
+    const amount = document.getElementById('mint-amount').value;
+    
+    const contractAddress = BlankArt.address;
+
+    const contractAbi = BlankArt.abi;
+
+    const contract = new ethers.Contract(contractAddress, contractAbi, provider);
+    
+    const x = await contract.redeemVoucher(amount, voucher);
+    console.log("MINTED!", x)
   }
 
   return (
     <BlankLayout>
       <TWCenteredContent>
         <div className="break-all max-w-md" id="content">
-          <BlankButton
-            onClick={connect}
-          >
-            Connect Metamask
-          </BlankButton>
+          {!walletAddress &&
+            <BlankButton
+              onClick={connect}
+            >
+              Connect Metamask
+            </BlankButton>
+          }
+          {walletAddress &&
+            <div className='text-center'>
+              <h1 className='text-xl mb-12'>Mint</h1>
+              <p className='mb-6'>How many Blank NFTs would you like to mint?</p>
+              <p>
+                <select id="mint-amount">
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>
+                </select>
+              </p>
+              <p>
+                <BlankButton
+                  onClick={mint}
+                >
+                  Mint!
+                </BlankButton>
+              </p>
+            </div>
+          }
         </div>
       </TWCenteredContent>
     </BlankLayout>

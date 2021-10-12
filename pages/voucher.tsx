@@ -48,7 +48,8 @@ const Voucher: FunctionComponent<VoucherProps> = () => {
     const name = await contract.name()
     const symbol = await contract.symbol()
     const owner = await contract.owner()
-    const voucherAddress = "0x21C59c1f78E204CAc1747E59c0B912B58DcB4462";
+    const voucherInput = document.getElementById('voucherAddress') as HTMLInputElement;
+    const voucherAddress = voucherInput.value;
     let voucher = await lazyMinter.createVoucher(voucherAddress, 0)
 
     setVoucher(voucher);
@@ -70,11 +71,16 @@ const Voucher: FunctionComponent<VoucherProps> = () => {
           </div>
         }
         {!voucher &&
-          <BlankButton
-          onClick={generateVoucher}
-        >
-          Generate Voucher
-        </BlankButton>
+          <div className='text-center'>
+            <div>
+              <input id="voucherAddress" placeholder="Voucher Address" className="border px-3 py-1 w-64" />
+            </div>
+            <BlankButton
+              onClick={generateVoucher}
+            >
+              Generate Voucher
+            </BlankButton>
+          </div>
         }
       </TWCenteredContent>
     </BlankLayout>
