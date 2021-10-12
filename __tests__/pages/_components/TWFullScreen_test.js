@@ -1,6 +1,6 @@
 import React from 'react';
 import TestRenderer from 'react-test-renderer';
-import TWFullScreen from '../../../pages/_components/TWFullScreen';
+import TWFullScreen from '../../../pages/components/TWFullScreen';
 
 describe("TWFullScreen", () => {
   it('renders correctly', () => {

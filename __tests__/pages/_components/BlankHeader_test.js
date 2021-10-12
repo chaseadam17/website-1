@@ -1,6 +1,6 @@
 import React from 'react';
 import TestRenderer from 'react-test-renderer';
-import BlankHeader from '../../../pages/_components/BlankHeader';
+import BlankHeader from '../../../pages/components/BlankHeader';
 
 describe("BlankHeader", () => {
   it('renders correctly', () => {

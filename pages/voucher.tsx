@@ -14,7 +14,7 @@ import {
   BlankButton,
   BlankLayout,
   TWCenteredContent
-} from './_components'
+} from '../components'
 import LazyMinter from '../lib/LazyMinter'
 import { BlankArt } from '../contracts'
 

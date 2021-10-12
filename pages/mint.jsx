@@ -8,7 +8,7 @@ import {
   TWCenteredContent,
   BlankButton,
   NewWindowLink
-} from './_components'
+} from '../components'
 import { BlankArt } from '../contracts'
 
 const Mint = () => {

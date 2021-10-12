@@ -1,6 +1,6 @@
 import React from 'react';
 import TestRenderer from 'react-test-renderer';
-import TWFlex from '../../../pages/_components/TWFlex';
+import TWFlex from '../../../pages/components/TWFlex';
 
 describe("TWFlex", () => {
   it('renders correctly', () => {

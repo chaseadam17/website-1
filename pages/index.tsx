@@ -6,7 +6,7 @@ import { useEffect } from 'react';
 import {
   BlankLayout,
   TWCenteredContent
-} from './_components'
+} from '../components'
 
 const Index = () => {
 

@@ -1,6 +1,6 @@
 import React from 'react';
 import TestRenderer from 'react-test-renderer';
-import BlankButton from '../../../pages/_components/BlankButton';
+import BlankButton from '../../../pages/components/BlankButton';
 
 describe("BlankButton", () => {
   it('renders correctly', () => {

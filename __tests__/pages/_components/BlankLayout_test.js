@@ -1,6 +1,6 @@
 import React from 'react';
 import TestRenderer from 'react-test-renderer';
-import BlankLayout from '../../../pages/_components/BlankLayout';
+import BlankLayout from '../../../pages/components/BlankLayout';
 
 describe("BlankLayout", () => {
   it('renders correctly', () => {

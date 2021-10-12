@@ -1,6 +1,6 @@
 import React from 'react';
 import TestRenderer from 'react-test-renderer';
-import NextLink from '../../../pages/_components/NextLink';
+import NextLink from '../../../pages/components/NextLink';
 
 describe("NextLink", () => {
   it('renders correctly', () => {

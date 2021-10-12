@@ -52,7 +52,7 @@
         "unmatched": 0,
         "updated": 0
       },
-      "testFilePath": "/Users/jaredcosulich/Desktop/NextTemplate/BlankWebsite/__tests__/pages/_components/BlankLayout_test.js",
+      "testFilePath": "/Users/jaredcosulich/Desktop/NextTemplate/BlankWebsite/__tests__/pages/components/BlankLayout_test.js",
       "testResults": [
         {
           "ancestorTitles": [
@@ -94,7 +94,7 @@
         "unmatched": 0,
         "updated": 0
       },
-      "testFilePath": "/Users/jaredcosulich/Desktop/NextTemplate/BlankWebsite/__tests__/pages/_components/TWCleanHeader_test.js",
+      "testFilePath": "/Users/jaredcosulich/Desktop/NextTemplate/BlankWebsite/__tests__/pages/components/TWCleanHeader_test.js",
       "testResults": [
         {
           "ancestorTitles": [
@@ -136,7 +136,7 @@
         "unmatched": 0,
         "updated": 0
       },
-      "testFilePath": "/Users/jaredcosulich/Desktop/NextTemplate/BlankWebsite/__tests__/pages/_components/BlankFooter_test.js",
+      "testFilePath": "/Users/jaredcosulich/Desktop/NextTemplate/BlankWebsite/__tests__/pages/components/BlankFooter_test.js",
       "testResults": [
         {
           "ancestorTitles": [
@@ -178,7 +178,7 @@
         "unmatched": 0,
         "updated": 0
       },
-      "testFilePath": "/Users/jaredcosulich/Desktop/NextTemplate/BlankWebsite/__tests__/pages/_components/TWFooter_test.js",
+      "testFilePath": "/Users/jaredcosulich/Desktop/NextTemplate/BlankWebsite/__tests__/pages/components/TWFooter_test.js",
       "testResults": [
         {
           "ancestorTitles": [
@@ -220,7 +220,7 @@
         "unmatched": 0,
         "updated": 0
       },
-      "testFilePath": "/Users/jaredcosulich/Desktop/NextTemplate/BlankWebsite/__tests__/pages/_components/BlankHeader_test.js",
+      "testFilePath": "/Users/jaredcosulich/Desktop/NextTemplate/BlankWebsite/__tests__/pages/components/BlankHeader_test.js",
       "testResults": [
         {
           "ancestorTitles": [
