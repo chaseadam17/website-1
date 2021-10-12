@@ -72,6 +72,7 @@ const Voucher: FunctionComponent<VoucherProps> = () => {
         }
         {!voucher &&
           <div className='text-center'>
+            <h1 className='text-xl mb-6'>Generate Voucher</h1>
             <div>
               <input id="voucherAddress" placeholder="Voucher Address" className="border px-3 py-1 w-64" />
             </div>
