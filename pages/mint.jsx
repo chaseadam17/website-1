@@ -21,6 +21,15 @@ const Mint = () => {
   const connect = async () => {
     await window.ethereum.enable()
     const provider = new ethers.providers.Web3Provider(window.ethereum)
+    const network = await provider.getNetwork()
+    if (network.name !== 'ropsten') {
+      setError('Please connect to the Ropsten test network.')
+      setTimeout(connect, 500)
+      return
+    }
+
+    setError(null);
+
     const recipient = provider.getSigner();
     const recipientAddress = await recipient.getAddress();
     
