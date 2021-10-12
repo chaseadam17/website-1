@@ -21,14 +21,6 @@ const Mint = () => {
   const connect = async () => {
     await window.ethereum.enable()
     const provider = new ethers.providers.Web3Provider(window.ethereum)
-    const network = await provider.getNetwork()
-    if (network.name !== 'ropsten') {
-      setError('Please connect to the Ropsten test network.')
-      setTimeout(connect, 500)
-      return
-    }
-
-    setError(null);
 
     const recipient = provider.getSigner();
     const recipientAddress = await recipient.getAddress();
@@ -43,9 +35,18 @@ const Mint = () => {
     const entry = (await entries.firstPage())[0]
 
     if (entry) {
+      const network = await provider.getNetwork()
+      if (network.name !== 'ropsten') {
+        setError('Please connect to the Ropsten test network.')
+        setTimeout(connect, 500)
+        return
+      }
+
+      setError(null);  
       setVoucher(JSON.parse(entry.fields.Voucher));
     } else {
       setError("This wallet address is not allowed to mint a BlankArt NFT.")
+      return
     }
 
     const contractAddress = BlankArt.address;
