@@ -35,7 +35,7 @@ const Mint = () => {
       filterByFormula: `{WalletAddress} = '${recipientAddress}'`
     })
     const entry = (await entries.firstPage())[0]
-    const voucher = entry.fields.Voucher;
+    const voucher = JSON.parse(entry.fields.Voucher);
 
     const amount = document.getElementById('mint-amount').value;
     
