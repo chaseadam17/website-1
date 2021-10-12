@@ -1,6 +1,6 @@
 const BlankArt = {
   network: "ropsten",
-  address: "0x8d4AA56Ab2F81f3b8651cfD323930B0A55a4a7f9",
+  address: "0x495934f434f9cD616972DCc6e20A6b8D13CE15Aa",
   abi: [
     {
       "type": "constructor",

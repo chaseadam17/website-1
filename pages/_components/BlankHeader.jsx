@@ -7,7 +7,7 @@ import {
 const BlankHeader = ({ title, children }) => {
   return (
     <TWCleanHeader
-      className='py-12'
+      className='py-6'
     >
       <NextLink href="/" passHref>
         <a>{title}</a>

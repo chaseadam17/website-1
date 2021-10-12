@@ -4,7 +4,7 @@ import {
   NewWindowLink
 } from '.'
 
-const BlankFooter = ({ index, social }) => {
+const BlankFooter = ({ social }) => {
   return (
     <TWFooter>
       <TWHorizontal className='space-x-4'>

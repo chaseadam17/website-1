@@ -1,9 +1,7 @@
 import '../styles/globals.css'
-import '../styles/index.css'
 
-function BlankWebsite({ Component, pageProps }) {
+function BlankApp({ Component, pageProps }) {
   return <Component {...pageProps} />
 }
 
-export default BlankWebsite;
-
+export default BlankApp

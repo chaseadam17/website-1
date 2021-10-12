@@ -11,22 +11,16 @@ import {
 import { BlankArt } from '../contracts'
 
 const Mint = () => {
-  const [walletAddress, setWalletAddress] = useState(null);
+  const [voucher, setVoucher] = useState(null);
+  const [nfts, setNfts] = useState([]);
+  const [error, setError] = useState(null);
   
   const connect = async () => {
     await window.ethereum.enable()
     const provider = new ethers.providers.Web3Provider(window.ethereum)
     const recipient = provider.getSigner();
     const recipientAddress = await recipient.getAddress();
-    setWalletAddress(recipientAddress);
-  }
-  
-  const mint = async () => {
-    await window.ethereum.enable()
-    const provider = new ethers.providers.Web3Provider(window.ethereum)
-    const recipient = provider.getSigner();
-    const recipientAddress = await recipient.getAddress();
-  
+    
     const airtable = require('airtable');
     airtable.configure({ apiKey: process.env.NEXT_PUBLIC_AIRTABLE_READONLY_API_KEY })
     const airtableBase = airtable.base('appnTfhh0fxCM8pBx');
@@ -35,7 +29,20 @@ const Mint = () => {
       filterByFormula: `{WalletAddress} = '${recipientAddress}'`
     })
     const entry = (await entries.firstPage())[0]
-    const voucher = JSON.parse(entry.fields.Voucher);
+
+    if (entry) {
+      setVoucher(JSON.parse(entry.fields.Voucher));
+    } else {
+      setError("This wallet address is not allowed to mint a BlankArt NFT.")
+    }
+  }
+  
+  const mint = async () => {
+    setError(null);
+    
+    await window.ethereum.enable()
+    const provider = new ethers.providers.Web3Provider(window.ethereum)
+    const recipient = provider.getSigner();
 
     const amount = document.getElementById('mint-amount').value;
     
@@ -45,30 +52,36 @@ const Mint = () => {
 
     const contract = new ethers.Contract(contractAddress, contractAbi, provider);
     const signer = contract.connect(recipient)
-    console.log(signer);
-    console.log(signer.redeemVoucher, contract.redeemVoucher);
     
-    const x = await signer.redeemVoucher(amount, voucher);
-    console.log("MINTED!", x)
+    try {
+      const ids = await signer.redeemVoucher(amount, voucher);
+      console.log("MINTED!", ids)
+    } catch (error) {
+      setError(error.error.message)
+    }
   }
 
   return (
     <BlankLayout>
-      <TWCenteredContent>
-        <div className="break-all max-w-md" id="content">
-          {!walletAddress &&
+      <TWCenteredContent className='mb-36'>
+        <div className="max-w-lg text-center">
+          {nfts.length > 0 &&
+            <div>You have NFTs!</div>
+          }
+          {!voucher &&
             <BlankButton
               onClick={connect}
             >
               Connect Metamask
             </BlankButton>
           }
-          {walletAddress &&
-            <div className='text-center'>
-              <h1 className='text-xl mb-12'>Mint</h1>
+          {voucher &&
+            <div>
+              <h1 className='text-2xl mb-12'>Mint</h1>
+              <p className='mb-6'>Congratulations, you have been approved to mint!</p>
               <p className='mb-6'>How many Blank NFTs would you like to mint?</p>
               <p>
-                <select id="mint-amount">
+                <select id="mint-amount" className='cursor-pointer border text-xl p-3 rounded-xl'>
                   <option value="1">1</option>
                   <option value="2">2</option>
                   <option value="3">3</option>
@@ -83,6 +96,11 @@ const Mint = () => {
                   Mint!
                 </BlankButton>
               </p>
+            </div>
+          }
+          {error &&
+            <div className='text-red-800 text-lg my-6'>
+              {error}
             </div>
           }
         </div>
