@@ -4,12 +4,13 @@ import {
   NewWindowLink
 } from '.'
 
-const BlankFooter = ({ social }) => {
+const BlankFooter = ({ index, social }) => {
   return (
     <TWFooter>
       <TWHorizontal className='space-x-4'>
-        {social.map((s) => (
-          <NewWindowLink 
+        {social.map((s, index) => (
+          <NewWindowLink
+            key={`footer-social-${index}`} 
             href={s.href}
           >
             {s.name}
@@ -21,6 +22,7 @@ const BlankFooter = ({ social }) => {
 }
 
 BlankFooter.defaultProps = {
+  index: "index",
   social: [{"href":"https://discord.gg/HZM2jcHdEU","name":"Discord"},{"href":"https://twitter.com/blankfdn","name":"Twitter"},{"href":"https://medium.com/@blankfdn","name":"Medium"}]
 }
 

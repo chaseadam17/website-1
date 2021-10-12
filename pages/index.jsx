@@ -30,6 +30,16 @@ const Index = () => {
               </a>
             </NextLink>
           </p>
+          <p>
+            <NextLink 
+              href='/voucher' 
+              passHref
+            >
+              <a className='text-blue-500 underline'>
+                Voucher!
+              </a>
+            </NextLink>
+          </p>
         </TWCenteredContent>
       </BlankLayout>
     </div>
