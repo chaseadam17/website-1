@@ -38,6 +38,11 @@ const Mint = () => {
     } else {
       setError("This wallet address is not allowed to mint a BlankArt NFT.")
     }
+
+    const contractAddress = BlankArt.address;
+    const contractAbi = BlankArt.abi;
+    const contract = new ethers.Contract(contractAddress, contractAbi, provider);
+    console.log("TXS", contract.filters.Transfer(null, recipientAddress))
   }
   
   const mint = async () => {

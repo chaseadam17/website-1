@@ -1,13 +1,14 @@
 import {
   TWFooter,
   TWHorizontal,
-  NewWindowLink
+  NewWindowLink,
+  NextLink,
 } from '.'
 
 const BlankFooter = ({ social }) => {
   return (
-    <TWFooter>
-      <TWHorizontal className='space-x-4'>
+    <TWFooter className='px-24'>
+      <TWHorizontal className='space-x-8'>
         {social.map((s, index) => (
           <NewWindowLink
             key={`footer-social-${index}`} 
@@ -17,6 +18,14 @@ const BlankFooter = ({ social }) => {
           </NewWindowLink> 
         ))}
       </TWHorizontal>
+      <NextLink 
+        href='/mint' 
+        passHref
+      >
+        <a className='text-white'>
+          Mint
+        </a>
+      </NextLink>
     </TWFooter>
   );
 }
