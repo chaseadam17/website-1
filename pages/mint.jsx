@@ -44,8 +44,11 @@ const Mint = () => {
     const contractAbi = BlankArt.abi;
 
     const contract = new ethers.Contract(contractAddress, contractAbi, provider);
+    const signer = contract.connect(recipient)
+    console.log(signer);
+    console.log(signer.redeemVoucher, contract.redeemVoucher);
     
-    const x = await contract.redeemVoucher(amount, voucher);
+    const x = await signer.redeemVoucher(amount, voucher);
     console.log("MINTED!", x)
   }
 
