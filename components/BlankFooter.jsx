@@ -8,7 +8,7 @@ import {
 const BlankFooter = ({ social }) => {
   return (
     <TWFooter className='sm:px-24'>
-      <TWHorizontal className='space-x-8'>
+      <TWHorizontal className='mx-auto sm:mx-0 space-x-8'>
         {social.map((s, index) => (
           <NewWindowLink
             key={`footer-social-${index}`} 

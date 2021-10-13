@@ -5,7 +5,7 @@ import {
 const TWFooter = ({ className, children }) => {
   return (
     <div className={`${className} p-3 bg-gray-900 text-white text-xs leading-10`}>
-      <TWFlex className='px-24'>
+      <TWFlex className='sm:px-24'>
         {children}
       </TWFlex>
     </div>
