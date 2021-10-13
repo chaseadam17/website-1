@@ -47,8 +47,8 @@ const Index = () => {
 
       <BlankLayout>
         <TWCenteredContent>
-          <div className='container flex w-3/4 mx-auto'>
-            <div className="sm:mx-0 mb-12 flex flex-none bg-center bg-contain bg-no-repeat text-center text-md tracking-widest" style={{width: "360px", height: "330px", backgroundImage: `url("/nft.png")`}}>
+          <div className='container sm:flex sm:w-3/4 sm:mx-auto'>
+            <div className="mx-auto mb-12 flex flex-none bg-center bg-contain bg-no-repeat text-center text-md tracking-widest" style={{width: "360px", height: "330px", backgroundImage: `url("/nft.png")`}}>
               <div className="m-auto">
                 <div><span id="canvas-count">10000</span> / 10000</div>
                 <div className="text-gray-500 pt-3">Remaining</div>

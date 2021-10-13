@@ -5,7 +5,7 @@ import {
 const TWCleanHeader = ({ className, children }) => {
   return (
     <div className={`${className} p-6 bg-white text-black leading-10`}>
-      <TWFlex className='px-24'>
+      <TWFlex className='sm:px-24'>
         {children}
       </TWFlex>
     </div>

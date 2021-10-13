@@ -7,7 +7,7 @@ import {
 
 const BlankFooter = ({ social }) => {
   return (
-    <TWFooter className='px-24'>
+    <TWFooter className='sm:px-24'>
       <TWHorizontal className='space-x-8'>
         {social.map((s, index) => (
           <NewWindowLink
@@ -22,7 +22,7 @@ const BlankFooter = ({ social }) => {
         href='/mint' 
         passHref
       >
-        <a className='text-white'>
+        <a className='hidden sm:inline-block text-white'>
           Mint
         </a>
       </NextLink>
