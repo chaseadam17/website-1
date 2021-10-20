@@ -62,7 +62,7 @@ const Index = () => {
                 whitelisted to mint Blank NFTs for free.
               </p>
               <p className="text-md">
-                To purchase, apply in Discord.
+                To join, apply in Discord.
               </p>
 
               <a href="https://discord.gg/EvyXJHxJaw" target="_blank" rel="noreferrer" className="inline-block font-bold bg-gray-900 text-white text-xs text-center px-12 py-2 mt-6">
