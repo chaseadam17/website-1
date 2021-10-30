@@ -1,3 +1,4 @@
+import Head from 'next/head'
 import { useState } from 'react';
 import {
   TWFullScreen,
@@ -15,37 +16,44 @@ const BlankLayout = ({ children }) => {
   }
 
   return (
-    <TWFullScreen className='font-roboto-mono text-sm bg-white text-gray-900'>
-      <div className={`${bigBang ? '' : 'absolute -top-full'}`} onClick={() => showBigBang(!bigBang)}>
-        <div className={`${bigBang ? 'opacity-100' : 'opacity-0'} bg-black absolute h-screen w-full transition-all duration-1000 ease-in-out`}>
-          <div className='absolute pt-96 w-full text-center text-white text-4xl'>
-            Blank Bang
-          </div>
+    <div>
+      <Head>
+        <title>Blank.Foundation</title>
+        <meta name="description" content="A community art and entrepreneurship project." />
+      </Head>
 
-          {bigBang && 
-            <BigBangStarField
-              size={{ width: 100, height: 100 }}
-              numStars={666}
-              maxStarSpeed={1}
-              scale={4}
-              style={{
-                  position: 'absolute',
-                  width: '100%',
-                  height: '100%'
-                }}
-              starColor={"255, 255, 255"}
-            />
-          }
+      <TWFullScreen className='font-roboto-mono text-sm bg-white text-gray-900'>
+        <div className={`${bigBang ? '' : 'absolute -top-full'}`} onClick={() => showBigBang(!bigBang)}>
+          <div className={`${bigBang ? 'opacity-100' : 'opacity-0'} bg-black absolute h-screen w-full transition-all duration-1000 ease-in-out`}>
+            <div className='absolute pt-96 w-full text-center text-white text-4xl'>
+              Blank Bang
+            </div>
+
+            {bigBang && 
+              <BigBangStarField
+                size={{ width: 100, height: 100 }}
+                numStars={666}
+                maxStarSpeed={1}
+                scale={4}
+                style={{
+                    position: 'absolute',
+                    width: '100%',
+                    height: '100%'
+                  }}
+                starColor={"255, 255, 255"}
+              />
+            }
+          </div>
         </div>
-      </div>
-      <BlankHeader>
-        <BlankMusic
-          onClick={showBigBang}
-        />
-      </BlankHeader>
-      {children}
-      <BlankFooter />
-    </TWFullScreen>
+        <BlankHeader>
+          <BlankMusic
+            onClick={showBigBang}
+          />
+        </BlankHeader>
+        {children}
+        <BlankFooter />
+      </TWFullScreen>
+    </div>
   );
 }
 
