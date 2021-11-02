@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TWCenteredContent renders correctly 1`] = `
+<div
+  className="flex items-center justify-center flex-grow"
+>
+  <div
+    className="inline-block"
+  >
+    <div>
+      child1
+    </div>
+    <div>
+      child2
+    </div>
+    <div>
+      child3
+    </div>
+  </div>
+</div>
+`;

@@ -1,0 +1,142 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`BlankLayout renders correctly 1`] = `
+<div>
+  <div
+    className="font-roboto-mono text-sm bg-white text-gray-900 flex flex-col h-screen"
+  >
+    <div
+      className="absolute -top-full"
+      onClick={[Function]}
+    >
+      <div
+        className="opacity-0 bg-black absolute h-screen w-full transition-all duration-1000 ease-in-out"
+      >
+        <div
+          className="absolute pt-96 w-full text-center text-white text-4xl"
+        >
+          Blank Bang
+        </div>
+      </div>
+    </div>
+    <div
+      className="py-12 lg:px-24 p-6 bg-white text-black leading-10"
+    >
+      <div
+        className="sm:px-12 md:px-24 flex flex-row justify-between"
+      >
+        <a
+          href="/"
+          onClick={[Function]}
+          onMouseEnter={[Function]}
+        >
+          Blank.Foundation
+        </a>
+        <div
+          className="space-x-2 flex flex-row justify-between"
+        >
+          <div
+            className="cursor-pointer z-50"
+            onClick={[Function]}
+          >
+            <svg
+              className="bg-gray-900 p-1 h-8 w-8 rounded-full"
+              fill="white"
+              height="24"
+              id="play"
+              viewBox="0 0 24 24"
+              width="24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M4.33993 2.93L2.92993 4.34L7.28993 8.7L6.99993 9H2.99993V15H6.99993L11.9999 20V13.41L16.1799 17.59C15.5299 18.08 14.7999 18.47 13.9999 18.7V20.76C15.3399 20.46 16.5699 19.84 17.6099 19.01L19.6599 21.06L21.0699 19.65L4.33993 2.93ZM9.99993 15.17L7.82993 13H4.99993V11H7.82993L8.70993 10.12L9.99993 11.41V15.17ZM18.9999 12C18.9999 12.82 18.8499 13.61 18.5899 14.34L20.1199 15.87C20.6799 14.7 20.9999 13.39 20.9999 12C20.9999 7.72 18.0099 4.14 13.9999 3.23V5.29C16.8899 6.15 18.9999 8.83 18.9999 12ZM11.9999 4L10.1199 5.88L11.9999 7.76V4ZM16.4999 12C16.4999 10.23 15.4799 8.71 13.9999 7.97V9.76L16.4799 12.24C16.4899 12.16 16.4999 12.08 16.4999 12Z"
+                fill="white"
+              />
+            </svg>
+            <svg
+              className="hidden bg-gray-900 p-1 h-8 w-8 rounded-full"
+              fill="white"
+              height="24"
+              id="pause"
+              viewBox="0 0 24 24"
+              width="24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M3 9V15H7L12 20V4L7 9H3ZM10 8.83V15.17L7.83 13H5V11H7.83L10 8.83ZM16.5 12C16.5 10.23 15.48 8.71 14 7.97V16.02C15.48 15.29 16.5 13.77 16.5 12ZM14 3.23V5.29C16.89 6.15 19 8.83 19 12C19 15.17 16.89 17.85 14 18.71V20.77C18.01 19.86 21 16.28 21 12C21 7.72 18.01 4.14 14 3.23Z"
+                fill="white"
+              />
+            </svg>
+            <audio
+              id="mp3"
+            >
+              <source
+                src="Blank_Banshee_-_B-Start_Up.mp3"
+                type="audio/mpeg"
+              />
+              Your browser does not support the audio element.
+            </audio>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div>
+      child1
+    </div>
+    <div>
+      child2
+    </div>
+    <div>
+      child3
+    </div>
+    <div
+      className="sm:px-24 p-3 bg-gray-900 text-white text-xs leading-10"
+    >
+      <div
+        className="sm:px-24 flex flex-row justify-between"
+      >
+        <div
+          className="mx-auto sm:mx-0 space-x-8 flex flex-row justify-start"
+        >
+          <a
+            href="https://discord.gg/HZM2jcHdEU"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            Discord
+          </a>
+          <a
+            href="https://twitter.com/blankfdn"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            Twitter
+          </a>
+          <a
+            href="https://medium.com/@blankfdn"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            Medium
+          </a>
+          <a
+            href="https://blankfoundation.notion.site/Blank-641ad836df9c4918b1bd09ce196a6dce"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            Notion
+          </a>
+        </div>
+        <a
+          className="hidden sm:inline-block text-white"
+          href="/mint"
+          onClick={[Function]}
+          onMouseEnter={[Function]}
+        >
+          Mint
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+`;

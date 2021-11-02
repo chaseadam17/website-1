@@ -1,0 +1,52 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`BlankFooter renders correctly 1`] = `
+<div
+  className="sm:px-24 p-3 bg-gray-900 text-white text-xs leading-10"
+>
+  <div
+    className="sm:px-24 flex flex-row justify-between"
+  >
+    <div
+      className="mx-auto sm:mx-0 space-x-8 flex flex-row justify-start"
+    >
+      <a
+        href="https://discord.gg/HZM2jcHdEU"
+        rel="noopener noreferrer"
+        target="_blank"
+      >
+        Discord
+      </a>
+      <a
+        href="https://twitter.com/blankfdn"
+        rel="noopener noreferrer"
+        target="_blank"
+      >
+        Twitter
+      </a>
+      <a
+        href="https://medium.com/@blankfdn"
+        rel="noopener noreferrer"
+        target="_blank"
+      >
+        Medium
+      </a>
+      <a
+        href="https://blankfoundation.notion.site/Blank-641ad836df9c4918b1bd09ce196a6dce"
+        rel="noopener noreferrer"
+        target="_blank"
+      >
+        Notion
+      </a>
+    </div>
+    <a
+      className="hidden sm:inline-block text-white"
+      href="/mint"
+      onClick={[Function]}
+      onMouseEnter={[Function]}
+    >
+      Mint
+    </a>
+  </div>
+</div>
+`;

@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`BlankButton renders correctly 1`] = `
+<button
+  className="undefined inline-block font-bold bg-gray-900 text-white text-xs text-center px-12 py-2 mt-6"
+/>
+`;
