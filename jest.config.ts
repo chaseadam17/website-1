@@ -34,18 +34,10 @@ const config: Config.InitialOptions = {
     "^.+\\.module\\.(css|sass|scss)$",
   ],
   watchPathIgnorePatterns: [
-    ".*jest-stare.*\\.js", 
     "<rootDir>/.next/"
   ],
   reporters: [
-    "default",
-    [
-      "jest-stare",
-      {
-        "reportSummary": true,
-        "disableCharts": true
-      }
-    ]
+    "default"
   ]
 };
 export default config;

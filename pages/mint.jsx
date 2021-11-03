@@ -1,17 +1,18 @@
 // This is the BlankMinting component.
 // It is the page-level component so it is being rendered based on its specified route.
 
+import Head from 'next/head'
 import { useState } from 'react';
 import { ethers } from 'ethers';
-import {
-  BlankLayout,
-  TWCenteredContent,
-  BlankButton,
-  NewWindowLink
-} from '../components'
 import { BlankArt } from '../contracts'
+import {
+  BlankButton,
+  BlankLayout,
+  NewWindowLink,
+  TWCenteredContent
+} from '../components'
 
-const Mint = () => {
+const BlankMinting = () => {
   const [voucher, setVoucher] = useState(null);
   const [nfts, setNfts] = useState([]);
   const [error, setError] = useState(null);
@@ -21,7 +22,10 @@ const Mint = () => {
   const connect = async () => {
     await window.ethereum.enable()
     const provider = new ethers.providers.Web3Provider(window.ethereum)
-
+  
+    // const userVoucher = prompt("VOUCHER?");
+    // const entry = {fields: {Voucher: userVoucher}}
+  
     const recipient = provider.getSigner();
     const recipientAddress = await recipient.getAddress();
     
@@ -33,7 +37,7 @@ const Mint = () => {
       filterByFormula: `{WalletAddress} = '${recipientAddress}'`
     })
     const entry = (await entries.firstPage())[0]
-
+  
     if (entry) {
       const network = await provider.getNetwork()
       if (network.name !== 'ropsten') {
@@ -41,34 +45,29 @@ const Mint = () => {
         setTimeout(connect, 500)
         return
       }
-
+  
       setError(null);  
       setVoucher(JSON.parse(entry.fields.Voucher));
     } else {
       setError("This wallet address is not allowed to mint a BlankArt NFT.")
       return
     }
-
-    const contractAddress = BlankArt.address;
-    const contractAbi = BlankArt.abi;
-    const contract = new ethers.Contract(contractAddress, contractAbi, provider);
-    console.log("TXS", contract.filters.Transfer(null, recipientAddress))
   }
   
   const mint = async () => {
     setError(null);
     setTx(null);
-
+  
     await window.ethereum.enable()
     const provider = new ethers.providers.Web3Provider(window.ethereum)
     const recipient = provider.getSigner();
-
+  
     const amount = document.getElementById('mint-amount').value;
     
     const contractAddress = BlankArt.address;
-
+  
     const contractAbi = BlankArt.abi;
-
+  
     const contract = new ethers.Contract(contractAddress, contractAbi, provider);
     const signer = contract.connect(recipient)
     
@@ -85,82 +84,92 @@ const Mint = () => {
   }
 
   return (
-    <BlankLayout>
-      <TWCenteredContent>
-        <div className="mb-36 max-w-lg text-center">
-          {nfts.length > 0 &&
-            <div>You have NFTs!</div>
-          }
-          {!voucher &&
-            <BlankButton
-              onClick={connect}
-            >
-              Connect Metamask
-            </BlankButton>
-          }
-          {voucher && !pending && !tx &&
-            <div>
-              <h1 className='text-2xl mb-12'>Mint</h1>
-              <p className='mb-6'>Congratulations, you have been approved to mint!</p>
-              <p className='mb-6'>How many Blank NFTs would you like to mint?</p>
-              <p>
-                <select id="mint-amount" className='cursor-pointer border text-xl p-3 rounded-xl'>
-                  <option value="1">1</option>
-                  <option value="2">2</option>
-                  <option value="3">3</option>
-                  <option value="4">4</option>
-                  <option value="5">5</option>
-                </select>
-              </p>
-              <p>
-                <BlankButton
-                  onClick={mint}
-                >
-                  Mint!
-                </BlankButton>
-              </p>
-            </div>
-          }
-          {pending && !tx &&
-            <div>
-              <h1 className='text-2xl mb-12'>Minting...</h1>
-              <p>Please wait, this may take a few minutes.</p>
-              {typeof pending === 'string' &&
+    <div>
+      <Head>
+        <title>Blank.Foundation</title>
+        <meta name="description" content="Blank.Foundation" />
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
+  
+      <BlankLayout>
+        <TWCenteredContent>
+          <div className="mb-36 max-w-lg text-center">
+            {nfts.length > 0 &&
+              <div>You have NFTs!</div>
+            }
+            {!voucher &&
+              <BlankButton
+                className='px-3 py-1'
+                onClick={connect}
+              >
+                Connect Metamask
+              </BlankButton>
+            }
+            {voucher && !pending && !tx &&
+              <div>
+                <h1 className='text-2xl mb-12'>Mint</h1>
+                <p className='mb-6'>Congratulations, you have been approved to mint!</p>
+                <p className='mb-6'>How many Blank NFTs would you like to mint?</p>
                 <p>
-                  You can view your pending transaction on&nbsp;
-                  <NewWindowLink
-                    href={`https://ropsten.etherscan.io/tx/${pending}`}
+                  <select id="mint-amount" className='cursor-pointer border text-xl p-3 rounded-xl'>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                  </select>
+                </p>
+                <p>
+                  <BlankButton
+                    className='px-3 py-1'
+                    onClick={mint}
+                  >
+                    Mint!
+                  </BlankButton>
+                </p>
+              </div>
+            }
+            {pending && !tx &&
+              <div>
+                <h1 className='text-2xl mb-12'>Minting...</h1>
+                <p>Please wait, this may take a few minutes.</p>
+                {typeof pending === 'string' &&
+                  <p>
+                    You can view your pending transaction on&nbsp;
+                    <NewWindowLink
+                      href={`https://ropsten.etherscan.io/tx/${pending}`}
+                      className="text-blue-600 underline"
+                    >
+                      Etherscan
+                    </NewWindowLink>
+                  </p>
+                }
+              </div>
+            }
+            {tx &&
+              <div>
+                <h1 className='text-2xl mb-12'>Minted!</h1>
+                <p>
+                  You can see your minted transaction on&nbsp;
+                  <NewWindowLink 
+                    href={`https://ropsten.etherscan.io/tx/${tx}`}
                     className="text-blue-600 underline"
                   >
                     Etherscan
-                  </NewWindowLink>
+                  </NewWindowLink>.
                 </p>
-              }
-            </div>
-          }
-          {tx &&
-            <div>
-              <h1 className='text-2xl mb-12'>Minted!</h1>
-              <p>
-                You can see your minted transaction on&nbsp;
-                <NewWindowLink 
-                  href={`https://ropsten.etherscan.io/tx/${tx}`}
-                  className="text-blue-600 underline"
-                >
-                  Etherscan
-                </NewWindowLink>.
-              </p>
-            </div>
-          }
-          {error && !pending &&
-            <div className='text-red-800 text-lg my-6'>
-              {error}
-            </div>
-          }
-        </div>
-      </TWCenteredContent>
-    </BlankLayout>
+              </div>
+            }
+            {error && !pending &&
+              <div className='text-red-800 text-lg my-6'>
+                {error}
+              </div>
+            }
+          </div>
+        </TWCenteredContent>
+      </BlankLayout>
+    </div>
   );
 }
 
-export default Mint;
+export default BlankMinting;

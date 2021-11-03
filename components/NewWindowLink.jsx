@@ -7,6 +7,7 @@ const NewWindowLink = (props) => {
 }
 
 NewWindowLink.defaultProps = {
+  
   href: "https://www.example.com",
   children: "Example Link"
 }

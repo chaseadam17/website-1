@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Index renders correctly 1`] = `
+exports[`BlankVoucher renders correctly 1`] = `
 <div>
   <div
     className="font-roboto-mono text-sm bg-white text-gray-900 flex flex-col h-screen"
@@ -87,71 +87,26 @@ exports[`Index renders correctly 1`] = `
         className="inline-block"
       >
         <div
-          className="container md:flex sm:w-full xl:w-3/4 sm:mx-auto"
+          className="text-center"
         >
-          <div
-            className="mx-auto mb-12 flex flex-none bg-center bg-contain bg-no-repeat text-center text-md tracking-widest"
-            style={
-              Object {
-                "backgroundImage": "url(\\"/nft.png\\")",
-                "height": "330px",
-                "width": "360px",
-              }
-            }
+          <h1
+            className="text-xl mb-6"
           >
-            <div
-              className="m-auto"
-            >
-              <div>
-                <span
-                  id="canvas-count"
-                >
-                  10000
-                </span>
-                 / 10000
-              </div>
-              <div
-                className="text-gray-500 pt-3"
-              >
-                Remaining
-              </div>
-            </div>
+            Generate Voucher
+          </h1>
+          <div>
+            <input
+              className="border px-3 py-1 w-64"
+              id="voucherAddress"
+              placeholder="Voucher Address"
+            />
           </div>
-          <div
-            className="flex-none mx-auto w-11/12 md:w-1/2 my-12 md:my-12"
+          <button
+            className="undefined inline-block font-bold bg-gray-900 text-white text-xs text-center mt-6"
+            onClick={[Function]}
           >
-            <h1
-              className="text-2xl mb-6 font-semibold"
-            >
-              United by a blank canvas
-            </h1>
-            <p
-              className="text-md mb-6"
-            >
-              Blank is a collection of 10,000 Blank NFTs that will evolve based on a vote of Blank NFT holders. The first 1,000 people to join the community will be whitelisted to mint Blank NFTs for free.
-            </p>
-            <p
-              className="text-md"
-            >
-              To purchase, apply in Discord.
-            </p>
-            <a
-              className="inline-block font-bold bg-gray-900 text-white text-xs text-center px-12 py-2 mt-6"
-              href="https://discord.gg/EvyXJHxJaw"
-              rel="noreferrer"
-              target="_blank"
-            >
-              Apply
-            </a>
-            <a
-              className="ml-6 inline-block font-bold bg-gray-300 text-gray-900 text-xs text-center px-9 py-2 mt-6"
-              href="https://medium.com/@blankfdn"
-              rel="noreferrer"
-              target="_blank"
-            >
-              Learn More
-            </a>
-          </div>
+            Generate Voucher
+          </button>
         </div>
       </div>
     </div>
