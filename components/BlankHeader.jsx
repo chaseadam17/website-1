@@ -1,6 +1,6 @@
 import {
-  TWCleanHeader,
   NextLink,
+  TWCleanHeader,
   TWFlex
 } from '.'
 

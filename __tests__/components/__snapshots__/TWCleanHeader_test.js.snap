@@ -5,7 +5,7 @@ exports[`TWCleanHeader renders correctly 1`] = `
   className=" p-6 bg-white text-black leading-10"
 >
   <div
-    className="px-24 flex flex-row justify-between"
+    className="sm:px-12 md:px-24 flex flex-row justify-between"
   >
     <div>
       child1

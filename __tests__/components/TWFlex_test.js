@@ -1,10 +1,10 @@
 import React from 'react';
 import TestRenderer from 'react-test-renderer';
-import BlankMinting from '../../pages/mint';
+import TWFlex from '../../components/TWFlex';
 
-describe("BlankMinting", () => {
+describe("TWFlex", () => {
   it('renders correctly', () => {
-    const rendered = TestRenderer.create(<BlankMinting />).toJSON();
+    const rendered = TestRenderer.create(<TWFlex />).toJSON();
     expect(rendered).toMatchSnapshot()
   });
 });

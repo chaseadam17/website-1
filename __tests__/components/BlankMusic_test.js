@@ -1,10 +1,10 @@
 import React from 'react';
 import TestRenderer from 'react-test-renderer';
-import NextLink from '../../../pages/components/NextLink';
+import BlankMusic from '../../components/BlankMusic';
 
-describe("NextLink", () => {
+describe("BlankMusic", () => {
   it('renders correctly', () => {
-    const rendered = TestRenderer.create(<NextLink />).toJSON();
+    const rendered = TestRenderer.create(<BlankMusic />).toJSON();
     expect(rendered).toMatchSnapshot()
   });
 });

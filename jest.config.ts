@@ -23,7 +23,7 @@ const config: Config.InitialOptions = {
   preset: 'ts-jest',
   setupFilesAfterEnv: ['<rootDir>/jest-setup.js'],
   testEnvironment: 'jsdom',
-  testPathIgnorePatterns: ["<rootDir>/node_modules/", "<rootDir>/.next/", "<rootDir>/__e2e__/"],
+  testPathIgnorePatterns: ["<rootDir>/node_modules/", "<rootDir>/.next/", "<rootDir>/__e2e__/", "<rootDir>/__tests__/next_template_reporter.js"],
   transform: {
     // Use babel-jest to transpile tests with the next/babel preset
     // https://jestjs.io/docs/configuration#transform-objectstring-pathtotransformer--pathtotransformer-object
@@ -34,18 +34,10 @@ const config: Config.InitialOptions = {
     "^.+\\.module\\.(css|sass|scss)$",
   ],
   watchPathIgnorePatterns: [
-    ".*jest-stare.*\\.js", 
     "<rootDir>/.next/"
   ],
   reporters: [
-    "default",
-    [
-      "jest-stare",
-      {
-        "reportSummary": true,
-        "disableCharts": true
-      }
-    ]
+    "default"
   ]
 };
 export default config;

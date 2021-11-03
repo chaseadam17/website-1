@@ -1,6 +1,6 @@
 import React from 'react';
 import TestRenderer from 'react-test-renderer';
-import TWHorizontal from '../../../pages/components/TWHorizontal';
+import TWHorizontal from '../../components/TWHorizontal';
 
 describe("TWHorizontal", () => {
   it('renders correctly', () => {

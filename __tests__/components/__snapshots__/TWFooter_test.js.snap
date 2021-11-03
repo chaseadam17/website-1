@@ -2,10 +2,10 @@
 
 exports[`TWFooter renders correctly 1`] = `
 <div
-  className=" p-6 bg-gray-900 text-white text-xs leading-10"
+  className=" p-3 bg-gray-900 text-white text-xs leading-10"
 >
   <div
-    className="px-24 flex flex-row justify-between"
+    className="sm:px-24 flex flex-row justify-between"
   >
     <div>
       child1

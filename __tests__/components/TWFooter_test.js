@@ -1,10 +1,10 @@
 import React from 'react';
 import TestRenderer from 'react-test-renderer';
-import BlankMinting from '../../pages/mint';
+import TWFooter from '../../components/TWFooter';
 
-describe("BlankMinting", () => {
+describe("TWFooter", () => {
   it('renders correctly', () => {
-    const rendered = TestRenderer.create(<BlankMinting />).toJSON();
+    const rendered = TestRenderer.create(<TWFooter />).toJSON();
     expect(rendered).toMatchSnapshot()
   });
 });

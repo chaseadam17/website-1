@@ -1,11 +1,11 @@
 import {
-  TWFooter,
-  TWHorizontal,
   NewWindowLink,
   NextLink,
+  TWFooter,
+  TWHorizontal
 } from '.'
 
-const BlankFooter = ({ social }) => {
+const BlankFooter = ({ index, social }) => {
   return (
     <TWFooter className='sm:px-24'>
       <TWHorizontal className='mx-auto sm:mx-0 space-x-8'>
@@ -32,12 +32,7 @@ const BlankFooter = ({ social }) => {
 
 BlankFooter.defaultProps = {
   index: "index",
-  social: [
-    {"href":"https://discord.gg/HZM2jcHdEU","name":"Discord"},
-    {"href":"https://twitter.com/blankfdn","name":"Twitter"},
-    {"href":"https://medium.com/@blankfdn","name":"Medium"},
-    {"href":"https://blankfoundation.notion.site/Blank-641ad836df9c4918b1bd09ce196a6dce","name":"Notion"}
-  ]
+  social: [{"href":"https://discord.gg/HZM2jcHdEU","name":"Discord"},{"href":"https://twitter.com/blankfdn","name":"Twitter"},{"href":"https://medium.com/@blankfdn","name":"Medium"},{"href":"https://www.notion.so/blankfoundation/Blank-Home-f3fd5330df0d4933aa41e363719c2625","name":"Notion"}]
 }
 
 export default BlankFooter;

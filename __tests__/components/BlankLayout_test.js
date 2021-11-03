@@ -1,10 +1,10 @@
 import React from 'react';
 import TestRenderer from 'react-test-renderer';
-import TWFooter from '../../../pages/components/TWFooter';
+import BlankLayout from '../../components/BlankLayout';
 
-describe("TWFooter", () => {
+describe("BlankLayout", () => {
   it('renders correctly', () => {
-    const rendered = TestRenderer.create(<TWFooter />).toJSON();
+    const rendered = TestRenderer.create(<BlankLayout />).toJSON();
     expect(rendered).toMatchSnapshot()
   });
 });
