@@ -3,7 +3,7 @@
 
 import Head from 'next/head'
 import { useState } from 'react';
-import { ethers } from 'ethers';
+import { ethers, utils } from 'ethers';
 import { BlankArt } from '../contracts'
 import {
   BlankButton,
@@ -18,6 +18,8 @@ const BlankMinting = () => {
   const [error, setError] = useState(null);
   const [tx, setTx] = useState(null);
   const [pending, setPending] = useState(false);
+  const [gweiGasPrice, setGweiGasPrice] = useState(null)
+  const [mintAmount, setMintAmount] = useState(5)
   
   const connect = async () => {
     await window.ethereum.enable()
@@ -40,6 +42,7 @@ const BlankMinting = () => {
   
     if (entry) {
       const network = await provider.getNetwork()
+  
       if (network.name !== 'ropsten') {
         setError('Please connect to the Ropsten test network.')
         setTimeout(connect, 500)
@@ -48,6 +51,10 @@ const BlankMinting = () => {
   
       setError(null);  
       setVoucher(JSON.parse(entry.fields.Voucher));
+  
+      const gasPrice = await provider.getGasPrice()
+      const gweiGasPrice = utils.formatUnits(gasPrice, "gwei")
+      setGweiGasPrice(gweiGasPrice)
     } else {
       setError("This wallet address is not allowed to mint a BlankArt NFT.")
       return
@@ -82,6 +89,13 @@ const BlankMinting = () => {
       setPending(null);
     }
   }
+  
+  const gasEstimate = () => {
+      //112,413
+      //162,472
+    const eth = gweiGasPrice * 0.000000001
+    return parseInt(mintAmount * eth * 162472 * 10000) / 10000
+  }
 
   return (
     <div>
@@ -111,14 +125,25 @@ const BlankMinting = () => {
                 <p className='mb-6'>Congratulations, you have been approved to mint!</p>
                 <p className='mb-6'>How many Blank NFTs would you like to mint?</p>
                 <p>
-                  <select id="mint-amount" className='cursor-pointer border text-xl p-3 rounded-xl'>
+                  <select 
+                    id="mint-amount" 
+                    className='cursor-pointer border text-xl p-3 rounded-xl'
+                    onChange={(e) => setMintAmount(e.target.value)}
+                  >
                     <option value="1">1</option>
                     <option value="2">2</option>
                     <option value="3">3</option>
                     <option value="4">4</option>
-                    <option value="5">5</option>
+                    <option selected value="5">5</option>
                   </select>
                 </p>
+                {gweiGasPrice &&
+                  <p className='mt-3'>
+                    Minting {mintAmount} Blank NFT{mintAmount > 1 ? 's': ''} will cost
+                    <br/>
+                    roughly {gasEstimate()} Eth right now.
+                  </p>
+                }
                 <p>
                   <BlankButton
                     className='px-3 py-1'
@@ -170,6 +195,10 @@ const BlankMinting = () => {
       </BlankLayout>
     </div>
   );
+}
+
+BlankMinting.defaultProps = {
+  mintAmount: "mintAmount"
 }
 
 export default BlankMinting;
