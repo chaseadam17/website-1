@@ -85,14 +85,12 @@ const BlankMinting = () => {
       const receipt = await info.wait();
       setTx(receipt.transactionHash); 
     } catch (error) {
-      setError(error.error.message);
+      setError(error.message);
       setPending(null);
     }
   }
   
   const gasEstimate = () => {
-      //112,413
-      //162,472
     const eth = gweiGasPrice * 0.000000001
     return parseInt(mintAmount * eth * 162472 * 10000) / 10000
   }
