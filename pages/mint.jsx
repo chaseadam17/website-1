@@ -43,8 +43,8 @@ const BlankMinting = () => {
     if (entry) {
       const network = await provider.getNetwork()
   
-      if (network.name !== 'ropsten') {
-        setError('Please connect to the Ropsten test network.')
+      if (network.name !== 'rinkeby') {
+        setError('Please connect to the Rinkeby test network.')
         setTimeout(connect, 500)
         return
       }
@@ -133,6 +133,7 @@ const BlankMinting = () => {
                 <p>
                   <select 
                     id="mint-amount" 
+                    defaultValue="5"
                     className='cursor-pointer border text-xl p-3 rounded-xl'
                     onChange={(e) => setMintAmount(e.target.value)}
                   >
@@ -140,7 +141,7 @@ const BlankMinting = () => {
                     <option value="2">2</option>
                     <option value="3">3</option>
                     <option value="4">4</option>
-                    <option selected value="5">5</option>
+                    <option value="5">5</option>
                   </select>
                 </p>
                 {gweiGasPrice &&
@@ -168,7 +169,7 @@ const BlankMinting = () => {
                   <p>
                     You can view your pending transaction on&nbsp;
                     <NewWindowLink
-                      href={`https://ropsten.etherscan.io/tx/${pending}`}
+                      href={`https://rinkeby.etherscan.io/tx/${pending}`}
                       className="text-blue-600 underline"
                     >
                       Etherscan
@@ -183,7 +184,7 @@ const BlankMinting = () => {
                 <p>
                   You can see your minted transaction on&nbsp;
                   <NewWindowLink 
-                    href={`https://ropsten.etherscan.io/tx/${tx}`}
+                    href={`https://rinkeby.etherscan.io/tx/${tx}`}
                     className="text-blue-600 underline"
                   >
                     Etherscan
