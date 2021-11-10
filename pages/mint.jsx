@@ -169,7 +169,7 @@ const BlankMinting = ({ network }) => {
                   <p>
                     You can view your pending transaction on&nbsp;
                     <NewWindowLink
-                      href={`https://ropsten.etherscan.io/tx/${pending}`}
+                      href={`https://${network}.etherscan.io/tx/${pending}`}
                       className="text-blue-600 underline"
                     >
                       Etherscan
@@ -184,7 +184,7 @@ const BlankMinting = ({ network }) => {
                 <p>
                   You can see your minted transaction on&nbsp;
                   <NewWindowLink 
-                    href={`https://ropsten.etherscan.io/tx/${tx}`}
+                    href={`https://${network}.etherscan.io/tx/${tx}`}
                     className="text-blue-600 underline"
                   >
                     Etherscan
