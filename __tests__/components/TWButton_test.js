@@ -1,10 +1,10 @@
 import React from 'react';
 import TestRenderer from 'react-test-renderer';
-import TWFlex from '../../components/TWFlex';
+import TWButton from '../../components/TWButton';
 
-describe("TWFlex", () => {
+describe("TWButton", () => {
   it('renders correctly', () => {
-    const rendered = TestRenderer.create(<TWFlex />).toJSON();
+    const rendered = TestRenderer.create(<TWButton />).toJSON();
     expect(rendered).toMatchSnapshot()
   });
 });

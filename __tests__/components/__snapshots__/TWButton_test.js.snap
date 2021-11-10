@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TWButton renders correctly 1`] = `
+<button
+  className="text-white bg-green-500 px-3 py-1"
+>
+  Button
+</button>
+`;

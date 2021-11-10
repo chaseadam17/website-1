@@ -23,7 +23,7 @@ exports[`BlankVoucher renders correctly 1`] = `
       className="py-12 lg:px-24 p-6 bg-white text-black leading-10"
     >
       <div
-        className="sm:px-12 md:px-24 flex flex-row justify-between"
+        className="sm:px-12 md:px-24 justify-between flex flex-row"
       >
         <a
           href="/"
@@ -33,7 +33,7 @@ exports[`BlankVoucher renders correctly 1`] = `
           Blank.Foundation
         </a>
         <div
-          className="space-x-2 flex flex-row justify-between"
+          className="space-x-2 justify-between flex flex-row"
         >
           <div
             className="cursor-pointer z-50"
@@ -102,7 +102,7 @@ exports[`BlankVoucher renders correctly 1`] = `
             />
           </div>
           <button
-            className="undefined inline-block font-bold bg-gray-900 text-white text-xs text-center mt-6"
+            className="text-white bg-gray-900 px-12 py-2 text-xs mt-6"
             onClick={[Function]}
           >
             Generate Voucher
@@ -114,10 +114,10 @@ exports[`BlankVoucher renders correctly 1`] = `
       className="sm:px-24 p-3 bg-gray-900 text-white text-xs leading-10"
     >
       <div
-        className="sm:px-24 flex flex-row justify-between"
+        className="sm:px-24 justify-between flex flex-row"
       >
         <div
-          className="mx-auto sm:mx-0 space-x-8 flex flex-row justify-start"
+          className="mx-auto sm:mx-0 space-x-8 flex flex-row"
         >
           <a
             href="https://discord.gg/HZM2jcHdEU"

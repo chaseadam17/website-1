@@ -1,6 +1,6 @@
 const TWHorizontal = ({ className, children }) => {
   return (
-    <div className={`${className} flex flex-row justify-start`}>
+    <div className={`${className} flex flex-row`}>
       {children}
     </div>
   );

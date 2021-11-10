@@ -5,10 +5,10 @@ exports[`BlankFooter renders correctly 1`] = `
   className="sm:px-24 p-3 bg-gray-900 text-white text-xs leading-10"
 >
   <div
-    className="sm:px-24 flex flex-row justify-between"
+    className="sm:px-24 justify-between flex flex-row"
   >
     <div
-      className="mx-auto sm:mx-0 space-x-8 flex flex-row justify-start"
+      className="mx-auto sm:mx-0 space-x-8 flex flex-row"
     >
       <a
         href="https://discord.gg/HZM2jcHdEU"

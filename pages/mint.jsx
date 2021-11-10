@@ -2,8 +2,9 @@
 // It is the page-level component so it is being rendered based on its specified route.
 
 import Head from 'next/head'
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { ethers, utils } from 'ethers';
+import web3Connection from '../lib/web3Connection'
 import { BlankArt } from '../contracts'
 import {
   BlankButton,
@@ -12,7 +13,8 @@ import {
   TWCenteredContent
 } from '../components'
 
-const BlankMinting = () => {
+const BlankMinting = ({ network }) => {
+  const [provider, setProvider] = useState(null);
   const [voucher, setVoucher] = useState(null);
   const [nfts, setNfts] = useState([]);
   const [error, setError] = useState(null);
@@ -22,51 +24,45 @@ const BlankMinting = () => {
   const [mintAmount, setMintAmount] = useState(5)
   
   const connect = async () => {
-    await window.ethereum.enable()
-    const provider = new ethers.providers.Web3Provider(window.ethereum)
-  
-    // const userVoucher = prompt("VOUCHER?");
-    // const entry = {fields: {Voucher: userVoucher}}
-  
-    const recipient = provider.getSigner();
-    const recipientAddress = await recipient.getAddress();
+    web3Connection(network, setError, setProvider)
+  }
     
-    const airtable = require('airtable');
-    airtable.configure({ apiKey: process.env.NEXT_PUBLIC_AIRTABLE_READONLY_API_KEY })
-    const airtableBase = airtable.base('appnTfhh0fxCM8pBx');
-    const whitelist = airtableBase.table('Whitelist');
-    const entries = whitelist.select({
-      filterByFormula: `{WalletAddress} = '${recipientAddress}'`
-    })
-    const entry = (await entries.firstPage())[0]
+  useEffect(() => { 
+    if (!provider) return;
+     
+    const loadVoucher = async() => {
+      const recipient = provider.getSigner();
+      const recipientAddress = await recipient.getAddress();
+      
+      const airtable = require('airtable');
+      airtable.configure({ apiKey: process.env.NEXT_PUBLIC_AIRTABLE_READONLY_API_KEY })
+      const airtableBase = airtable.base('appnTfhh0fxCM8pBx');
+      const whitelist = airtableBase.table('Whitelist');
+      const entries = whitelist.select({
+        filterByFormula: `{WalletAddress} = '${recipientAddress}'`
+      })
+      const entry = (await entries.firstPage())[0]
   
-    if (entry) {
-      const network = await provider.getNetwork()
+      if (entry) {
+        setError(null);  
+        setVoucher(JSON.parse(entry.fields.Voucher));
   
-      if (network.name !== 'rinkeby') {
-        setError('Please connect to the Rinkeby test network.')
-        setTimeout(connect, 500)
+        const gasPrice = await provider.getGasPrice()
+        const gweiGasPrice = utils.formatUnits(gasPrice, "gwei")
+        setGweiGasPrice(gweiGasPrice)
+      } else {
+        setError("This wallet address is not allowed to mint a BlankArt NFT.")
         return
       }
-  
-      setError(null);  
-      setVoucher(JSON.parse(entry.fields.Voucher));
-  
-      const gasPrice = await provider.getGasPrice()
-      const gweiGasPrice = utils.formatUnits(gasPrice, "gwei")
-      setGweiGasPrice(gweiGasPrice)
-    } else {
-      setError("This wallet address is not allowed to mint a BlankArt NFT.")
-      return
     }
-  }
+  
+    loadVoucher()
+  }, [provider]);
   
   const mint = async () => {
     setError(null);
     setTx(null);
   
-    await window.ethereum.enable()
-    const provider = new ethers.providers.Web3Provider(window.ethereum)
     const recipient = provider.getSigner();
   
     const amount = document.getElementById('mint-amount').value;
@@ -119,7 +115,9 @@ const BlankMinting = () => {
             }
             {!voucher &&
               <BlankButton
-                className='px-3 py-1'
+                classMap={{
+                  padding: 'px-3 py-1'
+                }}
                 onClick={connect}
               >
                 Connect Metamask
@@ -153,7 +151,9 @@ const BlankMinting = () => {
                 }
                 <p>
                   <BlankButton
-                    className='px-3 py-1'
+                    classMap={{
+                      padding: 'px-3 py-1'
+                    }}
                     onClick={mint}
                   >
                     Mint!
@@ -169,7 +169,7 @@ const BlankMinting = () => {
                   <p>
                     You can view your pending transaction on&nbsp;
                     <NewWindowLink
-                      href={`https://rinkeby.etherscan.io/tx/${pending}`}
+                      href={`https://${network}.etherscan.io/tx/${pending}`}
                       className="text-blue-600 underline"
                     >
                       Etherscan
@@ -184,7 +184,7 @@ const BlankMinting = () => {
                 <p>
                   You can see your minted transaction on&nbsp;
                   <NewWindowLink 
-                    href={`https://rinkeby.etherscan.io/tx/${tx}`}
+                    href={`https://${network}.etherscan.io/tx/${tx}`}
                     className="text-blue-600 underline"
                   >
                     Etherscan
@@ -205,7 +205,7 @@ const BlankMinting = () => {
 }
 
 BlankMinting.defaultProps = {
-  mintAmount: "mintAmount"
+  network: "rinkeby"
 }
 
 export default BlankMinting;

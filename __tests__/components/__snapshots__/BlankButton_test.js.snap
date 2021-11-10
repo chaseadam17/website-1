@@ -2,6 +2,8 @@
 
 exports[`BlankButton renders correctly 1`] = `
 <button
-  className="undefined inline-block font-bold bg-gray-900 text-white text-xs text-center mt-6"
-/>
+  className="text-white bg-gray-900 px-12 py-2 text-xs mt-6"
+>
+  Button
+</button>
 `;

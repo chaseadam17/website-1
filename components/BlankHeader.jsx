@@ -1,7 +1,7 @@
 import {
   NextLink,
   TWCleanHeader,
-  TWFlex
+  TWHorizontalSpread
 } from '.'
 
 const BlankHeader = ({ title, children }) => {
@@ -12,9 +12,9 @@ const BlankHeader = ({ title, children }) => {
       <NextLink href="/" passHref>
         <a>{title}</a>
       </NextLink>
-      <TWFlex className="space-x-2">
+      <TWHorizontalSpread className="space-x-2">
         {children}
-      </TWFlex>
+      </TWHorizontalSpread>
     </TWCleanHeader>
   );
 }

@@ -23,7 +23,7 @@ exports[`Index renders correctly 1`] = `
       className="py-12 lg:px-24 p-6 bg-white text-black leading-10"
     >
       <div
-        className="sm:px-12 md:px-24 flex flex-row justify-between"
+        className="sm:px-12 md:px-24 justify-between flex flex-row"
       >
         <a
           href="/"
@@ -33,7 +33,7 @@ exports[`Index renders correctly 1`] = `
           Blank.Foundation
         </a>
         <div
-          className="space-x-2 flex flex-row justify-between"
+          className="space-x-2 justify-between flex flex-row"
         >
           <div
             className="cursor-pointer z-50"
@@ -135,22 +135,28 @@ exports[`Index renders correctly 1`] = `
             >
               To purchase, apply in Discord.
             </p>
-            <a
-              className="inline-block font-bold bg-gray-900 text-white text-xs text-center px-12 py-2 mt-6"
-              href="https://discord.gg/EvyXJHxJaw"
-              rel="noreferrer"
-              target="_blank"
+            <button
+              className="text-white bg-gray-900 px-12 py-2 text-xs mt-6"
             >
-              Apply
-            </a>
-            <a
-              className="ml-6 inline-block font-bold bg-gray-300 text-gray-900 text-xs text-center px-9 py-2 mt-6"
-              href="https://medium.com/@blankfdn"
-              rel="noreferrer"
-              target="_blank"
+              <a
+                href="https://discord.gg/EvyXJHxJaw"
+                rel="noopener noreferrer"
+                target="_blank"
+              >
+                Apply
+              </a>
+            </button>
+            <button
+              className="text-white bg-gray-300 text-gray-900 px-9 py-2 text-xs mt-6 ml-6"
             >
-              Learn More
-            </a>
+              <a
+                href="https://medium.com/@blankfdn"
+                rel="noopener noreferrer"
+                target="_blank"
+              >
+                Learn More
+              </a>
+            </button>
           </div>
         </div>
       </div>
@@ -159,10 +165,10 @@ exports[`Index renders correctly 1`] = `
       className="sm:px-24 p-3 bg-gray-900 text-white text-xs leading-10"
     >
       <div
-        className="sm:px-24 flex flex-row justify-between"
+        className="sm:px-24 justify-between flex flex-row"
       >
         <div
-          className="mx-auto sm:mx-0 space-x-8 flex flex-row justify-start"
+          className="mx-auto sm:mx-0 space-x-8 flex flex-row"
         >
           <a
             href="https://discord.gg/HZM2jcHdEU"
