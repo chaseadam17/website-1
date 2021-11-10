@@ -2,10 +2,10 @@ import {
   TWHorizontal
 } from '.'
 
-const TWHorizontalSpread = ({ children }) => {
+const TWHorizontalSpread = ({ className, children }) => {
   return (
     <TWHorizontal
-      className='justify-between'
+      className={`${className} justify-between`}
     >
       {children}
     </TWHorizontal>
@@ -15,7 +15,8 @@ const TWHorizontalSpread = ({ children }) => {
 TWHorizontalSpread.defaultProps = {
   children: ['child1', 'child2', 'child3'].map(
     (child, index) => <div key={'child-' + index}>{child}</div>
-  )
+  ),
+  className: ""
 }
 
 export default TWHorizontalSpread;

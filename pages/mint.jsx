@@ -2,6 +2,9 @@
 // It is the page-level component so it is being rendered based on its specified route.
 
 import Head from 'next/head'
+import { useState, useEffect } from 'react';
+import { ethers, utils } from 'ethers';
+import web3Connection from '../lib/web3Connection'
 import { BlankArt } from '../contracts'
 import {
   BlankButton,
@@ -10,8 +13,91 @@ import {
   TWCenteredContent
 } from '../components'
 
-const BlankMinting = ({ connect, error, mint, mintAmount, pending, tx }) => {
-  console.log("BLANKART", BlankArt)
+const BlankMinting = ({ network }) => {
+  const [provider, setProvider] = useState(null);
+  const [voucher, setVoucher] = useState(null);
+  const [nfts, setNfts] = useState([]);
+  const [error, setError] = useState(null);
+  const [tx, setTx] = useState(null);
+  const [pending, setPending] = useState(false);
+  const [gweiGasPrice, setGweiGasPrice] = useState(null)
+  const [mintAmount, setMintAmount] = useState(5)
+  
+  const connect = async () => {
+    web3Connection(network, setError, setProvider)
+  }
+    
+  useEffect(() => { 
+    if (!provider) return;
+     
+    const loadVoucher = async() => {
+      const recipient = provider.getSigner();
+      const recipientAddress = await recipient.getAddress();
+      
+      const airtable = require('airtable');
+      airtable.configure({ apiKey: process.env.NEXT_PUBLIC_AIRTABLE_READONLY_API_KEY })
+      const airtableBase = airtable.base('appnTfhh0fxCM8pBx');
+      const whitelist = airtableBase.table('Whitelist');
+      const entries = whitelist.select({
+        filterByFormula: `{WalletAddress} = '${recipientAddress}'`
+      })
+      const entry = (await entries.firstPage())[0]
+  
+      if (entry) {
+        setError(null);  
+        setVoucher(JSON.parse(entry.fields.Voucher));
+  
+        const gasPrice = await provider.getGasPrice()
+        const gweiGasPrice = utils.formatUnits(gasPrice, "gwei")
+        setGweiGasPrice(gweiGasPrice)
+      } else {
+        setError("This wallet address is not allowed to mint a BlankArt NFT.")
+        return
+      }
+    }
+  
+    loadVoucher()
+  }, [provider]);
+  
+  const mint = async () => {
+    setError(null);
+    setTx(null);
+  
+    const recipient = provider.getSigner();
+  
+    const amount = document.getElementById('mint-amount').value;
+    
+    const contractAddress = BlankArt.address;
+  
+    const contractAbi = BlankArt.abi;
+  
+    const contract = new ethers.Contract(contractAddress, contractAbi, provider);
+    const signer = contract.connect(recipient)
+    
+    try {
+      setPending(true);
+      const info = await signer.redeemVoucher(amount, voucher)
+      setPending(info.hash)
+      const receipt = await info.wait();
+      setTx(receipt.transactionHash); 
+    } catch (error) {
+      setError(error.error.message);
+      setPending(null);
+    }
+  }
+  
+  const gasEstimate = () => {
+    const gasUsed = [
+      112413,
+      162472,
+      196000,
+      228339,
+      261290
+    ][mintAmount - 1]
+  
+    const eth = gweiGasPrice * 0.000000001
+    return parseInt(mintAmount * eth * gasUsed * 10000) / 10000
+  }
 
   return (
     <div>
@@ -29,7 +115,9 @@ const BlankMinting = ({ connect, error, mint, mintAmount, pending, tx }) => {
             }
             {!voucher &&
               <BlankButton
-                className='px-3 py-1'
+                classMap={{
+                  padding: 'px-3 py-1'
+                }}
                 onClick={connect}
               >
                 Connect Metamask
@@ -62,7 +150,9 @@ const BlankMinting = ({ connect, error, mint, mintAmount, pending, tx }) => {
                 }
                 <p>
                   <BlankButton
-                    className='px-3 py-1'
+                    classMap={{
+                      padding: 'px-3 py-1'
+                    }}
                     onClick={mint}
                   >
                     Mint!
@@ -114,12 +204,7 @@ const BlankMinting = ({ connect, error, mint, mintAmount, pending, tx }) => {
 }
 
 BlankMinting.defaultProps = {
-  connect: "connect",
-  error: "error",
-  mint: "mint",
-  mintAmount: "mintAmount",
-  pending: "pending",
-  tx: "tx"
+  network: "rinkeby"
 }
 
 export default BlankMinting;

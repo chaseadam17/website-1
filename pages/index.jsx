@@ -77,7 +77,8 @@ const Index = () => {
       
               <BlankButton
                 classMap={{
-                  paddingX: "px-9",
+                  background: "bg-gray-300 text-gray-900",
+                  padding: "px-9 py-2",
                   marginLeft: "ml-6"
                 }}
               >
