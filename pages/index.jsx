@@ -59,19 +59,16 @@ const Index = () => {
             <div className="flex-none mx-auto w-11/12 md:w-1/2 my-12 md:my-12">
               <h1 className="text-2xl mb-6 font-semibold">United by a blank canvas</h1>
               <p className="text-md mb-6">
-                Blank is a collection of 10,000 Blank NFTs that will evolve based on a vote
-                of Blank NFT holders. The first 1,000 people to join the community will be
-                whitelisted to mint Blank NFTs for free.
-              </p>
-              <p className="text-md">
-                To purchase, apply in Discord.
+                Blank is a web3 community united by 10,000 Blank NFTs. 
+                Our first project is to vote on how they evolve. 
+                The first 1,000 people to join mint for free.
               </p>
       
               <BlankButton>
                 <NewWindowLink
                   href="https://discord.gg/EvyXJHxJaw"
                 >
-                  Apply
+                  Join
                 </NewWindowLink>
               </BlankButton>
       
