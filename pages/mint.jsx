@@ -4,6 +4,7 @@
 import Head from 'next/head'
 import { BlankArt } from '../contracts'
 import {
+  BlankButton,
   BlankLayout,
   NewWindowLink,
   TWCenteredContent

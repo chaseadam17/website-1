@@ -7,6 +7,7 @@ import { ethers } from 'ethers';
 import BlankLazyMinter from '../lib/BlankLazyMinter'
 import { BlankArt } from '../contracts'
 import {
+  BlankButton,
   BlankLayout,
   TWCenteredContent
 } from '../components'
