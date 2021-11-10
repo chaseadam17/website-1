@@ -131,6 +131,7 @@ const BlankMinting = ({ network }) => {
                 <p>
                   <select 
                     id="mint-amount" 
+                    defaultValue="5"
                     className='cursor-pointer border text-xl p-3 rounded-xl'
                     onChange={(e) => setMintAmount(e.target.value)}
                   >
@@ -138,7 +139,7 @@ const BlankMinting = ({ network }) => {
                     <option value="2">2</option>
                     <option value="3">3</option>
                     <option value="4">4</option>
-                    <option selected value="5">5</option>
+                    <option value="5">5</option>
                   </select>
                 </p>
                 {gweiGasPrice &&
