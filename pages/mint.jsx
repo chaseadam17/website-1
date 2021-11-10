@@ -2,106 +2,15 @@
 // It is the page-level component so it is being rendered based on its specified route.
 
 import Head from 'next/head'
-import { useState } from 'react';
-import { ethers, utils } from 'ethers';
 import { BlankArt } from '../contracts'
 import {
-  BlankButton,
   BlankLayout,
   NewWindowLink,
   TWCenteredContent
 } from '../components'
 
-const BlankMinting = () => {
-  const [voucher, setVoucher] = useState(null);
-  const [nfts, setNfts] = useState([]);
-  const [error, setError] = useState(null);
-  const [tx, setTx] = useState(null);
-  const [pending, setPending] = useState(false);
-  const [gweiGasPrice, setGweiGasPrice] = useState(null)
-  const [mintAmount, setMintAmount] = useState(5)
-  
-  const connect = async () => {
-    await window.ethereum.enable()
-    const provider = new ethers.providers.Web3Provider(window.ethereum)
-  
-    // const userVoucher = prompt("VOUCHER?");
-    // const entry = {fields: {Voucher: userVoucher}}
-  
-    const recipient = provider.getSigner();
-    const recipientAddress = await recipient.getAddress();
-    
-    const airtable = require('airtable');
-    airtable.configure({ apiKey: process.env.NEXT_PUBLIC_AIRTABLE_READONLY_API_KEY })
-    const airtableBase = airtable.base('appnTfhh0fxCM8pBx');
-    const whitelist = airtableBase.table('Whitelist');
-    const entries = whitelist.select({
-      filterByFormula: `{WalletAddress} = '${recipientAddress}'`
-    })
-    const entry = (await entries.firstPage())[0]
-  
-    if (entry) {
-      const network = await provider.getNetwork()
-  
-      if (network.name !== 'rinkeby') {
-        setError('Please connect to the Rinkeby test network.')
-        setTimeout(connect, 500)
-        return
-      }
-  
-      setError(null);  
-      setVoucher(JSON.parse(entry.fields.Voucher));
-  
-      const gasPrice = await provider.getGasPrice()
-      const gweiGasPrice = utils.formatUnits(gasPrice, "gwei")
-      setGweiGasPrice(gweiGasPrice)
-    } else {
-      setError("This wallet address is not allowed to mint a BlankArt NFT.")
-      return
-    }
-  }
-  
-  const mint = async () => {
-    setError(null);
-    setTx(null);
-  
-    await window.ethereum.enable()
-    const provider = new ethers.providers.Web3Provider(window.ethereum)
-    const recipient = provider.getSigner();
-  
-    const amount = document.getElementById('mint-amount').value;
-    
-    const contractAddress = BlankArt.address;
-  
-    const contractAbi = BlankArt.abi;
-  
-    const contract = new ethers.Contract(contractAddress, contractAbi, provider);
-    const signer = contract.connect(recipient)
-    
-    try {
-      setPending(true);
-      const info = await signer.redeemVoucher(amount, voucher)
-      setPending(info.hash)
-      const receipt = await info.wait();
-      setTx(receipt.transactionHash); 
-    } catch (error) {
-      setError(error.error.message);
-      setPending(null);
-    }
-  }
-  
-  const gasEstimate = () => {
-    const gasUsed = [
-      112413,
-      162472,
-      196000,
-      228339,
-      261290
-    ][mintAmount - 1]
-  
-    const eth = gweiGasPrice * 0.000000001
-    return parseInt(mintAmount * eth * gasUsed * 10000) / 10000
-  }
+const BlankMinting = ({ connect, error, mint, mintAmount, pending, tx }) => {
+  console.log("BLANKART", BlankArt)
 
   return (
     <div>
@@ -133,7 +42,6 @@ const BlankMinting = () => {
                 <p>
                   <select 
                     id="mint-amount" 
-                    defaultValue="5"
                     className='cursor-pointer border text-xl p-3 rounded-xl'
                     onChange={(e) => setMintAmount(e.target.value)}
                   >
@@ -141,7 +49,7 @@ const BlankMinting = () => {
                     <option value="2">2</option>
                     <option value="3">3</option>
                     <option value="4">4</option>
-                    <option value="5">5</option>
+                    <option selected value="5">5</option>
                   </select>
                 </p>
                 {gweiGasPrice &&
@@ -169,7 +77,7 @@ const BlankMinting = () => {
                   <p>
                     You can view your pending transaction on&nbsp;
                     <NewWindowLink
-                      href={`https://rinkeby.etherscan.io/tx/${pending}`}
+                      href={`https://ropsten.etherscan.io/tx/${pending}`}
                       className="text-blue-600 underline"
                     >
                       Etherscan
@@ -184,7 +92,7 @@ const BlankMinting = () => {
                 <p>
                   You can see your minted transaction on&nbsp;
                   <NewWindowLink 
-                    href={`https://rinkeby.etherscan.io/tx/${tx}`}
+                    href={`https://ropsten.etherscan.io/tx/${tx}`}
                     className="text-blue-600 underline"
                   >
                     Etherscan
@@ -205,7 +113,12 @@ const BlankMinting = () => {
 }
 
 BlankMinting.defaultProps = {
-  mintAmount: "mintAmount"
+  connect: "connect",
+  error: "error",
+  mint: "mint",
+  mintAmount: "mintAmount",
+  pending: "pending",
+  tx: "tx"
 }
 
 export default BlankMinting;

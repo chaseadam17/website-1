@@ -5,6 +5,8 @@ import Head from 'next/head'
 import { useEffect } from 'react'
 import {
   BlankLayout,
+  NewWindowLink,
+  TWButton,
   TWCenteredContent
 } from '../components'
 
@@ -65,13 +67,14 @@ const Index = () => {
                 To purchase, apply in Discord.
               </p>
       
-              <a href="https://discord.gg/EvyXJHxJaw" target="_blank" rel="noreferrer" className="inline-block font-bold bg-gray-900 text-white text-xs text-center px-12 py-2 mt-6">
-                Apply
-              </a>
-      
-              <a href="https://medium.com/@blankfdn" target="_blank" rel="noreferrer" className="ml-6 inline-block font-bold bg-gray-300 text-gray-900 text-xs text-center px-9 py-2 mt-6">
-                Learn More
-              </a>
+              <TWButton
+              >
+                <NewWindowLink
+                  href="https://discord.gg/EvyXJHxJaw"
+                >
+                  Apply
+                </NewWindowLink>
+              </TWButton>
             </div>
           </div>
         </TWCenteredContent>

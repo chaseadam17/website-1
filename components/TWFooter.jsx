@@ -1,13 +1,13 @@
 import {
-  TWFlex
+  TWHorizontalSpread
 } from '.'
 
 const TWFooter = ({ className, children }) => {
   return (
     <div className={`${className} p-3 bg-gray-900 text-white text-xs leading-10`}>
-      <TWFlex className='sm:px-24'>
+      <TWHorizontalSpread className='sm:px-24'>
         {children}
-      </TWFlex>
+      </TWHorizontalSpread>
     </div>
   );
 }

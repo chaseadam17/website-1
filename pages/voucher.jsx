@@ -4,10 +4,9 @@
 import Head from 'next/head'
 import { useState } from 'react';
 import { ethers } from 'ethers';
-import LazyMinter from '../lib/LazyMinter'
+import BlankLazyMinter from '../lib/BlankLazyMinter'
 import { BlankArt } from '../contracts'
 import {
-  BlankButton,
   BlankLayout,
   TWCenteredContent
 } from '../components'
