@@ -81,7 +81,7 @@ const BlankMinting = ({ network }) => {
       const receipt = await info.wait();
       setTx(receipt.transactionHash); 
     } catch (error) {
-      setError(error.error.message);
+      setError(error.message);
       setPending(null);
     }
   }
