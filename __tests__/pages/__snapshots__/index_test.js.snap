@@ -135,25 +135,33 @@ exports[`Index renders correctly 1`] = `
               The first 1,000 people to join mint for free.
             </p>
             <button
-              className="text-white bg-gray-900 px-12 py-2 text-xs mt-6"
+              className="text-white bg-gray-900  text-xs mt-6"
             >
               <a
                 href="https://discord.gg/EvyXJHxJaw"
                 rel="noopener noreferrer"
                 target="_blank"
               >
-                Join
+                <div
+                  className="px-12 py-2"
+                >
+                  Join
+                </div>
               </a>
             </button>
             <button
-              className="text-white bg-gray-300 text-gray-900 px-9 py-2 text-xs mt-6 ml-6"
+              className="text-white bg-gray-300 text-gray-900  text-xs mt-6 ml-6"
             >
               <a
                 href="https://medium.com/@blankfdn"
                 rel="noopener noreferrer"
                 target="_blank"
               >
-                Learn More
+                <div
+                  className="px-9 py-2"
+                >
+                  Learn More
+                </div>
               </a>
             </button>
           </div>
@@ -191,7 +199,7 @@ exports[`Index renders correctly 1`] = `
             Medium
           </a>
           <a
-            href="https://www.notion.so/blankfoundation/Blank-Home-f3fd5330df0d4933aa41e363719c2625"
+            href="https://blankfoundation.notion.site/Blank-641ad836df9c4918b1bd09ce196a6dce"
             rel="noopener noreferrer"
             target="_blank"
           >

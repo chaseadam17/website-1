@@ -83,25 +83,35 @@ const Index = () => {
                 The first 1,000 people to join mint for free.
               </p>
       
-              <BlankButton>
+              <BlankButton
+                classMap={{ padding: "" }}
+              >
                 <NewWindowLink
                   href="https://discord.gg/EvyXJHxJaw"
                 >
-                  Join
+                  <div
+                    className='px-12 py-2'
+                  >
+                    Join
+                  </div>
                 </NewWindowLink>
               </BlankButton>
       
               <BlankButton
                 classMap={{
                   background: "bg-gray-300 text-gray-900",
-                  padding: "px-9 py-2",
+                  padding: "",
                   marginLeft: "ml-6"
                 }}
               >
                 <NewWindowLink
                   href="https://medium.com/@blankfdn"
                 >
-                  Learn More
+                  <div 
+                    className='px-9 py-2'
+                  >
+                    Learn More
+                  </div>
                 </NewWindowLink>
               </BlankButton>
             </div>
