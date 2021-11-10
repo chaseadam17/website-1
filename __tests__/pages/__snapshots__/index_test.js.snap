@@ -87,10 +87,10 @@ exports[`Index renders correctly 1`] = `
         className="inline-block"
       >
         <div
-          className="container md:flex sm:w-full xl:w-3/4 sm:mx-auto"
+          className="container mx-auto w-full md:flex"
         >
           <div
-            className="mx-auto mb-12 flex flex-none bg-center bg-contain bg-no-repeat text-center text-md tracking-widest"
+            className="mr-6 mb-12 md:w-2/12 flex flex-none bg-center bg-contain bg-no-repeat text-center text-md tracking-widest"
             style={
               Object {
                 "backgroundImage": "url(\\"/nft.png\\")",
@@ -106,9 +106,9 @@ exports[`Index renders correctly 1`] = `
                 <span
                   id="canvas-count"
                 >
-                  10000
+                  1000
                 </span>
-                 / 10000
+                 / 1000
               </div>
               <div
                 className="text-gray-500 pt-3"
@@ -118,7 +118,7 @@ exports[`Index renders correctly 1`] = `
             </div>
           </div>
           <div
-            className="flex-none mx-auto w-11/12 md:w-1/2 my-12 md:my-12"
+            className="flex-none mx-auto w-full md:w-10/12 my-12 md:my-12"
           >
             <h1
               className="text-2xl mb-6 font-semibold"
@@ -126,14 +126,13 @@ exports[`Index renders correctly 1`] = `
               United by a blank canvas
             </h1>
             <p
-              className="text-md mb-6"
+              className="text-md mb-3"
             >
-              Blank is a collection of 10,000 Blank NFTs that will evolve based on a vote of Blank NFT holders. The first 1,000 people to join the community will be whitelisted to mint Blank NFTs for free.
-            </p>
-            <p
-              className="text-md"
-            >
-              To purchase, apply in Discord.
+              Blank is a web3 community united by 10,000 Blank NFTs.
+              <br />
+              Our first project is to vote on how they evolve.
+              <br />
+              The first 1,000 people to join mint for free.
             </p>
             <button
               className="text-white bg-gray-900 px-12 py-2 text-xs mt-6"
@@ -143,7 +142,7 @@ exports[`Index renders correctly 1`] = `
                 rel="noopener noreferrer"
                 target="_blank"
               >
-                Apply
+                Join
               </a>
             </button>
             <button

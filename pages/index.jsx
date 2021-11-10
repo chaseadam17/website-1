@@ -2,7 +2,7 @@
 // It is the top-level component so it is being rendered as the Index page.
 
 import Head from 'next/head'
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import {
   BlankButton,
   BlankLayout,
@@ -11,10 +11,27 @@ import {
 } from '../components'
 
 const Index = () => {
+  const [whitelistCount, setWhitelistCount] = useState(0)
+  
+  useEffect(() => {
+    const airtable = require('airtable');
+    airtable.configure({ apiKey: process.env.NEXT_PUBLIC_AIRTABLE_READONLY_API_KEY })
+    const airtableBase = airtable.base('appnTfhh0fxCM8pBx');
+    const whitelist = airtableBase.table('Whitelist');
+    whitelist.select({
+      pageSize: 100
+    }).eachPage(function page(records, fetchNextPage) {
+      setWhitelistCount(whitelistCount + records.length)
+      fetchNextPage();
+    }, function done(err) {
+        if (err) { console.error(err); return; }
+    })
+  }, [])
+  
   useEffect(() => {
     const countElement = document.getElementById('canvas-count');
-    const current = 5000;
-    const total = 10000;
+    const current = 1000 - whitelistCount;
+    const total = 1000;
     let count = total;
     let timeouts = [];
   
@@ -37,7 +54,7 @@ const Index = () => {
         window.clearTimeout(timeout);
       }
     };
-  }, []);
+  }, [whitelistCount]);
 
   return (
     <div>
@@ -49,29 +66,28 @@ const Index = () => {
 
       <BlankLayout>
         <TWCenteredContent>
-          <div className='container md:flex sm:w-full xl:w-3/4 sm:mx-auto'>
-            <div className="mx-auto mb-12 flex flex-none bg-center bg-contain bg-no-repeat text-center text-md tracking-widest" style={{width: "360px", height: "330px", backgroundImage: `url("/nft.png")`}}>
+          <div className='container mx-auto w-full md:flex'>
+            <div className="mr-6 mb-12 md:w-2/12 flex flex-none bg-center bg-contain bg-no-repeat text-center text-md tracking-widest" style={{width: "360px", height: "330px", backgroundImage: `url("/nft.png")`}}>
               <div className="m-auto">
-                <div><span id="canvas-count">10000</span> / 10000</div>
+                <div><span id="canvas-count">1000</span> / 1000</div>
                 <div className="text-gray-500 pt-3">Remaining</div>
               </div>
             </div>
-            <div className="flex-none mx-auto w-11/12 md:w-1/2 my-12 md:my-12">
+            <div className="flex-none mx-auto w-full md:w-10/12 my-12 md:my-12">
               <h1 className="text-2xl mb-6 font-semibold">United by a blank canvas</h1>
-              <p className="text-md mb-6">
-                Blank is a collection of 10,000 Blank NFTs that will evolve based on a vote
-                of Blank NFT holders. The first 1,000 people to join the community will be
-                whitelisted to mint Blank NFTs for free.
-              </p>
-              <p className="text-md">
-                To purchase, apply in Discord.
+              <p className="text-md mb-3">
+                Blank is a web3 community united by 10,000 Blank NFTs.
+                <br/>
+                Our first project is to vote on how they evolve.
+                <br/>
+                The first 1,000 people to join mint for free.
               </p>
       
               <BlankButton>
                 <NewWindowLink
                   href="https://discord.gg/EvyXJHxJaw"
                 >
-                  Apply
+                  Join
                 </NewWindowLink>
               </BlankButton>
       
