@@ -5,7 +5,7 @@ exports[`BlankHeader renders correctly 1`] = `
   className="py-12 lg:px-24 p-6 bg-white text-black leading-10"
 >
   <div
-    className="sm:px-12 md:px-24 flex flex-row justify-between"
+    className="sm:px-12 md:px-24 justify-between flex flex-row"
   >
     <a
       href="/"
@@ -15,7 +15,7 @@ exports[`BlankHeader renders correctly 1`] = `
       Blank.Foundation
     </a>
     <div
-      className="space-x-2 flex flex-row justify-between"
+      className="space-x-2 justify-between flex flex-row"
     >
       <div>
         child1
