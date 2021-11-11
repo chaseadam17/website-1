@@ -59,7 +59,7 @@ const BlankMinting = ({ network }) => {
     loadVoucher()
   }, [provider]);
   
-  const mint = async () => {
+  const mint = async () => { 
     setError(null);
     setTx(null);
   
@@ -77,11 +77,16 @@ const BlankMinting = ({ network }) => {
     try {
       setPending(true);
       const info = await signer.redeemVoucher(amount, voucher)
+      console.log(info)
       setPending(info.hash)
       const receipt = await info.wait();
-      setTx(receipt.transactionHash); 
+      setTx(receipt.transactionHash);
     } catch (error) {
-      setError(error.message);
+      if (error.error) {
+        setError(error.error.message)
+      } else {
+        setError(error.message);
+      }
       setPending(null);
     }
   }
