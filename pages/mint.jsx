@@ -82,10 +82,11 @@ const BlankMinting = ({ network }) => {
       const receipt = await info.wait();
       setTx(receipt.transactionHash);
     } catch (error) {
+      const help = "Please post a message in the #blank-tech discord channel if you need help."
       if (error.error) {
-        setError(error.error.message)
+        setError(`-- ${error.error.message} -- ${help}`)
       } else {
-        setError(error.message);
+        setError(`-- ${error.message} -- ${help}`);
       }
       setPending(null);
     }
@@ -133,6 +134,7 @@ const BlankMinting = ({ network }) => {
                 <h1 className='text-2xl mb-12'>Mint</h1>
                 <p className='mb-6'>Congratulations, you have been approved to mint!</p>
                 <p className='mb-6'>How many Blank NFTs would you like to mint?</p>
+                <p className='mb-6'>You can only mint once.</p>
                 <p>
                   <select 
                     id="mint-amount" 
