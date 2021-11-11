@@ -51,7 +51,7 @@ const BlankMinting = ({ network }) => {
         const gweiGasPrice = utils.formatUnits(gasPrice, "gwei")
         setGweiGasPrice(gweiGasPrice)
       } else {
-        setError("This wallet address is not allowed to mint a BlankArt NFT.")
+        setError("This wallet address is not allowed to mint a BlankArt NFT. Please join the discord and apply to join Blank!")
         return
       }
     }
