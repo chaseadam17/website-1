@@ -55,7 +55,7 @@ const BlankVoucher = () => {
     <div>
       <Head>
         <title>Blank.Foundation</title>
-        <meta name="description" content="Blank.Foundation" />
+        <meta name="description" content="United by a blank canvas." />
         <link rel="icon" href="/favicon.ico" />
       </Head>
   

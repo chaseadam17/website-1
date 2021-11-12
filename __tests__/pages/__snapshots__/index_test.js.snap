@@ -87,7 +87,7 @@ exports[`Index renders correctly 1`] = `
         className="inline-block"
       >
         <div
-          className="container mx-auto w-full md:flex"
+          className="container mx-auto w-11/12 sm:w-full md:flex"
         >
           <div
             className="mr-6 mb-12 md:w-2/12 flex flex-none bg-center bg-contain bg-no-repeat text-center text-md tracking-widest"
@@ -129,9 +129,23 @@ exports[`Index renders correctly 1`] = `
               className="text-md mb-3"
             >
               Blank is a web3 community united by 10,000 Blank NFTs.
-              <br />
+              <br
+                className="hidden sm:block"
+              />
+              <span
+                className="sm:hidden"
+              >
+                 
+              </span>
               Our first project is to vote on how they evolve.
-              <br />
+              <br
+                className="hidden sm:block"
+              />
+              <span
+                className="sm:hidden"
+              >
+                 
+              </span>
               The first 1,000 people to join mint for free.
             </p>
             <button
