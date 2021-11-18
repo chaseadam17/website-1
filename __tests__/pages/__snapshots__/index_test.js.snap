@@ -90,7 +90,7 @@ exports[`Index renders correctly 1`] = `
           className="container mx-auto w-11/12 sm:w-full md:flex"
         >
           <div
-            className="mr-6 mb-12 md:w-2/12 flex flex-none bg-center bg-contain bg-no-repeat text-center text-md tracking-widest"
+            className="mr-6 mb-12 md:w-2/12 flex flex-none bg-center bg-contain bg-no-repeat text-center tracking-widest"
             style={
               Object {
                 "backgroundImage": "url(\\"/nft.png\\")",
@@ -100,20 +100,24 @@ exports[`Index renders correctly 1`] = `
             }
           >
             <div
-              className="m-auto"
+              className="flex items-center justify-center flex-grow"
             >
-              <div>
-                <span
-                  id="canvas-count"
-                >
-                  1000
-                </span>
-                 / 1000
-              </div>
               <div
-                className="text-gray-500 pt-3"
+                className="inline-block"
               >
-                Remaining
+                <div>
+                  <span
+                    id="canvas-count"
+                  >
+                    1000
+                  </span>
+                   / 1000
+                </div>
+                <div
+                  className="text-gray-500 pt-3"
+                >
+                  Remaining
+                </div>
               </div>
             </div>
           </div>
