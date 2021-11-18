@@ -75,7 +75,7 @@ const Index = () => {
             </div>
             <div className="flex-none mx-auto w-full md:w-10/12 my-12 md:my-12">
               <h1 className="text-2xl mb-6 font-semibold">United by a blank canvas</h1>
-              <p className="text-md mb-3 text-center sm:text-left">
+              <p className="text-md mb-3">
                 Blank is a web3 community united by 
                 <br/>
                 10,000 blank NFTs. Our first 1,000 
