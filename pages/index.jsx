@@ -75,14 +75,14 @@ const Index = () => {
             </div>
             <div className="flex-none mx-auto w-full md:w-10/12 my-12 md:my-12">
               <h1 className="text-2xl mb-6 font-semibold">United by a blank canvas</h1>
-              <p className="text-md mb-3">
-                Blank is a web3 community united by 10,000 Blank NFTs.
-                <br className='hidden sm:block'/>
-                <span className='sm:hidden'> </span>
-                Our first project is to vote on how they evolve.
-                <br className='hidden sm:block'/>
-                <span className='sm:hidden'> </span>
-                The first 1,000 people to join mint for free.
+              <p className="text-md mb-3 text-center sm:text-left">
+                Blank is a web3 community united by 
+                <br/>
+                10,000 blank NFTs. Our first 1,000 
+                <br/>
+                members mint for free, and together
+                <br/>
+                we vote on how they evolve.
               </p>
       
               <BlankButton
