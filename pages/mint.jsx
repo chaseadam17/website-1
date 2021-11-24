@@ -92,18 +92,18 @@ const BlankMinting = () => {
     }
   }
   
-  const gasEstimate = () => {
-    const gasUsed = [
-      112413,
-      162472,
-      196000,
-      228339,
-      275052
-    ][mintAmount - 1]
+  // const gasEstimate = () => {
+  //   const gasUsed = [
+  //     135835,
+  //     162472,
+  //     196000,
+  //     228339,
+  //     275052
+  //   ][mintAmount - 1]
   
-    const eth = gweiGasPrice * 0.000000001
-    return parseInt(mintAmount * eth * gasUsed * 10000) / 10000
-  }
+  //   const eth = gweiGasPrice * 0.000000001
+  //   return parseInt(mintAmount * eth * gasUsed * 10000) / 10000
+  // }
 
   return (
     <div>
@@ -149,7 +149,7 @@ const BlankMinting = () => {
                     <option value="5">5</option>
                   </select>
                 </p>
-                {gweiGasPrice &&
+                {false && gweiGasPrice &&
                   <p className='mt-3'>
                     Minting {mintAmount} Blank NFT{mintAmount > 1 ? 's': ''} will cost
                     <br/>
