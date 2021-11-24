@@ -212,7 +212,7 @@ const BlankMinting = ({ network }) => {
 }
 
 BlankMinting.defaultProps = {
-  network: "rinkeby"
+  network: "homestead"
 }
 
 export default BlankMinting;
