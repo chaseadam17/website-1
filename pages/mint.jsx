@@ -98,7 +98,7 @@ const BlankMinting = () => {
       162472,
       196000,
       228339,
-      261290
+      275052
     ][mintAmount - 1]
   
     const eth = gweiGasPrice * 0.000000001
