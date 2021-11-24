@@ -24,7 +24,7 @@ const BlankMinting = () => {
   const [mintAmount, setMintAmount] = useState(5)
   
   const connect = async () => {
-    web3Connection(network, setError, setProvider)
+    web3Connection(BlankArt.network, setError, setProvider)
   }
     
   useEffect(() => { 
