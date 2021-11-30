@@ -2,11 +2,11 @@
 // It is the top level component so it is rendered as the index page.
 import React from 'react';
 import TestRenderer from 'react-test-renderer';
-import Index from '../../pages/index';
+import BlankIndex from '../../pages/index';
 
-describe("Index", () => {
+describe("BlankIndex", () => {
   it('renders correctly', () => {
-    const rendered = TestRenderer.create(<Index />).toJSON();
+    const rendered = TestRenderer.create(<BlankIndex />).toJSON();
     expect(rendered).toMatchSnapshot()
   });
 });

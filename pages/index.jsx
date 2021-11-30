@@ -10,7 +10,7 @@ import {
   TWCenteredContent
 } from '../components'
 
-const Index = () => {
+const BlankIndex = () => {
   const [whitelistCount, setWhitelistCount] = useState(0)
   
   useEffect(() => {
@@ -124,4 +124,4 @@ const Index = () => {
   );
 }
 
-export default Index;
+export default BlankIndex;

@@ -22,6 +22,7 @@ const BlankMinting = () => {
   const [pending, setPending] = useState(false);
   const [gweiGasPrice, setGweiGasPrice] = useState(null)
   const [mintAmount, setMintAmount] = useState(5)
+  const [address, setAddress] = useState(null)
   
   const connect = async () => {
     web3Connection(BlankArt.network, setError, setProvider)
@@ -33,6 +34,7 @@ const BlankMinting = () => {
     const loadVoucher = async() => {
       const recipient = provider.getSigner();
       const recipientAddress = await recipient.getAddress();
+      setAddress(recipientAddress)
       
       const airtable = require('airtable');
       airtable.configure({ apiKey: process.env.NEXT_PUBLIC_AIRTABLE_READONLY_API_KEY })
@@ -91,19 +93,6 @@ const BlankMinting = () => {
       setPending(null);
     }
   }
-  
-  // const gasEstimate = () => {
-  //   const gasUsed = [
-  //     135835,
-  //     162472,
-  //     196000,
-  //     228339,
-  //     275052
-  //   ][mintAmount - 1]
-  
-  //   const eth = gweiGasPrice * 0.000000001
-  //   return parseInt(mintAmount * eth * gasUsed * 10000) / 10000
-  // }
 
   return (
     <div>
@@ -149,13 +138,6 @@ const BlankMinting = () => {
                     <option value="5">5</option>
                   </select>
                 </p>
-                {false && gweiGasPrice &&
-                  <p className='mt-3'>
-                    Minting {mintAmount} Blank NFT{mintAmount > 1 ? 's': ''} will cost
-                    <br/>
-                    roughly {gasEstimate()} Eth right now.
-                  </p>
-                }
                 <p>
                   <BlankButton
                     classMap={{
@@ -190,6 +172,17 @@ const BlankMinting = () => {
                 <h1 className='text-2xl mb-12'>Minted!</h1>
                 <p>
                   You can see your minted transaction on&nbsp;
+                  {address &&
+                    <span>
+                      <NewWindowLink 
+                        href={`https://opensea.io/${address}`}
+                        className="text-blue-600 underline"
+                      >
+                        OpenSea
+                      </NewWindowLink>
+                      &nbsp;and&nbsp;
+                    </span>
+                  }
                   <NewWindowLink 
                     href={`https://etherscan.io/tx/${tx}`}
                     className="text-blue-600 underline"

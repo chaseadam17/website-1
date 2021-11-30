@@ -5,7 +5,7 @@ import {
   TWHorizontal
 } from '.'
 
-const BlankFooter = ({ index, social }) => {
+const BlankFooter = ({ social }) => {
   return (
     <TWFooter className='sm:px-24'>
       <TWHorizontal className='mx-auto sm:mx-0 space-x-8'>
@@ -31,7 +31,6 @@ const BlankFooter = ({ index, social }) => {
 }
 
 BlankFooter.defaultProps = {
-  index: "index",
   social: [{"href":"https://discord.gg/HZM2jcHdEU","name":"Discord"},{"href":"https://twitter.com/blankfdn","name":"Twitter"},{"href":"https://medium.com/@blankfdn","name":"Medium"},{"href":"https://blankfoundation.notion.site/Blank-641ad836df9c4918b1bd09ce196a6dce","name":"Notion"}]
 }
 
