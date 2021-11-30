@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Index renders correctly 1`] = `
+exports[`BlankIndex renders correctly 1`] = `
 <div>
   <div
     className="font-roboto-mono text-sm bg-white text-gray-900 flex flex-col h-screen"
