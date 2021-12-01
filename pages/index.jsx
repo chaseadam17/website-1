@@ -18,10 +18,12 @@ const BlankIndex = () => {
     airtable.configure({ apiKey: process.env.NEXT_PUBLIC_AIRTABLE_READONLY_API_KEY })
     const airtableBase = airtable.base('appnTfhh0fxCM8pBx');
     const whitelist = airtableBase.table('Whitelist');
+    let totalWhiteListCount = 0
     whitelist.select({
       pageSize: 100
     }).eachPage(function page(records, fetchNextPage) {
-      setWhitelistCount(whitelistCount + records.length)
+      totalWhiteListCount += records.length
+      setWhitelistCount(totalWhiteListCount)
       fetchNextPage();
     }, function done(err) {
         if (err) { console.error(err); return; }
