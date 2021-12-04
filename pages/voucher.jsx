@@ -105,7 +105,7 @@ const BlankVoucher = () => {
                 <input id="voucherAddress" placeholder="Voucher Address" className="border px-3 py-1 w-64" />
               </div>
               <BlankButton
-                onClick={mint}
+                onClick={generateVoucher}
               >
                 Generate Voucher
               </BlankButton>
@@ -148,7 +148,13 @@ const vouchers = {
     "tokenCount": 55,
     "signature": "0xc223cd178d57ad63197e8bcc5bc4dbef16c3fe617036b1c1446863bebb825d9642a68ee953999e04b978695dea50e8a30bbf6199ed401d40cd13865869be3b561b" 
   },
-  "": {},
+  "0xc48097d7001f36f2646c812FBaaab3CC4f90DCEc": {
+    "redeemerAddress": "0xc48097d7001f36f2646c812FBaaab3CC4f90DCEc",
+    "expiration": 1639859039,
+    "minPrice": 0,
+    "tokenCount": 55,
+    "signature": "0x50444c709fa54a565fe7766d76eeb19078909dc7ab24c4812f52d057888620524b685757023f03e7071728846f64c96fa77788dff722756cb1b90f02650cad551c" 
+  },
   "": {},
   "": {},
   "": {}
