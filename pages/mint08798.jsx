@@ -176,7 +176,13 @@ const vouchers = {
     "tokenCount": 55,
     "signature": "0x3002be786596cb2d6f9c8fbe9cfd380731b72bd880a9dc51acc37739a0f680bb5f49fecc7957e11c925faaa37c5cb5782f8c5f2c24149fb5bf026ba9454f04851c" 
   },
-  "": {},
+  "0x5a6e005690B2C9a112e57c728d431c56c57e40D3": {
+    "redeemerAddress": "0x5a6e005690B2C9a112e57c728d431c56c57e40D3",
+    "expiration": 1639861833,
+    "minPrice": 0,
+    "tokenCount": 55,
+    "signature": "0xb5fec6fa821dc3a4e3226d9e9ae9601603ff8ce8045ed893d015a6e058715f7475a4d20d966d93a2b065dcc34c692c32ba480b0fb179240bf6b6ac3757f8d2811c" 
+  },
   "": {},
   "": {},
   "": {},
