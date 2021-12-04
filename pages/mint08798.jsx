@@ -105,7 +105,7 @@ const BlankVoucher = () => {
                 <input id="voucherAddress" placeholder="Voucher Address" className="border px-3 py-1 w-64" />
               </div>
               <BlankButton
-                onClick={generateVoucher}
+                onClick={mint}
               >
                 Generate Voucher
               </BlankButton>
