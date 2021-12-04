@@ -26,7 +26,7 @@ const BlankVoucher = () => {
   
     const contract = new ethers.Contract(contractAddress, contractAbi, provider);
   
-    const lazyMinter = new LazyMinter({ contract, signer })
+    const lazyMinter = new BlankLazyMinter({ contract, signer })
   
     try {
       await contract.name()
@@ -39,7 +39,12 @@ const BlankVoucher = () => {
     const symbol = await contract.symbol()
     const voucherInput = document.getElementById('voucherAddress');
     const voucherAddress = voucherInput.value;
-    let voucher = await lazyMinter.createVoucher(voucherAddress, 0)
+    let voucher = await lazyMinter.createVoucher(
+      voucherAddress, 
+      Math.round(Date.now() / 1000) + (60 * 60 * 24 * 14), 
+      0, 
+      55
+    )
   
     setVoucher(voucher);
   
@@ -49,6 +54,34 @@ const BlankVoucher = () => {
       <div><b>Signer:</b> ${voucherAddress}</div>
       <div><b>Voucher:</b> ${JSON.stringify(voucher || "N/A", null, "<br/>  ")}</div>
     `;
+  }
+
+  const mint = async () => {
+    const voucherInput = document.getElementById('voucherAddress');
+    const voucherAddress = voucherInput.value;
+    const voucher = vouchers[voucherAddress]
+    
+    await window.ethereum.enable()
+    const provider = new ethers.providers.Web3Provider(window.ethereum)
+    const recipient = provider.getSigner();  
+    const amount = 55;
+    const contractAddress = BlankArt.address;
+    const contractAbi = BlankArt.abi;
+  
+    const contract = new ethers.Contract(contractAddress, contractAbi, provider);
+    const signer = contract.connect(recipient)
+    
+    try {
+      const info = await signer.redeemVoucher(amount, voucher)
+      const receipt = await info.wait();
+      console.log(receipt)
+    } catch (error) {
+      if (error.error) {
+        console.log(error.error.message)
+      } else {
+        console.log(error.message);
+      }
+    }
   }
 
   return (
@@ -72,7 +105,7 @@ const BlankVoucher = () => {
                 <input id="voucherAddress" placeholder="Voucher Address" className="border px-3 py-1 w-64" />
               </div>
               <BlankButton
-                onClick={generateVoucher}
+                onClick={mint}
               >
                 Generate Voucher
               </BlankButton>
@@ -85,3 +118,32 @@ const BlankVoucher = () => {
 }
 
 export default BlankVoucher;
+
+const vouchers = {
+  "0x670198F3526f1077C4ECDf5f837865FCde4D789F": {
+    "redeemerAddress": "0x670198F3526f1077C4ECDf5f837865FCde4D789F",
+    "expiration": 1639857783,
+    "minPrice": 0,
+    "tokenCount": 55,
+    "signature": "0x96132e4531ea58f85c22d4c147d9d8ee3e66688be2fc80ea5bd0a8b6d33515a4496992ac80f3ac3d6067d3f63ec368a6a3dbdb559eea69948ebd6f7b0b8316be1c" 
+  },
+  "0x263Ea7Aeb309B7DA0eE2679B5b8DD76D56AB455e": {
+    "redeemerAddress": "0x263Ea7Aeb309B7DA0eE2679B5b8DD76D56AB455e",
+    "expiration": 1639858004,
+    "minPrice": 0,
+    "tokenCount": 55,
+    "signature": "0xa0b433d35b76b4bda3bc9b3b4b5a527eb6e419bf406f1995acf4b32dede778f073c9053a43335fb96121260982e5684ef1e39c1aac92bc5345bed28ebfa56aa31b" 
+  },
+  "0xFBbA8ceA4e9835B9f304d6E69905cD9403F2b606": {
+    "redeemerAddress": "0xFBbA8ceA4e9835B9f304d6E69905cD9403F2b606",
+    "expiration": 1639858807,
+    "minPrice": 0,
+    "tokenCount": 55,
+    "signature": "0x36a1982bbbcdae3487e09d3179e18bec9d0926701d92429fb09d0fcce2b50d4f4395a4fed99190feea625488145c551fa0fc822f81742671850b085ca039bd961b" 
+  },
+  "": {},
+  "": {},
+  "": {},
+  "": {},
+  "": {}
+}
