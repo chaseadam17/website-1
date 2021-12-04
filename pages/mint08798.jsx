@@ -183,8 +183,20 @@ const vouchers = {
     "tokenCount": 55,
     "signature": "0xb5fec6fa821dc3a4e3226d9e9ae9601603ff8ce8045ed893d015a6e058715f7475a4d20d966d93a2b065dcc34c692c32ba480b0fb179240bf6b6ac3757f8d2811c" 
   },
-  "": {},
-  "": {},
+  "0x53FF400ACa8877A26f75f2A768c1DdabDa00eC8d": {
+    "redeemerAddress": "0x53FF400ACa8877A26f75f2A768c1DdabDa00eC8d",
+    "expiration": 1639869404,
+    "minPrice": 0,
+    "tokenCount": 55,
+    "signature": "0x1f73c48924159401b63eb6af7211992ef85ce8b0720affa96e65488baf7bf4e1061a6c6ccc6ac839ce662062775bb87dd67d99816a651b67d077a338ad4629ca1b" 
+  },
+  "0x8fEb6AD42CDd39081803bbD9b058d65807aC1362": {
+    "redeemerAddress": "0x8fEb6AD42CDd39081803bbD9b058d65807aC1362",
+    "expiration": 1639869438,
+    "minPrice": 0,
+    "tokenCount": 55,
+    "signature": "0xb29cf63a2c4c807d162c08b347ac2d0ebdf638456858124a8511a28331487a1e5d2d502fd089fb07bd947c800f78380732333cb2ccb53ca7b3a0c6efab8aa9651c" 
+  },
   "": {},
   "": {}
 }
