@@ -87,7 +87,7 @@ exports[`BlankMinting renders correctly 1`] = `
         className="inline-block"
       >
         <div
-          className="mb-36 max-w-lg text-center"
+          className="max-w-lg text-center mb-36"
         >
           <button
             className="text-white bg-gray-900 px-3 py-1 text-xs mt-6"
