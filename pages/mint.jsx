@@ -24,13 +24,11 @@ const BlankMinting = () => {
   const [mintAmount, setMintAmount] = useState(5)
   const [address, setAddress] = useState(null)
   
-  const connect = async () => {
-    web3Connection(BlankArt.network, setError, setProvider)
-  }
+  const connect = () => web3Connection(BlankArt.networkId, setError, setProvider)
     
   useEffect(() => { 
     if (!provider) return;
-     
+
     const loadVoucher = async() => {
       const recipient = provider.getSigner();
       const recipientAddress = await recipient.getAddress();
@@ -66,8 +64,6 @@ const BlankMinting = () => {
     setTx(null);
   
     const recipient = provider.getSigner();
-  
-    const amount = document.getElementById('mint-amount').value;
     
     const contractAddress = BlankArt.address;
   
@@ -78,7 +74,7 @@ const BlankMinting = () => {
     
     try {
       setPending(true);
-      const info = await signer.redeemVoucher(amount, voucher)
+      const info = await signer.redeemVoucher(mintAmount, voucher)
       console.log(info)
       setPending(info.hash)
       const receipt = await info.wait();
@@ -104,7 +100,7 @@ const BlankMinting = () => {
   
       <BlankLayout>
         <TWCenteredContent>
-          <div className="mb-36 max-w-lg text-center">
+          <div className="max-w-lg text-center mb-36">
             {nfts.length > 0 &&
               <div>You have NFTs!</div>
             }
@@ -120,22 +116,18 @@ const BlankMinting = () => {
             }
             {voucher && !pending && !tx &&
               <div>
-                <h1 className='text-2xl mb-12'>Mint</h1>
+                <h1 className='mb-12 text-2xl'>Mint</h1>
                 <p className='mb-6'>Congratulations, you have been approved to mint!</p>
                 <p className='mb-6'>How many Blank NFTs would you like to mint?</p>
                 <p className='mb-6'>You can only mint once.</p>
                 <p>
                   <select 
                     id="mint-amount" 
-                    defaultValue="5"
-                    className='cursor-pointer border text-xl p-3 rounded-xl'
+                    defaultValue={mintAmount}
+                    className='p-3 text-xl border cursor-pointer rounded-xl'
                     onChange={(e) => setMintAmount(e.target.value)}
                   >
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5">5</option>
+                    {Array(5).fill(0).map((_, i)=> (<option key={i+1} value={i+1}>{i+1}</option>))}
                   </select>
                 </p>
                 <p>
@@ -152,7 +144,7 @@ const BlankMinting = () => {
             }
             {pending && !tx &&
               <div>
-                <h1 className='text-2xl mb-12'>Minting...</h1>
+                <h1 className='mb-12 text-2xl'>Minting...</h1>
                 <p>Please wait, this may take a few minutes.</p>
                 {typeof pending === 'string' &&
                   <p>
@@ -169,7 +161,7 @@ const BlankMinting = () => {
             }
             {tx &&
               <div>
-                <h1 className='text-2xl mb-12'>Minted!</h1>
+                <h1 className='mb-12 text-2xl'>Minted!</h1>
                 <p>
                   You can see your minted transaction on&nbsp;
                   {address &&
@@ -193,7 +185,7 @@ const BlankMinting = () => {
               </div>
             }
             {error && !pending &&
-              <div className='text-red-800 text-lg my-6'>
+              <div className='my-6 text-lg text-red-800'>
                 {error}
               </div>
             }
