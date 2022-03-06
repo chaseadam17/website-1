@@ -25,6 +25,7 @@ const BlankMinting = () => {
   const [tokenCount, setTokenCount] = useState(null)
   const [mintAmount, setMintAmount] = useState(null)
   const [address, setAddress] = useState(null)
+  const [voucherId, setVoucherId] = useState(5)
   
   const connect = () => web3Connection(BlankArt.networkId, setError, setProvider)
     
@@ -86,6 +87,7 @@ const BlankMinting = () => {
         return;
       }
 
+      setVoucher(data.id)
       setMintAmount(data.count)
       setTokenCount(data.count)
       setVoucher(data.voucher)
@@ -216,6 +218,15 @@ const BlankMinting = () => {
                   >
                     Etherscan
                   </NewWindowLink>.
+                </p>
+                <p className='pt-3'>
+                  Please complete the transaction in discord by running 
+                  <code className='bg-gray-700 text-white px-2 py-1 mx-1 text-sm '>
+                    /redeem-voucher id:{voucherId}
+                  </code>.
+                </p>
+                <p className='pt-3'>
+                  You will not be able to claim any additional vouchers until this step has been completed.
                 </p>
               </div>
             }
