@@ -4,6 +4,7 @@
 import Head from 'next/head'
 import { useState, useEffect } from 'react';
 import { ethers, utils } from 'ethers';
+import supabaseClient from '../lib/supabaseClient';
 import web3Connection from '../lib/web3Connection'
 import { BlankArt } from '../contracts'
 import {
@@ -21,43 +22,77 @@ const BlankMinting = () => {
   const [tx, setTx] = useState(null);
   const [pending, setPending] = useState(false);
   const [gweiGasPrice, setGweiGasPrice] = useState(null)
-  const [mintAmount, setMintAmount] = useState(5)
+  const [tokenCount, setTokenCount] = useState(null)
+  const [mintAmount, setMintAmount] = useState(null)
   const [address, setAddress] = useState(null)
   
   const connect = () => web3Connection(BlankArt.networkId, setError, setProvider)
     
-  useEffect(() => { 
+  // old whitelist voucher generation
+  // useEffect(() => { 
+  //   if (!provider) return;
+
+  //   const loadVoucher = async() => {
+  //     const recipient = provider.getSigner();
+  //     const recipientAddress = await recipient.getAddress();
+  //     setAddress(recipientAddress)
+      
+  //     const airtable = require('airtable');
+  //     airtable.configure({ apiKey: process.env.NEXT_PUBLIC_AIRTABLE_READONLY_API_KEY })
+  //     const airtableBase = airtable.base('appnTfhh0fxCM8pBx');
+  //     const whitelist = airtableBase.table('Whitelist');
+  //     const entries = whitelist.select({
+  //       filterByFormula: `{WalletAddress} = '${recipientAddress}'`
+  //     })
+  //     const entry = (await entries.firstPage())[0]
+  
+  //     if (entry) {
+  //       setError(null);  
+  //       setVoucher(JSON.parse(entry.fields.Voucher));
+  
+  //       const gasPrice = await provider.getGasPrice()
+  //       const gweiGasPrice = utils.formatUnits(gasPrice, "gwei")
+  //       setGweiGasPrice(gweiGasPrice)
+  //     } else {
+  //       setError("This wallet address is not allowed to mint a BlankArt NFT. Please join the discord and apply to join Blank!")
+  //       return
+  //     }
+  //   }
+  
+  //   loadVoucher()
+  // }, [provider]);
+
+  useEffect(() => {
     if (!provider) return;
 
-    const loadVoucher = async() => {
+    const retrieveVoucher = async() => {
       const recipient = provider.getSigner();
       const recipientAddress = await recipient.getAddress();
-      setAddress(recipientAddress)
-      
-      const airtable = require('airtable');
-      airtable.configure({ apiKey: process.env.NEXT_PUBLIC_AIRTABLE_READONLY_API_KEY })
-      const airtableBase = airtable.base('appnTfhh0fxCM8pBx');
-      const whitelist = airtableBase.table('Whitelist');
-      const entries = whitelist.select({
-        filterByFormula: `{WalletAddress} = '${recipientAddress}'`
-      })
-      const entry = (await entries.firstPage())[0]
-  
-      if (entry) {
-        setError(null);  
-        setVoucher(JSON.parse(entry.fields.Voucher));
-  
-        const gasPrice = await provider.getGasPrice()
-        const gweiGasPrice = utils.formatUnits(gasPrice, "gwei")
-        setGweiGasPrice(gweiGasPrice)
-      } else {
-        setError("This wallet address is not allowed to mint a BlankArt NFT. Please join the discord and apply to join Blank!")
+
+      const { data, error } = await supabaseClient
+        .from('voucher')
+        .select('*')
+        .eq('voucher->redeemerAddress', JSON.stringify(recipientAddress))
+        .is('redeemed_at', null)
+        .maybeSingle()
+    
+      if (error) {
+        setError(error.message)
         return
       }
+
+      if (!data) {
+        setError("Unable to find a valid voucher for this wallet address.")
+        return;
+      }
+
+      setMintAmount(data.count)
+      setTokenCount(data.count)
+      setVoucher(data.voucher)
     }
-  
-    loadVoucher()
-  }, [provider]);
+
+    retrieveVoucher();
+  }, [provider])
   
   const mint = async () => { 
     setError(null);
@@ -127,7 +162,7 @@ const BlankMinting = () => {
                     className='p-3 text-xl border cursor-pointer rounded-xl'
                     onChange={(e) => setMintAmount(e.target.value)}
                   >
-                    {Array(5).fill(0).map((_, i)=> (<option key={i+1} value={i+1}>{i+1}</option>))}
+                    {Array(tokenCount).fill(0).map((_, i)=> (<option key={i+1} value={i+1}>{i+1}</option>))}
                   </select>
                 </p>
                 <p>
