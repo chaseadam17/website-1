@@ -2,7 +2,8 @@ import Head from 'next/head'
 import {
   BlankLayout,
   TWCenteredContent,
-  TokenGate
+  TokenGate,
+  EvolutionChallenge
 } from '../components'
 
 const BlankMembers = () => {
@@ -17,9 +18,11 @@ const BlankMembers = () => {
   
       <BlankLayout>
         <TWCenteredContent>
-          <TokenGate>
-            <div>HI THERE!</div>
-          </TokenGate>
+          <div className='pb-60'>
+            <TokenGate>
+              <EvolutionChallenge />
+            </TokenGate>
+          </div>          
         </TWCenteredContent>
       </BlankLayout>
     </div>
