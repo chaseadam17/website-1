@@ -18,14 +18,24 @@ const BlankFooter = ({ social }) => {
           </NewWindowLink> 
         ))}
       </TWHorizontal>
-      <NextLink 
-        href='/mint' 
-        passHref
-      >
-        <a className='hidden sm:inline-block text-white'>
-          Mint
-        </a>
-      </NextLink>
+      <div>
+        <NextLink 
+          href='/members' 
+          passHref
+        >
+          <a className='hidden sm:inline-block text-white mr-6'>
+            Members
+          </a>
+        </NextLink>
+        <NextLink 
+          href='/mint' 
+          passHref
+        >
+          <a className='hidden sm:inline-block text-white'>
+            Mint
+          </a>
+        </NextLink>
+      </div>
     </TWFooter>
   );
 }
