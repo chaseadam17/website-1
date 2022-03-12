@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { ethers } from 'ethers';
 import web3Connection from '../lib/web3Connection'
 import providerSignerHasToken from '../lib/providerSignerHasToken'
@@ -29,6 +29,13 @@ const TokenGate = ({ children }) => {
     connect();
   }, [])
 
+  const childrenWithProvider = React.Children.map(children, (child) => {
+    if (React.isValidElement(child)) {
+      return React.cloneElement(child, { provider });
+    }
+    return child;
+  });
+
   return (
     <div>  
       {!provider &&
@@ -41,7 +48,7 @@ const TokenGate = ({ children }) => {
           Connect Metamask
         </BlankButton>
       }
-      {hasToken && children}
+      {hasToken && childrenWithProvider}
       {hasToken === false &&
         <div>
           <div className='py-3'>

@@ -18,15 +18,15 @@ const CollectionPage = () => {
     const loadCollection = async () => {
       const { data, error } = await supabaseClient
         .from('collection')
-        .select('*')
-        .eq('id', router.query.id)
-        
-      setCollection(data)
+        .select('*, art(*)')
+        .eq('id', router.query.collectionId)
+
+      setCollection(data[0])
     }
 
     loadCollection();
 
-  }, [router.query.id])
+  }, [router.query.collectionId])
 
   return (
     <div>
