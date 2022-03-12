@@ -2,15 +2,17 @@ import { useEffect, useState } from 'react';
 import Image from 'next/image'
 import supabaseClient from '../lib/supabaseClient';
 
-const SupabaseImage = ({ uri, name }) => {
+const SupabaseImage = ({ collection, item }) => {
   const [url, setUrl] = useState(null);
+
+  const imageUri = `${collection.title}/${item.id}.png`
 
   useEffect(() => {
     const getSignedUrl = async () => {
       const { signedURL, error } = await supabaseClient
         .storage
         .from('art')
-        .createSignedUrl(uri, 60)
+        .createSignedUrl(imageUri, 60)
 
       if (error) console.log("Error getting public URL", error)
 
@@ -18,7 +20,7 @@ const SupabaseImage = ({ uri, name }) => {
     }
 
     getSignedUrl();
-  }, [uri])
+  }, [imageUri])
 
   if (!url) return <></>
 
@@ -28,10 +30,10 @@ const SupabaseImage = ({ uri, name }) => {
     >   
       <Image
         src={url}
-        alt={name}
+        alt={`${collection.title}-${item.id}`}
         layout='intrinsic'
-        width={300}
-        height={300}
+        width={240}
+        height={240}
       />
     </div>
     

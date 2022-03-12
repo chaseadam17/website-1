@@ -87,8 +87,8 @@ const EvolutionCollection = ({ collection, provider }) => {
           (artItem, index) => (
             <div key={`art-${art.id}`} className='mr-12'>
               <SupabaseImage
-                uri={imageUri(artItem.id)}
-                name={`${collection.title}-${index}`}
+                collection={collection}
+                item={artItem}
               />
             </div>
           )
