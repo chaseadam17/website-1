@@ -130,7 +130,7 @@ const BlankMinting = () => {
   return (
     <div>
       <Head>
-        <title>Blank.Foundation</title>
+        <title>Mint: Blank.Foundation</title>
         <meta name="description" content="United by a blank canvas." />
         <link rel="icon" href="/favicon.ico" />
       </Head>
