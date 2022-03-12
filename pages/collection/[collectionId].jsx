@@ -14,6 +14,7 @@ const CollectionPage = () => {
   const [collection, setCollection] = useState(null);
 
   useEffect(() => {
+    if (!router.query.collectionId) return;
 
     const loadCollection = async () => {
       const { data, error } = await supabaseClient
@@ -21,7 +22,11 @@ const CollectionPage = () => {
         .select('*, art(*)')
         .eq('id', router.query.collectionId)
 
-      setCollection(data[0])
+      if (error) {
+        console.log(error)
+      }
+
+      setCollection((data || [])[0])
     }
 
     loadCollection();

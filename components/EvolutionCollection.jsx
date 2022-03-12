@@ -1,42 +1,54 @@
 import { useState } from 'react';
 import {
   NextLink,
-  TWButton
+  TWButton,
+  SupabaseImage
 } from '.'
 import supabaseClient from '../lib/supabaseClient';
 
 const EvolutionCollection = ({ collection, provider }) => {
   const [file, setFile] = useState(null);
-  const [art, setArt] = useState(collection.art)
+  const [art, setArt] = useState(collection?.art || []);
+
+  const imageUri = (id) => `${collection.title}/${id}.png`
 
   const submit = async () => {
+    if (!file) return;
+
     const wallet = await provider.getSigner();
+    const address = await wallet.getAddress();
 
-    const { body } = await supabaseClient
-      .from('art')
-      .insert({
-        collection_id: collection.id,
-        wallet: wallet
-      })
+    const insert = async () => {
+      const { body, error } = await supabaseClient
+        .from('art')
+        .insert({
+          collection_id: collection.id,
+          wallet: address
+        })
 
-    const x = await supabaseClient
+      if (error) console.log("INSERT ERROR", error)
+
+      return body[0] 
+    }
+
+    const storage = async (id) => {
+      const { data, error } = await supabaseClient
       .storage
-      .from('art')
-      .upload(`${colletion.title}/${body.id}.png`, file, {
-        cacheControl: '3600',
-        upsert: false
-      })
-    
-    console.log("X", x)
+        .from('art')
+        .upload(imageUri(id), file, {
+          cacheControl: '3600',
+          upsert: false
+        })
 
-    // const response = await supabase
-    //   .from('art')
-    //   .update({
-    //     imageUri: data.uri
-    //   })
+      if (error) console.log("STORAGE ERROR", error)
+
+      return data.Key
+    }
+    
+    const artItem = await insert();
+    await storage(artItem.id);
   
-    // console.log(response)
-    // setArt([data, ...art])
+    setArt([artItem, ...art])
   }
 
   if (!collection) {
@@ -70,7 +82,19 @@ const EvolutionCollection = ({ collection, provider }) => {
         </TWButton>
       </div>
 
-</div>
+      <div className='py-12 flex'>
+        {art.map(
+          (artItem, index) => (
+            <div key={`art-${art.id}`} className='mr-12'>
+              <SupabaseImage
+                uri={imageUri(artItem.id)}
+                name={`${collection.title}-${index}`}
+              />
+            </div>
+          )
+        )}
+      </div>
+    </div>
   )
 }
 
