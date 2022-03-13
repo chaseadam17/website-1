@@ -2,10 +2,28 @@ import { useEffect, useState } from 'react';
 import Image from 'next/image'
 import supabaseClient from '../lib/supabaseClient';
 
-const SupabaseImage = ({ collection, item }) => {
+const SupabaseImage = ({ ownerAdmin, collection, item, index, dim }) => {
   const [url, setUrl] = useState(null);
 
   const imageUri = `${collection.title}/${item.id}.png`
+
+  const onDelete = async () => {
+    if (!ownerAdmin) return;
+
+    if (!confirm("Delete this image?")) return;
+
+    await supabaseClient
+      .storage
+      .from('art')
+      .remove([imageUri]);
+
+    await supabaseClient
+      .from('art')
+      .delete()
+      .eq('id', item.id);
+    
+    setUrl(null)
+  }
 
   useEffect(() => {
     const getSignedUrl = async () => {
@@ -28,12 +46,26 @@ const SupabaseImage = ({ collection, item }) => {
     <div
       className='border rounded relative'
     >   
+      {index &&
+        <div className='absolute top-0 left-0 px-2 py-1 z-10'>
+          {index}
+        </div>
+      }
+      {ownerAdmin &&
+        <div
+          className='absolute top-0 right-0 px-2 py-1 text-red-600 cursor-pointer z-10'
+          onClick={onDelete}
+        >
+          &#10008;
+        </div>
+      }
+      
       <Image
         src={url}
         alt={`${collection.title}-${item.id}`}
         layout='intrinsic'
-        width={240}
-        height={240}
+        width={dim}
+        height={dim}
       />
     </div>
     
