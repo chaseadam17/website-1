@@ -1,9 +1,12 @@
 import { useState } from 'react';
+import store from 'store2';
+
 import SupabaseImage from './SupabaseImage';
 
 const CombineArt = ({ art, collection }) => {
-  const [layers, setLayers] = useState([
-    '3', '2', '', '', '', '', '', '', '', ''
+  const collectionStore = store.namespace(`blank-evolution-collection-${collection.id}`);
+  const [layers, setLayers] = useState(collectionStore('layers') || [
+    '2', '3', '', '', '', '', '', '', '', ''
   ]);
 
   const input = (index) => {
@@ -19,6 +22,7 @@ const CombineArt = ({ art, collection }) => {
             const value = e.target.value;
             const newLayers = [...layers]
             newLayers.splice(index - 1, 1, value);
+            collectionStore('layers', newLayers)
             setLayers(newLayers);
           }}
           value={layers[index - 1] || ''}

@@ -62,6 +62,10 @@ const EvolutionCollection = ({ collection, provider }) => {
     getWallet();
   }, [provider])
 
+  useEffect(() => {
+    setArt(collection?.art || [])
+  }, [collection?.art])
+
   if (!collection) {
     return (
       <div>Loading...</div>
@@ -92,7 +96,7 @@ const EvolutionCollection = ({ collection, provider }) => {
       {wallet &&
         <div className='py-6'>
           <p>Upload An Image</p>
-          <p className='text-xs py-3'>Your image should be 2000px x 2000px.</p>
+          <p className='text-xs py-3'>Your image should be 512px x 512px.</p>
           <input
             type='file'
             className='mr-3'

@@ -12,7 +12,7 @@ const EvolutionChallenge = () => {
     }
 
     loadCollections();
-  })  
+  }, [])  
 
   return (
     <div>
