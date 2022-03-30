@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react';
-import Image from 'next/image'
 import supabaseClient from '../lib/supabaseClient';
 
 const SupabaseImage = ({ ownerAdmin, collection, item, index, dim }) => {
@@ -60,7 +59,7 @@ const SupabaseImage = ({ ownerAdmin, collection, item, index, dim }) => {
         </div>
       }
       
-      <Image
+      <img
         src={url}
         alt={`${collection.title}-${item.id}`}
         layout='intrinsic'

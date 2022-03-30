@@ -21,3 +21,5 @@ const config = withPlugins(
   ],
   nextConfig
 );
+
+module.exports = config;
