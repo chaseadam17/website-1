@@ -36,8 +36,11 @@ const CombineArt = ({ art, collection }) => {
       <h3 className=''>Combine Images</h3>
       <div className='flex'>
         <div className='text-xs'>
-          <p className='py-3'>
+          <p className='pt-3'>
             Enter image IDs to combine with other images.
+          </p>
+          <p className='py-3'>
+            #1 is the bottom layer, #10 is the top.
           </p>
           <div className='flex'>
             <div className='mr-3'>
@@ -70,7 +73,26 @@ const CombineArt = ({ art, collection }) => {
             )
           )}
         </div>  
-      </div>     
+      </div> 
+      <div className='py-3 flex'>
+        {layers.filter(l => !isNaN(parseInt(l))).map(
+          (layer, index) => (
+            <div  
+              key={`layer-slide-${index}`}  
+              className='mr-3' 
+            >
+              {art[layer - 1] &&
+                <SupabaseImage
+                  collection={collection}
+                  item={art[layer - 1]}
+                  dim={90}
+                  index={layer}
+                />
+              }
+            </div>
+          )
+        )}
+      </div>    
     </div>
   )
 }

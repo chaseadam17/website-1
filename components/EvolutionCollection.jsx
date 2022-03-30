@@ -73,7 +73,7 @@ const EvolutionCollection = ({ collection, provider }) => {
   }
 
   return (
-    <div>
+    <div className='container mx-auto'>
       <h1 className='text-sm'>
         <NextLink
           href='/members'
@@ -83,15 +83,19 @@ const EvolutionCollection = ({ collection, provider }) => {
         &nbsp;&gt;&nbsp;
         {collection.title}
       </h1>
+ 
+      {collection.title !== 'Full Artwork' && (
+        <div>
+          <div className='py-6'>
+            <CombineArt
+              art={art} 
+              collection={collection}
+            />
+          </div>
 
-      <div className='py-6'>
-        <CombineArt
-          art={art} 
-          collection={collection}
-        />
-      </div>
-
-      <hr className='my-6' />
+          <hr className='my-6' />
+        </div>
+      )}
       
       {wallet &&
         <div className='py-6'>
@@ -110,10 +114,10 @@ const EvolutionCollection = ({ collection, provider }) => {
         </div>
       }
 
-      <div className='py-6 flex'>
+      <div className='py-6 flex flex-wrap'>
         {art.map(
           (artItem, index) => (
-            <div key={`art-${artItem.id}`} className='mr-6'>
+            <div key={`art-${artItem.id}`} id={`art-${artItem.id}`} className='mr-3 mb-3'>
               <SupabaseImage
                 collection={collection}
                 item={artItem}
