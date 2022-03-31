@@ -3,7 +3,7 @@
 import { useEffect, useState } from 'react';
 import supabaseClient from '../lib/supabaseClient';
 
-const SupabaseImage = ({ ownerAdmin, collectionTitle, item, index, dim, selected, onSelect, onStar, onDelete }) => {
+const SupabaseImage = ({ wallet, ownerAdmin, collectionTitle, item, index, dim, selected, starred, onSelect, onStar, onDelete }) => {
   const [url, setUrl] = useState(null);
 
   const imageUri = `${collectionTitle}/${item.id}.png`
@@ -34,12 +34,21 @@ const SupabaseImage = ({ ownerAdmin, collectionTitle, item, index, dim, selected
     e.preventDefault();
     e.stopPropagation();
     
-    await supabaseClient
-      .from('star')
-      .upsert({
+    const query = supabaseClient.from('star')
+
+    if (starred) {
+      await query
+        .delete()
+        .eq('art_id', item.id)
+        .eq('wallet', wallet);
+
+    } else {
+      await query.upsert({
         art_id: item.id,
         wallet: wallet,
       })
+    }
+      
     
     onStar(item);
   }

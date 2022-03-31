@@ -1,24 +1,24 @@
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import supabaseClient from '../lib/supabaseClient';
 import EvolutionLayer from "./EvolutionLayer";
 
 const EvolutionLayers = ({ wallet, collectionTitle, art, onSelect }) => {
   const [starred, setStarred] = useState([]);
 
-  useEffect(() => {
-    const loadStars = async () => {
-      const { data, error } = await supabaseClient
-        .from('star')
-        .select('art_id')
-        .eq('wallet', wallet)
+  const loadStars = useCallback(async () => {
+    const { data, error } = await supabaseClient
+      .from('star')
+      .select('art_id')
+      .eq('wallet', wallet)
 
-      if (error) console.log("Error loading stars", error)
+    if (error) console.log("Error loading stars", error)
 
-      console.log(data.map(({ art_id }) => art_id))
-    }
-
-    loadStars();
+    console.log(data.map(({ art_id }) => art_id))
   }, [wallet])
+
+  useEffect(() => {
+    loadStars();
+  }, [loadStars])
 
   return (
     <div>
@@ -34,6 +34,7 @@ const EvolutionLayers = ({ wallet, collectionTitle, art, onSelect }) => {
                   art={starredItem}
                   collectionTitle={collectionTitle}
                   onSelect={onSelect}
+                  onStar={loadStars}
                 />
               )
             )}
@@ -51,6 +52,7 @@ const EvolutionLayers = ({ wallet, collectionTitle, art, onSelect }) => {
               art={artItem}
               collectionTitle={collectionTitle}
               onSelect={onSelect}
+              onStar={loadStars}
             />
           )
         )}
