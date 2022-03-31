@@ -33,9 +33,9 @@ const CombineArt = ({ art, collection }) => {
 
   return (
     <div className=''>
-      <h3 className=''>Combine Images</h3>
+      <h3 className='mb-3'>Combined Image</h3>
       <div className='flex'>
-        <div className='text-xs'>
+        {/* <div className='text-xs'>
           <p className='pt-3'>
             Enter image IDs to combine with other images.
           </p>
@@ -54,7 +54,7 @@ const CombineArt = ({ art, collection }) => {
               )}
             </div>
           </div>
-        </div>
+        </div> */}
         <div className='relative border' style={{width: '300px', height: '300px'}}>  
           {layers.filter(l => !isNaN(parseInt(l))).map(
             (layer, index) => (

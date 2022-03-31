@@ -2,12 +2,10 @@ import { useEffect, useState } from 'react';
 import {
   NextLink,
   TWButton,
-  SupabaseImage,
   CombineArt
 } from '.'
 import supabaseClient from '../lib/supabaseClient';
-
-const ADMIN_WALLET = '0xfa23B55345c7237b7eEE52Db975E8a72b840BC1A';
+import EvolutionLayers from './EvolutionLayers';
 
 const EvolutionCollection = ({ collection, provider }) => {
   const [file, setFile] = useState(null);
@@ -63,7 +61,11 @@ const EvolutionCollection = ({ collection, provider }) => {
   }, [provider])
 
   useEffect(() => {
-    setArt(collection?.art || [])
+    const art = (collection?.art || [])
+    const sortedArt = art.sort(
+      (a, b) => new Date(a.created_at) - new Date(b.created_at)
+    )
+    setArt(sortedArt)
   }, [collection?.art])
 
   if (!collection) {
@@ -84,19 +86,6 @@ const EvolutionCollection = ({ collection, provider }) => {
         {collection.title}
       </h1>
  
-      {collection.title !== 'Full Artwork' && (
-        <div>
-          <div className='py-6'>
-            <CombineArt
-              art={art} 
-              collection={collection}
-            />
-          </div>
-
-          <hr className='my-6' />
-        </div>
-      )}
-      
       {wallet &&
         <div className='py-6'>
           <p>Upload An Image</p>
@@ -114,20 +103,27 @@ const EvolutionCollection = ({ collection, provider }) => {
         </div>
       }
 
-      <div className='py-6 flex flex-wrap'>
-        {art.map(
-          (artItem, index) => (
-            <div key={`art-${artItem.id}`} id={`art-${artItem.id}`} className='mr-3 mb-3'>
-              <SupabaseImage
+      <div className='flex'>
+        {collection.title !== 'Full Artwork' && (
+          <div>
+            <div className='py-6'>
+              <CombineArt
+                art={art} 
                 collection={collection}
-                item={artItem}
-                index={index + 1}
-                dim={120}
-                ownerAdmin={wallet === artItem.wallet || wallet === ADMIN_WALLET}
               />
             </div>
-          )
+
+            <hr className='my-6' />
+          </div>
         )}
+        
+        <div className='pl-6 pt-6'>
+          <EvolutionLayers 
+            collectionTitle={collection.title} 
+            art={art}
+            wallet={wallet}
+          />
+        </div>
       </div>
     </div>
   )

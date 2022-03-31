@@ -1,10 +1,10 @@
 import { useEffect, useState } from 'react';
 import supabaseClient from '../lib/supabaseClient';
 
-const SupabaseImage = ({ ownerAdmin, collection, item, index, dim }) => {
+const SupabaseImage = ({ ownerAdmin, collectionTitle, item, index, dim }) => {
   const [url, setUrl] = useState(null);
 
-  const imageUri = `${collection.title}/${item.id}.png`
+  const imageUri = `${collectionTitle}/${item.id}.png`
 
   const onDelete = async () => {
     if (!ownerAdmin) return;
@@ -61,7 +61,7 @@ const SupabaseImage = ({ ownerAdmin, collection, item, index, dim }) => {
       
       <img
         src={url}
-        alt={`${collection.title}-${item.id}`}
+        alt={`${collectionTitle}-${item.id}`}
         layout='intrinsic'
         width={dim}
         height={dim}
