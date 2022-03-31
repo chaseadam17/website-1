@@ -26,8 +26,6 @@ const CollectionPage = () => {
         console.log(error)
       }
 
-      console.log("Collection", data)
-
       setCollection((data || [])[0])
     }
 

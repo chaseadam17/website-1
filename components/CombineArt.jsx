@@ -62,19 +62,19 @@ const CombineArt = ({ art, collection }) => {
                 key={`layer-${index}`}  
                 className='absolute w-full h-full' 
               >
-                {art[layer - 1] &&
+                {/* {art[layer - 1] &&
                   <SupabaseImage
                     collection={collection}
                     item={art[layer - 1]}
                     dim={300}
                   />
-                }
+                } */}
               </div>
             )
           )}
         </div>  
       </div> 
-      <div className='py-3 flex'>
+      {/* <div className='py-3 flex'>
         {layers.filter(l => !isNaN(parseInt(l))).map(
           (layer, index) => (
             <div  
@@ -92,7 +92,7 @@ const CombineArt = ({ art, collection }) => {
             </div>
           )
         )}
-      </div>    
+      </div>     */}
     </div>
   )
 }

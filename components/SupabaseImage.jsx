@@ -3,12 +3,12 @@
 import { useEffect, useState } from 'react';
 import supabaseClient from '../lib/supabaseClient';
 
-const SupabaseImage = ({ ownerAdmin, collectionTitle, item, index, dim, selected, onSelect }) => {
+const SupabaseImage = ({ ownerAdmin, collectionTitle, item, index, dim, selected, onSelect, onStar, onDelete }) => {
   const [url, setUrl] = useState(null);
 
   const imageUri = `${collectionTitle}/${item.id}.png`
 
-  const onDelete = async (e) => {
+  const _onDelete = async (e) => {
     e.preventDefault();
     e.stopPropagation();
     
@@ -27,12 +27,21 @@ const SupabaseImage = ({ ownerAdmin, collectionTitle, item, index, dim, selected
       .eq('id', item.id);
     
     setUrl(null)
+    onDelete(item.id);
   }
 
-  const onStar = async (e) => {
+  const _onStar = async (e) => {
     e.preventDefault();
     e.stopPropagation();
-    console.log("STAR", item.id)
+    
+    await supabaseClient
+      .from('star')
+      .upsert({
+        art_id: item.id,
+        wallet: wallet,
+      })
+    
+    onStar(item);
   }
 
   useEffect(() => {
@@ -65,7 +74,7 @@ const SupabaseImage = ({ ownerAdmin, collectionTitle, item, index, dim, selected
 
       <div 
         className={`absolute -top-3 left-0 px-2 py-1 z-10 text-gray-500 text-4xl cursor-pointer`}
-        onClick={onStar}
+        onClick={_onStar}
       >
         &#9733;
       </div>
@@ -73,7 +82,7 @@ const SupabaseImage = ({ ownerAdmin, collectionTitle, item, index, dim, selected
       {ownerAdmin &&
         <div
           className='absolute -top-1 right-0 px-2 py-1 text-red-600 text-2xl cursor-pointer z-10'
-          onClick={onDelete}
+          onClick={_onDelete}
         >
           &#10008;
         </div>
