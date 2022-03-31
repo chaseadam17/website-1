@@ -10,6 +10,8 @@ const SupabaseImage = ({ ownerAdmin, collectionTitle, item, index, dim, selected
 
   const onDelete = async (e) => {
     e.preventDefault();
+    e.stopPropagation();
+    
     if (!ownerAdmin) return;
 
     if (!confirm("Delete this image?")) return;
@@ -29,6 +31,7 @@ const SupabaseImage = ({ ownerAdmin, collectionTitle, item, index, dim, selected
 
   const onStar = async (e) => {
     e.preventDefault();
+    e.stopPropagation();
     console.log("STAR", item.id)
   }
 
@@ -52,6 +55,7 @@ const SupabaseImage = ({ ownerAdmin, collectionTitle, item, index, dim, selected
   return (
     <div
       className={`border rounded bg-gray-100 relative cursor-pointer ${selected ? 'border-red-600' : ''}`}
+      onClick={() => onSelect(item.id)}
     >   
       {index &&
         <div className='absolute top-0 left-0 px-2 py-1 z-10'>

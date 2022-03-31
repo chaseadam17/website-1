@@ -8,6 +8,7 @@ import UploadArt from './UploadArt';
 
 const EvolutionCollection = ({ collection, provider }) => {  
   const [art, setArt] = useState(collection?.art || []);
+  const [selected, setSelected] = useState(null);
   const [wallet, setWallet] = useState(null);
 
   useEffect(() => {
@@ -27,6 +28,10 @@ const EvolutionCollection = ({ collection, provider }) => {
     )
     setArt(sortedArt)
   }, [collection?.art])
+
+  const onSelect = (id) => {
+    console.log("SELECTED", id)
+  }
 
   if (!collection) {
     return (
@@ -61,6 +66,7 @@ const EvolutionCollection = ({ collection, provider }) => {
               <CombineArt
                 art={art} 
                 collection={collection}
+                selected={selected}
               />
             </div>
 
@@ -73,6 +79,7 @@ const EvolutionCollection = ({ collection, provider }) => {
             collectionTitle={collection.title} 
             art={art}
             wallet={wallet}
+            onSelect={onSelect}
           />
         </div>
       </div>

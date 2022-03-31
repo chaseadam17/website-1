@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import supabaseClient from '../lib/supabaseClient';
 import EvolutionLayer from "./EvolutionLayer";
 
-const EvolutionLayers = ({ wallet, collectionTitle, art }) => {
+const EvolutionLayers = ({ wallet, collectionTitle, art, onSelect }) => {
   const [starred, setStarred] = useState([]);
 
   useEffect(() => {
@@ -29,10 +29,11 @@ const EvolutionLayers = ({ wallet, collectionTitle, art }) => {
             {starred.map(
               (starredItem, index) => (
                 <EvolutionLayer
+                  key={`starred-${index}`}
                   wallet={wallet}
                   art={starredItem}
                   collectionTitle={collectionTitle}
-                  key={`starred-${index}`}
+                  onSelect={onSelect}
                 />
               )
             )}
@@ -45,10 +46,11 @@ const EvolutionLayers = ({ wallet, collectionTitle, art }) => {
         {art.concat(art).concat(art).concat(art).map(
           (artItem, index) => (
             <EvolutionLayer 
+              key={`layer-${index}`}
               wallet={wallet}
               art={artItem}
               collectionTitle={collectionTitle}
-              key={`layer-${index}`}
+              onSelect={onSelect}
             />
           )
         )}
