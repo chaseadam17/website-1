@@ -13,8 +13,10 @@ const EvolutionLayers = ({ wallet, collectionTitle, art, onSelect }) => {
 
     if (error) console.log("Error loading stars", error)
 
-    console.log(data.map(({ art_id }) => art_id))
-  }, [wallet])
+    const starIds = data.map(({ art_id }) => art_id);
+    const _starred = art.filter(({ id }) => starIds.includes(id));
+    setStarred(_starred)
+  }, [wallet, art])
 
   useEffect(() => {
     loadStars();
@@ -33,6 +35,7 @@ const EvolutionLayers = ({ wallet, collectionTitle, art, onSelect }) => {
                   wallet={wallet}
                   art={starredItem}
                   collectionTitle={collectionTitle}
+                  starred={true}
                   onSelect={onSelect}
                   onStar={loadStars}
                 />
@@ -51,6 +54,7 @@ const EvolutionLayers = ({ wallet, collectionTitle, art, onSelect }) => {
               wallet={wallet}
               art={artItem}
               collectionTitle={collectionTitle}
+              starred={starred.includes(artItem)}
               onSelect={onSelect}
               onStar={loadStars}
             />

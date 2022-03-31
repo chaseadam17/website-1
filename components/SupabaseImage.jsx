@@ -37,18 +37,21 @@ const SupabaseImage = ({ wallet, ownerAdmin, collectionTitle, item, index, dim, 
     const query = supabaseClient.from('star')
 
     if (starred) {
-      await query
+      const { error } = await query
         .delete()
         .eq('art_id', item.id)
         .eq('wallet', wallet);
 
     } else {
-      await query.upsert({
+      const { error } = await query.upsert({
         art_id: item.id,
         wallet: wallet,
       })
+
+      if (error) {
+        console.log("Error starring", error)
+      }
     }
-      
     
     onStar(item);
   }
@@ -82,7 +85,7 @@ const SupabaseImage = ({ wallet, ownerAdmin, collectionTitle, item, index, dim, 
       }
 
       <div 
-        className={`absolute -top-3 left-0 px-2 py-1 z-10 text-gray-500 text-4xl cursor-pointer`}
+        className={`absolute -top-3 left-0 px-2 py-1 z-10 ${starred ? 'text-yellow-300' : 'text-gray-500'} text-4xl cursor-pointer`}
         onClick={_onStar}
       >
         &#9733;

@@ -46,7 +46,7 @@ const UploadArt = ({ collection }) => {
   }
 
   return (
-    <div>
+  <div className='border bg-green-100 p-3'>
       <p>Upload An Image</p>
       <p className='text-xs py-3'>Your image should be 512px x 512px.</p>
       <input
