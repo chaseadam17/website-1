@@ -1,12 +1,15 @@
+/* eslint-disable @next/next/no-img-element */
+
 import { useEffect, useState } from 'react';
 import supabaseClient from '../lib/supabaseClient';
 
-const SupabaseImage = ({ ownerAdmin, collectionTitle, item, index, dim }) => {
+const SupabaseImage = ({ ownerAdmin, collectionTitle, item, index, dim, selected, onSelect }) => {
   const [url, setUrl] = useState(null);
 
   const imageUri = `${collectionTitle}/${item.id}.png`
 
-  const onDelete = async () => {
+  const onDelete = async (e) => {
+    e.preventDefault();
     if (!ownerAdmin) return;
 
     if (!confirm("Delete this image?")) return;
@@ -22,6 +25,11 @@ const SupabaseImage = ({ ownerAdmin, collectionTitle, item, index, dim }) => {
       .eq('id', item.id);
     
     setUrl(null)
+  }
+
+  const onStar = async (e) => {
+    e.preventDefault();
+    console.log("STAR", item.id)
   }
 
   useEffect(() => {
@@ -43,16 +51,24 @@ const SupabaseImage = ({ ownerAdmin, collectionTitle, item, index, dim }) => {
 
   return (
     <div
-      className='border rounded relative'
+      className={`border rounded bg-gray-100 relative cursor-pointer ${selected ? 'border-red-600' : ''}`}
     >   
       {index &&
         <div className='absolute top-0 left-0 px-2 py-1 z-10'>
           {index}
         </div>
       }
+
+      <div 
+        className={`absolute -top-3 left-0 px-2 py-1 z-10 text-gray-500 text-4xl cursor-pointer`}
+        onClick={onStar}
+      >
+        &#9733;
+      </div>
+
       {ownerAdmin &&
         <div
-          className='absolute top-0 right-0 px-2 py-1 text-red-600 cursor-pointer z-10'
+          className='absolute -top-1 right-0 px-2 py-1 text-red-600 text-2xl cursor-pointer z-10'
           onClick={onDelete}
         >
           &#10008;

@@ -1,8 +1,24 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import supabaseClient from '../lib/supabaseClient';
 import EvolutionLayer from "./EvolutionLayer";
 
 const EvolutionLayers = ({ wallet, collectionTitle, art }) => {
   const [starred, setStarred] = useState([]);
+
+  useEffect(() => {
+    const loadStars = async () => {
+      const { data, error } = await supabaseClient
+        .from('star')
+        .select('art_id')
+        .eq('wallet', wallet)
+
+      if (error) console.log("Error loading stars", error)
+
+      console.log(data.map(({ art_id }) => art_id))
+    }
+
+    loadStars();
+  }, [wallet])
 
   return (
     <div>
@@ -25,7 +41,7 @@ const EvolutionLayers = ({ wallet, collectionTitle, art }) => {
       )}
 
       <h3 className='mb-3'>All Layers</h3>
-      <div className='flex flex-wrap bg-red-500 overflow-auto' style={{ height: '600px'}}>
+      <div className='flex flex-wrap overflow-auto' style={{ height: '600px'}}>
         {art.concat(art).concat(art).concat(art).map(
           (artItem, index) => (
             <EvolutionLayer 

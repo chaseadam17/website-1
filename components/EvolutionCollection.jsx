@@ -1,54 +1,14 @@
 import { useEffect, useState } from 'react';
 import {
   NextLink,
-  TWButton,
   CombineArt
 } from '.'
-import supabaseClient from '../lib/supabaseClient';
 import EvolutionLayers from './EvolutionLayers';
+import UploadArt from './UploadArt';
 
-const EvolutionCollection = ({ collection, provider }) => {
-  const [file, setFile] = useState(null);
+const EvolutionCollection = ({ collection, provider }) => {  
   const [art, setArt] = useState(collection?.art || []);
   const [wallet, setWallet] = useState(null);
-
-  const imageUri = (id) => `${collection.title}/${id}.png`
-
-  const submit = async () => {
-    if (!file || !wallet) return;
-
-    const insert = async () => {
-      const { body, error } = await supabaseClient
-        .from('art')
-        .insert({
-          collection_id: collection.id,
-          wallet: wallet
-        })
-
-      if (error) console.log("INSERT ERROR", error)
-
-      return body[0] 
-    }
-
-    const storage = async (id) => {
-      const { data, error } = await supabaseClient
-      .storage
-        .from('art')
-        .upload(imageUri(id), file, {
-          cacheControl: '3600',
-          upsert: false
-        })
-
-      if (error) console.log("STORAGE ERROR", error)
-
-      return data.Key
-    }
-    
-    const artItem = await insert();
-    await storage(artItem.id);
-  
-    setArt([...art, artItem])
-  }
 
   useEffect(() => {
     const getWallet = async () => {
@@ -76,7 +36,7 @@ const EvolutionCollection = ({ collection, provider }) => {
 
   return (
     <div className='container mx-auto'>
-      <h1 className='text-sm'>
+      <h1 className='text-sm mb-3'>
         <NextLink
           href='/members'
         >
@@ -88,18 +48,9 @@ const EvolutionCollection = ({ collection, provider }) => {
  
       {wallet &&
         <div className='py-6'>
-          <p>Upload An Image</p>
-          <p className='text-xs py-3'>Your image should be 512px x 512px.</p>
-          <input
-            type='file'
-            className='mr-3'
-            onChange={(e) => setFile(e.target.files[0])}
+          <UploadArt 
+            collection={collection}
           />
-          <TWButton
-            onClick={submit}
-          >
-            Submit
-          </TWButton>
         </div>
       }
 
