@@ -4,7 +4,7 @@ import EvolutionLayer from "./EvolutionLayer";
 
 const EvolutionLayers = ({ wallet, collectionTitle, art, selected, onSelect, onReorder }) => {
   const [starred, setStarred] = useState([]);
-  const [orderedSelected, setOrderedSelected] = useState(selected)
+  const [orderedSelected, setOrderedSelected] = useState([])
   const [orderValues, setOrderValues] = useState(selected.map((_s, index) => index));
 
   const loadStars = useCallback(async () => {
@@ -42,6 +42,11 @@ const EvolutionLayers = ({ wallet, collectionTitle, art, selected, onSelect, onR
   useEffect(() => {
     loadStars();
   }, [loadStars])
+
+  useEffect(() => {
+    setOrderedSelected(selected)
+    setOrderValues(selected.map((_s, index) => index));
+  }, [selected])
 
   return (
     <div>
@@ -105,8 +110,8 @@ const EvolutionLayers = ({ wallet, collectionTitle, art, selected, onSelect, onR
       )}
 
       <h3 className='mb-3'>All Layers</h3>
-      <div className='flex flex-wrap overflow-auto' style={{ height: '600px'}}>
-        {art.concat(art).concat(art).concat(art).map(
+      <div className='flex flex-wrap overflow-auto'>
+        {art.map(
           (artItem, index) => (
             <EvolutionLayer 
               key={`layer-${index}`}

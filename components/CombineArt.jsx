@@ -1,6 +1,13 @@
+import { useEffect, useState } from 'react';
 import SupabaseImage from './SupabaseImage';
 
 const CombineArt = ({ selectedArt, collection }) => {
+  const [scroll, setScroll] = useState(0);
+
+  useEffect(() => {
+    
+  })
+
   return (
     <div className=''>
       <h3 className='mb-3'>Combined Image</h3>
