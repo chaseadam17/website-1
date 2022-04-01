@@ -3,7 +3,7 @@
 import { useEffect, useState } from 'react';
 import supabaseClient from '../lib/supabaseClient';
 
-const SupabaseImage = ({ wallet, ownerAdmin, collectionTitle, item, index, dim, selected, starred, onSelect, onStar, onDelete }) => {
+const SupabaseImage = ({ transparent, wallet, ownerAdmin, collectionTitle, item, index, dim, selected, starred, onSelect, onStar, onDelete }) => {
   const [url, setUrl] = useState(null);
 
   const imageUri = `${collectionTitle}/${item.id}.png`
@@ -83,7 +83,7 @@ const SupabaseImage = ({ wallet, ownerAdmin, collectionTitle, item, index, dim, 
 
   return (
     <div
-      className={`border rounded bg-gray-100 relative cursor-pointer ${selected ? 'border-red-600' : ''}`}
+      className={`border rounded ${transparent ? '' : 'bg-gray-100'} relative cursor-pointer ${selected ? 'border-red-600' : ''}`}
       onClick={_onSelect}
     >   
       {index &&
@@ -92,12 +92,14 @@ const SupabaseImage = ({ wallet, ownerAdmin, collectionTitle, item, index, dim, 
         </div>
       }
 
-      <div 
-        className={`absolute -top-3 left-0 px-2 py-1 z-10 ${starred ? 'text-yellow-300' : 'text-gray-500'} text-4xl cursor-pointer`}
-        onClick={_onStar}
-      >
-        &#9733;
-      </div>
+      {!transparent && (
+        <div 
+          className={`absolute -top-3 left-0 px-2 py-1 z-10 ${starred ? 'text-yellow-300' : 'text-gray-500'} text-4xl cursor-pointer`}
+          onClick={_onStar}
+        >
+          &#9733;
+        </div>
+      )}
 
       {ownerAdmin &&
         <div

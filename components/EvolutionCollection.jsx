@@ -36,7 +36,7 @@ const EvolutionCollection = ({ collection, provider }) => {
   const onSelect = (id) => {
     let _selected;
     if (selected.includes(id)) {
-      _selected = selected.filter(id => id !== id)
+      _selected = selected.filter((_id) => _id !== id)
     } else {
       _selected = [...selected, id]
     }    
@@ -101,9 +101,8 @@ const EvolutionCollection = ({ collection, provider }) => {
           <div>
             <div className='py-6'>
               <CombineArt
-                art={art} 
+                selectedArt={art.filter(({ id }) => selected.includes(id))}
                 collection={collection}
-                selected={selected}
               />
             </div>
 
