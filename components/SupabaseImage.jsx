@@ -31,8 +31,10 @@ const SupabaseImage = ({ wallet, ownerAdmin, collectionTitle, item, index, dim, 
   }
 
   const _onStar = async (e) => {
-    e.preventDefault();
-    e.stopPropagation();
+    if (e) {
+      e.preventDefault();
+      e.stopPropagation();  
+    }
     
     const query = supabaseClient.from('star')
 
@@ -56,6 +58,14 @@ const SupabaseImage = ({ wallet, ownerAdmin, collectionTitle, item, index, dim, 
     onStar(item);
   }
 
+  const _onSelect = (e) => {
+    if (!selected) {
+      _onStar();
+    }
+
+    onSelect(item.id);
+  }
+
   useEffect(() => {
     const getSignedUrl = async () => {
       const { signedURL, error } = await supabaseClient
@@ -76,7 +86,7 @@ const SupabaseImage = ({ wallet, ownerAdmin, collectionTitle, item, index, dim, 
   return (
     <div
       className={`border rounded bg-gray-100 relative cursor-pointer ${selected ? 'border-red-600' : ''}`}
-      onClick={() => onSelect(item.id)}
+      onClick={() => _onSelect(item.id)}
     >   
       {index &&
         <div className='absolute top-0 left-0 px-2 py-1 z-10'>

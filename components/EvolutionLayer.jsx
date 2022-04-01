@@ -2,7 +2,7 @@ import SupabaseImage from "./SupabaseImage";
 
 const ADMIN_WALLET = '0xfa23B55345c7237b7eEE52Db975E8a72b840BC1A';
 
-const EvolutionLayer = ({ wallet, collectionTitle, art, starred, onSelect, onStar }) => {
+const EvolutionLayer = ({ wallet, collectionTitle, art, selected, starred, onSelect, onStar }) => {
   return (
     <div 
       key={`art-${art.id}`} 
@@ -15,6 +15,7 @@ const EvolutionLayer = ({ wallet, collectionTitle, art, starred, onSelect, onSta
         dim={120}
         wallet={wallet}
         ownerAdmin={wallet === art.wallet || wallet === ADMIN_WALLET}
+        selected={selected}
         starred={starred}
         onSelect={onSelect}
         onStar={onStar}

@@ -45,7 +45,9 @@ const CollectionPage = () => {
         <TWCenteredContent>
           <div className='pb-60'>
             <TokenGate>
-              <EvolutionCollection collection={collection} />
+              {collection && (
+                <EvolutionCollection collection={collection} />
+              )}
             </TokenGate>
           </div>          
         </TWCenteredContent>

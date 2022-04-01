@@ -1,13 +1,11 @@
 import { useState } from 'react';
-import store from 'store2';
 
 import SupabaseImage from './SupabaseImage';
 
-const CombineArt = ({ art, collection }) => {
-  const collectionStore = store.namespace(`blank-evolution-collection-${collection.id}`);
-  const [layers, setLayers] = useState(collectionStore('layers') || [
-    '2', '3', '', '', '', '', '', '', '', ''
-  ]);
+const CombineArt = ({ art, collection, selected }) => {
+  const [layers, setLayers] = useState(selected);
+
+  console.log("SELECTEDIN", selected)
 
   const input = (index) => {
     return (

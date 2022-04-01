@@ -2,7 +2,7 @@ import { useCallback, useEffect, useState } from 'react';
 import supabaseClient from '../lib/supabaseClient';
 import EvolutionLayer from "./EvolutionLayer";
 
-const EvolutionLayers = ({ wallet, collectionTitle, art, onSelect }) => {
+const EvolutionLayers = ({ wallet, collectionTitle, art, selected, onSelect }) => {
   const [starred, setStarred] = useState([]);
 
   const loadStars = useCallback(async () => {
@@ -35,6 +35,7 @@ const EvolutionLayers = ({ wallet, collectionTitle, art, onSelect }) => {
                   wallet={wallet}
                   art={starredItem}
                   collectionTitle={collectionTitle}
+                  selected={selected.includes(starredItem)}
                   starred={true}
                   onSelect={onSelect}
                   onStar={loadStars}
@@ -54,6 +55,7 @@ const EvolutionLayers = ({ wallet, collectionTitle, art, onSelect }) => {
               wallet={wallet}
               art={artItem}
               collectionTitle={collectionTitle}
+              selected={selected.includes(artItem)}
               starred={starred.includes(artItem)}
               onSelect={onSelect}
               onStar={loadStars}
