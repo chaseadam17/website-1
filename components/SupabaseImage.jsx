@@ -31,10 +31,8 @@ const SupabaseImage = ({ wallet, ownerAdmin, collectionTitle, item, index, dim, 
   }
 
   const _onStar = async (e) => {
-    if (e) {
-      e.preventDefault();
-      e.stopPropagation();  
-    }
+    e.preventDefault();
+    e.stopPropagation();  
     
     const query = supabaseClient.from('star')
 
@@ -59,8 +57,8 @@ const SupabaseImage = ({ wallet, ownerAdmin, collectionTitle, item, index, dim, 
   }
 
   const _onSelect = (e) => {
-    if (!selected) {
-      _onStar();
+    if (!starred) {
+      _onStar(e);
     }
 
     onSelect(item.id);
@@ -86,7 +84,7 @@ const SupabaseImage = ({ wallet, ownerAdmin, collectionTitle, item, index, dim, 
   return (
     <div
       className={`border rounded bg-gray-100 relative cursor-pointer ${selected ? 'border-red-600' : ''}`}
-      onClick={() => _onSelect(item.id)}
+      onClick={_onSelect}
     >   
       {index &&
         <div className='absolute top-0 left-0 px-2 py-1 z-10'>
