@@ -24,9 +24,31 @@ const EvolutionLayers = ({ wallet, collectionTitle, art, selected, onSelect }) =
 
   return (
     <div>
+      {selected.length > 0 && (
+        <div className='pb-6'>
+          <h3 className='mb-3'>Selected Layers</h3>
+          <div className="flex flex-wrap">
+            {art.filter((artItem) => selected.includes(artItem.id)).map(
+              (selectedItem, index) => (
+                <EvolutionLayer
+                  key={`starred-${index}`}
+                  wallet={wallet}
+                  art={selectedItem}
+                  collectionTitle={collectionTitle}
+                  selected={true}
+                  starred={starred.find(({ id }) => id === selectedItem.id)}
+                  onSelect={onSelect}
+                  onStar={loadStars}
+                />
+              )
+            )}
+          </div>
+        </div>
+      )}
+
       {starred.length > 0 && (
-        <div className='py-6'>
-          <h3 className=''>Starred Layers</h3>
+        <div className='pb-6'>
+          <h3 className='mb-3'>Starred Layers</h3>
           <div className="flex flex-wrap">
             {starred.map(
               (starredItem, index) => (
