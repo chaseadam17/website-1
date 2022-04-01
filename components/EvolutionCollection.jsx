@@ -101,7 +101,7 @@ const EvolutionCollection = ({ collection, provider }) => {
           <div>
             <div className='py-6'>
               <CombineArt
-                selectedArt={art.filter(({ id }) => selected.includes(id))}
+                selectedArt={selected.map((id) => art.find((artItem) => artItem.id === id))}
                 collection={collection}
               />
             </div>
@@ -117,6 +117,7 @@ const EvolutionCollection = ({ collection, provider }) => {
             wallet={wallet}
             selected={selected}
             onSelect={onSelect}
+            onReorder={setSelected}
           />
         </div>
       </div>

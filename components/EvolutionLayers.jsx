@@ -2,8 +2,10 @@ import { useCallback, useEffect, useState } from 'react';
 import supabaseClient from '../lib/supabaseClient';
 import EvolutionLayer from "./EvolutionLayer";
 
-const EvolutionLayers = ({ wallet, collectionTitle, art, selected, onSelect }) => {
+const EvolutionLayers = ({ wallet, collectionTitle, art, selected, onSelect, onReorder }) => {
   const [starred, setStarred] = useState([]);
+  const [orderedSelected, setOrderedSelected] = useState(selected)
+  const [orderValues, setOrderValues] = useState(selected.map((_s, index) => index));
 
   const loadStars = useCallback(async () => {
     const { data, error } = await supabaseClient
@@ -18,6 +20,25 @@ const EvolutionLayers = ({ wallet, collectionTitle, art, selected, onSelect }) =
     setStarred(_starred)
   }, [wallet, art])
 
+  const reorderSelected = (id, index) => {
+    const existingIndex = orderedSelected.indexOf(id);
+    
+    if (isNaN(index) || index === '' || index < 0 || index >= selected.length) {
+      const newOrderValues = [...orderValues];
+      newOrderValues[existingIndex] = index;  
+      setOrderValues(newOrderValues);
+      return false;
+    }
+
+    const _ordered = [...orderedSelected];
+    _ordered.splice(existingIndex, 1);
+    _ordered.splice(index, 0, id);
+    setOrderValues(_ordered.map((_s, index) => index))
+    setOrderedSelected(_ordered);
+    onReorder(_ordered);
+    return true;
+  }
+
   useEffect(() => {
     loadStars();
   }, [loadStars])
@@ -28,18 +49,33 @@ const EvolutionLayers = ({ wallet, collectionTitle, art, selected, onSelect }) =
         <div className='pb-6'>
           <h3 className='mb-3'>Selected Layers</h3>
           <div className="flex flex-wrap">
-            {art.filter((artItem) => selected.includes(artItem.id)).map(
+            {orderedSelected.map(
+              (id) => art.find((artItem) => artItem.id === id)
+            ).map(
               (selectedItem, index) => (
-                <EvolutionLayer
-                  key={`starred-${index}`}
-                  wallet={wallet}
-                  art={selectedItem}
-                  collectionTitle={collectionTitle}
-                  selected={true}
-                  starred={starred.find(({ id }) => id === selectedItem.id)}
-                  onSelect={onSelect}
-                  onStar={loadStars}
-                />
+                <div key={`selected-${index}`}>
+                  <EvolutionLayer                    
+                    wallet={wallet}
+                    art={selectedItem}
+                    collectionTitle={collectionTitle}
+                    selected={true}
+                    starred={starred.find(({ id }) => id === selectedItem.id)}
+                    onSelect={onSelect}
+                    onStar={loadStars}
+                  />
+                  <div className='text-center'>
+                    <input 
+                      className='border w-9 text-gray-600 p-1 ' 
+                      type='text' 
+                      onChange={(e) => {
+                        if (reorderSelected(selectedItem.id, e.target.value)) {
+                          e.target.blur();
+                        }
+                      }}
+                      value={orderValues[index] === undefined ? '' : orderValues[index]} 
+                    />
+                  </div>
+                </div>
               )
             )}
           </div>
