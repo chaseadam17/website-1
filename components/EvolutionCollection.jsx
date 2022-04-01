@@ -12,7 +12,7 @@ const EvolutionCollection = ({ collection, provider }) => {
   const collectionStore = store.namespace(`blank-evolution-collection-${collection.id}`);
 
   const [art, setArt] = useState(collection?.art || []);
-  const [selected, setSelected] = useState([]);
+  const [selected, setSelected] = useState(collectionStore('selected-layers') || []);
   const [wallet, setWallet] = useState(null);
 
   useEffect(() => {
@@ -33,26 +33,16 @@ const EvolutionCollection = ({ collection, provider }) => {
     setArt(sortedArt)
   }, [collection?.art])
 
-  useEffect(() => {
-    const _selected = collectionStore('selected-layers') || [];
-    setSelected(_selected);
-  }, [collectionStore])
-
   const onSelect = (id) => {
-    const selectedItem = art.find(item => item.id === id)
-    if (!selectedItem) return;
-
     let _selected;
-    if (selected.includes(selectedItem)) {
-      _selected = selected.filter(item => item.id !== id)
+    if (selected.includes(id)) {
+      _selected = selected.filter(id => id !== id)
     } else {
-      _selected = [...selected, selectedItem]
+      _selected = [...selected, id]
     }    
     collectionStore('selected-layers', _selected);
     setSelected(_selected)
   }
-
-  console.log("SELECTD1", selected)
 
   if (!collection) {
     return (

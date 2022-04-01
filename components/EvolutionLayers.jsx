@@ -35,7 +35,7 @@ const EvolutionLayers = ({ wallet, collectionTitle, art, selected, onSelect }) =
                   wallet={wallet}
                   art={starredItem}
                   collectionTitle={collectionTitle}
-                  selected={selected.includes(starredItem)}
+                  selected={selected.includes(starredItem.id)}
                   starred={true}
                   onSelect={onSelect}
                   onStar={loadStars}
@@ -55,7 +55,7 @@ const EvolutionLayers = ({ wallet, collectionTitle, art, selected, onSelect }) =
               wallet={wallet}
               art={artItem}
               collectionTitle={collectionTitle}
-              selected={selected.includes(artItem)}
+              selected={selected.includes(artItem.id)}
               starred={starred.includes(artItem)}
               onSelect={onSelect}
               onStar={loadStars}
