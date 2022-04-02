@@ -8,7 +8,7 @@ const EvolutionLayers = ({ wallet, collectionTitle, art, selected, onSelect, onR
   const [orderValues, setOrderValues] = useState(selected.map((_s, index) => index));
   const [selectedOrderType, setSelectedOrderType] = useState('Newest');
 
-  const loadStars = useCallback(async () => {
+  const loadStars = useCallback(async (artItem) => {
     const { data, error } = await supabaseClient
       .from('star')
       .select('art_id')
@@ -145,7 +145,7 @@ const EvolutionLayers = ({ wallet, collectionTitle, art, selected, onSelect, onR
         {art.sort(
           (a, b) => {
             if (selectedOrderType === 'Stars') {
-              return (b.starCount || 0) - (a.starCount || 0);
+              return (b.star_count || 0) - (a.star_count || 0);
             } else if (selectedOrderType === 'Oldest') {
               return new Date(a.created_at) - new Date(b.created_at);
             } else {

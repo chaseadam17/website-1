@@ -52,7 +52,20 @@ const SupabaseImage = ({ transparent, wallet, ownerAdmin, collectionTitle, item,
         console.log("Error starring", error)
       }
     }
+
+    const { count } = await supabaseClient
+      .from('star')
+      .select('id', { count: 'exact', head: true })
+      .eq('art_id', item.id)
+
+    await supabaseClient
+      .from('art')
+      .update({
+        star_count: count
+      })
+      .eq('id', item.id)
     
+    item.star_count = count;
     onStar(item);
   }
 
@@ -94,16 +107,17 @@ const SupabaseImage = ({ transparent, wallet, ownerAdmin, collectionTitle, item,
 
       {!transparent && (
         <div 
-          className={`absolute -top-3 left-0 px-2 py-1 z-10 ${starred ? 'text-yellow-300' : 'text-gray-500'} text-4xl cursor-pointer`}
+          className={`absolute -top-5 -left-1 p-1 z-10 ${starred ? 'text-yellow-300' : 'text-gray-500'} cursor-pointer`}
           onClick={_onStar}
         >
-          &#9733;
+          <span className='text-4xl'>&#9733;</span>
+          <span className='text-xs text-gray-900 align-text-top'>({item.star_count})</span>
         </div>
       )}
 
       {ownerAdmin &&
         <div
-          className='absolute -top-1 right-0 px-2 py-1 text-red-600 text-2xl cursor-pointer z-10'
+          className='absolute -top-3 -right-1 p-1 text-red-600 text-2xl cursor-pointer z-10'
           onClick={_onDelete}
         >
           &#10008;
