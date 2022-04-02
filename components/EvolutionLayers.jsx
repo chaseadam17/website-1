@@ -6,6 +6,7 @@ const EvolutionLayers = ({ wallet, collectionTitle, art, selected, onSelect, onR
   const [starred, setStarred] = useState([]);
   const [orderedSelected, setOrderedSelected] = useState([])
   const [orderValues, setOrderValues] = useState(selected.map((_s, index) => index));
+  const [selectedOrderType, setSelectedOrderType] = useState('Newest');
 
   const loadStars = useCallback(async () => {
     const { data, error } = await supabaseClient
@@ -53,6 +54,9 @@ const EvolutionLayers = ({ wallet, collectionTitle, art, selected, onSelect, onR
       {selected.length > 0 && (
         <div className='pb-6'>
           <h3 className='mb-3'>Selected Layers</h3>
+          <div className='text-xs mb-3'>
+            Edit the number under each layer to change the order. Click a layer to de-select it.
+          </div>
           <div className="flex flex-wrap">
             {orderedSelected.map(
               (id) => art.find((artItem) => artItem.id === id)
@@ -79,6 +83,16 @@ const EvolutionLayers = ({ wallet, collectionTitle, art, selected, onSelect, onR
                       }}
                       value={orderValues[index] === undefined ? '' : orderValues[index]} 
                     />
+                    {index === 0 && (
+                      <div className='text-xs text-gray-600 mt-3'>
+                        Bottom Layer
+                      </div>
+                    )}
+                    {index === orderedSelected.length - 1 && (
+                      <div className='text-xs text-gray-600 mt-3'>
+                        Top Layer
+                      </div>
+                    )}
                   </div>
                 </div>
               )
@@ -109,9 +123,36 @@ const EvolutionLayers = ({ wallet, collectionTitle, art, selected, onSelect, onR
         </div>
       )}
 
+      <div className='float-right mr-12'>
+        Order by: 
+        {['Newest', 'Oldest', 'Stars'].map(
+          (orderType, index) => (
+            <span
+              onClick={() => setSelectedOrderType(orderType)} 
+              className={`cursor-pointer ml-3 ${selectedOrderType === orderType ? '' : 'text-blue-500 underline'}`}
+              key={`order-type-${index}`}
+            >
+              {orderType}
+            </span>
+          )
+        )}
+      </div>
       <h3 className='mb-3'>All Layers</h3>
+      <div className='text-xs mb-3'>
+        Click a layer to select it. Click the star to add it to your favorites.
+      </div>
       <div className='flex flex-wrap overflow-auto'>
-        {art.map(
+        {art.sort(
+          (a, b) => {
+            if (selectedOrderType === 'Stars') {
+              return (b.starCount || 0) - (a.starCount || 0);
+            } else if (selectedOrderType === 'Oldest') {
+              return new Date(a.created_at) - new Date(b.created_at);
+            } else {
+              return new Date(b.created_at) - new Date(a.created_at);
+            }
+          }
+        ).map(
           (artItem, index) => (
             <EvolutionLayer 
               key={`layer-${index}`}
