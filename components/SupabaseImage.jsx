@@ -58,7 +58,7 @@ const SupabaseImage = ({ transparent, wallet, ownerAdmin, collectionTitle, item,
       .select('id', { count: 'exact', head: true })
       .eq('art_id', item.id)
 
-    await supabaseClient
+    const { body, data, error } = await supabaseClient
       .from('art')
       .update({
         star_count: count

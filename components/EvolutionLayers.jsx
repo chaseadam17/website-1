@@ -8,7 +8,9 @@ const EvolutionLayers = ({ wallet, collectionTitle, art, selected, onSelect, onR
   const [orderValues, setOrderValues] = useState(selected.map((_s, index) => index));
   const [selectedOrderType, setSelectedOrderType] = useState('Newest');
 
-  const loadStars = useCallback(async (artItem) => {
+  const loadStars = useCallback(async () => {
+    if (!wallet) return;
+    
     const { data, error } = await supabaseClient
       .from('star')
       .select('art_id')

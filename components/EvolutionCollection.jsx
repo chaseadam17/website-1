@@ -5,7 +5,9 @@ import {
   NextLink,
   CombineArt
 } from '.'
+import BirbExplanation from './BirbExplanation';
 import EvolutionLayers from './EvolutionLayers';
+import TWButton from './TWButton';
 import UploadArt from './UploadArt';
 
 const EvolutionCollection = ({ collection, provider }) => { 
@@ -14,6 +16,7 @@ const EvolutionCollection = ({ collection, provider }) => {
   const [art, setArt] = useState(collection?.art || []);
   const [selected, setSelected] = useState(collectionStore('selected-layers') || []);
   const [wallet, setWallet] = useState(null);
+  const [claiming, setClaiming] = useState(false);
 
   useEffect(() => {
     const getWallet = async () => {
@@ -68,30 +71,7 @@ const EvolutionCollection = ({ collection, provider }) => {
             collection={collection}
           />
           <div className='py-6 ml-6'>
-            <h3>Getting Started</h3>
-            <div className='pt-3 text-xs'>
-              We recommend playing around with Birb designs using Figma.
-              You can find a variety of template files&nbsp;
-              <a 
-                href='https://www.figma.com/file/2W2fsTuHSBLEFAx7agV4Jo/Darwin?node-id=0%3A1'
-                className='text-blue-600 underline'
-                target='_blank'
-                rel='noopener noreferrer'
-              >
-                here
-              </a>.
-              <div className='pt-3'>
-                You can also download a transparent birb to play with in other applications&nbsp;
-                <a 
-                  href='https://6ymgladt6zbinh7bb365fag2bpevbowkvj4r64k2rrviu3szpm.arweave.net/9hhlgHP2Qoaf_4Q790oDaC8lQusqqeR9xWoxqim5Zew'
-                  className='text-blue-600 underline'
-                  target='_blank'
-                  rel='noopener noreferrer'
-                >
-                  here
-                </a>.
-              </div>
-            </div>
+            <BirbExplanation />
           </div>
         </div>
       }
@@ -106,7 +86,18 @@ const EvolutionCollection = ({ collection, provider }) => {
               />
             </div>
 
-            <hr className='my-6' />
+            <div className='text-center'>
+              <div className='mb-3 text-xs'>
+                If you like your combined NFT then claim it!
+                Your Blank NFT will evolve into your claimed art on Blank Day!
+              </div>
+              <TWButton
+                onClick={() => setClaiming(true)}
+              >
+                Claim Combined Art
+              </TWButton>
+            </div>
+
           </div>
         )}
         
