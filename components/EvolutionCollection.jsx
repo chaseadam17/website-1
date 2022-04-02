@@ -6,6 +6,7 @@ import {
   CombineArt
 } from '.'
 import BirbExplanation from './BirbExplanation';
+import ClaimNft from './ClaimNft';
 import EvolutionLayers from './EvolutionLayers';
 import TWButton from './TWButton';
 import UploadArt from './UploadArt';
@@ -21,7 +22,8 @@ const EvolutionCollection = ({ collection, provider }) => {
   useEffect(() => {
     const getWallet = async () => {
       const signer = await provider.getSigner();
-      const address = await signer.getAddress();
+      const address = await signer.getAddress();      
+
       setWallet(address);
     }
 
@@ -78,7 +80,7 @@ const EvolutionCollection = ({ collection, provider }) => {
 
       <div className='flex'>
         {collection.title !== 'Full Artwork' && (
-          <div>
+          <div className='overflow-hidden' style={{ width: '300px'}}>
             <div className='py-6'>
               <CombineArt
                 selectedArt={selected.map((id) => art.find((artItem) => artItem.id === id))}
@@ -102,14 +104,19 @@ const EvolutionCollection = ({ collection, provider }) => {
         )}
         
         <div className='pl-6 pt-6'>
-          <EvolutionLayers 
-            collectionTitle={collection.title} 
-            art={art}
-            wallet={wallet}
-            selected={selected}
-            onSelect={onSelect}
-            onReorder={setSelected}
-          />
+          {claiming && (
+            <ClaimNft provider={provider} wallet={wallet} />
+          )}
+          {!claiming && (
+            <EvolutionLayers 
+              collectionTitle={collection.title} 
+              art={art}
+              wallet={wallet}
+              selected={selected}
+              onSelect={onSelect}
+              onReorder={setSelected}
+            />
+          )}
         </div>
       </div>
     </div>
