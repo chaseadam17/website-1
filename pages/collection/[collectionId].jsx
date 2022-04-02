@@ -26,8 +26,6 @@ const CollectionPage = () => {
         console.log(error)
       }
 
-      console.log("Collection", data)
-
       setCollection((data || [])[0])
     }
 
@@ -47,7 +45,9 @@ const CollectionPage = () => {
         <TWCenteredContent>
           <div className='pb-60'>
             <TokenGate>
-              <EvolutionCollection collection={collection} />
+              {collection && (
+                <EvolutionCollection collection={collection} />
+              )}
             </TokenGate>
           </div>          
         </TWCenteredContent>

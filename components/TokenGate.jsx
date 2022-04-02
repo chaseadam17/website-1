@@ -4,7 +4,6 @@ import web3Connection from '../lib/web3Connection'
 import providerSignerHasToken from '../lib/providerSignerHasToken'
 import { BlankArt } from '../contracts'
 import { BlankButton } from '../components'
-import NextLink from './NextLink';
 
 const TokenGate = ({ children }) => {
   const [hasToken, setHasToken] = useState(null)
