@@ -80,7 +80,7 @@ const EvolutionCollection = ({ collection, provider }) => {
 
       <div className='flex'>
         {collection.title !== 'Full Artwork' && (
-          <div className='overflow-hidden' style={{ width: '300px'}}>
+          <div className='overflow-hidden w-1/4'>
             <div className='py-6'>
               <CombineArt
                 selectedArt={selected.map((id) => art.find((artItem) => artItem.id === id))}
@@ -103,8 +103,8 @@ const EvolutionCollection = ({ collection, provider }) => {
           </div>
         )}
         
-        <div className='pl-6 pt-6'>
-          {claiming && (
+        <div className='pl-6 pt-6 w-3/4'>
+          {false && claiming && (
             <ClaimNft provider={provider} wallet={wallet} />
           )}
           {!claiming && (
