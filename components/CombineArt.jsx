@@ -5,6 +5,7 @@ const canvasDim = 300;
 
 const CombineArt = ({ selectedArt, collection }) => {
   const [scroll, setScroll] = useState(0);
+  const [buttonText, setButtonText] = useState('Share in Discord');
 
   const loadImages = useCallback(() => {
     const canvas = document.getElementById('canvas');
@@ -38,7 +39,14 @@ const CombineArt = ({ selectedArt, collection }) => {
     loadImages();
   }, [loadImages]);
 
+  useEffect(() => {
+    setButtonText("Share in Discord")
+  }, [selectedArt]);
+
   const sendToDiscord = async () => {
+    if (buttonText !== "Share in Discord") return;
+
+    setButtonText('Sharing...')
     const canvas = document.getElementById('canvas');
     const discordWebhook = "https://discord.com/api/webhooks/959922483182575677/8dg9INh3W4XXkmdQIvXkpxZecc9VtzZ5rIikz9y5xJ1PVcuzr3cw2gwiwsdHamrXMeON"
 
@@ -53,8 +61,9 @@ const CombineArt = ({ selectedArt, collection }) => {
     const form = new FormData();
     form.append("payload_json", JSON.stringify(params));
     canvas.toBlob((blob) => {
-      form.append('file1', blob, 'image.png');
+      form.append('file1', blob, 'birb.png');
       request.send(form)
+      setButtonText('Shared')
     }); 
   }
 
@@ -83,14 +92,16 @@ const CombineArt = ({ selectedArt, collection }) => {
           )
         )} */}
       </canvas>
-      <div className='mt-3 text-center'>
-        <TWButton
-          onClick={sendToDiscord}
-        >
-          Share in Discord
-        </TWButton>
+      {selectedArt.length > 0 && (
+        <div className='mt-3 text-center'>
+          <TWButton
+            onClick={sendToDiscord}
+          >
+            {buttonText}
+          </TWButton>
 
-      </div>  
+        </div> 
+      )} 
     </div>
   )
 }

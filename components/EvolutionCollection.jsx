@@ -15,7 +15,9 @@ const EvolutionCollection = ({ collection, provider }) => {
   const collectionStore = store.namespace(`blank-evolution-collection-${collection.id}`);
 
   const [art, setArt] = useState(collection?.art || []);
-  const [selected, setSelected] = useState(collectionStore('selected-layers') || []);
+  const [selected, setSelected] = useState((collectionStore('selected-layers') || []).filter(
+    (id) => art.find((a) => a.id === id)
+  ));
   const [wallet, setWallet] = useState(null);
   const [claiming, setClaiming] = useState(false);
 
@@ -44,7 +46,8 @@ const EvolutionCollection = ({ collection, provider }) => {
       _selected = selected.filter((_id) => _id !== id)
     } else {
       _selected = [...selected, id]
-    }    
+    }
+
     collectionStore('selected-layers', _selected);
     setSelected(_selected)
   }
