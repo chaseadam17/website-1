@@ -1,13 +1,31 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import {
   TWButton,
 } from '.'
 import supabaseClient from '../lib/supabaseClient';
 
-const UploadArt = ({ collection }) => {
+const UploadArt = ({ collection, wallet, onUpload }) => {
   const [file, setFile] = useState(null);
   
   const imageUri = (id) => `${collection.title}/${id}.png`
+
+  const sendToDiscord = async () => {
+    const discordWebhook = "https://discord.com/api/webhooks/959922483182575677/8dg9INh3W4XXkmdQIvXkpxZecc9VtzZ5rIikz9y5xJ1PVcuzr3cw2gwiwsdHamrXMeON"
+
+    const params = {
+      username: "Birb Webhook",
+      content: "A new layer has been added!"
+    }
+
+    const request = new XMLHttpRequest();
+    request.open("POST", discordWebhook);
+
+    const form = new FormData();
+    form.append("payload_json", JSON.stringify(params));
+    form.append('file1', file); // give absolute path if possible
+
+    request.send(form)
+  }
 
   const submit = async () => {
     if (!file || !wallet) return;
@@ -21,6 +39,8 @@ const UploadArt = ({ collection }) => {
         })
 
       if (error) console.log("INSERT ERROR", error)
+
+      sendToDiscord()
 
       return body[0] 
     }
@@ -42,7 +62,7 @@ const UploadArt = ({ collection }) => {
     const artItem = await insert();
     await storage(artItem.id);
   
-    setArt([...art, artItem])
+    onUpload(artItem)
   }
 
   return (
