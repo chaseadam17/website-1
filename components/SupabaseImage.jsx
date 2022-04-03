@@ -125,11 +125,13 @@ const SupabaseImage = ({ transparent, wallet, ownerAdmin, collectionTitle, item,
       }
       
       <img
+        id={`image-${item.id}`}
         src={url}
         alt={`${collectionTitle}-${item.id}`}
         layout='intrinsic'
         width={dim}
         height={dim}
+        crossOrigin='anonymous'
       />
     </div>
     
