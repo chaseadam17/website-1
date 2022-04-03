@@ -48,7 +48,6 @@ const CombineArt = ({ selectedArt, collection }) => {
 
     setButtonText('Sharing...')
     const canvas = document.getElementById('canvas');
-    const discordWebhook = "https://discord.com/api/webhooks/959922483182575677/8dg9INh3W4XXkmdQIvXkpxZecc9VtzZ5rIikz9y5xJ1PVcuzr3cw2gwiwsdHamrXMeON"
 
     const params = {
       username: "Birb Webhook",
@@ -56,7 +55,7 @@ const CombineArt = ({ selectedArt, collection }) => {
     }
 
     const request = new XMLHttpRequest();
-    request.open("POST", discordWebhook);
+    request.open("POST", process.env.NEXT_PUBLIC_DISCORD_WEBHOOK);
 
     const form = new FormData();
     form.append("payload_json", JSON.stringify(params));
