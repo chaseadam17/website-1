@@ -49,6 +49,17 @@ const EvolutionCollection = ({ collection, provider }) => {
     setSelected(_selected)
   }
 
+  const onDelete = (id) => {
+    const updatedArt = art.filter(
+      (artItem) => artItem.id !== id
+    )
+    setArt(updatedArt)
+  }
+
+  const onUpload = (artItem) => {
+    setArt([...art, artItem])
+  }
+
   if (!collection) {
     return (
       <div>Loading...</div>
@@ -71,10 +82,14 @@ const EvolutionCollection = ({ collection, provider }) => {
         <div className='py-6 flex'>
           <UploadArt 
             collection={collection}
+            wallet={wallet}
+            onUpload={onUpload}
           />
-          <div className='py-6 ml-6'>
-            <BirbExplanation />
-          </div>
+          {collection.title === 'Birbs' && (
+            <div className='py-6 ml-6'>
+              <BirbExplanation />
+            </div>
+          )}
         </div>
       }
 
@@ -88,23 +103,26 @@ const EvolutionCollection = ({ collection, provider }) => {
               />
             </div>
 
-            <div className='text-center'>
-              <div className='mb-3 text-xs'>
-                If you like your combined NFT then claim it!
-                Your Blank NFT will evolve into your claimed art on Blank Day!
+            {false && (
+              <div className='text-center'>
+                <div className='mb-3 text-xs'>
+                  If you like your combined NFT then claim it!
+                  Your Blank NFT will evolve into your claimed art on Blank Day!
+                </div>
+                <TWButton
+                  onClick={() => setClaiming(true)}
+                >
+                  Claim Combined Art
+                </TWButton>
               </div>
-              <TWButton
-                onClick={() => setClaiming(true)}
-              >
-                Claim Combined Art
-              </TWButton>
-            </div>
+            )}
+            
 
           </div>
         )}
         
         <div className='pl-6 pt-6 w-3/4'>
-          {false && claiming && (
+          {claiming && (
             <ClaimNft provider={provider} wallet={wallet} />
           )}
           {!claiming && (
@@ -115,6 +133,7 @@ const EvolutionCollection = ({ collection, provider }) => {
               selected={selected}
               onSelect={onSelect}
               onReorder={setSelected}
+              onDelete={onDelete}
             />
           )}
         </div>

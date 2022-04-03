@@ -2,7 +2,7 @@ import { useCallback, useEffect, useState } from 'react';
 import supabaseClient from '../lib/supabaseClient';
 import EvolutionLayer from "./EvolutionLayer";
 
-const EvolutionLayers = ({ wallet, collectionTitle, art, selected, onSelect, onReorder }) => {
+const EvolutionLayers = ({ wallet, collectionTitle, art, selected, onSelect, onReorder, onDelete }) => {
   const [starred, setStarred] = useState([]);
   const [orderedSelected, setOrderedSelected] = useState([])
   const [orderValues, setOrderValues] = useState(selected.map((_s, index) => index));
@@ -73,6 +73,7 @@ const EvolutionLayers = ({ wallet, collectionTitle, art, selected, onSelect, onR
                     starred={starred.find(({ id }) => id === selectedItem.id)}
                     onSelect={onSelect}
                     onStar={loadStars}
+                    onDelete={onDelete}
                   />
                   <div className='text-center'>
                     <input 
@@ -118,6 +119,7 @@ const EvolutionLayers = ({ wallet, collectionTitle, art, selected, onSelect, onR
                   starred={true}
                   onSelect={onSelect}
                   onStar={loadStars}
+                  onDelete={onDelete}
                 />
               )
             )}
@@ -165,6 +167,7 @@ const EvolutionLayers = ({ wallet, collectionTitle, art, selected, onSelect, onR
               starred={starred.includes(artItem)}
               onSelect={onSelect}
               onStar={loadStars}
+              onDelete={onDelete}
             />
           )
         )}
