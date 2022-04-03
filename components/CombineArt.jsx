@@ -14,13 +14,16 @@ const CombineArt = ({ selectedArt, collection }) => {
     const ctx = canvas.getContext('2d');
     
     ctx.clearRect(0, 0, canvas.width, canvas.height);
+    ctx.fillStyle = "white";
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+
     for (const selected of selectedArt) {
       const image = new Image();
       image.crossOrigin = 'anonymous';
       const existingImage = document.getElementById(`image-${selected.id}`);
 
       if (!existingImage || !existingImage.complete || existingImage.naturalHeight === 0) {
-        setTimeout(() => loadImages, 500);
+        setTimeout(loadImages, 500);
         return;
       }
 
@@ -34,16 +37,6 @@ const CombineArt = ({ selectedArt, collection }) => {
   useEffect(() => {
     loadImages();
   }, [loadImages]);
-
-
-  const dataURItoBlob = (dataURI) => {
-    var binary = atob(dataURI.split(',')[1]);
-    var array = [];
-    for(var i = 0; i < binary.length; i++) {
-        array.push(binary.charCodeAt(i));
-    }
-    return new Blob([new Uint8Array(array)], {type: 'image/png'});
-  }
 
   const sendToDiscord = async () => {
     const canvas = document.getElementById('canvas');
