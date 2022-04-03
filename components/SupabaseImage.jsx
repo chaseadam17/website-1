@@ -16,6 +16,10 @@ const SupabaseImage = ({ transparent, wallet, ownerAdmin, collectionTitle, item,
 
     if (!confirm("Delete this image?")) return;
 
+    if (starred) {
+      await _onStar(e);
+    }
+
     await supabaseClient
       .storage
       .from('art')
