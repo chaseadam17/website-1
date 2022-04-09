@@ -88,11 +88,9 @@ const EvolutionCollection = ({ collection, provider }) => {
             wallet={wallet}
             onUpload={onUpload}
           />
-          {collection.title === 'Birbs' && (
-            <div className='py-6 ml-6'>
-              <BirbExplanation />
-            </div>
-          )}
+          <div className='py-6 ml-6'>
+            <BirbExplanation />
+          </div>
         </div>
       )}
 

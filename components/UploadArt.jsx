@@ -6,6 +6,7 @@ import supabaseClient from '../lib/supabaseClient';
 
 const UploadArt = ({ collection, wallet, onUpload }) => {
   const [file, setFile] = useState(null);
+  const [showSuccessMessage, setShowSuccessMessage] = useState(false);
   
   const imageUri = (id) => `${collection.title}/${id}.svg`
 
@@ -40,7 +41,11 @@ const UploadArt = ({ collection, wallet, onUpload }) => {
 
       if (error) console.log("INSERT ERROR", error)
 
-      sendToDiscord()
+      await sendToDiscord()
+
+      document.getElementById('upload-file').value = null;
+      
+      setShowSuccessMessage(true)
 
       return body[0] 
     }
@@ -71,8 +76,12 @@ const UploadArt = ({ collection, wallet, onUpload }) => {
       <p className='text-xs py-3'>Please make sure your image is an SVG file.</p>
       <input
         type='file'
+        id='upload-file'
         className='mr-3'
-        onChange={(e) => setFile(e.target.files[0])}
+        onChange={(e) => {
+          setShowSuccessMessage(false)
+          setFile(e.target.files[0])
+        }}
       />
       <div className='pt-3'>
         <TWButton
@@ -81,6 +90,11 @@ const UploadArt = ({ collection, wallet, onUpload }) => {
           Submit
         </TWButton>
       </div>
+      {showSuccessMessage && (
+        <div className='pt-3 text-xs'>
+          Success! Your layer has been added to the collection (see below).
+        </div>
+      )}
     </div>
   )
 }
