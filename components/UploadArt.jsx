@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import {
   TWButton,
 } from '.'
@@ -12,7 +12,9 @@ const UploadArt = ({ collection, wallet, onUpload }) => {
   const sendToDiscord = async () => {
     const params = {
       username: "Birb Webhook",
-      content: "A new layer has been added!"
+      content: collection.title === 'Full Artwork' ? 
+        "A new full image has been added!" : 
+        "A new layer has been added!"
     }
 
     const request = new XMLHttpRequest();

@@ -101,6 +101,7 @@ const SupabaseImage = ({ transparent, wallet, ownerAdmin, collectionTitle, item,
   return (
     <div
       className={`border rounded ${transparent ? '' : 'bg-gray-100'} relative cursor-pointer ${selected ? 'border-red-600' : ''}`}
+      style={{ width: `${dim}px`, height: `${dim}px` }}
       onClick={_onSelect}
     >   
       {index &&
