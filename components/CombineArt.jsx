@@ -73,23 +73,6 @@ const CombineArt = ({ selectedArt, collection }) => {
         id='canvas' 
         className='relative border' 
         style={{width: `${canvasDim}px`, height: `${canvasDim}px`}}>  
-        
-
-        {/* {selectedArt.map(
-          (layer, index) => (
-            <div  
-              key={`layer-${index}`}  
-              className='absolute w-full h-full' 
-            >
-              <SupabaseImage
-                collectionTitle={collection.title}
-                item={layer}
-                dim={300}
-                transparent={true}
-              />
-            </div>
-          )
-        )} */}
       </canvas>
       {selectedArt.length > 0 && (
         <div className='mt-3 text-center'>
