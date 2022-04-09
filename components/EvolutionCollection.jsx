@@ -81,7 +81,7 @@ const EvolutionCollection = ({ collection, provider }) => {
         {collection.title}
       </h1>
  
-      {wallet &&
+      {wallet && collection.title === 'SVG Birbs' && (
         <div className='py-6 flex'>
           <UploadArt 
             collection={collection}
@@ -94,7 +94,7 @@ const EvolutionCollection = ({ collection, provider }) => {
             </div>
           )}
         </div>
-      }
+      )}
 
       <div className='flex'>
         {collection.title !== 'Full Artwork' && (

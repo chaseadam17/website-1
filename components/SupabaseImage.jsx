@@ -6,7 +6,7 @@ import supabaseClient from '../lib/supabaseClient';
 const SupabaseImage = ({ transparent, wallet, ownerAdmin, collectionTitle, item, index, dim, selected, starred, onSelect, onStar, onDelete }) => {
   const [url, setUrl] = useState(null);
 
-  const imageUri = `${collectionTitle}/${item.id}.png`
+  const imageUri = `${collectionTitle}/${item.id}.${collectionTitle === 'SVG Birbs' ? 'svg' : 'png'}`;
 
   const _onDelete = async (e) => {
     e.preventDefault();

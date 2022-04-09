@@ -7,7 +7,7 @@ import supabaseClient from '../lib/supabaseClient';
 const UploadArt = ({ collection, wallet, onUpload }) => {
   const [file, setFile] = useState(null);
   
-  const imageUri = (id) => `${collection.title}/${id}.png`
+  const imageUri = (id) => `${collection.title}/${id}.svg`
 
   const sendToDiscord = async () => {
     const params = {
@@ -22,7 +22,7 @@ const UploadArt = ({ collection, wallet, onUpload }) => {
 
     const form = new FormData();
     form.append("payload_json", JSON.stringify(params));
-    form.append('file1', file); // give absolute path if possible
+    form.append('file1', file); 
 
     request.send(form)
   }
@@ -67,8 +67,8 @@ const UploadArt = ({ collection, wallet, onUpload }) => {
 
   return (
   <div className='border bg-green-100 p-3'>
-      <p>Upload An Image</p>
-      <p className='text-xs py-3'>Your image should be 512px x 512px.</p>
+      <p>Upload An SVG Birb Layer</p>
+      <p className='text-xs py-3'>Please make sure your image is an SVG file.</p>
       <input
         type='file'
         className='mr-3'
