@@ -4,28 +4,57 @@ import {
 } from '.'
 import supabaseClient from '../lib/supabaseClient';
 
+const canvasDim = 300;
+
 const UploadArt = ({ collection, wallet, onUpload }) => {
   const [file, setFile] = useState(null);
   const [showSuccessMessage, setShowSuccessMessage] = useState(false);
   
   const imageUri = (id) => `${collection.title}/${id}.svg`
 
-  const sendToDiscord = async () => {
-    const params = {
-      username: "Birb Webhook",
-      content: collection.title === 'Full Artwork' ? 
-        "A new full image has been added!" : 
-        "A new layer has been added!"
+  const sendToDiscord = async (id) => {
+    const canvasClone = document.getElementById('canvas').cloneNode(true);
+
+    const ctx = canvasClone.getContext('2d');
+    
+    ctx.clearRect(0, 0, canvasClone.width, canvasClone.height);
+    ctx.fillStyle = "white";
+    ctx.fillRect(0, 0, canvasClone.width, canvasClone.height);
+
+    const loadAndSendImage = () => {
+      const image = new Image();
+      image.crossOrigin = 'anonymous';
+      const existingImage = document.getElementById(`image-${id}`);
+  
+      if (!existingImage || !existingImage.complete || existingImage.naturalHeight === 0) {
+        setTimeout(loadAndSendImage, 500);
+        return;
+      }
+  
+      image.src = existingImage.src;
+      image.onload = () => {
+        ctx.drawImage(image,0,0, canvasDim, canvasDim);
+
+        const params = {
+          username: "Birb Webhook",
+          content: collection.title === 'Full Artwork' ? 
+            "A new full image has been added!" : 
+            "A new layer has been added!"
+        }
+  
+        const request = new XMLHttpRequest();
+        request.open("POST", process.env.NEXT_PUBLIC_DISCORD_WEBHOOK);
+  
+        const form = new FormData();
+        form.append("payload_json", JSON.stringify(params));
+        canvasClone.toBlob((blob) => {
+          form.append('file1', blob, `birb-layer-${id}.png`);
+          request.send(form)
+        });   
+      };    
     }
 
-    const request = new XMLHttpRequest();
-    request.open("POST", process.env.NEXT_PUBLIC_DISCORD_WEBHOOK);
-
-    const form = new FormData();
-    form.append("payload_json", JSON.stringify(params));
-    form.append('file1', file); 
-
-    request.send(form)
+    loadAndSendImage();
   }
 
   const submit = async () => {
@@ -40,12 +69,6 @@ const UploadArt = ({ collection, wallet, onUpload }) => {
         })
 
       if (error) console.log("INSERT ERROR", error)
-
-      await sendToDiscord()
-
-      document.getElementById('upload-file').value = null;
-      
-      setShowSuccessMessage(true)
 
       return body[0] 
     }
@@ -66,7 +89,13 @@ const UploadArt = ({ collection, wallet, onUpload }) => {
     
     const artItem = await insert();
     await storage(artItem.id);
-  
+
+    document.getElementById('upload-file').value = null;
+
+    setShowSuccessMessage(true)
+
+    await sendToDiscord(artItem.id)
+      
     onUpload(artItem)
   }
 
