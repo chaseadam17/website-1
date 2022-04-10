@@ -1,13 +1,16 @@
-import { useCallback, useEffect, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import { TWButton } from '.';
 
 const canvasDim = 300;
 
-const CombineArt = ({ selectedArt, collection }) => {
+const CombineArt = ({ selectedArt, claiming }) => {
   const [scroll, setScroll] = useState(0);
   const [buttonText, setButtonText] = useState('Share in Discord');
+  const svgMap = useRef({});
 
   const loadImages = useCallback(() => {
+    if (claiming) return;
+
     const canvas = document.getElementById('canvas');
     canvas.width = canvasDim;
     canvas.height = canvasDim;
@@ -33,7 +36,7 @@ const CombineArt = ({ selectedArt, collection }) => {
         ctx.drawImage(image,0,0, canvasDim, canvasDim);
       };
     }
-  }, [selectedArt]);
+  }, [selectedArt, claiming]);
 
   useEffect(() => {
     loadImages();
@@ -42,6 +45,67 @@ const CombineArt = ({ selectedArt, collection }) => {
   useEffect(() => {
     setButtonText("Share in Discord")
   }, [selectedArt]);
+
+  useEffect(() => { 
+    const draw = () => {
+      const ids = selectedArt.map(({ id }) => id).join('-');
+      if (svgMap.current.drawn?.[ids]) return;
+      delete svgMap.current.drawn;
+      svgMap.current.drawn = {[ids]: true};
+
+      console.log("HI", ids)
+
+      const svgElement = document.getElementById('svg-element');  
+      svgElement.innerHTML = '';
+
+      for (const selected of selectedArt) {
+        const domParser = new DOMParser();
+        const svgDOM = domParser.parseFromString(svgMap.current[selected.id], 'text/xml')
+          .getElementsByTagName('svg')[0];
+        
+        // const paths = domParser.parseFromString(svgMap[selected.id], 'text/xml')
+        //   .getElementsByTagName('path')
+
+        // for (const childNode of paths) {
+        //   svgElement.appendChild(childNode);
+        // }
+  
+        for (const childNode of svgDOM.childNodes) {
+          const clonedChild = childNode.cloneNode(true);
+          svgElement.appendChild(clonedChild);
+        }
+      }
+    }
+
+    const loadSvgInfo = async () => {
+      let complete = true;
+      for (const selected of selectedArt) {
+        if (svgMap.current[selected.id]) continue;
+
+        const existingImage = document.getElementById(`image-${selected.id}`);
+
+        if (!existingImage?.src) {
+          complete = false;
+          setTimeout(loadSvgInfo, 500);
+          return;
+        }
+
+        const response = await fetch(existingImage.src);
+        const svgText = await response.text();
+
+        svgMap.current = {
+          ...svgMap.current,
+          [selected.id]: svgText
+        };
+      }
+
+      if (complete) {
+        draw();
+      }
+    }
+
+    loadSvgInfo();
+  }, [selectedArt])
 
   const sendToDiscord = async () => {
     if (buttonText !== "Share in Discord") return;
@@ -83,7 +147,13 @@ const CombineArt = ({ selectedArt, collection }) => {
           </TWButton>
 
         </div> 
-      )} 
+      )}
+      <svg 
+        id="svg-element" 
+        height={300} 
+        width={300} 
+        viewBox="0 0 5020 5020"
+      ></svg> 
     </div>
   )
 }

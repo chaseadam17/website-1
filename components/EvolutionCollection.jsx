@@ -100,12 +100,12 @@ const EvolutionCollection = ({ collection, provider }) => {
             <div className='py-6'>
               <CombineArt
                 selectedArt={selected.map((id) => art.find((artItem) => artItem.id === id))}
-                collection={collection}
+                claiming={claiming}
               />
             </div>
 
-            {false && (
-              <div className='text-center'>
+            {selected.length > 0 && (
+              <div className='pt-6 text-center'>
                 <div className='mb-3 text-xs'>
                   If you like your combined NFT then claim it!
                   Your Blank NFT will evolve into your claimed art on Blank Day!

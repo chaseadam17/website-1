@@ -2,6 +2,8 @@ import { ethers } from "ethers";
 import { useEffect, useState } from "react";
 import { BlankArt } from "../contracts";
 
+const claimCanvasDim = 90;
+
 const ClaimNft = ({ provider, wallet }) => {
   const [tokenIds, setTokenIds] = useState([]);
 
@@ -26,7 +28,12 @@ const ClaimNft = ({ provider, wallet }) => {
     }
 
     loadTokens();
-  })
+  }, [provider, wallet])
+
+  useEffect(() => {
+    const svgTextElement = document.getElementById("svg-text");
+    console.log(svgTextElement.innerHTML);
+  }, [])
 
   return (
     <div>
@@ -34,6 +41,12 @@ const ClaimNft = ({ provider, wallet }) => {
         Claim This Art For Your Blank NFT
       </div>
       <div>
+        <canvas 
+          id='claim-canvas' 
+          className='relative border' 
+          style={{width: `${claimCanvasDim}px`, height: `${claimCanvasDim}px`}}>  
+        </canvas>
+
         <div className='py-6'>
           Select which Blank NFT you would like to evolve using this art?
         </div>
