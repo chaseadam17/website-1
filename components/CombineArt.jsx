@@ -53,27 +53,17 @@ const CombineArt = ({ selectedArt, claiming }) => {
       delete svgMap.current.drawn;
       svgMap.current.drawn = {[ids]: true};
 
-      console.log("HI", ids)
-
       const svgElement = document.getElementById('svg-element');  
       svgElement.innerHTML = '';
 
       for (const selected of selectedArt) {
-        const domParser = new DOMParser();
-        const svgDOM = domParser.parseFromString(svgMap.current[selected.id], 'text/xml')
-          .getElementsByTagName('svg')[0];
-        
-        // const paths = domParser.parseFromString(svgMap[selected.id], 'text/xml')
-        //   .getElementsByTagName('path')
-
-        // for (const childNode of paths) {
-        //   svgElement.appendChild(childNode);
-        // }
-  
-        for (const childNode of svgDOM.childNodes) {
-          const clonedChild = childNode.cloneNode(true);
-          svgElement.appendChild(clonedChild);
-        }
+        const svgDom = new DOMParser().parseFromString(
+          svgMap.current[selected.id], 
+          'text/xml'
+        ).getElementsByTagName('svg')[0];
+        svgDom.setAttribute('height', canvasDim);
+        svgDom.setAttribute('width', canvasDim);
+        svgElement.appendChild(svgDom);
       }
     }
 
@@ -150,9 +140,9 @@ const CombineArt = ({ selectedArt, claiming }) => {
       )}
       <svg 
         id="svg-element" 
-        height={300} 
-        width={300} 
-        viewBox="0 0 5020 5020"
+        height={canvasDim} 
+        width={canvasDim} 
+        viewBox={`0 0 ${canvasDim} ${canvasDim}`}
       ></svg> 
     </div>
   )
