@@ -1,13 +1,17 @@
-import { useCallback, useEffect, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import { TWButton } from '.';
 
 const canvasDim = 300;
+export const fullDim = 1000;
 
-const CombineArt = ({ selectedArt, collection }) => {
+const CombineArt = ({ selectedArt, claiming }) => {
   const [scroll, setScroll] = useState(0);
   const [buttonText, setButtonText] = useState('Share in Discord');
+  const svgMap = useRef({});
 
   const loadImages = useCallback(() => {
+    if (claiming) return;
+
     const canvas = document.getElementById('canvas');
     canvas.width = canvasDim;
     canvas.height = canvasDim;
@@ -33,7 +37,7 @@ const CombineArt = ({ selectedArt, collection }) => {
         ctx.drawImage(image,0,0, canvasDim, canvasDim);
       };
     }
-  }, [selectedArt]);
+  }, [selectedArt, claiming]);
 
   useEffect(() => {
     loadImages();
@@ -42,6 +46,59 @@ const CombineArt = ({ selectedArt, collection }) => {
   useEffect(() => {
     setButtonText("Share in Discord")
   }, [selectedArt]);
+
+  useEffect(() => { 
+    const draw = () => {
+      const fullDim = 1000
+      const ids = selectedArt.map(({ id }) => id).join('-');
+      if (svgMap.current.drawn?.[ids]) return;
+      delete svgMap.current.drawn;
+      svgMap.current.drawn = {[ids]: true};
+
+      const combinedSvg = document.getElementById('combined-svg');  
+      combinedSvg.innerHTML = '';
+      combinedSvg.setAttribute('viewBox', `0 0 ${fullDim} ${fullDim}`);
+
+      for (const selected of selectedArt) {
+        const svgDom = new DOMParser().parseFromString(
+          svgMap.current[selected.id], 
+          'text/xml'
+        ).getElementsByTagName('svg')[0];
+        svgDom.setAttribute('height', fullDim);
+        svgDom.setAttribute('width', fullDim);
+        combinedSvg.appendChild(svgDom);
+      }
+    }
+
+    const loadSvgInfo = async () => {
+      let complete = true;
+      for (const selected of selectedArt) {
+        if (svgMap.current[selected.id]) continue;
+
+        const existingImage = document.getElementById(`image-${selected.id}`);
+
+        if (!existingImage?.src) {
+          complete = false;
+          setTimeout(loadSvgInfo, 500);
+          return;
+        }
+
+        const response = await fetch(existingImage.src);
+        const svgText = await response.text();
+
+        svgMap.current = {
+          ...svgMap.current,
+          [selected.id]: svgText
+        };
+      }
+
+      if (complete) {
+        draw();
+      }
+    }
+
+    loadSvgInfo();
+  }, [selectedArt])
 
   const sendToDiscord = async () => {
     if (buttonText !== "Share in Discord") return;
@@ -68,12 +125,17 @@ const CombineArt = ({ selectedArt, collection }) => {
 
   return (
     <div className=''>
-      <h3 className='mb-3'>Combined Image</h3>
+      <h3 className='mb-3'>Combined Art</h3>
       <canvas 
         id='canvas' 
-        className='relative border' 
-        style={{width: `${canvasDim}px`, height: `${canvasDim}px`}}>  
+        className='absolute' 
+        style={{width: `${canvasDim}px`, height: `${canvasDim}px`, top: '-99999px', left: '-99999px'}}>  
       </canvas>
+      <svg 
+        id="combined-svg" 
+        className='border'
+        style={{width: `${canvasDim}px`, height: `${canvasDim}px`}}
+      ></svg>       
       {selectedArt.length > 0 && (
         <div className='mt-3 text-center'>
           <TWButton
@@ -83,7 +145,7 @@ const CombineArt = ({ selectedArt, collection }) => {
           </TWButton>
 
         </div> 
-      )} 
+      )}
     </div>
   )
 }

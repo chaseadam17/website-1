@@ -125,7 +125,7 @@ const SupabaseImage = ({ transparent, wallet, ownerAdmin, collectionTitle, item,
           className='absolute -top-3 -right-1 p-1 text-red-600 text-2xl cursor-pointer z-10'
           onClick={_onDelete}
         >
-          &#10008;
+          &#x2715;
         </div>
       }
       
