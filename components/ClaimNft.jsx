@@ -12,6 +12,7 @@ const claimCanvasDim = 90;
 const ClaimNft = ({ provider, wallet, selected, onComplete }) => {
   const [tokenIds, setTokenIds] = useState([]);
   const [nfts, setNfts] = useState({});
+  const [assigning, setAssigning] = useState();
   const [complete, setComplete] = useState(false)
 
   useEffect(() => {
@@ -71,6 +72,11 @@ const ClaimNft = ({ provider, wallet, selected, onComplete }) => {
   }, [])
 
   useEffect(() => {
+    if (Object.keys(nfts).length === 0) {
+      setComplete(false);
+      return;
+    }
+
     for (const nft of Object.values(nfts)) {
       const matchingLength = selected.filter(
         (id) => nft.info.layers.indexOf(id) !== -1
@@ -89,6 +95,7 @@ const ClaimNft = ({ provider, wallet, selected, onComplete }) => {
   }, [selected, nfts])
 
   const assignNft = async (tokenId) => {
+    setAssigning(tokenId)
     const { body, error } = await supabaseClient
       .from('nft')
       .insert({
@@ -101,12 +108,33 @@ const ClaimNft = ({ provider, wallet, selected, onComplete }) => {
         token_id: tokenId
       })
 
+    setAssigning(null)
+
     if (error) console.log("ASSIGN NFT ERROR", error)
 
     setNfts({
       ...nfts,
       [tokenId]: body[0]
     })
+  }
+  
+  const deleteNft = async (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+
+    if (!confirm("Clear this claimed NFT?")) return;
+
+    const info = e.target.id.replace('delete-', '');
+    const [tokenId, id] = info.split('~');
+
+    const response = await supabaseClient
+      .from('nft')
+      .delete()
+      .eq('id', id);
+
+    const _nfts = { ...nfts };
+    delete _nfts[tokenId];
+    setNfts(_nfts);
   }
 
   return (
@@ -135,16 +163,27 @@ const ClaimNft = ({ provider, wallet, selected, onComplete }) => {
             (tokenId) => (
               <div 
                 key={`token-${tokenId}`}
-                className='border w-36 h-36 p-3 mr-3 cursor-pointer'
+                className='border w-32 h-32 p-3 mr-3 cursor-pointer'
                 onMouseOver={() => document.getElementById(`token-${tokenId}-check`).classList.add('bg-green-800')}
                 onMouseLeave={() => document.getElementById(`token-${tokenId}-check`).classList.remove('bg-green-800')}
                 onClick={() => assignNft(tokenId)}
               >
-                {tokenId}
+                <div className='flex justify-between'>
+                  <div>{tokenId}</div>
+                  {nfts[tokenId] && (
+                    <div
+                      id={`delete-${tokenId}~${nfts[tokenId]?.id}`}
+                      className='text-red-600 text-2xl -mt-2'
+                      onClick={deleteNft}
+                    >
+                      &#x2715;
+                    </div>
+                  )}
+                </div>
                 {nfts[tokenId] && (
                   <svg 
                     id='claim-svg' 
-                    className='relative ml-3' 
+                    className='relative ml-2' 
                     width={claimCanvasDim}
                     height={claimCanvasDim}
                     viewBox={`0 0 ${fullDim} ${fullDim}`}
@@ -156,7 +195,7 @@ const ClaimNft = ({ provider, wallet, selected, onComplete }) => {
                   id={`token-${tokenId}-check`}                     
                   className={`${nfts[tokenId] ? 'hidden' : ''} m-6 rounded-full border border-gray-300 h-12 w-12 mx-auto text-4xl text-center text-gray-300`}                   
                 >
-                  &#10003;
+                  {assigning === tokenId ? <>&#8631;</> : <>&#10003;</>}
                 </div>
               </div>
             )

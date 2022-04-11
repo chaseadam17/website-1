@@ -152,9 +152,9 @@ const EvolutionCollection = ({ collection, provider }) => {
 
             <div className='py-6 text-center'>
               <TWButton
-                onClick={() => setClaiming(true)}
+                onClick={() => setClaiming(!claiming)}
               >
-                View My NFTs
+                {claiming ? 'Assemble An NFT' : 'View My NFTs'}
               </TWButton>
             </div>
           </div>
