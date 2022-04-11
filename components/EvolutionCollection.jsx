@@ -124,7 +124,12 @@ const EvolutionCollection = ({ collection, provider }) => {
         
         <div className='pl-6 pt-6 w-3/4'>
           {claiming && (
-            <ClaimNft provider={provider} wallet={wallet} />
+            <ClaimNft 
+              provider={provider} 
+              wallet={wallet} 
+              selected={selected} 
+              onComplete={() => setClaiming(false)}
+            />
           )}
           {!claiming && (
             <EvolutionLayers 

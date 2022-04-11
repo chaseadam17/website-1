@@ -2,6 +2,7 @@ import { useCallback, useEffect, useRef, useState } from 'react';
 import { TWButton } from '.';
 
 const canvasDim = 300;
+export const fullDim = 1000;
 
 const CombineArt = ({ selectedArt, claiming }) => {
   const [scroll, setScroll] = useState(0);
@@ -48,22 +49,24 @@ const CombineArt = ({ selectedArt, claiming }) => {
 
   useEffect(() => { 
     const draw = () => {
+      const fullDim = 1000
       const ids = selectedArt.map(({ id }) => id).join('-');
       if (svgMap.current.drawn?.[ids]) return;
       delete svgMap.current.drawn;
       svgMap.current.drawn = {[ids]: true};
 
-      const svgElement = document.getElementById('svg-element');  
-      svgElement.innerHTML = '';
+      const combinedSvg = document.getElementById('combined-svg');  
+      combinedSvg.innerHTML = '';
+      combinedSvg.setAttribute('viewBox', `0 0 ${fullDim} ${fullDim}`);
 
       for (const selected of selectedArt) {
         const svgDom = new DOMParser().parseFromString(
           svgMap.current[selected.id], 
           'text/xml'
         ).getElementsByTagName('svg')[0];
-        svgDom.setAttribute('height', canvasDim);
-        svgDom.setAttribute('width', canvasDim);
-        svgElement.appendChild(svgDom);
+        svgDom.setAttribute('height', fullDim);
+        svgDom.setAttribute('width', fullDim);
+        combinedSvg.appendChild(svgDom);
       }
     }
 
@@ -125,9 +128,14 @@ const CombineArt = ({ selectedArt, claiming }) => {
       <h3 className='mb-3'>Combined Image</h3>
       <canvas 
         id='canvas' 
-        className='relative border' 
-        style={{width: `${canvasDim}px`, height: `${canvasDim}px`}}>  
+        className='absolute' 
+        style={{width: `${canvasDim}px`, height: `${canvasDim}px`, top: '-99999px', left: '-99999px'}}>  
       </canvas>
+      <svg 
+        id="combined-svg" 
+        className='border'
+        style={{width: `${canvasDim}px`, height: `${canvasDim}px`}}
+      ></svg>       
       {selectedArt.length > 0 && (
         <div className='mt-3 text-center'>
           <TWButton
@@ -138,12 +146,6 @@ const CombineArt = ({ selectedArt, claiming }) => {
 
         </div> 
       )}
-      <svg 
-        id="svg-element" 
-        height={canvasDim} 
-        width={canvasDim} 
-        viewBox={`0 0 ${canvasDim} ${canvasDim}`}
-      ></svg> 
     </div>
   )
 }
