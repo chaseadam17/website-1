@@ -108,6 +108,23 @@ const ClaimNft = ({ provider, wallet, selected, onComplete }) => {
         token_id: tokenId
       })
 
+    const canvas = document.getElementById('canvas');
+
+    const params = {
+      username: "Birb Webhook",
+      content: "A Birb NFT has been claimed!"
+    }
+
+    const request = new XMLHttpRequest();
+    request.open("POST", process.env.NEXT_PUBLIC_DISCORD_WEBHOOK);
+
+    const form = new FormData();
+    form.append("payload_json", JSON.stringify(params));
+    canvas.toBlob((blob) => {
+      form.append('file1', blob, 'birb.png');
+      request.send(form)
+    }); 
+
     setAssigning(null)
 
     if (error) console.log("ASSIGN NFT ERROR", error)
