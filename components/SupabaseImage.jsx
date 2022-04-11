@@ -88,13 +88,17 @@ const SupabaseImage = ({ transparent, wallet, ownerAdmin, collectionTitle, item,
         .from('art')
         .createSignedUrl(imageUri, 60)
 
-      if (error) console.log("Error getting public URL", error)
+      if (error) {
+        console.log("Error getting public URL", error)
+        if (selected) onSelect(item.id)
+        return
+      }
 
       setUrl(signedURL);
     }
 
     getSignedUrl();
-  }, [imageUri])
+  }, [imageUri, item, selected, onSelect])
 
   if (!url) return <></>
 
