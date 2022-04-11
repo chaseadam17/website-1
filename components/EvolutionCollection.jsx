@@ -5,6 +5,7 @@ import {
   NextLink,
   CombineArt
 } from '.'
+import supabaseClient from '../lib/supabaseClient';
 import BirbExplanation from './BirbExplanation';
 import ClaimNft from './ClaimNft';
 import EvolutionLayers from './EvolutionLayers';
@@ -20,6 +21,7 @@ const EvolutionCollection = ({ collection, provider }) => {
   ));
   const [wallet, setWallet] = useState(null);
   const [claiming, setClaiming] = useState(false);
+  const [claimed, setClaimed] = useState(false)
 
   useEffect(() => {
     const getWallet = async () => {
@@ -39,6 +41,26 @@ const EvolutionCollection = ({ collection, provider }) => {
     )
     setArt(sortedArt)
   }, [collection?.art])
+
+  useEffect(() => {
+    const checkClaimed = async () => {
+      const { data, error } = await supabaseClient
+        .from('nft')
+        .select('*')
+        .eq('info->>combinedLayers', selected.join(','))
+
+      if (error) {
+        console.log("Error checking claimed", error)
+        return;
+      }
+
+      if (data.length > 0) {
+        setClaimed(true)
+      }
+    }
+
+    checkClaimed();
+  }, [selected])
 
   const onSelect = (id) => {
     let _selected;
@@ -110,11 +132,18 @@ const EvolutionCollection = ({ collection, provider }) => {
                   If you like your combined NFT then claim it!
                   Your Blank NFT will evolve into your claimed art on Blank Day!
                 </div>
-                <TWButton
-                  onClick={() => setClaiming(true)}
-                >
-                  Claim Combined Art
-                </TWButton>
+                {claimed ? (
+                  <div className='text-red-600'>
+                    This NFT has already been claimed!
+                  </div>
+                ) : (
+                  <TWButton
+                    onClick={() => setClaiming(true)}
+                  >
+                    Claim Combined Art
+                  </TWButton>
+                )}
+                
               </div>
             )}
             

@@ -89,6 +89,7 @@ const ClaimNft = ({ provider, wallet, selected, onComplete }) => {
       .insert({
         info: {
           layers: selected,
+          combinedLayers: selected.join(','),
           image: document.getElementById('combined-svg').innerHTML
         },
         wallet: wallet,
