@@ -163,7 +163,7 @@ const ClaimNft = ({ provider, wallet, selected, onComplete }) => {
             (tokenId) => (
               <div 
                 key={`token-${tokenId}`}
-                className='border w-32 h-32 p-3 mr-3 cursor-pointer'
+                className='border w-32 h-32 p-3 mr-3 mb-3 cursor-pointer'
                 onMouseOver={() => document.getElementById(`token-${tokenId}-check`).classList.add('bg-green-800')}
                 onMouseLeave={() => document.getElementById(`token-${tokenId}-check`).classList.remove('bg-green-800')}
                 onClick={() => assignNft(tokenId)}
