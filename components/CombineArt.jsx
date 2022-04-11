@@ -1,4 +1,6 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
+import { parse }from 'svgson';
+import { v4 as uuidv4 } from 'uuid';
 import { TWButton } from '.';
 
 const canvasDim = 300;
@@ -64,6 +66,7 @@ const CombineArt = ({ selectedArt, claiming }) => {
           svgMap.current[selected.id], 
           'text/xml'
         ).getElementsByTagName('svg')[0];
+        
         svgDom.setAttribute('height', fullDim);
         svgDom.setAttribute('width', fullDim);
         combinedSvg.appendChild(svgDom);
@@ -84,7 +87,15 @@ const CombineArt = ({ selectedArt, claiming }) => {
         }
 
         const response = await fetch(existingImage.src);
-        const svgText = await response.text();
+        let svgText = await response.text();
+
+        const svgsonElement = await parse(svgText, {});
+        const ids = collectIds(svgsonElement.children);
+        const classes = collectClasses(svgsonElement.children);
+       
+        const idMap = generateIdMap(ids);
+        const classMap = generateClassMap(classes);
+        svgText = replaceClasses(replaceIds(svgText, idMap), classMap);
 
         svgMap.current = {
           ...svgMap.current,
@@ -149,5 +160,71 @@ const CombineArt = ({ selectedArt, claiming }) => {
     </div>
   )
 }
+
+const collectIds = children => {
+  let ids = [];
+  children.forEach(child => {
+    if (child.attributes.id && !ids.includes(child.attributes.id))
+      ids.push(child.attributes.id);
+    if (child.children) {
+      ids = [...ids, ...collectIds(child.children)];
+    }
+  });
+  return ids;
+};
+
+const collectClasses = children => {
+  let classes = [];
+  children.forEach(child => {
+    if (child.attributes.class && !classes.includes(child.attributes.class))
+      classes.push(child.attributes.class);
+    if (child.children) {
+      classes = [...classes, ...collectClasses(child.children)];
+    }
+  });
+  return classes;
+};
+
+const generateIdMap = ids => {
+  const idMap = {};
+  ids.forEach(id => {
+    idMap[id] = uuidv4();
+  });
+  return idMap;
+};
+
+const generateClassMap = classes => {
+  const classMap = {};
+  classes.forEach(className => {
+    classMap[className] = uuidv4();
+  });
+  return classMap;
+};
+
+String.prototype.replaceAll = function(search, replacement) {
+  return this.replace(new RegExp(search, 'g'), replacement);
+};
+
+const replaceIds = (file, idMap) => {
+  let newFile = file;
+  Object.keys(idMap).forEach(
+    id =>
+      (newFile = newFile
+        .replaceAll(`id="${id}"`, `id="${idMap[id]}"`)
+        .replaceAll(`#${id}`, `#${idMap[id]}`))
+  );
+  return newFile;
+};
+
+const replaceClasses = (file, classMap) => {
+  let newFile = file;
+  Object.keys(classMap).forEach(
+    className =>
+      (newFile = newFile
+        .replaceAll(`class="${className}"`, `class="${classMap[className]}"`)
+        .replaceAll(`.${className}`, `.${classMap[className]}`))
+  );
+  return newFile;
+};
 
 export default CombineArt;

@@ -11,6 +11,7 @@ import ClaimNft from './ClaimNft';
 import EvolutionLayers from './EvolutionLayers';
 import TWButton from './TWButton';
 import UploadArt from './UploadArt';
+import ViewAllNfts from './ViewAllNfts';
 
 const EvolutionCollection = ({ collection, provider }) => { 
   const collectionStore = store.namespace(`blank-evolution-collection-${collection.id}`);
@@ -22,6 +23,7 @@ const EvolutionCollection = ({ collection, provider }) => {
   const [wallet, setWallet] = useState(null);
   const [claiming, setClaiming] = useState(false);
   const [claimed, setClaimed] = useState(false)
+  const [viewAll, setViewAll] = useState(false);
 
   useEffect(() => {
     const getWallet = async () => {
@@ -152,24 +154,30 @@ const EvolutionCollection = ({ collection, provider }) => {
 
             <div className='py-6 text-center'>
               <TWButton
-                onClick={() => setClaiming(!claiming)}
+                onClick={() => {
+                  setClaiming(!claiming)
+                  setViewAll(false)
+                }}
               >
                 {claiming ? 'Assemble An NFT' : 'View My NFTs'}
+              </TWButton>
+            </div>
+
+            <div className='py-6 text-center'>
+              <TWButton
+                onClick={() => {
+                  setViewAll(!viewAll)
+                  setClaiming(false)
+                }}
+              >
+                {viewAll ? 'Assemble An NFT' : 'View All Claimed NFTs'}
               </TWButton>
             </div>
           </div>
         )}
         
         <div className='pl-6 pt-6 w-3/4'>
-          {claiming && (
-            <ClaimNft 
-              provider={provider} 
-              wallet={wallet} 
-              selected={selected} 
-              onComplete={() => setClaiming(false)}
-            />
-          )}
-          {!claiming && (
+          {!claiming && !viewAll && (
             <EvolutionLayers 
               collectionTitle={collection.title} 
               art={art}
@@ -179,6 +187,17 @@ const EvolutionCollection = ({ collection, provider }) => {
               onReorder={setSelected}
               onDelete={onDelete}
             />
+          )}
+          {claiming && (
+            <ClaimNft 
+              provider={provider} 
+              wallet={wallet} 
+              selected={selected} 
+              onComplete={() => setClaiming(false)}
+            />
+          )}
+          {viewAll && (
+            <ViewAllNfts />
           )}
         </div>
       </div>

@@ -31,8 +31,10 @@
     "react-test-renderer": "^17.0.2",
     "store2": "^2.13.1",
     "supabase": "^0.5.0",
+    "svgson": "^5.2.1",
     "tailwindcss": "^2.2.19",
-    "url-loader": "^4.1.1"
+    "url-loader": "^4.1.1",
+    "uuid": "^8.3.2"
   },
   "devDependencies": {
     "@testing-library/jest-dom": "^5.14.1",
