@@ -72,9 +72,14 @@ const ClaimNft = ({ provider, wallet, selected, onComplete }) => {
 
   useEffect(() => {
     for (const nft of Object.values(nfts)) {
-      const matching = selected.filter(
+      const matchingLength = selected.filter(
         (id) => nft.info.layers.indexOf(id) !== -1
-      ).length === selected.length;
+      ).length;
+
+      const matching = (
+        matchingLength === nft.info.layers.length &&
+        matchingLength === selected.length
+      )
 
       if (matching) {
         setComplete(true);

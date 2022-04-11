@@ -56,6 +56,8 @@ const EvolutionCollection = ({ collection, provider }) => {
 
       if (data.length > 0) {
         setClaimed(true)
+      } else {
+        setClaimed(false)
       }
     }
 
@@ -127,27 +129,34 @@ const EvolutionCollection = ({ collection, provider }) => {
             </div>
 
             {selected.length > 0 && (
-              <div className='pt-6 text-center'>
-                <div className='mb-3 text-xs'>
-                  If you like your combined NFT then claim it!
-                  Your Blank NFT will evolve into your claimed art on Blank Day!
-                </div>
+              <div className='text-center'>
                 {claimed ? (
                   <div className='text-red-600'>
                     This NFT has already been claimed!
                   </div>
                 ) : (
-                  <TWButton
-                    onClick={() => setClaiming(true)}
-                  >
-                    Claim Combined Art
-                  </TWButton>
+                  <>
+                    <div className='pt-6 mb-3 text-xs'>
+                      If you like your combined NFT then claim it!
+                      Your Blank NFT will evolve into your claimed art on Blank Day!
+                    </div>
+                    <TWButton
+                      onClick={() => setClaiming(true)}
+                    >
+                      Claim Combined Art
+                    </TWButton>
+                  </>
                 )}
-                
               </div>
             )}
-            
 
+            <div className='py-6 text-center'>
+              <TWButton
+                onClick={() => setClaiming(true)}
+              >
+                View My NFTs
+              </TWButton>
+            </div>
           </div>
         )}
         
