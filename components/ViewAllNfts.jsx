@@ -31,7 +31,7 @@ const ViewAllNfts = () => {
         <div>Loading...</div>
       )}
 
-      <div className='flex'>      
+    <div className='flex flex-wrap'>      
         {allNfts && allNfts.map(
           (nft) => (
             <div 
