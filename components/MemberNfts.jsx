@@ -68,13 +68,13 @@ const MemberNfts = ({ provider, wallet }) => {
         Between now and June 1st you can lock your Blank NFT to prevent it from evolving.
         <br/>
         <br/>
-        On June 1st your Blank NFT will automatically evolve. 
+        On June 1st your Blank NFT will automatically evolve if it is not locked. 
         <br/>
         <br/>
         More information about the evolution can be found in Discord.
         <br/>
         <br/>
-        Click "Lock NFT" on any NFT below to lock it. You will need to sign the transaction and can reject it to cancel.
+        Click &#34;Lock NFT&#34; on any NFT below to lock it. You will need to sign the transaction and can reject it to cancel.
       </div>
 
       <div className='pl-24 pr-6 flex flex-wrap gap-3'>
