@@ -13,28 +13,16 @@ import TWButton from './TWButton';
 import UploadArt from './UploadArt';
 import ViewAllNfts from './ViewAllNfts';
 
-const EvolutionCollection = ({ collection, provider }) => { 
+const EvolutionCollection = ({ collection, provider, wallet }) => { 
   const collectionStore = store.namespace(`blank-evolution-collection-${collection.id}`);
 
   const [art, setArt] = useState(collection?.art || []);
   const [selected, setSelected] = useState((collectionStore('selected-layers') || []).filter(
     (id) => art.find((a) => a.id === id)
   ));
-  const [wallet, setWallet] = useState(null);
   const [claiming, setClaiming] = useState(false);
   const [claimed, setClaimed] = useState(false)
   const [viewAll, setViewAll] = useState(false);
-
-  useEffect(() => {
-    const getWallet = async () => {
-      const signer = await provider.getSigner();
-      const address = await signer.getAddress();      
-
-      setWallet(address);
-    }
-
-    getWallet();
-  }, [provider])
 
   useEffect(() => {
     const art = (collection?.art || [])
