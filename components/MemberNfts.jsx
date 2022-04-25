@@ -52,10 +52,18 @@ const MemberNfts = ({ provider, wallet }) => {
           (tokenId) => (
             <div 
               key={`token-${tokenId}`}
-              className='border w-48 h-48 p-3 cursor-pointer'
+              className='border w-48 h-48 flex flex-col justify-between'
             >
-              <div className='text-lg text-center font-bold'>
+              <div className='p-3 text-lg text-center font-bold'>
                 {tokenId}
+              </div>
+              <div className='text-center'>
+                Not Locked
+              </div>
+              <div className='p-3 border-t text-xs flex justify-around'>
+                <div className='cursor-pointer'>
+                  &#128274; Lock NFT
+                </div>
               </div>
             </div>
           )
