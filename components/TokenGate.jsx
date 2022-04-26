@@ -8,6 +8,7 @@ import { BlankButton } from '../components'
 const TokenGate = ({ children }) => {
   const [hasToken, setHasToken] = useState(null)
   const [provider, setProvider] = useState(null);
+  const [wallet, setWallet] = useState(null);
   const [error, setError] = useState(null);
 
   const connect = () => web3Connection(BlankArt.networkId, setError, setProvider)
@@ -25,12 +26,25 @@ const TokenGate = ({ children }) => {
   }, [provider])
 
   useEffect(() => {
+    if (!provider) return;
+
+    const getWallet = async () => {
+      const signer = await provider.getSigner();
+      const address = await signer.getAddress();      
+
+      setWallet(address);
+    }
+
+    getWallet();
+  }, [provider])
+
+  useEffect(() => {
     connect();
   }, [])
 
   const childrenWithProvider = React.Children.map(children, (child) => {
     if (React.isValidElement(child)) {
-      return React.cloneElement(child, { provider });
+      return React.cloneElement(child, { provider, wallet });
     }
     return child;
   });
