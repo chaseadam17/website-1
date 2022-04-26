@@ -43,8 +43,6 @@ const MemberNfts = ({ provider, wallet }) => {
   }, [provider, wallet])
 
   const lockNft = async (tokenId) => {
-    if (!confirm('Are you sure you want to lock this Blank NFT?')) return;
-
     const contract =  new ethers.Contract(BlankArt.address, BlankArt.abi, provider);
     const signer = provider.getSigner();
     const connectedSigner = contract.connect(signer)
