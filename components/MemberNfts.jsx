@@ -37,8 +37,6 @@ const MemberNfts = ({ provider, wallet }) => {
         _lockedMap[_tokenId] = locked.toString() === "1";
       }
 
-      _lockedMap["2"] = true;
-
       setLockedMap(_lockedMap)
     }
 
