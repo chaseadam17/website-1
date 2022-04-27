@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { ethers } from 'ethers'
 import { BlankArt } from '../contracts';
+import BlankButton from './BlankButton';
 
 const MemberNfts = ({ provider, wallet }) => {
   const [tokenIds, setTokenIds] = useState([]);
@@ -35,6 +36,8 @@ const MemberNfts = ({ provider, wallet }) => {
         const locked = await contract.tokenURILocked(_tokenId)
         _lockedMap[_tokenId] = locked.toString() === "1";
       }
+
+      _lockedMap["2"] = true;
 
       setLockedMap(_lockedMap)
     }
@@ -80,21 +83,27 @@ const MemberNfts = ({ provider, wallet }) => {
           (tokenId) => (
             <div 
               key={`token-${tokenId}`}
-              className={`border w-48 h-48 flex flex-col justify-between ${lockedMap[tokenId] ? 'bg-gray-300' : ''}`}
+              className={`border w-48 h-48 ${lockedMap[tokenId] ? 'bg-gray-300' : ''}`}
             >
               <div className='p-3 text-lg text-center font-bold'>
                 {tokenId}
               </div>
-              <div className='text-center'>
+              <div className='text-center pt-3'>
                 {lockedMap[tokenId] ? <>Locked</> : <>Not Locked</>}
               </div>
-              {!lockedMap[tokenId] ? (
-                <div className='p-3 border-t text-xs flex justify-around'>
-                  <div className='cursor-pointer' onClick={() => lockNft(tokenId)}>
+              {!lockedMap[tokenId] && (
+                <div className='text-center'>
+                  <BlankButton
+                    classMap={{
+                      background: "border-2 text-gray-700",
+                      padding: "px-6 py-3 rounded-full",
+                    }}
+                    onClick={() => lockNft(tokenId)}
+                  >
                     &#128274; Lock NFT
-                  </div>
+                  </BlankButton>
                 </div>
-              ) : <div className='h-12'></div>}
+              )}
             </div>
           )
         )}
