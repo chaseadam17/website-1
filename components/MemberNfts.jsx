@@ -74,6 +74,9 @@ const MemberNfts = ({ provider, wallet }) => {
         <br/>
         <br/>
         Click &#34;Lock NFT&#34; on any NFT below to lock it. You will need to sign the transaction and can reject it to cancel.
+        <br/>
+        <br/>
+        Locking is permanent and can't be undone.
       </div>
 
       <div className='pl-24 pr-6 flex flex-wrap gap-3'>
