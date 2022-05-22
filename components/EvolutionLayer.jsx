@@ -12,7 +12,7 @@ const EvolutionLayer = ({ wallet, collectionTitle, art, selected, starred, onSel
       <SupabaseImage
         collectionTitle={collectionTitle}
         item={art}
-        dim={90}
+        dim={150}
         wallet={wallet}
         ownerAdmin={wallet === art.wallet || wallet === ADMIN_WALLET}
         selected={selected}

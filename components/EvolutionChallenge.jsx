@@ -8,6 +8,11 @@ const EvolutionChallenge = () => {
   useEffect(() => {
     const loadCollections = async () => {
       const { data, error } = await supabaseClient.from('collection').select('*')
+      
+      if (error) {
+        console.log("Error retrieving collections:", error)
+      }
+
       setCollections(data || [])
     }
 

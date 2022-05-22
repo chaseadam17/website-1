@@ -20,7 +20,7 @@ const BlankFooter = ({ social }) => {
       </TWHorizontal>
       <div>
         <NextLink 
-          href='/member-nfts' 
+          href='/members' 
           passHref
         >
           <a className='hidden sm:inline-block text-white mr-6'>

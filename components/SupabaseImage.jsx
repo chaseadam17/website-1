@@ -117,10 +117,10 @@ const SupabaseImage = ({ transparent, wallet, ownerAdmin, collectionTitle, item,
 
       {!transparent && (
         <div 
-          className={`absolute -top-5 -left-1 p-1 z-10 ${starred ? 'text-yellow-300' : 'text-gray-500'} cursor-pointer`}
+          className={`absolute -top-2 -left-1 p-1 z-10 ${starred ? 'text-yellow-300' : 'text-gray-500'} cursor-pointer`}
           onClick={_onStar}
         >
-          <span className='text-4xl'>&#9733;</span>
+          <span style={{ fontSize: '30px' }}>&#9733;</span>
           <span className='text-xs text-gray-900 align-text-top'>({item.star_count})</span>
         </div>
       )}
@@ -130,7 +130,7 @@ const SupabaseImage = ({ transparent, wallet, ownerAdmin, collectionTitle, item,
           className='absolute -top-3 -right-1 p-1 text-red-600 text-2xl cursor-pointer z-10'
           onClick={_onDelete}
         >
-          &#x2715;
+          <span style={{ fontSize: '24px' }}>&#x2715;</span>
         </div>
       }
       

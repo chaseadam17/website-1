@@ -7,7 +7,7 @@ import supabaseClient from "../lib/supabaseClient";
 import { fullDim } from "./CombineArt";
 import { TWButton } from ".";
 
-const claimCanvasDim = 90;
+const claimCanvasDim = 150;
 
 const ClaimNft = ({ provider, wallet, selected, onComplete }) => {
   const [tokenIds, setTokenIds] = useState([]);
@@ -180,7 +180,8 @@ const ClaimNft = ({ provider, wallet, selected, onComplete }) => {
             (tokenId) => (
               <div 
                 key={`token-${tokenId}`}
-                className='border w-32 h-32 p-3 mr-3 mb-3 cursor-pointer'
+                className={`border p-3 mr-3 mb-3 cursor-pointer`}
+                style={{ width: `${claimCanvasDim + 42}px`, height: `${claimCanvasDim + 54}px` }}
                 onMouseOver={() => document.getElementById(`token-${tokenId}-check`).classList.add('bg-green-800')}
                 onMouseLeave={() => document.getElementById(`token-${tokenId}-check`).classList.remove('bg-green-800')}
                 onClick={() => assignNft(tokenId)}
