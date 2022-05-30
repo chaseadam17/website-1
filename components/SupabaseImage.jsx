@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 import supabaseClient from '../lib/supabaseClient';
 
 const SupabaseImage = ({ transparent, wallet, ownerAdmin, collectionTitle, item, index, dim, selected, starred, onSelect, onStar, onDelete }) => {
-  const [url, setUrl] = useState(null);
+  const [url, setUrl] = useState(item.signedUrl);
 
   const imageUri = `${collectionTitle}/${item.id}.${collectionTitle === 'SVG Birbs' ? 'svg' : 'png'}`;
 
@@ -35,54 +35,56 @@ const SupabaseImage = ({ transparent, wallet, ownerAdmin, collectionTitle, item,
     onDelete(item.id);
   }
 
-  const _onStar = async (e) => {
-    e.preventDefault();
-    e.stopPropagation();  
+  // const _onStar = async (e) => {
+  //   e.preventDefault();
+  //   e.stopPropagation();  
     
-    const query = supabaseClient.from('star')
+  //   const query = supabaseClient.from('star')
 
-    if (starred) {
-      const { error } = await query
-        .delete()
-        .eq('art_id', item.id)
-        .eq('wallet', wallet);
+  //   if (starred) {
+  //     const { error } = await query
+  //       .delete()
+  //       .eq('art_id', item.id)
+  //       .eq('wallet', wallet);
 
-    } else {
-      const { error } = await query.upsert({
-        art_id: item.id,
-        wallet: wallet,
-      })
+  //   } else {
+  //     const { error } = await query.upsert({
+  //       art_id: item.id,
+  //       wallet: wallet,
+  //     })
 
-      if (error) {
-        console.log("Error starring", error)
-      }
-    }
+  //     if (error) {
+  //       console.log("Error starring", error)
+  //     }
+  //   }
 
-    const { count } = await supabaseClient
-      .from('star')
-      .select('id', { count: 'exact', head: true })
-      .eq('art_id', item.id)
+  //   const { count } = await supabaseClient
+  //     .from('star')
+  //     .select('id', { count: 'exact', head: true })
+  //     .eq('art_id', item.id)
 
-    const { body, data, error } = await supabaseClient
-      .from('art')
-      .update({
-        star_count: count
-      })
-      .eq('id', item.id)
+  //   const { body, data, error } = await supabaseClient
+  //     .from('art')
+  //     .update({
+  //       star_count: count
+  //     })
+  //     .eq('id', item.id)
     
-    item.star_count = count;
-    onStar(item);
-  }
+  //   item.star_count = count;
+  //   onStar(item);
+  // }
 
   const _onSelect = (e) => {
-    if (!starred) {
-      _onStar(e);
-    }
+    // if (!starred) {
+    //   _onStar(e);
+    // }
 
     onSelect(item.id);
   }
 
   useEffect(() => {
+    if (item.signedUrl) return;
+
     const getSignedUrl = async () => {
       const { signedURL, error } = await supabaseClient
         .storage

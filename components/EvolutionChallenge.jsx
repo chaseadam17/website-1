@@ -90,7 +90,15 @@ const EvolutionChallenge = ({ provider, wallet }) => {
         wallet={wallet}
         tokenId={evolvingTokenId}
         collection={collection}
-        onCancel={() => setEvolvingTokenId(null)}
+        onComplete={(newNFT) => {
+          if (newNFT) {
+            setNfts({
+              ...nfts,
+              ...newNFT
+            })
+          }
+          setEvolvingTokenId(null)
+        }}
       />
     )
   }

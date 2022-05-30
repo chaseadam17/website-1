@@ -7,6 +7,7 @@ const EvolutionLayers = ({ wallet, collectionTitle, art, selected, onSelect, onR
   const [orderedSelected, setOrderedSelected] = useState([])
   const [orderValues, setOrderValues] = useState(selected.map((_s, index) => index));
   const [selectedOrderType, setSelectedOrderType] = useState('Newest');
+  const [signedUrls, setSignedUrl] = useState();
 
   // const loadStars = useCallback(async () => {
   //   if (!wallet) return;
@@ -50,6 +51,35 @@ const EvolutionLayers = ({ wallet, collectionTitle, art, selected, onSelect, onR
     setOrderedSelected(selected)
     setOrderValues(selected.map((_s, index) => index));
   }, [selected])
+
+  useEffect(() => {
+    const getSignedUrls = async () => {
+      const imageUris = art.map((item) => `${collectionTitle}/${item.id}.svg`);
+
+      const { data, error } = await supabaseClient
+        .storage
+        .from('art')
+        .createSignedUrls(imageUris, 60 * 60 * 24 * 7)
+
+      for (const signedUriInfo of data) {
+        const artId = signedUriInfo.path.split('/').pop().split('.')[0];
+        const signedArt = art.find((item) => item.id === artId)
+        signedArt.signedUrl = signedUriInfo.signedURL;
+      }
+
+      if (error) {
+        console.log("Error getting public URL", error)
+        if (selected) onSelect(item.id)
+        return
+      }
+
+      setSignedUrl(true)
+    }
+
+    getSignedUrls();
+  }, [art, collectionTitle, selected, onSelect])
+
+  if (!signedUrls) return <></>
 
   return (
     <div>

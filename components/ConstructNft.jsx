@@ -4,7 +4,7 @@ import supabaseClient from '../lib/supabaseClient';
 import { EvolutionLayers, CombineArt } from "."
 import TWButton from './TWButton';
 
-const ConstructNft = ({wallet, tokenId, collection, onCancel}) => {
+const ConstructNft = ({wallet, tokenId, collection, onComplete}) => {
   const collectionStore = store.namespace(`blank-evolution-collection-${collection.id}`);
 
   const [art, setArt] = useState(collection?.art || []);
@@ -13,6 +13,7 @@ const ConstructNft = ({wallet, tokenId, collection, onCancel}) => {
   ));
   const [claiming, setClaiming] = useState(false);
   const [claimed, setClaimed] = useState(false)
+  const [assigning, setAssigning] = useState(false);
 
   useEffect(() => {
     const art = (collection?.art || [])
@@ -42,6 +43,8 @@ const ConstructNft = ({wallet, tokenId, collection, onCancel}) => {
   }
 
   const assignNft = async () => {
+    setAssigning(true);
+
     const { body, error } = await supabaseClient
       .from('nft')
       .insert({
@@ -71,12 +74,11 @@ const ConstructNft = ({wallet, tokenId, collection, onCancel}) => {
       request.send(form)
     }); 
 
-    setAssigning(null)
+    setAssigning(false)
 
     if (error) console.log("ASSIGN NFT ERROR", error)
 
-    setNfts({
-      ...nfts,
+    onComplete({
       [tokenId]: body[0]
     })
   }
@@ -117,14 +119,25 @@ const ConstructNft = ({wallet, tokenId, collection, onCancel}) => {
             claiming={claiming}
           />
           <div className='flex justify-between p-3'>
-            <TWButton
-              onClick={assignNft}
-            >
-              Save
-            </TWButton>
+            {claimed ? (
+              <div>This NFT has already been claimed!</div>
+            ) : (
+              <>
+                {assigning ? (
+                  <div>Saving</div>
+                ): (
+                  <TWButton
+                    onClick={assignNft}
+                  >
+                    Save
+                  </TWButton>
+                )}
+              </>
+            )}
+            
             <TWButton
               classMap={{ background: 'bg-red-500' }}
-              onClick={onCancel}
+              onClick={() => onComplete()}
             >
               Cancel
             </TWButton>
