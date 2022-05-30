@@ -1,14 +1,32 @@
 import BlankButton from './BlankButton';
 import { fullDim } from './CombineArt';
+import supabaseClient from '../lib/supabaseClient';
 
 const dim = 150;
 
-const SelectTokenToEvolve = ({tokenIds, lockedMap, nfts, onEvolve}) => {
+const SelectTokenToEvolve = ({tokenIds, lockedMap, nfts, onEvolve, onClear}) => {
+  const clearNFT = async (tokenId) => {
+    if (!confirm("Clear this claimed NFT?")) return;
+
+    const { id } = nfts[tokenId];
+
+    const response = await supabaseClient
+      .from('nft')
+      .delete()
+      .eq('id', id);
+
+    const _nfts = { ...nfts };
+    delete _nfts[tokenId];
+    onClear(_nfts);
+  }
+  
   return (
     <div>
       <div className='text-center mb-6'>
         <h2 className='text-lg mb-6'>Blank Evolution</h2>
-        <p>Click on one of your NFTs to evolve it.</p>
+        <p>
+        Click on one of your NFTs to evolve it. Click an evolved NFT to clear it.
+        </p>
       </div>
 
       <div className='pl-24 pr-6 flex flex-wrap gap-3'>
@@ -16,7 +34,8 @@ const SelectTokenToEvolve = ({tokenIds, lockedMap, nfts, onEvolve}) => {
           (tokenId) => (
             <div 
               key={`token-${tokenId}`}
-              className={`border w-48 h-52 ${lockedMap[tokenId] ? 'bg-gray-300' : ''}`}
+              className={`cursor-pointer border w-48 h-52 ${lockedMap[tokenId] ? 'bg-gray-300' : ''}`}
+              onClick={nfts[tokenId] && (() => clearNFT(tokenId))}
             >
               <div className='pt-1 text-lg text-center font-bold'>
                 {tokenId}

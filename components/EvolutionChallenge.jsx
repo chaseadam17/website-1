@@ -109,6 +109,7 @@ const EvolutionChallenge = ({ provider, wallet }) => {
       lockedMap={lockedMap}
       nfts={nfts}
       onEvolve={(tokenId) => setEvolvingTokenId(tokenId)}
+      onClear={(nfts) => setNfts(nfts)}
     />
   )      
 }
