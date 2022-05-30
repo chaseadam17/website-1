@@ -115,7 +115,7 @@ const SupabaseImage = ({ transparent, wallet, ownerAdmin, collectionTitle, item,
         </div>
       }
 
-      {!transparent && (
+      {false && !transparent && (
         <div 
           className={`absolute -top-2 -left-1 p-1 z-10 ${starred ? 'text-yellow-300' : 'text-gray-500'} cursor-pointer`}
           onClick={_onStar}

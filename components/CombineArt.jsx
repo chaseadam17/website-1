@@ -147,7 +147,7 @@ const CombineArt = ({ selectedArt, claiming }) => {
         className='border'
         style={{width: `${canvasDim}px`, height: `${canvasDim}px`}}
       ></svg>       
-      {selectedArt.length > 0 && (
+      {false && selectedArt.length > 0 && (
         <div className='mt-3 text-center'>
           <TWButton
             onClick={sendToDiscord}
