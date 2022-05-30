@@ -2,8 +2,9 @@ import { useEffect, useState } from 'react';
 import store from 'store2';
 import supabaseClient from '../lib/supabaseClient';
 import { EvolutionLayers, CombineArt } from "."
+import TWButton from './TWButton';
 
-const ConstructNft = ({wallet, tokenId, collection}) => {
+const ConstructNft = ({wallet, tokenId, collection, onCancel}) => {
   const collectionStore = store.namespace(`blank-evolution-collection-${collection.id}`);
 
   const [art, setArt] = useState(collection?.art || []);
@@ -40,6 +41,46 @@ const ConstructNft = ({wallet, tokenId, collection}) => {
     setArt(updatedArt)
   }
 
+  const assignNft = async () => {
+    const { body, error } = await supabaseClient
+      .from('nft')
+      .insert({
+        info: {
+          layers: selected,
+          combinedLayers: selected.join(','),
+          image: document.getElementById('combined-svg').innerHTML
+        },
+        wallet: wallet,
+        token_id: tokenId
+      })
+
+    const canvas = document.getElementById('canvas');
+
+    const params = {
+      username: "Birb Webhook",
+      content: "A Birb NFT has been claimed!"
+    }
+
+    const request = new XMLHttpRequest();
+    request.open("POST", process.env.NEXT_PUBLIC_DISCORD_WEBHOOK);
+
+    const form = new FormData();
+    form.append("payload_json", JSON.stringify(params));
+    canvas.toBlob((blob) => {
+      form.append('file1', blob, 'birb.png');
+      request.send(form)
+    }); 
+
+    setAssigning(null)
+
+    if (error) console.log("ASSIGN NFT ERROR", error)
+
+    setNfts({
+      ...nfts,
+      [tokenId]: body[0]
+    })
+  }
+
   useEffect(() => {
     const checkClaimed = async () => {
       const { data, error } = await supabaseClient
@@ -64,12 +105,30 @@ const ConstructNft = ({wallet, tokenId, collection}) => {
 
   return (
     <div className='container mx-auto'>
+      <div className='text-center mb-6'>
+        <h2 className='text-lg mb-6'>Blank Evolution</h2>
+        <p>Select which layers to include in NFT #{tokenId}</p>
+      </div>
+
       <div className='flex gap-6'>
         <div className='py-6'>
           <CombineArt
             selectedArt={selected.map((id) => art.find((artItem) => artItem.id === id))}
             claiming={claiming}
           />
+          <div className='flex justify-between p-3'>
+            <TWButton
+              onClick={assignNft}
+            >
+              Save
+            </TWButton>
+            <TWButton
+              classMap={{ background: 'bg-red-500' }}
+              onClick={onCancel}
+            >
+              Cancel
+            </TWButton>
+          </div>
         </div>
         <div className=''>
           <EvolutionLayers 

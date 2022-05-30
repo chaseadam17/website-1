@@ -24,7 +24,6 @@ const EvolutionChallenge = ({ provider, wallet }) => {
         console.log(error)
       }
 
-      console.log("ART", data)
       setCollection(data)
     }
 
@@ -91,6 +90,7 @@ const EvolutionChallenge = ({ provider, wallet }) => {
         wallet={wallet}
         tokenId={evolvingTokenId}
         collection={collection}
+        onCancel={() => setEvolvingTokenId(null)}
       />
     )
   }
