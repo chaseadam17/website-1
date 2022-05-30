@@ -6,17 +6,19 @@ import {
   BlankMusic,
   TWFullScreen
 } from '.'
+import BlankButton from './BlankButton';
+import NextLink from './NextLink';
 
 const BlankLayout = ({ children }) => {
-  const [bigBang, setBigBang] = useState(false)
+  // const [bigBang, setBigBang] = useState(false)
   
-  const showBigBang = (show) => {
-    setBigBang(show)
-  }
+  // const showBigBang = (show) => {
+  //   setBigBang(show)
+  // }
 
   return (
     <TWFullScreen className='font-roboto-mono text-sm bg-white text-gray-900'>
-      <div className={`${bigBang ? '' : 'absolute -top-full'}`} onClick={() => showBigBang(!bigBang)}>
+      {/* <div className={`${bigBang ? '' : 'absolute -top-full'}`} onClick={() => showBigBang(!bigBang)}>
         <div className={`${bigBang ? 'opacity-100' : 'opacity-0'} bg-black absolute h-screen w-full transition-all duration-1000 ease-in-out`}>
           <div className='absolute pt-96 w-full text-center text-white text-4xl'>
             Blank Bang
@@ -37,11 +39,23 @@ const BlankLayout = ({ children }) => {
             />
           }
         </div>
-      </div>
+      </div> */}
       <BlankHeader>
-        <BlankMusic
+        {/* <BlankMusic
           onClick={showBigBang}
-        />
+        /> */}
+        <BlankButton
+          classMap={{}}
+        >
+          <NextLink 
+            href='/collection/ebfef325-a747-4b50-83e1-8998e7abdb65' 
+            passHref
+          >
+            <a className=''>
+              Enter
+            </a>
+          </NextLink>
+        </BlankButton>
       </BlankHeader>
       {children}
       <BlankFooter />

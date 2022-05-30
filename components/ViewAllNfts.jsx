@@ -24,6 +24,31 @@ const ViewAllNfts = () => {
     loadAllNfts();
   })
 
+  const generateManifest = () => {
+    const metadata = {
+      "name":"Blank NFT",
+      "description":"In the beginning, there was Blank.",
+      "tokenId": 1,
+      "image":"https://arweave.net/yd87agVBoAGgneJ95QFyj1H_Xkk_CefZwLhYTNH1NlI",
+      "attributes": [
+        {
+          "trait_type": "Generation",
+          "value": "The beginning"
+        }
+      ]
+    }
+
+    const blankBirbSvg = "https://arweave.net/u1M6Y5rpusz_LgEE0pTeeL7MAQr7MADl1EsH7z5SCnQ";
+    const manifest = {
+      "manifest": "arweave/paths",
+      "version": "0.1.0",
+      "index": {"path": blankBirbSvg},
+      "paths": []
+    }
+
+    console.log(manifest)
+  }
+
   return (
     <div>
       <h2 className='text-lg mb-6'>All Claimed NFTs</h2>
@@ -31,12 +56,12 @@ const ViewAllNfts = () => {
         <div>Loading...</div>
       )}
 
-    <div className='flex flex-wrap'>      
+      <div className='flex flex-wrap gap-3 pb-36'>      
         {allNfts && allNfts.map(
           (nft) => (
             <div 
               key={`nft-${nft.id}`}
-              className='border w-40 h-44 px-5 py-3 mr-3 mb-3 bg-gray-700 text-center'
+              className='border w-40 h-44 px-5 py-3 bg-gray-700 text-center'
             >
               <div className='text-white'>{nft.token_id}</div>
               <svg 

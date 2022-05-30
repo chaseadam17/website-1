@@ -110,7 +110,7 @@ const BlankIndex = () => {
                 }}
               >
                 <NewWindowLink
-                  href="https://medium.com/@blankfdn"
+                  href="https://blankfoundation.notion.site/Blank-641ad836df9c4918b1bd09ce196a6dce"
                 >
                   <div 
                     className='px-9 py-2'

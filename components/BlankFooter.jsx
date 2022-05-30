@@ -20,11 +20,11 @@ const BlankFooter = ({ social }) => {
       </TWHorizontal>
       <div>
         <NextLink 
-          href='/members' 
+          href='/gallery' 
           passHref
         >
           <a className='hidden sm:inline-block text-white mr-6'>
-            Members
+            Gallery
           </a>
         </NextLink>
         <NextLink 
@@ -41,7 +41,11 @@ const BlankFooter = ({ social }) => {
 }
 
 BlankFooter.defaultProps = {
-  social: [{"href":"https://discord.gg/HZM2jcHdEU","name":"Discord"},{"href":"https://twitter.com/blankfdn","name":"Twitter"},{"href":"https://medium.com/@blankfdn","name":"Medium"},{"href":"https://blankfoundation.notion.site/Blank-641ad836df9c4918b1bd09ce196a6dce","name":"Notion"}]
+  social: [
+    {"href":"https://discord.gg/HZM2jcHdEU","name":"Discord"},
+    {"href":"https://twitter.com/blankfdn","name":"Twitter"},
+    {"href":"https://blankfoundation.notion.site/Blank-641ad836df9c4918b1bd09ce196a6dce","name":"Notion"}
+  ]
 }
 
 export default BlankFooter;
