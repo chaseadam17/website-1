@@ -70,7 +70,7 @@ const BlankLayout = ({ children }) => {
               passHref
             >
               <a className='px-6 py-2 inline-block'>
-                Enter
+                Enter App
               </a>
             </NextLink>
           )}
