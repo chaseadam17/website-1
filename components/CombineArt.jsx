@@ -136,7 +136,7 @@ const CombineArt = ({ selectedArt, claiming }) => {
 
   return (
     <div className=''>
-      <h3 className='mb-3'>Combined Art</h3>
+      <h3 className='mb-3'>Combined Layers</h3>
       <canvas 
         id='canvas' 
         className='absolute' 
