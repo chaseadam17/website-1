@@ -1,6 +1,7 @@
 import BlankButton from './BlankButton';
 import { fullDim } from './CombineArt';
 import supabaseClient from '../lib/supabaseClient';
+import NextLink from './NextLink';
 
 const dim = 150;
 
@@ -24,8 +25,20 @@ const SelectTokenToEvolve = ({tokenIds, lockedMap, nfts, onEvolve, onClear}) => 
     <div>
       <div className='text-center mb-6'>
         <h2 className='text-lg mb-6'>Blank Evolution</h2>
-        <p>
-        Click on one of your NFTs to evolve it. Click an evolved NFT to clear it.
+        <p className='pb-3'>
+          Click on one of your NFTs to evolve it. Click an evolved NFT to clear it.
+        </p>
+        <p className='pb-3'>
+          And don&#39;t forget to 
+          <NextLink 
+            href='/collection/ebfef325-a747-4b50-83e1-8998e7abdb65' 
+            passHref
+          >
+            <a className='pl-2 text-blue-600 underline'>
+              upload your own art
+            </a>
+          </NextLink>
+          !
         </p>
       </div>
 

@@ -59,17 +59,17 @@ const BlankLayout = ({ children }) => {
           onClick={showBigBang}
         /> */}
         <BlankButton
-          classMap={{}}
+          classMap={{ padding: '0' }}
           onClick={signedIn ? (() => window.disconnectBlankWallet()) : null}
         >
           {signedIn ? (
-            <>Exit</>
+            <span className='px-6 py-2 inline-block'>Exit</span>
           ) : (
             <NextLink 
               href='/members' 
               passHref
             >
-              <a className=''>
+              <a className='px-6 py-2 inline-block'>
                 Enter
               </a>
             </NextLink>
