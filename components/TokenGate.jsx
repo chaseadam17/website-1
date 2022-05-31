@@ -36,6 +36,14 @@ const TokenGate = ({ children }) => {
     }
 
     getWallet();
+  }, [provider]);
+
+  useEffect(() => {
+    window.disconnectBlankWallet = provider ? (
+      () => {
+        window.location = '/';
+      }
+    ) : null
   }, [provider])
 
   useEffect(() => {

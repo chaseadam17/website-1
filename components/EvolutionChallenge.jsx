@@ -1,60 +1,116 @@
 import { useEffect, useState } from 'react';
+import { ethers } from 'ethers';
 import supabaseClient from '../lib/supabaseClient'
-import { EvolutionCollectionPreview } from '.'
+import { BlankArt } from '../contracts';
+import SelectTokenToEvolve from './SelectTokenToEvolve';
+import ConstructNft from './ConstructNft';
 
-const EvolutionChallenge = () => {
-  const [collections, setCollections] = useState([]);
+const EvolutionChallenge = ({ provider, wallet }) => {
+  const [collection, setCollection] = useState();
+  const [tokenIds, setTokenIds] = useState([]);
+  const [lockedMap, setLockedMap] = useState({})
+  const [nfts, setNfts] = useState({})
+  const [evolvingTokenId, setEvolvingTokenId] = useState()
 
   useEffect(() => {
-    const loadCollections = async () => {
-      const { data, error } = await supabaseClient.from('collection').select('*')
-      
+    const loadCollection = async () => {
+      const { data, error } = await supabaseClient
+        .from('collection')
+        .select('*, art(*)')
+        .eq('title', 'SVG Birbs')
+        .maybeSingle();
+
       if (error) {
-        console.log("Error retrieving collections:", error)
+        console.log(error)
       }
 
-      setCollections(data || [])
+      setCollection(data)
     }
 
-    loadCollections();
-  }, [])  
+    loadCollection();
 
-  const svgBirbs = collections.find(({ title }) => title === 'SVG Birbs')
-  const rest = collections.filter(({ title }) => title !== 'SVG Birbs')
+  }, [])
 
-  if (!svgBirbs) return <></>
+  useEffect(() => {
+    const loadTokens = async () => {
+      if (!provider) return;
+      if (!wallet) return;
+
+      const contract =  new ethers.Contract(BlankArt.address, BlankArt.abi, provider);
+
+      const walletTransfersFrom = await contract.queryFilter(contract.filters.Transfer(wallet))
+      const walletTransfersTo = await contract.queryFilter(contract.filters.Transfer(null, wallet))
+      const allWalletTransfers = [...walletTransfersFrom, ...walletTransfersTo].sort(
+        (a, b) => a.blockNumber - b.blockNumber
+      )
+      const tokenIdsMap = {}
+      for (const transfer of allWalletTransfers) {
+        if (transfer.args.to === wallet) {
+          tokenIdsMap[transfer.args.tokenId] = true
+        } else {
+          delete tokenIdsMap[transfer.args.tokenId]
+        }
+      }
+
+      const _tokenIds = Object.keys(tokenIdsMap)
+      setTokenIds(_tokenIds)
+
+      const _lockedMap = {}
+      for (const _tokenId of _tokenIds) {
+        const locked = await contract.tokenURILocked(_tokenId)
+        _lockedMap[_tokenId] = locked.toString() === "1";
+      }
+
+      setLockedMap(_lockedMap)
+    }
+
+    loadTokens();
+  }, [provider, wallet])
+
+  useEffect(() => {
+    const loadNfts = async () => {
+      const { data, error } = await supabaseClient
+        .from('nft')
+        .select('*')
+        .eq('wallet', wallet)
+
+      const _nfts = {}
+      for (const nft of data) {
+        _nfts[nft.token_id] = nft;
+      }
+      setNfts(_nfts)
+    }
+
+    loadNfts();
+  }, [wallet])
+
+  if (collection && evolvingTokenId) {
+    return (
+      <ConstructNft
+        wallet={wallet}
+        tokenId={evolvingTokenId}
+        collection={collection}
+        onComplete={(newNFT) => {
+          if (newNFT) {
+            setNfts({
+              ...nfts,
+              ...newNFT
+            })
+          }
+          setEvolvingTokenId(null)
+        }}
+      />
+    )
+  }
 
   return (
-    <div>
-      <h1 className='text-lg font-bold'>Blank Evolution: Birbs</h1>
-      <div className='py-3 text-xs'>
-        The Blank community has voted to evolve Blanks in to Birbs!
-        <br/>
-        <br/>
-        Enter into the collection to upload layers (e.g. a hat for the Birb) or combine layers together to constuct and claim your NFT!
-        <br/>
-        <br/>
-        All layers are SVGs, hence the name, SVG Birbs...
-      </div>
-      <div className='flex'>
-        <EvolutionCollectionPreview collection={svgBirbs} />
-      </div>
-      
-      <div className='pt-36'>
-        <h2 className='font-bold'>Previous Collections</h2>
-        <div className='py-3'>For reference:</div>
-        <div className='flex'>
-          {rest.map(collection => (
-            <div 
-              key={`collection-${collection.id}`}
-              className='mr-12'
-            >
-              <EvolutionCollectionPreview collection={collection} />
-            </div>
-          ))}
-        </div>
-      </div>
-    </div>
+    <SelectTokenToEvolve
+      tokenIds={tokenIds}
+      lockedMap={lockedMap}
+      nfts={nfts}
+      onEvolve={(tokenId) => setEvolvingTokenId(tokenId)}
+      onClear={(nfts) => setNfts(nfts)}
+    />
   )      
 }
 

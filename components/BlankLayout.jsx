@@ -1,5 +1,6 @@
 import { useState } from 'react'
-import BigBangStarField from 'react-big-bang-star-field'
+// import BigBangStarField from 'react-big-bang-star-field'
+import { useEffect } from 'react';
 import {
   BlankFooter,
   BlankHeader,
@@ -11,10 +12,23 @@ import NextLink from './NextLink';
 
 const BlankLayout = ({ children }) => {
   // const [bigBang, setBigBang] = useState(false)
+  const [signedIn, setSignedIn] = useState(false)
   
   // const showBigBang = (show) => {
   //   setBigBang(show)
   // }
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      if (!signedIn && window.disconnectBlankWallet) {
+        setSignedIn(true);
+      } else if (signedIn && !window.disconnectBlankWallet) {
+        setSignedIn(false);
+      }
+    }, 500)
+
+    return () => clearInterval(interval)
+  }, [signedIn])
 
   return (
     <TWFullScreen className='font-roboto-mono text-sm bg-white text-gray-900'>
@@ -45,16 +59,21 @@ const BlankLayout = ({ children }) => {
           onClick={showBigBang}
         /> */}
         <BlankButton
-          classMap={{}}
+          classMap={{ padding: '0' }}
+          onClick={signedIn ? (() => window.disconnectBlankWallet()) : null}
         >
-          <NextLink 
-            href='/collection/ebfef325-a747-4b50-83e1-8998e7abdb65' 
-            passHref
-          >
-            <a className=''>
-              Enter
-            </a>
-          </NextLink>
+          {signedIn ? (
+            <span className='px-6 py-2 inline-block'>Exit</span>
+          ) : (
+            <NextLink 
+              href='/members' 
+              passHref
+            >
+              <a className='px-6 py-2 inline-block'>
+                Enter
+              </a>
+            </NextLink>
+          )}
         </BlankButton>
       </BlankHeader>
       {children}

@@ -3,25 +3,26 @@ import supabaseClient from '../lib/supabaseClient';
 import EvolutionLayer from "./EvolutionLayer";
 
 const EvolutionLayers = ({ wallet, collectionTitle, art, selected, onSelect, onReorder, onDelete }) => {
-  const [starred, setStarred] = useState([]);
+  // const [starred, setStarred] = useState([]);
   const [orderedSelected, setOrderedSelected] = useState([])
   const [orderValues, setOrderValues] = useState(selected.map((_s, index) => index));
   const [selectedOrderType, setSelectedOrderType] = useState('Newest');
+  const [signedUrls, setSignedUrl] = useState();
 
-  const loadStars = useCallback(async () => {
-    if (!wallet) return;
+  // const loadStars = useCallback(async () => {
+  //   if (!wallet) return;
     
-    const { data, error } = await supabaseClient
-      .from('star')
-      .select('art_id')
-      .eq('wallet', wallet)
+  //   const { data, error } = await supabaseClient
+  //     .from('star')
+  //     .select('art_id')
+  //     .eq('wallet', wallet)
 
-    if (error) console.log("Error loading stars", error)
+  //   if (error) console.log("Error loading stars", error)
 
-    const starIds = data.map(({ art_id }) => art_id);
-    const _starred = art.filter(({ id }) => starIds.includes(id));
-    setStarred(_starred)
-  }, [wallet, art])
+  //   const starIds = data.map(({ art_id }) => art_id);
+  //   const _starred = art.filter(({ id }) => starIds.includes(id));
+  //   setStarred(_starred)
+  // }, [wallet, art])
 
   const reorderSelected = (id, index) => {
     const existingIndex = orderedSelected.indexOf(id);
@@ -42,14 +43,43 @@ const EvolutionLayers = ({ wallet, collectionTitle, art, selected, onSelect, onR
     return true;
   }
 
-  useEffect(() => {
-    loadStars();
-  }, [loadStars])
+  // useEffect(() => {
+  //   loadStars();
+  // }, [loadStars])
 
   useEffect(() => {
     setOrderedSelected(selected)
     setOrderValues(selected.map((_s, index) => index));
   }, [selected])
+
+  useEffect(() => {
+    const getSignedUrls = async () => {
+      const imageUris = art.map((item) => `${collectionTitle}/${item.id}.svg`);
+
+      const { data, error } = await supabaseClient
+        .storage
+        .from('art')
+        .createSignedUrls(imageUris, 60 * 60 * 24 * 7)
+
+      for (const signedUriInfo of data) {
+        const artId = signedUriInfo.path.split('/').pop().split('.')[0];
+        const signedArt = art.find((item) => item.id === artId)
+        signedArt.signedUrl = signedUriInfo.signedURL;
+      }
+
+      if (error) {
+        console.log("Error getting public URL", error)
+        if (selected) onSelect(item.id)
+        return
+      }
+
+      setSignedUrl(true)
+    }
+
+    getSignedUrls();
+  }, [art, collectionTitle, selected, onSelect])
+
+  if (!signedUrls) return <></>
 
   return (
     <div>
@@ -70,9 +100,9 @@ const EvolutionLayers = ({ wallet, collectionTitle, art, selected, onSelect, onR
                     art={selectedItem}
                     collectionTitle={collectionTitle}
                     selected={true}
-                    starred={starred.find(({ id }) => id === selectedItem.id)}
+                    // starred={starred.find(({ id }) => id === selectedItem.id)}
                     onSelect={onSelect}
-                    onStar={loadStars}
+                    // onStar={loadStars}
                     onDelete={onDelete}
                   />
                   <div className='text-center'>
@@ -104,7 +134,7 @@ const EvolutionLayers = ({ wallet, collectionTitle, art, selected, onSelect, onR
         </div>
       )}
 
-      {starred.length > 0 && (
+      {/* {starred.length > 0 && (
         <div className='pb-6'>
           <h3 className='mb-3'>Starred Layers</h3>
           <div className="flex flex-wrap">
@@ -125,25 +155,28 @@ const EvolutionLayers = ({ wallet, collectionTitle, art, selected, onSelect, onR
             )}
           </div>
         </div>
-      )}
+      )} */}
 
-      <div className='float-right mr-12'>
-        Order by: 
-        {['Newest', 'Oldest', 'Stars'].map(
-          (orderType, index) => (
-            <span
-              onClick={() => setSelectedOrderType(orderType)} 
-              className={`cursor-pointer ml-3 ${selectedOrderType === orderType ? '' : 'text-blue-500 underline'}`}
-              key={`order-type-${index}`}
-            >
-              {orderType}
-            </span>
-          )
-        )}
-      </div>
+      
       <h3 className='mb-3'>All Layers</h3>
-      <div className='text-xs mb-3'>
-        Click a layer to select it. Click the star to add it to your favorites.
+      <div className='flex justify-between pr-48'>
+        <div className='text-xs mb-3'>
+          Click a layer to select it.
+        </div>
+        <div className=''>
+          Order by: 
+          {['Newest', 'Oldest'].map(
+            (orderType, index) => (
+              <span
+                onClick={() => setSelectedOrderType(orderType)} 
+                className={`cursor-pointer ml-3 ${selectedOrderType === orderType ? '' : 'text-blue-500 underline'}`}
+                key={`order-type-${index}`}
+              >
+                {orderType}
+              </span>
+            )
+          )}
+        </div>
       </div>
       <div className='flex flex-wrap overflow-auto'>
         {art.sort(
@@ -164,9 +197,9 @@ const EvolutionLayers = ({ wallet, collectionTitle, art, selected, onSelect, onR
               art={artItem}
               collectionTitle={collectionTitle}
               selected={selected.includes(artItem.id)}
-              starred={starred.includes(artItem)}
+              // starred={starred.includes(artItem)}
               onSelect={onSelect}
-              onStar={loadStars}
+              // onStar={loadStars}
               onDelete={onDelete}
             />
           )
