@@ -63,7 +63,7 @@ const BlankLayout = ({ children }) => {
           onClick={signedIn ? (() => window.disconnectBlankWallet()) : null}
         >
           {signedIn ? (
-            <span className='px-6 py-2 inline-block'>Exit</span>
+            <span className='px-6 py-2 inline-block'>Exit App</span>
           ) : (
             <NextLink 
               href='/members' 
