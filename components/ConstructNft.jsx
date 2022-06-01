@@ -61,7 +61,7 @@ const ConstructNft = ({wallet, tokenId, collection, onComplete}) => {
 
     const params = {
       username: "Birb Webhook",
-      content: "A Birb NFT has been claimed!"
+      content: "A new pending evolution!"
     }
 
     const request = new XMLHttpRequest();
