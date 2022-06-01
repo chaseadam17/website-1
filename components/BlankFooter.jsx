@@ -28,6 +28,14 @@ const BlankFooter = ({ social }) => {
           </a>
         </NextLink>
         <NextLink 
+          href='/members' 
+          passHref
+        >
+          <a className='hidden sm:inline-block text-white mr-6'>
+            Members
+          </a>
+        </NextLink>
+        <NextLink 
           href='/mint' 
           passHref
         >

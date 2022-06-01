@@ -58,6 +58,20 @@ const BlankLayout = ({ children }) => {
         {/* <BlankMusic
           onClick={showBigBang}
         /> */}
+        {signedIn && (
+          <BlankButton
+            classMap={{ padding: '0' }}
+          >
+            <NextLink 
+              href='/members' 
+              passHref
+            >
+              <a className='px-6 py-2 inline-block'>
+                My NFTs
+              </a>
+            </NextLink>
+          </BlankButton>
+        )}
         <BlankButton
           classMap={{ padding: '0' }}
           onClick={signedIn ? (() => window.disconnectBlankWallet()) : null}

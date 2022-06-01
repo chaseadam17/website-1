@@ -121,7 +121,7 @@ const BlankIndex = () => {
               </BlankButton>
             </div>
           </div>
-          <div className='text-center mx-auto py-3 px-12 bg-blue-200'>
+          {/* <div className='text-center mx-auto py-3 px-12 bg-blue-200'>
             &#128227; If you don&apos;t want your Blank NFTs to evolve
             you must lock them by May 31st.
             &nbsp;
@@ -133,7 +133,7 @@ const BlankIndex = () => {
                 Lock Blank NFTs
               </a>
             </NextLink>
-          </div>
+          </div> */}
         </TWCenteredContent>
       </BlankLayout>
     </div>
