@@ -55,40 +55,52 @@ const BlankLayout = ({ children }) => {
         </div>
       </div> */}
       <BlankHeader>
-        {/* <BlankMusic
-          onClick={showBigBang}
-        /> */}
-        {signedIn && (
-          <BlankButton
-            classMap={{ padding: '0' }}
+        <div className='flex justify-between items-center gap-12'>
+          {/* <BlankMusic
+            onClick={showBigBang}
+          /> */}
+          <NextLink 
+            href='/collection/ebfef325-a747-4b50-83e1-8998e7abdb65' 
+            passHref
           >
-            <NextLink 
-              href='/members' 
-              passHref
-            >
-              <a className='px-6 py-2 inline-block'>
-                My NFTs
-              </a>
-            </NextLink>
+            <a className=''>
+              Create Art
+            </a>
+          </NextLink>
+          <NextLink 
+            href='/gallery' 
+            passHref
+          >
+            <a className=''>
+              Gallery
+            </a>
+          </NextLink>
+          <NextLink 
+            href='/members' 
+            passHref
+          >
+            <a className=''>
+              My NFTs
+            </a>
+          </NextLink>
+          <BlankButton
+            classMap={{ padding: '0', margin: '0' }}
+            onClick={signedIn ? (() => window.disconnectBlankWallet()) : null}
+          >
+            {signedIn ? (
+              <span className='px-6 py-2 inline-block'>Disconnect</span>
+            ) : (
+              <NextLink 
+                href='/members' 
+                passHref
+              >
+                <a className='px-6 py-2 inline-block'>
+                  Enter App
+                </a>
+              </NextLink>
+            )}
           </BlankButton>
-        )}
-        <BlankButton
-          classMap={{ padding: '0' }}
-          onClick={signedIn ? (() => window.disconnectBlankWallet()) : null}
-        >
-          {signedIn ? (
-            <span className='px-6 py-2 inline-block'>Disconnect</span>
-          ) : (
-            <NextLink 
-              href='/members' 
-              passHref
-            >
-              <a className='px-6 py-2 inline-block'>
-                Enter App
-              </a>
-            </NextLink>
-          )}
-        </BlankButton>
+        </div>
       </BlankHeader>
       {children}
       <BlankFooter />

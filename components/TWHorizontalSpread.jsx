@@ -5,7 +5,7 @@ import {
 const TWHorizontalSpread = ({ className, children }) => {
   return (
     <TWHorizontal
-      className={`${className} justify-between`}
+      className={`${className} justify-between items-center`}
     >
       {children}
     </TWHorizontal>
